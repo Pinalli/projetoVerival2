@@ -46,7 +46,7 @@ public class UsuarioDAO {
 
 			Connection conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("select * from tb_usuario ");
+			sql.append("select * from TB_USUARIO ");
 			sql.append("where usuario = ? and senha = ?");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -100,7 +100,7 @@ public class UsuarioDAO {
 			sql.append("t.`DESCRICAO`,");
 			sql.append("t.`DATA_INCLUSAO`");
 			
-			sql.append("from tb_usuario u inner join tb_tipo_usuario t ");
+			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t "); 
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
 			
 			//funciona no workbench mas aqui não
@@ -145,7 +145,7 @@ public class UsuarioDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into tb_usuario (usuario, senha, perfil_acesso, status_usuario, id_tipo_usuario, matricula, nome, email, data_inclusao)");
+			sql.append("insert into TB_USUARIO (usuario, senha, perfil_acesso, status_usuario, id_tipo_usuario, matricula, nome, email, data_inclusao)");
 			sql.append("values (?, ?, ?, ?, ?, ?, ?, ?, ? )");
 
 			// converte a data para data Juliana, data que o banco reconhece;
@@ -196,7 +196,7 @@ public class UsuarioDAO {
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT ID_TIPO_USUARIO FROM TB_USUARIO WHERE ID_USUARIO = ?
 			// ")
-			sql.append("update tb_usuario set STATUS_USUARIO='INATIVO'  where id_usuario= ? ");
+			sql.append("update TB_USUARIO set STATUS_USUARIO='INATIVO'  where id_usuario= ? ");
 			
 			// sql.append("DELETE FROM TB_TIPO_USUARIO WHERE
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -239,7 +239,7 @@ public class UsuarioDAO {
 			sql.append("t.`nome` tnome,");
 			sql.append("t.`descricao`,");
 			sql.append("t.`data_inclusao`");
-			sql.append("from ages_e.tb_usuario u inner join ages_e.tb_tipo_usuario t ");
+			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
 			sql.append("where u.nome = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -301,7 +301,7 @@ public class UsuarioDAO {
 			sql.append("t.`nome` tnome,");
 			sql.append("t.`descricao`,");
 			sql.append("t.`data_inclusao`");
-			sql.append("from ages_e.tb_usuario u inner join ages_e.tb_tipo_usuario t ");
+			sql.append("from TB_USUARIOu inner join TB_TIPO_USUARIO t ");
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
 			sql.append("where id_usuario = ?;");
 
@@ -339,37 +339,7 @@ public class UsuarioDAO {
 
 	}
 
-	public int verificaUsuarioProjeto(Integer idUsuario) throws PersistenciaException, SQLException {
-		int t = -1;
-		Connection conexao = null;
-		try {
-			conexao = ConexaoUtil.getConexao();
-
-			StringBuilder sql = new StringBuilder();
-			sql.append("select id_usuario from ages_e.tb_projeto_usuario where id_usuario = ?;");
-
-			PreparedStatement statement = conexao.prepareStatement(sql.toString());
-			statement.setInt(1, idUsuario);
-			ResultSet resultset = statement.executeQuery();
-			// gambiarra
-			try {
-				t = resultset.getInt("ID_USUARIO");
-			} catch (SQLException e) {
-				return -1;
-			}
-			// fim gambiarra
-		} catch (ClassNotFoundException | SQLException e) {
-			throw new PersistenciaException(e);
-		} finally {
-			try {
-				conexao.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		return t;
-	}
+	
 
 	public TipoUsuario consultaTipoUsuario(String idTipoUsuario) throws PersistenciaException {
 		Connection conexao = null;
@@ -378,7 +348,7 @@ public class UsuarioDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("select * from ages_e.tb_tipo_usuario where id_tipo_usuario = ?;");
+			sql.append("select * from TB_TIPO_USUARIO where id_tipo_usuario = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, idTipoUsuario);
@@ -409,7 +379,7 @@ public class UsuarioDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = usuario.getIdUsuario();
 
-			sql.append("update ages_e.tb_usuario set senha = ?, perfil_acesso = ?," + "status_usuario = ?, id_tipo_usuario = ?, nome = ?, email = ?, matricula = ?" + "  where id_usuario = " + id + ";");
+			sql.append("update TB_USUARIO set senha = ?, perfil_acesso = ?," + "status_usuario = ?, id_tipo_usuario = ?, nome = ?, email = ?, matricula = ?" + "  where id_usuario = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
@@ -458,7 +428,7 @@ public class UsuarioDAO {
 			sql.append("`NOME` ,");
 			sql.append("`DESCRICAO`,");
 			sql.append("`DATA_INCLUSAO` ");
-			sql.append("FROM tb_tipo_usuario; ");
+			sql.append("FROM TB_TIPO_USUARIO; ");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
@@ -514,7 +484,7 @@ public class UsuarioDAO {
 			sql.append("u.`nome`,");
 			sql.append("u.`email` ");
 
-			sql.append("from ages_e.tb_usuario u inner join ages_e.tb_tipo_usuario t ");
+			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
 			sql.append(" on t.id_tipo_usuario = u.id_tipo_usuario");
 			sql.append(" where t.flag_responsavel = 1;");
 			
@@ -568,7 +538,7 @@ public class UsuarioDAO {
 			sql.append("u.`nome`,");
 			sql.append("u.`email` ");
 
-			sql.append("from ages_e.tb_usuario u inner join ages_e.tb_tipo_usuario t ");
+			sql.append("from TB_USUARIOu inner join TB_TIPO_USUARIO t ");
 			sql.append(" on t.id_tipo_usuario = u.id_tipo_usuario");
 			sql.append(" where t.nome = 'aluno';");
 

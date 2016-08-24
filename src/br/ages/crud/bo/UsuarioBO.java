@@ -233,28 +233,11 @@ public class UsuarioBO {
 	 */
 	public void removerUsuario(Integer idUsuario) throws NegocioException, SQLException {
 		try {
-
-			if (validaUsuarioProjeto(idUsuario))
 				usuarioDAO.removerUsuario(idUsuario);
 		} catch (PersistenciaException e) {
 			e.printStackTrace();
 			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_USUARIO_EM_PROJETO);
 		}
-	}
-
-	private boolean validaUsuarioProjeto(Integer idUsuario) throws NegocioException, SQLException {
-		// chama um DAO que verifica se o usuario está em algum projeto,
-		// se estiver(retorna qualquer coisa diferente de -1), retorna falso.
-		int id = -1;
-		try {
-			id = usuarioDAO.verificaUsuarioProjeto(idUsuario);
-		} catch (PersistenciaException e) {
-			e.printStackTrace();
-			throw new NegocioException(e);
-		}
-		if (id != -1)
-			return false;
-		return true;
 	}
 
 	public TipoUsuario consultaTipoUsuario(String idTipoUsuario) throws NegocioException {
