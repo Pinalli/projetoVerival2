@@ -1,9 +1,6 @@
 # fluxoAges
-Sistema de controle do fluxo de atividades da AGES.
+Sistema de Ficha Técnica de Preparo - FAENFI 
 
 Versão de Produção Atual
-
-Lider Tecnico do Projeto Daniele Souza 2015/02
-Lider Tecnico do Projeto Vinicius 2016/01
 
 
