@@ -32,8 +32,8 @@
 			<properties>
 				<build.number>SNAPSHOT</build.number>
 				<sgbd.url>jdbc:mysql://10.32.223.4:3306/ficha_e</sgbd.url>
-				<sgbd.user>ages</sgbd.user>
-				<sgbd.password>ages123_e#BD</sgbd.password>
+				<sgbd.user>ficha</sgbd.user>
+				<sgbd.password>ficha123_e#BD</sgbd.password>
 				<upload.path>/home/ages/uploadProjetos</upload.path>
 				<log.path>/home/ages/</log.path>
 			</properties>
