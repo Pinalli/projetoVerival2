@@ -14,34 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import br.ages.crud.command.AddPontoCommand;
-import br.ages.crud.command.AddSkillCommand;
-import br.ages.crud.command.AddStakeholderCommand;
 import br.ages.crud.command.AddUserCommand;
-import br.ages.crud.command.AdicionaProjetoCommand;
 import br.ages.crud.command.Command;
-import br.ages.crud.command.CreateScreenPontoCommand;
-import br.ages.crud.command.CreateScreenProjectCommand;
-import br.ages.crud.command.CreateScreenSkillCommand;
-import br.ages.crud.command.CreateScreenStakeholderCommand;
 import br.ages.crud.command.CreateScreenUserCommand;
-import br.ages.crud.command.EditStakeholderCommand;
 import br.ages.crud.command.EditUserCommand;
-import br.ages.crud.command.EditaProjetoCommand;
-import br.ages.crud.command.ListPontoTotalHorasCommand;
-import br.ages.crud.command.ListPontoTotalHorasInvalidoCommand;
-import br.ages.crud.command.ListStakeholdersCommand;
 import br.ages.crud.command.ListUserCommand;
-import br.ages.crud.command.ListaAlunoCommand;
-import br.ages.crud.command.ListaProjetosCommand;
 import br.ages.crud.command.LoginCommand;
 import br.ages.crud.command.LogoutCommand;
-import br.ages.crud.command.RemoveProjetoCommand;
-import br.ages.crud.command.RemoveStakeholderCommand;
 import br.ages.crud.command.RemoveUserCommand;
 import br.ages.crud.command.SenhaCommand;
-import br.ages.crud.command.UploadProjetoCommand;
-import br.ages.crud.command.ValidaPontoHoraCommand;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Usuario;
@@ -69,32 +50,6 @@ public class MainServlet extends HttpServlet {
 		comandos.put("editUser", new EditUserCommand());
 		comandos.put("removerUsuario", new RemoveUserCommand());
 		
-		//COMANDOS DE PROJETO
-		
-		comandos.put("telaProjeto", new CreateScreenProjectCommand());
-		comandos.put("listaProjetos", new ListaProjetosCommand());
-		comandos.put("adicionaProjeto", new AdicionaProjetoCommand());
-		comandos.put("editaProjeto", new EditaProjetoCommand());
-		comandos.put("removeProjeto", new RemoveProjetoCommand());
-		comandos.put("uploadArquivoProjeto", new UploadProjetoCommand());
-		
-		//COMANDOS DE STAKEHOLDER
-		
-		comandos.put("telaStakeholder", new CreateScreenStakeholderCommand());
-		comandos.put("listaStakeholders", new ListStakeholdersCommand());
-		comandos.put("addStakeholder", new AddStakeholderCommand());
-		comandos.put("editaStakeholder", new EditStakeholderCommand());
-		comandos.put("removeStakeholder", new RemoveStakeholderCommand());
-
-		//COMANDOS ALUNO
-		comandos.put("registrarPonto", new CreateScreenPontoCommand());
-		comandos.put("adicionaPonto", new AddPontoCommand());
-		comandos.put("listaAluno", new ListaAlunoCommand());
-		comandos.put("validaPontoHora", new ValidaPontoHoraCommand());
-		comandos.put("listaPontoHora", new ListPontoTotalHorasCommand());
-		comandos.put("listaPontoHoraInvalido", new ListPontoTotalHorasInvalidoCommand());
-		comandos.put("adicionaSkill", new AddSkillCommand());
-		comandos.put("skills", new CreateScreenSkillCommand());
 	}
 
 	@Override

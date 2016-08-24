@@ -27,7 +27,7 @@
     		
     		<br>
     		<div class="text-center">
-    			<img class="logo" src="img/logo-ages.png" alt="AGES">
+    			<img class="logo" src="" alt="FICHA TECNICA DE PREPARO">
     		</div>
     		<br>
    		
@@ -37,7 +37,7 @@
     		<div class="panel panel-primary panel-login">
     		
     			<div class="panel-heading text-center">
-    				Sistema de Controle de Fluxo de Projetos
+    				Sistema de Ficha Tecnica de Preparo
     			</div>
                 <div class="panel-body">
     

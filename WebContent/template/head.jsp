@@ -55,7 +55,7 @@
 				
 		    		<div class="navbar-header">
 			      		<a class="navbar-brand" href="main?acao=listaProjetos">
-			        		<img class="logoNavBar" src="./img/logo-ages.png" alt="AGES">
+			        		<img class="logoNavBar" src="./img/logo-ages.png" alt="">
 			      		</a>
 			    	</div>
 
@@ -68,39 +68,6 @@
 				          	<ul class="dropdown-menu">
 				            	<li><a href="main?acao=listUser">Listar</a></li>
 				            	<li><a href="main?acao=telaUser">Cadastrar</a></li> 
-				          	</ul>
-        				</li>
-
-			        	<li class="dropdown">
-			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Projetos
-				          		<span class="caret"></span>
-			          		</a>
-				          	<ul class="dropdown-menu">
-				            	<li><a href="main?acao=listaProjetos">Listar</a></li>
-				            	<li><a href="main?acao=telaProjeto">Cadastrar</a></li> 
-				          	</ul>
-        				</li>
-        				
-        				<li class="dropdown">
-			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Stakeholders
-				          		<span class="caret"></span>
-			          		</a>
-				          	<ul class="dropdown-menu">
-				            	<li><a href="main?acao=listaStakeholders">Listar</a></li>
-				            	<li><a href="main?acao=telaStakeholder">Cadastrar</a></li> 
-				          	</ul>
-        				</li>
-
-        				<li class="dropdown">
-			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Alunos
-				          		<span class="caret"></span>
-			          		</a>
-				          	<ul class="dropdown-menu">
-				            	<li><a href="main?acao=listaAluno">Lista Alunos</a></li>
-				            	<li><a href="main?acao=registrarPonto">Registrar Ponto</a></li>
-				            	<li><a href="main?acao=skills">Avaliar Aluno</a></li>
-				            	<li><a href="main?acao=listaPontoHora&id_usuario=0">Lista Horas Ponto</a></li>
-				            	<li><a href="main?acao=ListaPontoHoraInvalido&id_usuario=0">Lista Horas Ponto Inválidos</a>
 				          	</ul>
         				</li>
 
