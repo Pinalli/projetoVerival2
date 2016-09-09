@@ -49,14 +49,14 @@ p {
 
 p span {
     font-size: 16px;
-    color: #F89406;
+    color: #ae0057;
 }
 
 /* ========================== */
 /* Formulário */
 /* ========================== */
 label{
-    color: #F89406;
+    color: #ae0057;
     font-weight: bold;
     font-size: 18px;
 }
@@ -116,7 +116,7 @@ hr {
 .reset {
     width: 82px;
     font-size: 16px; /* Tamanho da fonte */
-    background: #F89406;
+    background: #ae0057;
 }
 
 .reset:hover { /* Quando o mouse estiver em cima desse elemento */

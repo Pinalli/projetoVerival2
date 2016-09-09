@@ -42,7 +42,7 @@ $( document ).ready(function() {
 		      	<div class="modal-footer">
 		      		<form action="" method="post" id="formExcluir">
 		      			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-		      			<button type="submit" class="btn btn-primary">Excluir</button>
+		      			<button type="submit" class="btn btn-success">Excluir</button>
 		      		</form>
 		      	</div>
 		      	
@@ -66,7 +66,7 @@ $( document ).ready(function() {
 		      	<div class="modal-footer">
 		      		<form action="" method="post" id="formEditar">
 		      			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-		      			<button type="submit" class="btn btn-primary">Editar</button>
+		      			<button type="submit" class="btn btn-success">Editar</button>
 		      		</form>
 		      	</div>
 		      	

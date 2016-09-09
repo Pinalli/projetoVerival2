@@ -52,7 +52,7 @@
 							type="text" maxlength="120" required>
 					</div>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					<button type="button" onclick="enviar()" class="btn btn-primary">Enviar</button>
+					<button type="button" onclick="enviar()" class="btn btn-success">Enviar</button>
 				</form>
 			</div>
 

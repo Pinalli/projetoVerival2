@@ -57,13 +57,13 @@ body{
 
 .welcome {
     text-align: center;
-    color: #446CB3;
+    color: #419641;
     font-size: 28px; 
     margin-top: 10px;
 }
 
 .ages{
-	color: #F89406;
+	color: #ae0057;
 }
 
 .red{
@@ -72,8 +72,8 @@ body{
 }
 
 .modal-ages{
-	color: #FFF;
-	background-color: #296395;
+	color: #fff;
+	background-color: #419641;
 }
 
 .margin-top {

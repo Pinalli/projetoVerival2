@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="./css/comum.css" />
 
-<title>AgES - Pagina Inicial</title>
+<title>Sistema Ficha Técnica Nutrição - Pagina Inicial</title>
 </head>
 <body>
 	<jsp:include page="./template/head.jsp"></jsp:include>

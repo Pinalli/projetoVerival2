@@ -24,7 +24,7 @@ h1 {
 }
 
 h1 span {
-    color: #F89406;
+    color: #ae0057;
 }
 
 /* ========================== */
@@ -36,7 +36,7 @@ label, input {
 
 label {
     margin: 15px 0 4px;
-    color: #F89406;
+    color: #ae0057;
     font-weight: bold;
     font-size: 16px;
 }
@@ -57,7 +57,7 @@ input[type="text"], input[type="password"] {
 }
 
 .forgot-password {
-    color: #F89406;
+    color: #ae0057;
     font-weight: bold;
     font-size: 12px;
 }
