@@ -18,7 +18,14 @@ body{
     margin-right: auto;
 }
 
-.panel-addUser{
+.panel-addIngrediente {
+	max-width: 750px;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.panel-addUser {
 	max-width: 500px;
 	float: none;
 	margin-left: auto;
@@ -47,11 +54,11 @@ body{
 	width: 100%;
 }
 
-.addUser {
+.addUser, .addIngrediente {
 	width: 78%;
 }
 
-.limparUser {
+.limparUser, .limpaIngrediente{
 	width: 20%;
 }
 

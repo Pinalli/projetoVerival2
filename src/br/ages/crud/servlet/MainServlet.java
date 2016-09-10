@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 
 import br.ages.crud.command.AddUserCommand;
 import br.ages.crud.command.Command;
+import br.ages.crud.command.CreateScreenIngredientesCommand;
 import br.ages.crud.command.CreateScreenUserCommand;
 import br.ages.crud.command.EditUserCommand;
 import br.ages.crud.command.ListUserCommand;
@@ -44,6 +45,7 @@ public class MainServlet extends HttpServlet {
 		
 		//COMANDOS DE USUARIO
 		
+		comandos.put("telaIngredientes", new CreateScreenIngredientesCommand());
 		comandos.put("telaUser", new CreateScreenUserCommand());
 		comandos.put("listUser", new ListUserCommand());
 		comandos.put("addUser", new AddUserCommand());

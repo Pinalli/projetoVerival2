@@ -68,6 +68,7 @@
 				          	<ul class="dropdown-menu">
 				            	<li><a href="main?acao=listUser">Listar</a></li>
 				            	<li><a href="main?acao=telaUser">Cadastrar</a></li> 
+				          		<li><a href="main?acao=telaIngredientes">Ingredientes</a>
 				          	</ul>
         				</li>
 
