@@ -29,62 +29,39 @@
 							<label class="form-label ages"> Descrição: </span></label> 
 							<input class="form-control" id="descricao" name="descricao" value="${param.descricao}" type="text" maxlength="120" required>
 						</div>
-					</div>
+					</div>				
 					
-					</br>
-					
-					<div class="row">
+					<div class="row">						
 						<div class="col-sm-4">
-						    <label class="form-label ages"> Carboidratos </span></label> 
-						</div>
-						
-												
-						<div class="col-sm-4">
-						    <label class="form-label ages"> Proteinas </span></label> 
-						</div>
-						
-											
-						<div class="col-sm-4">
-						    <label class="form-label ages">Lipidios </span></label> 
-						</div>
-						
-					</div>
-					
-					<div class="row">
-						
-						<div class="col-sm-4">
-						    <label class="form-label ages"> gramas </span></label> 
+						    <label class="form-label ages">Carboidratos gramas </span></label> 
 							<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="120" required>
 						</div>
 						<div class="col-sm-4">
-							<label class="form-label ages"> gramas </span></label> 
+							<label class="form-label ages">Proteinas gramas </span></label> 
 							<input class="form-control" id="senha" name="senha" value="${param.senha}" type="text" maxlength="8" required> 
 						</div>
 						<div class="col-sm-4">
-						    <label class="form-label ages"> gramas </span></label> 
+						    <label class="form-label ages">Lipidios gramas </span></label> 
 							<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="120" required>
-						</div>
-						
+						</div>						
 					</div>
 					
-					<div class="row">
-						
+					<div class="row">						
 						<div class="col-sm-4">
-						    <label class="form-label ages"> Kcal </span></label> 
+						    <label class="form-label ages">Carboidratos Kcal </span></label> 
 							<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="120" required>
 						</div>
 						<div class="col-sm-4">
-							<label class="form-label ages"> Kcal </span></label> 
+							<label class="form-label ages">Proteinas Kcal </span></label> 
 							<input class="form-control" id="senha" name="senha" value="${param.senha}" type="text" maxlength="8" required> 
 						</div>
 						<div class="col-sm-4">
-						    <label class="form-label ages"> Kcal </span></label> 
+						    <label class="form-label ages">Lipidios Kcal </span></label> 
 							<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="120" required>
-						</div>
-						
+						</div>						
 					</div>
 					
-					</br>
+					
 					
 					<div class="row">
 						<div class="col-sm-6">
@@ -96,6 +73,7 @@
 							<input class="form-control" id="descricao" name="descricao" value="${param.descricao}" type="text" maxlength="120" required>
 						</div>
 					</div>
+					
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages"> Valor de Custo   </span></label> 
@@ -109,19 +87,15 @@
 								<option value="Xc"> colhar chá</option>
 							</select>
 						</div>
-					</div>
-					
-					
-					
+					</div>					
 				</div>
 				
 				<div class="text-center">
 					<input class="btn btn-default limpaIngrediente" type="reset" value="Limpar"> 
 					<input class="btn btn-success addIngrediente" type="submit" value="Cadastrar">
 				</div>
+								
 			</form>
 	</div>
 </div>
-
-
 <jsp:include page="/template/foot.jsp"></jsp:include>

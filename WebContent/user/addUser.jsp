@@ -25,41 +25,41 @@
 					<input class="form-control" id="matricula" name="matricula"	value="${param.matricula}" type="text" maxlength="9" required> --> 
 					
 					<label class="form-label ages">Nome: <span class="red">*</span></label> 
-					<input class="form-control" id="nome" name="nome" value="${param.nome}" type="text" maxlength="120" required>
+					<input class="form-control" id="nome" name="nome" value="${param.nome}" type="text" maxlength="20" required>
 					
 				    <label class="form-label ages">Usuário: <span class="red">*</span></label> 
-					<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="120" required>
+					<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="20" required>
 						
 					<div class="row">
 						<div class="col-sm-6">
 						    <label class="form-label ages">Senha: <span class="red">*</span></label> 
-							<input class="form-control" id="senha" name="senha" value="${param.senha}" type="password" maxlength="120" required>
+							<input class="form-control" id="senha" name="senha" value="${param.senha}" type="password" maxlength="20" required>
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages">Confirmar senha: <span class="red">*</span></label> 
-							<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="${param.confirmarSenha}" type="password" maxlength="8" required> 
+							<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="${param.confirmarSenha}" type="password" maxlength="20" required> 
 						</div>
-					</div>
+					</div>					
 					
 					<label class="form-label ages">CPF: <span class="red">*</span></label> 
 					<input class="form-control" id="cpf" name="cpf" value="${param.cpf}" type="text" maxlength="11" required>
 					
+					
 					<label class="form-label ages">E-mail: <span class="red">*</span></label> 
 					<input class="form-control" id="email" name="email" value="${param.email}" type="text" maxlength="120" required>
+					
 					
 					<label class="form-label ages">Endereço: <span class="red">*</span></label> 
 					<input class="form-control" id="endereco" name="endereco" value="${param.endereco}" type="text" maxlength="120" required>
 						
-						  <div class="row">
-						<%    /* <div class="col-sm-6">*/%>
-						<%    /* 	<label class="form-label ages">Profissão: : <span class="red">*</span></label> <select class="form-control" id="profissao" name="profissao" required>
-						<%    /* 		<option value="ESTAGIARIO" <%="ESTAGIARIO".equals(request.getParameter("profissao")) ? "selected" : ""%>>Estágiario(a)</option>
-						<%    /* 		<option value="NUTRICIONISTA" <%="NUTRICIONISTA".equals(request.getParameter("profissao")) ? "selected" : ""%>>Nutricionista</option>
-						<%    /* 	</select>
-						<%    /* </div>
-						*/%>
-						
-						
+						<div class="row">
+						  <!--<div class="col-sm-6">
+						   <label class="form-label ages">Profissão: <span class="red">*</span></label> <select class="form-control" id="profissao" name="profissao" required>
+						   <option value="ESTAGIARIO" <%="ESTAGIARIO".equals(request.getParameter("profissao")) ? "selected" : ""%>>Estágiario(a)</option>
+						   <option value="NUTRICIONISTA" <%="NUTRICIONISTA".equals(request.getParameter("profissao")) ? "selected" : ""%>>Nutricionista</option>
+						   </select>
+						    </div>
+						   -->
 						
 						<div class="col-sm-6">
 							<label class="form-label ages">Telefone: <span class="red">*</span></label> 
