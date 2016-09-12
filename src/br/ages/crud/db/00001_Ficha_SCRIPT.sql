@@ -1,6 +1,6 @@
 --liquibase formatted sql
 --changeset cassio:1
---comment Script para criação das primeiras tabelas do projeto.
+--comment Script para criaÃ§Ã£o das primeiras tabelas do projeto.
 /***
 * Scripts para criacao e insersao de dados
 * Base Dados template
@@ -8,7 +8,7 @@
 * 08 / 2016
 ***/
 
-USE ficha_e;
+
 
 -- DROP TABLE TB_TIPO_USUARIO;
 -- DROP TABLE TB_USUARIO;
@@ -54,6 +54,6 @@ INSERT INTO TB_USUARIO
 VALUES
 ('10', 'admin', 'admin', 'ADMINISTRADOR', 'ATIVO', '1', '00000', 'Cassio Trindade', 'cassio.trindade@pucrs.br', '2015-10-01 00:00:00');
 
-select * from tb_usuario;
+
 
 
