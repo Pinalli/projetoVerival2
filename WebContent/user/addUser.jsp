@@ -7,7 +7,7 @@
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 
-<div class="panel panel-primary panel-addUser">
+<div class="panel panel-success panel-addUser">
 
 	<div class="panel-heading text-center">Cadastro de Usuário</div>
 
@@ -50,13 +50,16 @@
 					<label class="form-label ages">Endereço: <span class="red">*</span></label> 
 					<input class="form-control" id="endereco" name="endereco" value="${param.endereco}" type="text" maxlength="120" required>
 						
-						<div class="row">
-						<div class="col-sm-6">
-							<label class="form-label ages">Profissão: : <span class="red">*</span></label> <select class="form-control" id="profissao" name="profissao" required>
-								<option value="ESTAGIARIO" <%="ESTAGIARIO".equals(request.getParameter("profissao")) ? "selected" : ""%>>Estágiario(a)</option>
-								<option value="NUTRICIONISTA" <%="NUTRICIONISTA".equals(request.getParameter("profissao")) ? "selected" : ""%>>Nutricionista</option>
-							</select>
-						</div>
+						  <div class="row">
+						<%    /* <div class="col-sm-6">*/%>
+						<%    /* 	<label class="form-label ages">Profissão: : <span class="red">*</span></label> <select class="form-control" id="profissao" name="profissao" required>
+						<%    /* 		<option value="ESTAGIARIO" <%="ESTAGIARIO".equals(request.getParameter("profissao")) ? "selected" : ""%>>Estágiario(a)</option>
+						<%    /* 		<option value="NUTRICIONISTA" <%="NUTRICIONISTA".equals(request.getParameter("profissao")) ? "selected" : ""%>>Nutricionista</option>
+						<%    /* 	</select>
+						<%    /* </div>
+						*/%>
+						
+						
 						
 						<div class="col-sm-6">
 							<label class="form-label ages">Telefone: <span class="red">*</span></label> 
@@ -98,8 +101,8 @@
 					Campos que contém <span class="red">*</span> são obrigatórios
 				</p>
 				<div class="text-center">
-					<input class="btn btn-warning limparUser pull-left" type="reset" value="Limpar"> 
-					<input class="btn btn-primary addUser pull-right" type="submit" value="Cadastrar">
+					<input class="btn btn-default limparUser pull-left" type="reset" value="Limpar"> 
+					<input class="btn btn-success addUser pull-right" type="submit" value="Cadastrar">
 				</div>
 			</form>
 	</div>
