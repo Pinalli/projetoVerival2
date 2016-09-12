@@ -10,7 +10,7 @@
 <div class="main">
 		<fieldset>
 			<legend>Logout</legend>
-			<h1>Bye bye</h1>
+				<h1>Bye bye</h1>
 		</fieldset>
 	</div>
 </body>

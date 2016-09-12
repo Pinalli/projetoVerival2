@@ -59,7 +59,7 @@ $( document ).ready(function() {
 						<input class="form-control" id="senha" name="senha" value="${param.senha}"
 							type="password" maxlength="120" required>
 					</div>
-						<button type="button" onclick="enviar()" class="btn btn-primary">Validar</button>
+						<button type="button" onclick="enviar()" class="btn btn-success">Validar</button>
 				</form>
 		      	</div>
 		    </div>

@@ -5,8 +5,8 @@
 
     <head>
         <meta charset="utf-8">
-        <title>AGES - Agência Experimental de Engenharia de Software</title>
-        <link rel="icon" href="img/favicon.ico">
+        <title>Nutrição - Ficha Técnica</title>
+        <link rel="icon" href="img/iconutri.ico">
         
 		<!-- BOOTSTRAP -->
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -55,7 +55,7 @@
 				
 		    		<div class="navbar-header">
 			      		<a class="navbar-brand" href="main?acao=listaProjetos">
-			        		<img class="logoNavBar" src="./img/logo-ages.png" alt="">
+			        		<img class="logoNavBar" src="./img/logo-ftp.png" alt="">
 			      		</a>
 			    	</div>
 
@@ -68,6 +68,7 @@
 				          	<ul class="dropdown-menu">
 				            	<li><a href="main?acao=listUser">Listar</a></li>
 				            	<li><a href="main?acao=telaUser">Cadastrar</a></li> 
+				          		<li><a href="main?acao=telaIngredientes">Ingredientes</a>
 				          	</ul>
         				</li>
 
