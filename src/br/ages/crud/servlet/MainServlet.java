@@ -14,14 +14,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import br.ages.crud.command.AddUnidadeMedidaCaseiraCommand;
+import br.ages.crud.command.AddUnidadeMedidaCommand;
 import br.ages.crud.command.AddUserCommand;
 import br.ages.crud.command.Command;
 import br.ages.crud.command.CreateScreenIngredientesCommand;
+import br.ages.crud.command.CreateScreenUnidadeMedidaCaseiraCommand;
+import br.ages.crud.command.CreateScreenUnidadeMedidaCommand;
 import br.ages.crud.command.CreateScreenUserCommand;
+import br.ages.crud.command.EditUnidadeMedidaCaseiraCommand;
+import br.ages.crud.command.EditUnidadeMedidaCommand;
 import br.ages.crud.command.EditUserCommand;
+import br.ages.crud.command.ListUnidadeMedidaCaseiraCommand;
+import br.ages.crud.command.ListUnidadeMedidaCommand;
 import br.ages.crud.command.ListUserCommand;
 import br.ages.crud.command.LoginCommand;
 import br.ages.crud.command.LogoutCommand;
+import br.ages.crud.command.RemoveUnidadeMedidaCaseiraCommand;
+import br.ages.crud.command.RemoveUnidadeMedidaCommand;
 import br.ages.crud.command.RemoveUserCommand;
 import br.ages.crud.command.SenhaCommand;
 import br.ages.crud.exception.NegocioException;
@@ -51,6 +61,21 @@ public class MainServlet extends HttpServlet {
 		comandos.put("addUser", new AddUserCommand());
 		comandos.put("editUser", new EditUserCommand());
 		comandos.put("removerUsuario", new RemoveUserCommand());
+		
+		//COMANDOS DE UNIDADE MEDIDA
+		comandos.put("listUnidadeMedida", new ListUnidadeMedidaCommand()); 
+		comandos.put("addUnidadeMedida", new AddUnidadeMedidaCommand());
+		comandos.put("editUnidadeMedida", new EditUnidadeMedidaCommand());
+		comandos.put("removerUnidadeMedida", new RemoveUnidadeMedidaCommand());
+		comandos.put("telaUnidadeMedida", new CreateScreenUnidadeMedidaCommand());
+			
+
+		// COMANDOS DE UNIDADE DE MEDIDA CASEIRA
+		comandos.put("listUnidadeMedidaCaseira", new ListUnidadeMedidaCaseiraCommand());
+		comandos.put("addUnidadeMedidaCaseira", new AddUnidadeMedidaCaseiraCommand());
+		comandos.put("editUnidadeMedidaCaseira", new EditUnidadeMedidaCaseiraCommand());
+		comandos.put("removerUnidadeMedidaCaseira", new RemoveUnidadeMedidaCaseiraCommand());
+		comandos.put("telaUnidadeMedidaCaseira", new CreateScreenUnidadeMedidaCaseiraCommand());
 		
 	}
 

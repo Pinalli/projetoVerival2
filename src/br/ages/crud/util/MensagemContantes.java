@@ -117,4 +117,31 @@ public class MensagemContantes {
 	
 	public static final String MSG_ERR_VALIDA_HORA_INVALIDA_PONTO = " Senha do Responsável inválida";
 
+	//msgs de unidades de medidas
+	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA = "Unidade ? cadastrada com sucesso!";
+	
+	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA = "Ocorreu um erro na edição da unidade de medida.";
+	
+	public static final String MSG_SUC_REMOVE_UNIDADE_MEDIDA = "Unidade de medida ? removida com sucesso!";
+	
+	//msgs das Unidades de Medida
+	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA = "Unidade de Medida ? cadastrada com sucesso!";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE = " Unidade de Medida ? já cadastrada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_DADOS_INVALIDOS = "Dados da Unidade de Medida inválidos ou inconsistentes!";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_ORIGEM_INVALIDA = "A descrição da origem da unidade de medida deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_CONVERSAO_INVALIDA = "A descrição da conversão da unidade de medida deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_SINGLA_INVALIDA = "A sigla da unidade de medida deve ter de 1 a 10 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CONVERSAO_INVALIDA = "A medida de conversão deve ser um número.";
+	public static final String MSG_ERR_REMOVE_UNIDADE_MEDIDA_EM_PROJETO = "Esta Unidade de Medida está em algum projeto e não pode ser removido!";	
+	
+	//msgs das Unidades de Medida Caseira
+	public static final String MSG_SUC_REMOVE_UNIDADE_MEDIDA_CASEIRA = "Unidade de medida caseira ? removida com sucesso";
+	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA_CASEIRA = " Unidade de Medida Caseira ? altera com sucesso!";
+	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA_CASEIRA = "Unidade de Medida Caseira ? cadastrada com sucesso!";	
+	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA_CASEIRA = " Unidade de Medida Caseira ? não pode ser editada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_JA_EXISTENTE = " Unidade de Medida Caseira ? já cadastrada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_DADOS_INVALIDOS = "Dados da Unidade de Medida Caseira inválidos ou inconsistentes!";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_NOME_INVALIDO = "A descrição da origem da unidade de medida Caseira deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_SINGLA_INVALIDA = "A sigla da unidade de medida Caseira deve ter de 1 a 10 caracteres";
+	public static final String MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA= "Unidade de Medida Caseira ? removida com sucesso!";
 }

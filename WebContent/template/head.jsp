@@ -85,6 +85,38 @@
         				</li>
 
 					</ul>
+					
+					<ul class="nav navbar-nav">
+
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Unidade Medida
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="main?acao=listUnidadeMedida">Listar</a></li>
+								<li><a href="main?acao=telaUnidadeMedida">Cadastar</a></li>
+							</ul>
+
+
+
+						</li>
+					</ul>
+					
+					<ul class="nav navbar-nav">
+
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Unidade Medida Caseira
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="main?acao=listUnidadeMedidaCaseira">Listar</a></li>
+								<li><a href="main?acao=addUnidadeMedidaCaseira">Cadastar</a></li>
+
+							</ul>
+							<%--</ul>--%>
+
+						</li>
+					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
         				<li class="dropdown">
