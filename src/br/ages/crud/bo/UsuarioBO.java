@@ -19,7 +19,7 @@ import br.ages.crud.validator.SenhaValidator;
  * Gerencia os comportamentos de negocio do Usuario Associa os parametros da
  * tela as propriedades da classe
  * 
- * @author Cassio Trindade
+ * @author iann muller
  * 
  */
 public class UsuarioBO {
@@ -97,9 +97,13 @@ public class UsuarioBO {
 			 * 
 			 * }
 			 */
-			if (!usuario.getMatricula().matches("\\d{5,9}")) {
+			if(usuario.getEndereco()== null){
+				isValido= false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO + "<br/>");
+			}
+			if (!usuario.getCpf().matches("\\d{11}")) {
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_MATRICULA_INVALIDA.replace("?", "Matricula ").concat("<br/>"));
+				msg.append(MensagemContantes.MSG_ERR_CPF_INVALIDA.replace("?", "cpf ").concat("<br/>"));
 			}
 			// Nome
 			if (usuario.getNome() == null || "".equals(usuario.getNome())) {
@@ -128,6 +132,7 @@ public class UsuarioBO {
 			if (!new SenhaValidator().validar(valores)) {
 				isValido = false;
 			}
+			
 
 			// flag administrador
 			/*

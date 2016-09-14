@@ -23,7 +23,9 @@ public class AddUserCommand implements Command {
 
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
-		String matricula = request.getParameter("matricula");
+		String cpf = request.getParameter("cpf");
+		String endereco = request.getParameter("endereco");
+		String telefone = request.getParameter("telefone");
 		String usuario = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
 		String statusUsuario = request.getParameter("statusUsuario"); // XXX Acrescentado  StatusUsuario
@@ -33,7 +35,9 @@ public class AddUserCommand implements Command {
 			Usuario user = new Usuario();
 			user.setNome(nome);
 			user.setEmail(email);
-			user.setMatricula(matricula);
+			user.setCpf(cpf);
+			user.setEndereco(endereco);
+			user.setTelefone(Integer.valueOf(telefone));
 			user.setUsuario(usuario);
 			user.setSenha(senha);
 			user.setStatusUsuario(StatusUsuario.valueOf(statusUsuario));
@@ -54,7 +58,7 @@ public class AddUserCommand implements Command {
 			}
 		} catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
-			//proxima = "main?acao=addUser";
+			proxima = "main?acao=telaUser";
 		}
 
 		return proxima;

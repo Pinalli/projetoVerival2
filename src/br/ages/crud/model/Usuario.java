@@ -14,7 +14,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	private static final long serialVersionUID = 2717027327683138959L;
 	private int idUsuario;
 	private String cpf;
-	private String telefone;
+	private int telefone;
 	private String usuario;
 	private String senha;
 	private String confirmarSenha;
@@ -37,7 +37,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		this.dataInclusao = new Date();
 	}
 
-	public Usuario(String usuario, String senha, String confirmarSenha, String matricula, String nome, String email, String endereco, String cpf, String telefone, StatusUsuario statusUsuario, TipoUsuario tipoUsuario, PerfilAcesso perfilAcesso) {
+	public Usuario(String usuario, String senha, String confirmarSenha, String matricula, String nome, String email, String endereco, String cpf, int telefone, StatusUsuario statusUsuario, TipoUsuario tipoUsuario, PerfilAcesso perfilAcesso) {
 		super();
 		this.usuario = usuario;
 		this.senha = senha;
@@ -75,11 +75,11 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		this.cpf = cpf;
 	}
 
-	public String getTelefone() {
+	public int getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(String telefone) {
+	public void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
 
@@ -131,13 +131,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		this.statusUsuario = statusUsuario;
 	}
 
-	public String getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
+	
 
 	public String getNome() {
 		return nome;
@@ -175,7 +169,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	public String toString() {
 		return "Usuario [idUsuario=" + idUsuario + ", usuario=" + usuario + ", senha=" + senha +  ", confirmarSenha=" + confirmarSenha + ", endereco=" + endereco 
 				+", cpf=" + cpf +", telefone=" + telefone +", tipoUsuario=" + tipoUsuario + ", perfilAcesso=" + perfilAcesso + ", statusUsuario=" + statusUsuario
-				+ ", matricula=" + matricula + ", nome=" + nome + ", email=" + email + ", dataInclusao=" + dataInclusao + "]";
+				+  ", nome=" + nome + ", email=" + email + ", dataInclusao=" + dataInclusao + "]";
 	}
 
 	@Override

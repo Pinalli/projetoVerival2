@@ -20,7 +20,7 @@ import br.ages.crud.util.MensagemContantes;
 
 /**
  * 
- * @author Cassio Trindade
+ * @author iann muller
  *
  */
 public class UsuarioDAO {
@@ -56,12 +56,14 @@ public class UsuarioDAO {
 			ResultSet resultset = statement.executeQuery();
 			if (resultset.next()) {
 				usuario.setIdUsuario(resultset.getInt("ID_USUARIO"));
-				usuario.setMatricula(resultset.getString("MATRICULA"));
+				usuario.setCpf(resultset.getString("CPF"));
 				usuario.setNome(resultset.getString("NOME"));
 				usuario.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));
 				usuario.setSenha(resultset.getString("SENHA"));
+				usuario.setEndereco(resultset.getString("ENDERECO"));
+				usuario.setTelefone(resultset.getInt("TELEFONE"));
 			} else
 				usuario = null;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -92,7 +94,9 @@ public class UsuarioDAO {
 			sql.append("u.`PERFIL_ACESSO`,");
 			sql.append("u.`STATUS_USUARIO`,");
 			sql.append("u.`ID_TIPO_USUARIO`,");
-			sql.append("u.`MATRICULA`,");
+			sql.append("u.`CPF`,");
+			sql.append("u.`ENDERECO`,");
+			sql.append("u.`TELEFONE`,");
 			sql.append("u.`NOME` unome,");
 			sql.append("u.`EMAIL`,");
 			sql.append("t.`ID_TIPO_USUARIO`,");
@@ -113,11 +117,13 @@ public class UsuarioDAO {
 				Usuario dto = new Usuario();
 				TipoUsuario tipoUsuario = new TipoUsuario();
 				dto.setIdUsuario(resultset.getInt("ID_USUARIO"));
-				dto.setMatricula(resultset.getString("MATRICULA"));
+				dto.setCpf(resultset.getString("CPF"));
 				dto.setNome(resultset.getString("unome"));
 				dto.setEmail(resultset.getString("EMAIL"));
 				dto.setUsuario(resultset.getString("USUARIO"));
 				dto.setSenha(resultset.getString("SENHA"));
+				dto.setEndereco(resultset.getString("ENDERECO"));
+				dto.setTelefone(resultset.getInt("TELEFONE"));
 				dto.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				dto.setStatusUsuario(StatusUsuario.valueOf(resultset.getString("STATUS_USUARIO")));
 				tipoUsuario.setIdTipoUsuario(resultset.getInt("ID_TIPO_USUARIO"));
@@ -145,8 +151,8 @@ public class UsuarioDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into TB_USUARIO (usuario, senha, confirmarSenha, perfil_acesso, status_usuario, id_tipo_usuario, "+ "matricula, nome, email, endereco, cpf, telefone, data_inclusao)");
-			sql.append("values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
+			sql.append("insert into TB_USUARIO (usuario, senha, perfil_acesso, status_usuario, id_tipo_usuario, cpf, endereco, telefone, nome, email, data_inclusao)");
+			sql.append("values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
 
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
@@ -156,17 +162,15 @@ public class UsuarioDAO {
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, usuario.getUsuario());
 			statement.setString(2, usuario.getSenha());
-			statement.setString(3, usuario.getConfirmarSenha());
-			statement.setString(4, String.valueOf(usuario.getPerfilAcesso()));
-			statement.setString(5, String.valueOf(usuario.getStatusUsuario()));
-			statement.setInt(6, usuario.getTipoUsuario().getIdTipoUsuario());
-			statement.setString(7, usuario.getMatricula());
-			statement.setString(8, usuario.getNome());
-			statement.setString(9, usuario.getEmail());
-			statement.setString(10, usuario.getEndereco());
-			statement.setString(11, usuario.getCpf());
-			statement.setString(12, usuario.getTelefone());
-			statement.setDate(13, dataCadastro);
+			statement.setString(3, String.valueOf(usuario.getPerfilAcesso()));
+			statement.setString(4, String.valueOf(usuario.getStatusUsuario()));
+			statement.setInt(5, usuario.getTipoUsuario().getIdTipoUsuario());
+			statement.setString(6, usuario.getCpf());
+			statement.setString(7, usuario.getEndereco());
+			statement.setInt(8, usuario.getTelefone());
+			statement.setString(9, usuario.getNome());
+			statement.setString(10, usuario.getEmail());
+			statement.setDate(11, dataCadastro);
 
 			statement.executeUpdate();
 
@@ -236,7 +240,9 @@ public class UsuarioDAO {
 			sql.append("u.`perfil_acesso`,");
 			sql.append("u.`status_usuario`,");
 			sql.append("u.`id_tipo_usuario`,");
-			sql.append("u.`matricula`,");
+			sql.append("u.`cpf`,");
+			sql.append("u.`endereco`,");
+			sql.append("u.`telefone`,");
 			sql.append("u.`nome` unome,");
 			sql.append("u.`email`,");
 			sql.append("t.`id_tipo_usuario`,");
@@ -254,11 +260,13 @@ public class UsuarioDAO {
 			while (resultset.next()) {
 
 				usuario.setIdUsuario(resultset.getInt("ID_USUARIO"));
-				usuario.setMatricula(resultset.getString("MATRICULA"));
+				usuario.setCpf(resultset.getString("CPF"));
 				usuario.setNome(resultset.getString("unome"));
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));
 				usuario.setSenha(resultset.getString("SENHA"));
+				usuario.setEndereco(resultset.getString("ENDERECO"));
+				usuario.setTelefone(resultset.getInt("TELEFONE"));
 				usuario.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				usuario.setStatusUsuario(StatusUsuario.valueOf(resultset.getString("STATUS_USUARIO")));
 				TipoUsuario tipoUsuario = new TipoUsuario();
@@ -298,14 +306,16 @@ public class UsuarioDAO {
 			sql.append("u.`perfil_acesso`,");
 			sql.append("u.`status_usuario`,");
 			sql.append("u.`id_tipo_usuario`,");
-			sql.append("u.`matricula`,");
+			sql.append("u.`cpf`,");
+			sql.append("u.`telefone`,");
+			sql.append("u.`endereco`,");
 			sql.append("u.`nome` unome,");
 			sql.append("u.`email`,");
 			sql.append("t.`id_tipo_usuario`,");
 			sql.append("t.`nome` tnome,");
 			sql.append("t.`descricao`,");
 			sql.append("t.`data_inclusao`");
-			sql.append("from TB_USUARIOu inner join TB_TIPO_USUARIO t ");
+			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
 			sql.append("where id_usuario = ?;");
 
@@ -315,7 +325,9 @@ public class UsuarioDAO {
 
 			while (resultset.next()) {
 				usuario.setIdUsuario(resultset.getInt("ID_USUARIO"));
-				usuario.setMatricula(resultset.getString("MATRICULA"));
+				usuario.setCpf(resultset.getString("CPF"));
+				usuario.setEndereco(resultset.getString("endereco"));
+				usuario.setTelefone(resultset.getInt("telefone"));
 				usuario.setNome(resultset.getString("unome"));
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));
@@ -383,7 +395,7 @@ public class UsuarioDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = usuario.getIdUsuario();
 
-			sql.append("update TB_USUARIO set senha = ?, perfil_acesso = ?," + "status_usuario = ?, id_tipo_usuario = ?, nome = ?, email = ?, matricula = ?" + "  where id_usuario = " + id + ";");
+			sql.append("update TB_USUARIO set senha = ?, perfil_acesso = ?," + "status_usuario = ?, id_tipo_usuario = ?, nome = ?, email = ?, cpf = ?, endereco = ?, telefone = ?" + "  where id_usuario = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
@@ -393,7 +405,9 @@ public class UsuarioDAO {
 			statement.setInt(4, usuario.getTipoUsuario().getIdTipoUsuario());
 			statement.setString(5, usuario.getNome());
 			statement.setString(6, usuario.getEmail());
-			statement.setString(7, usuario.getMatricula());
+			statement.setString(7, usuario.getCpf());
+			statement.setString(8, usuario.getEndereco());
+			statement.setInt(9, usuario.getTelefone());
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
@@ -484,7 +498,9 @@ public class UsuarioDAO {
 			sql.append("u.`perfil_acesso`,");
 			sql.append("u.`status_usuario`,");
 			sql.append("u.`id_tipo_usuario`,");
-			sql.append("u.`matricula`,");
+			sql.append("u.`cpf`,");
+			sql.append("u.`endereco`,");
+			sql.append("u.`telefone`,");
 			sql.append("u.`nome`,");
 			sql.append("u.`email` ");
 
@@ -498,7 +514,9 @@ public class UsuarioDAO {
 			while (resultset.next()) {
 				Usuario dto = new Usuario();
 				dto.setIdUsuario(resultset.getInt("ID_USUARIO"));
-				dto.setMatricula(resultset.getString("MATRICULA"));
+				dto.setCpf(resultset.getString("cpf"));
+				dto.setEndereco(resultset.getString("endereco"));
+				dto.setTelefone(resultset.getInt("telefone"));
 				dto.setNome(resultset.getString("NOME"));
 				dto.setEmail(resultset.getString("EMAIL"));
 				dto.setUsuario(resultset.getString("USUARIO"));
@@ -538,11 +556,13 @@ public class UsuarioDAO {
 			sql.append("u.`perfil_acesso`,");
 			sql.append("u.`status_usuario`,");
 			sql.append("u.`id_tipo_usuario`,");
-			sql.append("u.`matricula`,");
+			sql.append("u.`cpf`,");
+			sql.append("u.`endereco`,");
+			sql.append("u.`telefone`,");
 			sql.append("u.`nome`,");
 			sql.append("u.`email` ");
 
-			sql.append("from TB_USUARIOu inner join TB_TIPO_USUARIO t ");
+			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
 			sql.append(" on t.id_tipo_usuario = u.id_tipo_usuario");
 			sql.append(" where t.nome = 'aluno';");
 
@@ -551,7 +571,9 @@ public class UsuarioDAO {
 			while (resultset.next()) {
 				Usuario dto = new Usuario();
 				dto.setIdUsuario(resultset.getInt("ID_USUARIO"));
-				dto.setMatricula(resultset.getString("MATRICULA"));
+				dto.setCpf(resultset.getString("CPF"));
+				dto.setEndereco(resultset.getString("endereco"));
+				dto.setTelefone(resultset.getInt("telefone"));
 				dto.setNome(resultset.getString("NOME"));
 				dto.setEmail(resultset.getString("EMAIL"));
 				dto.setUsuario(resultset.getString("USUARIO"));
@@ -585,7 +607,9 @@ public class UsuarioDAO {
 			sql.append(" PERFIL_ACESSO,");
 			sql.append(" STATUS_USUARIO,");
 			sql.append(" ID_TIPO_USUARIO,");
-			sql.append(" MATRICULA,");
+			sql.append(" cpf,");
+			sql.append(" endereco,");
+			sql.append(" telefone,");
 			sql.append(" NOME,");
 			sql.append(" EMAIL");
 			sql.append(" FROM TB_USUARIO ");
@@ -599,7 +623,9 @@ public class UsuarioDAO {
 			while (resultset.next()) {
 
 				usuario.setIdUsuario(resultset.getInt("ID_USUARIO"));
-				usuario.setMatricula(resultset.getString("MATRICULA"));
+				usuario.setCpf(resultset.getString("cpf"));
+				usuario.setEndereco(resultset.getString("endereco"));
+				usuario.setTelefone(resultset.getInt("telefone"));
 				usuario.setNome(resultset.getString("NOME"));
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));

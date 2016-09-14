@@ -41,7 +41,7 @@ public class RemoveUnidadeMedidaCaseiraCommand implements Command {
             Integer idUnidadeMedidaCaseira = Integer.parseInt(request.getParameter("id_unidade_medida_caseira"));
             unidadeMedidaCaseiraBO.removerUnidadeMedidaCaseira(idUnidadeMedidaCaseira);
 
-            request.setAttribute("msgSucesso", MensagemContantes.MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA.replace("?", idUnidadeMedidaCaseira.toString()).concat("<br/>"));
+            request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_UNIDADE_MEDIDA_CASEIRA.replace("?", idUnidadeMedidaCaseira.toString()).concat("<br/>"));
 
 
         } catch (Exception e) {

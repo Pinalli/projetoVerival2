@@ -113,9 +113,10 @@ public class UnidadeMedidaCaseiraBO {
 	public void removerUnidadeMedidaCaseira(Integer idUnidadeMedidaCaseira) throws NegocioException, SQLException {
 		try {
 				unidadeMedidaCaseiraDAO.removerUnidadeMedidaCaseira(idUnidadeMedidaCaseira);
+				
 		} catch (PersistenciaException e) {
 			e.printStackTrace();
-			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA);
+			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA_EM_PROJETO);
 		}
 	}
 
