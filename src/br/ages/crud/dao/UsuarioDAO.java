@@ -63,7 +63,7 @@ public class UsuarioDAO {
 				usuario.setUsuario(resultset.getString("USUARIO"));
 				usuario.setSenha(resultset.getString("SENHA"));
 				usuario.setEndereco(resultset.getString("ENDERECO"));
-				usuario.setTelefone(resultset.getInt("TELEFONE"));
+				usuario.setTelefone(resultset.getString("TELEFONE"));
 			} else
 				usuario = null;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -123,7 +123,7 @@ public class UsuarioDAO {
 				dto.setUsuario(resultset.getString("USUARIO"));
 				dto.setSenha(resultset.getString("SENHA"));
 				dto.setEndereco(resultset.getString("ENDERECO"));
-				dto.setTelefone(resultset.getInt("TELEFONE"));
+				dto.setTelefone(resultset.getString("TELEFONE"));
 				dto.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				dto.setStatusUsuario(StatusUsuario.valueOf(resultset.getString("STATUS_USUARIO")));
 				tipoUsuario.setIdTipoUsuario(resultset.getInt("ID_TIPO_USUARIO"));
@@ -167,7 +167,7 @@ public class UsuarioDAO {
 			statement.setInt(5, usuario.getTipoUsuario().getIdTipoUsuario());
 			statement.setString(6, usuario.getCpf());
 			statement.setString(7, usuario.getEndereco());
-			statement.setInt(8, usuario.getTelefone());
+			statement.setString(8, usuario.getTelefone());
 			statement.setString(9, usuario.getNome());
 			statement.setString(10, usuario.getEmail());
 			statement.setDate(11, dataCadastro);
@@ -266,7 +266,7 @@ public class UsuarioDAO {
 				usuario.setUsuario(resultset.getString("USUARIO"));
 				usuario.setSenha(resultset.getString("SENHA"));
 				usuario.setEndereco(resultset.getString("ENDERECO"));
-				usuario.setTelefone(resultset.getInt("TELEFONE"));
+				usuario.setTelefone(resultset.getString("TELEFONE"));
 				usuario.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				usuario.setStatusUsuario(StatusUsuario.valueOf(resultset.getString("STATUS_USUARIO")));
 				TipoUsuario tipoUsuario = new TipoUsuario();
@@ -327,7 +327,7 @@ public class UsuarioDAO {
 				usuario.setIdUsuario(resultset.getInt("ID_USUARIO"));
 				usuario.setCpf(resultset.getString("CPF"));
 				usuario.setEndereco(resultset.getString("endereco"));
-				usuario.setTelefone(resultset.getInt("telefone"));
+				usuario.setTelefone(resultset.getString("telefone"));
 				usuario.setNome(resultset.getString("unome"));
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));
@@ -407,7 +407,7 @@ public class UsuarioDAO {
 			statement.setString(6, usuario.getEmail());
 			statement.setString(7, usuario.getCpf());
 			statement.setString(8, usuario.getEndereco());
-			statement.setInt(9, usuario.getTelefone());
+			statement.setString(9, usuario.getTelefone());
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
@@ -516,7 +516,7 @@ public class UsuarioDAO {
 				dto.setIdUsuario(resultset.getInt("ID_USUARIO"));
 				dto.setCpf(resultset.getString("cpf"));
 				dto.setEndereco(resultset.getString("endereco"));
-				dto.setTelefone(resultset.getInt("telefone"));
+				dto.setTelefone(resultset.getString("telefone"));
 				dto.setNome(resultset.getString("NOME"));
 				dto.setEmail(resultset.getString("EMAIL"));
 				dto.setUsuario(resultset.getString("USUARIO"));
@@ -573,7 +573,7 @@ public class UsuarioDAO {
 				dto.setIdUsuario(resultset.getInt("ID_USUARIO"));
 				dto.setCpf(resultset.getString("CPF"));
 				dto.setEndereco(resultset.getString("endereco"));
-				dto.setTelefone(resultset.getInt("telefone"));
+				dto.setTelefone(resultset.getString("telefone"));
 				dto.setNome(resultset.getString("NOME"));
 				dto.setEmail(resultset.getString("EMAIL"));
 				dto.setUsuario(resultset.getString("USUARIO"));
@@ -625,7 +625,7 @@ public class UsuarioDAO {
 				usuario.setIdUsuario(resultset.getInt("ID_USUARIO"));
 				usuario.setCpf(resultset.getString("cpf"));
 				usuario.setEndereco(resultset.getString("endereco"));
-				usuario.setTelefone(resultset.getInt("telefone"));
+				usuario.setTelefone(resultset.getString("telefone"));
 				usuario.setNome(resultset.getString("NOME"));
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));

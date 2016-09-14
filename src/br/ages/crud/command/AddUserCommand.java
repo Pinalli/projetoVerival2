@@ -37,7 +37,7 @@ public class AddUserCommand implements Command {
 			user.setEmail(email);
 			user.setCpf(cpf);
 			user.setEndereco(endereco);
-			user.setTelefone(Integer.valueOf(telefone));
+			user.setTelefone(telefone);
 			user.setUsuario(usuario);
 			user.setSenha(senha);
 			user.setStatusUsuario(StatusUsuario.valueOf(statusUsuario));

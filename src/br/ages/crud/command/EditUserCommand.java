@@ -55,7 +55,7 @@ public class EditUserCommand implements Command{
 			usuario.setIdUsuario(Integer.valueOf(idUsuarioString));
 			usuario.setUsuario(usuarioString);
 			usuario.setSenha(senhaString);		
-			usuario.setTelefone(Integer.valueOf(telefoneString));
+			usuario.setTelefone(telefoneString);
 			
 			TipoUsuario tipoUsuario2 = usuarioBO.consultaTipoUsuario(idTipoUsuario);
 			

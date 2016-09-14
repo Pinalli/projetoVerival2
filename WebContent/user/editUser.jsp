@@ -25,7 +25,7 @@
                 	<input class="form-control" type="hidden" id="idUsuario" name="idUsuario" value="<%=usuario.getIdUsuario()%>">
                		<div class="form-group">
 			           	<label class="form-label ages">CPF:</label>
-			           	<input class="form-control" id="cpf" name="cpf" value="<%=usuario.getCpf() %>" type="text" maxlength="9" readonly>
+			           	<input class="form-control" id="cpf" name="cpf" value="<%=usuario.getCpf() %>" type="number" min="11111111111" max="99999999999" readonly>
 		            </div>
 		            
 		            <div class="form-group">
@@ -71,7 +71,7 @@
 		            
 		             <div class="form-group">
 			           	<label class="form-label ages">telefone: <span class="red">*</span></label>
-			           	<input class="form-control" id="telefone" name="telefone" value="<%=usuario.getTelefone() %>" type="text" maxlength="120" required>
+			           	<input class="form-control" id="telefone" name="telefone" value="<%=usuario.getTelefone() %>" type="number"  min="11111111111" max="99999999999"  required>
 		            </div>
 		            
 		            <div class="form-group">

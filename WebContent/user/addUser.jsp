@@ -21,13 +21,13 @@
 
 				<div class="form-group">
 					<label class="form-label ages">cpf: <span class="red">*</span></label> 
-					<input class="form-control" id="cpf" name="cpf"	value="${param.cpf}" type="text" maxlength="11" required> 
+					<input class="form-control" id="cpf" name="cpf"	value="${param.cpf}" type="number"  min="11111111111" max="99999999999" required> 
 					<label class="form-label ages">Nome: <span class="red">*</span></label> 
 					<input class="form-control" id="nome" name="nome" value="${param.nome}" type="text" maxlength="120" required>
 					<div class="row">
 						<div class="col-sm-6">
 						    <label class="form-label ages">Usuário: <span class="red">*</span></label> 
-							<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="120" required>
+							<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text"  maxlength="120" required>
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages">Senha: <span class="red">*</span></label> 
@@ -35,7 +35,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages">telefone: <span class="red">*</span></label> 
-							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="text" maxlength="8" required> 
+							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="number" min="11111111111" max="99999999999" required> 
 						</div>
 					</div>
 					

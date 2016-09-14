@@ -101,10 +101,7 @@ public class UsuarioBO {
 				isValido= false;
 				msg.append(MensagemContantes.MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO + "<br/>");
 			}
-			if (!usuario.getCpf().matches("\\d{11}")) {
-				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CPF_INVALIDA.replace("?", "cpf ").concat("<br/>"));
-			}
+			
 			// Nome
 			if (usuario.getNome() == null || "".equals(usuario.getNome())) {
 				isValido = false;

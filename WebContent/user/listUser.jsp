@@ -32,7 +32,7 @@
 					<th style="text-align: center;"></th>
                 </tr>
             </thead>
-
+ 
             <tbody> 
             	<%
 					List<Usuario> listaUsuarios = (List<Usuario>) request.getAttribute("listaUsuarios");
@@ -68,7 +68,7 @@
 					} 
 				%>
 			</tbody>
-            
+             
         </table> 
 		</div>
     </div>
