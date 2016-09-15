@@ -1,3 +1,4 @@
+
 --liquibase formatted sql
 --changeset cassio:1
 --comment Script para criação das primeiras tabelas do projeto.
@@ -51,7 +52,9 @@ INSERT INTO TB_TIPO_USUARIO VALUES
 INSERT INTO TB_TIPO_USUARIO VALUES
 ('3', 'Estagiario', '', '2015-10-01 00:00:00');
 INSERT INTO TB_TIPO_USUARIO VALUES
-('4', 'Cozinheiro', '', '2015-10-01 00:00:00');
+('4', 'Funcionario', '', '2015-10-01 00:00:00');
+INSERT INTO TB_TIPO_USUARIO VALUES
+('5', 'Proprietario', '', '2015-10-01 00:00:00');
 
 INSERT INTO TB_USUARIO
 (ID_USUARIO,USUARIO,SENHA,PERFIL_ACESSO,STATUS_USUARIO,ID_TIPO_USUARIO, CPF,ENDERECO,TELEFONE,NOME,EMAIL,DATA_INCLUSAO)
