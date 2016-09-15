@@ -45,7 +45,7 @@
 		            
 		              <div class="form-group">
 			           	<label class="form-label ages">Medida de conversão: <span class="red">*</span></label>
-			           	<input class="form-control" id="medidaConversao" name="medidaConversao" value="<%=unidadeMedida.getMedidaConversao() %>" type="number" maxlength="120" min="0"  required>
+			           	<input class="form-control" id="medidaConversao" name="medidaConversao" value="<%=unidadeMedida.getMedidaConversao() %>" type="number" step="any" maxlength="120" min="0"  required>
 		            </div>
 				    
                     <hr>

@@ -27,7 +27,7 @@ public class EditUnidadeMedidaCommand implements Command{
 		String descricaoOrigem = request.getParameter("descricaoOrigem");
 		String descricaoConversao = request.getParameter("descricaoConversao");
 		String sigla = request.getParameter("sigla");
-		int medidaConversao = Integer.valueOf(request.getParameter("medidaConversao"));
+		double medidaConversao = Double.valueOf(request.getParameter("medidaConversao"));
 				
 		try{			
 		    unidadeMedida = new UnidadeMedida();

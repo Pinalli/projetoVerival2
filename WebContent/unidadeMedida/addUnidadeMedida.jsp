@@ -38,7 +38,7 @@
 		            
 		              <div class="form-group">
 			           	<label class="form-label ages">Medida de conversão: <span class="red">*</span></label>
-			           	<input class="form-control" id="medidaConversao" name="medidaConversao" value="" type="number" min="0" maxlength="120" required>
+			           	<input class="form-control" id="medidaConversao" name="medidaConversao" value="" type="number" step="any" min="0" maxlength="120" required>
 		            </div>
 				    
                     <hr>

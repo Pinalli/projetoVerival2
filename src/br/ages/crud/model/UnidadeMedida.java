@@ -9,13 +9,13 @@ public class UnidadeMedida {
 	private String descricaoOrigem;
 	private String descricaoConversao;
 	private String sigla;
-	private int medidaConversao;
+	private double medidaConversao;
 
 	public UnidadeMedida() {
 	}
 
 	public UnidadeMedida(int idUnidadeMedida, String descricaoOrigem, String descricaoConversao, String sigla,
-			int medidaConversao) {
+			double medidaConversao) {
 		this.idUnidadeMedida = idUnidadeMedida;
 		this.descricaoOrigem = descricaoOrigem;
 		this.descricaoConversao = descricaoConversao;
@@ -55,11 +55,11 @@ public class UnidadeMedida {
 		this.sigla = sigla;
 	}
 
-	public int getMedidaConversao() {
+	public double getMedidaConversao() {
 		return medidaConversao;
 	}
 
-	public void setMedidaConversao(int medidaConversao) {
+	public void setMedidaConversao(double medidaConversao) {
 		this.medidaConversao = medidaConversao;
 	}
 

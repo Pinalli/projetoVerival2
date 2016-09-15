@@ -62,7 +62,7 @@ public class UnidadeMedidaDAO {
 				dto.setDescricaoOrigem(resultset.getString("DESCRICAO_ORIGEM"));
 				dto.setDescricaoConversao(resultset.getString("DESCRICAO_CONVERSAO"));
 				dto.setSigla(resultset.getString("SIGLA"));
-				dto.setMedidaConversao(resultset.getInt("MEDIDA_CONVERSAO"));
+				dto.setMedidaConversao(resultset.getDouble("MEDIDA_CONVERSAO"));
 				listarUnidadeMedida.add(dto);
 			}
 
@@ -186,7 +186,7 @@ public class UnidadeMedidaDAO {
 				unidadeMedida.setDescricaoOrigem(resultset.getString("DESCRICAO_ORIGEM"));
 				unidadeMedida.setDescricaoConversao(resultset.getString("DESCRICAO_CONVERSAO"));
 				unidadeMedida.setSigla(resultset.getString("SIGLA"));
-				unidadeMedida.setMedidaConversao(resultset.getInt("MEDIDA_CONVERSAO"));
+				unidadeMedida.setMedidaConversao(resultset.getDouble("MEDIDA_CONVERSAO"));
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -223,7 +223,7 @@ public class UnidadeMedidaDAO {
 			statement.setString(1, unidadeMedida.getDescricaoOrigem());
 			statement.setString(2, unidadeMedida.getDescricaoConversao());
 			statement.setString(3, unidadeMedida.getSigla());
-			statement.setInt(4, unidadeMedida.getMedidaConversao());
+			statement.setDouble(4, unidadeMedida.getMedidaConversao());
 
 			ok = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {

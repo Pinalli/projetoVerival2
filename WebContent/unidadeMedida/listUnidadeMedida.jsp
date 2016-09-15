@@ -38,7 +38,7 @@
 	            	<td align="center"><%=unidadeMedida.getDescricaoOrigem()%></td>
 	            	<td align="center"><%=unidadeMedida.getDescricaoConversao()%></td>
 	            	<td align="center"><%=unidadeMedida.getSigla()%></td>
-	            	<td align="center"><%=unidadeMedida.getMedidaConversao()%></td>
+	             	<td align="center"><%=unidadeMedida.getMedidaConversao()%></td> 
 	             	<td align="center">
 						<form action="" method="post">
             				<a href="" data-toggle="modal" data-id="<%=unidadeMedida.getIdUnidadeMedida() %>" data-usuario="<%=unidadeMedida.getDescricaoOrigem()%>" 
