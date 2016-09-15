@@ -6,7 +6,7 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:include page="../template/head.jsp"></jsp:include>
 	
-	<div class="panel panel-primary panel-addUser">
+	<div class="panel panel-success panel-addUser">
     		
 		<div class="panel-heading text-center">
 			Cadastrar Unidade de Medida Caseira
@@ -35,8 +35,8 @@
                     
                     
                     <div class="text-center">
-			           	<input class="btn btn-warning limparUser pull-left" type="reset" value="Limpar">
-			           	<input class="btn btn-primary addUser pull-right" type="submit" value="Salvar">
+			           	<input class="btn btn-default limparUser pull-left" type="reset" value="Limpar">
+			           	<input class="btn btn-success addUser pull-right" type="submit" value="Salvar">
 			        </div>
 			        
                 </form>

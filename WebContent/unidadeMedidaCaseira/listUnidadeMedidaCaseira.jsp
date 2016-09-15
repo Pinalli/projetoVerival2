@@ -5,7 +5,7 @@
 <!-- MODAL / POPUP -->
 <jsp:include page="../template/modalUnidadeMedidaCaseira.jsp"></jsp:include>
 
-<div class="panel panel-primary">
+<div class="panel panel-success">
 
     <div class="panel-heading text-center">Lista de Unidades de Medida</div>
 
