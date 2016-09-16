@@ -54,7 +54,7 @@
 				<div class="container-fluid">
 				
 		    		<div class="navbar-header">
-			      		<a class="navbar-brand" href="main?acao=listaProjetos">
+			      		<a class="navbar-brand">
 			        		<img class="logoNavBar" src="./img/logo-ftp.png" alt="">
 			      		</a>
 			    	</div>
