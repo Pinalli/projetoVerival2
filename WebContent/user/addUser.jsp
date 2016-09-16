@@ -7,15 +7,18 @@
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 
-<div class="panel panel-primary panel-addUser">
+<div class="panel panel-success panel-addUser">
 
-	<div class="panel-heading text-center">Cadastro de Usuário</div>
+	<div class="panel-heading text-center">
+		Cadastro de Usuário
+	</div>
 
 
 	<div class="panel-body">
 
 		<jsp:include page="/template/msg.jsp"></jsp:include>
 
+		<div class="table-responsive">
 
 			<form method="post" action="main?acao=addUser">
 
@@ -100,6 +103,7 @@
 					<input class="btn btn-primary addUser pull-right" type="submit" value="Cadastrar">
 				</div>
 			</form>
+		</div>
 	</div>
 </div>
 
