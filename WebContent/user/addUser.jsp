@@ -100,7 +100,7 @@
 				</p>
 				<div class="text-center">
 					<input class="btn btn-warning limparUser pull-left" type="reset" value="Limpar"> 
-					<input class="btn btn-primary addUser pull-right" type="submit" value="Cadastrar">
+					<input class="btn btn-success addUser pull-right" type="submit" value="Cadastrar">
 				</div>
 			</form>
 		</div>
