@@ -151,8 +151,8 @@ public class UsuarioDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into TB_USUARIO (usuario, senha, perfil_acesso, status_usuario, id_tipo_usuario, cpf, endereco, telefone, nome, email, data_inclusao)");
-			sql.append("values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
+			sql.append("insert into TB_USUARIO (usuario, senha, confirmar_senha, perfil_acesso, status_usuario, id_tipo_usuario, matricula, nome, cpf, endereco, email, telefone, data_inclusao)");
+			sql.append("values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? )");
 
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
@@ -162,15 +162,17 @@ public class UsuarioDAO {
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, usuario.getUsuario());
 			statement.setString(2, usuario.getSenha());
-			statement.setString(3, String.valueOf(usuario.getPerfilAcesso()));
-			statement.setString(4, String.valueOf(usuario.getStatusUsuario()));
-			statement.setInt(5, usuario.getTipoUsuario().getIdTipoUsuario());
-			statement.setString(6, usuario.getCpf());
-			statement.setString(7, usuario.getEndereco());
-			statement.setString(8, usuario.getTelefone());
-			statement.setString(9, usuario.getNome());
-			statement.setString(10, usuario.getEmail());
-			statement.setDate(11, dataCadastro);
+			statement.setString(3, usuario.getConfirmarSenha());
+			statement.setString(4, String.valueOf(usuario.getPerfilAcesso()));
+			statement.setString(5, String.valueOf(usuario.getStatusUsuario()));
+			statement.setInt(6, usuario.getTipoUsuario().getIdTipoUsuario());
+			statement.setString(7, usuario.getMatricula());
+			statement.setString(8, usuario.getNome());
+			statement.setString(9, usuario.getCpf());
+			statement.setString(10, usuario.getEndereco());
+			statement.setString(11, usuario.getEmail());
+			statement.setString(12, usuario.getTelefone());
+			statement.setDate(13, dataCadastro);
 
 			statement.executeUpdate();
 

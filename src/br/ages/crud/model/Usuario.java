@@ -15,6 +15,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	private int idUsuario;
 	private String usuario;
 	private String senha;
+	private String confirmarSenha;
 	private TipoUsuario tipoUsuario;
 	private PerfilAcesso perfilAcesso;
 	private StatusUsuario statusUsuario;
@@ -22,6 +23,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	private String email;
 	private Date dataInclusao;
 	private String cpf;
+	private String matricula;
 	private String endereco;
 	private String telefone;
 	
@@ -36,10 +38,11 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		this.dataInclusao = new Date();
 	}
 
-	public Usuario(String usuario, String senha, String cpf, String nome, String email, String telefone, String endereco, StatusUsuario statusUsuario, TipoUsuario tipoUsuario, PerfilAcesso perfilAcesso) {
+	public Usuario(String usuario, String senha, String confirmarSenha, String cpf, String nome, String email, String telefone, String endereco, StatusUsuario statusUsuario, TipoUsuario tipoUsuario, PerfilAcesso perfilAcesso) {
 		super();
 		this.usuario = usuario;
 		this.senha = senha;
+		this.confirmarSenha = confirmarSenha;
 		this.cpf = cpf;
 		this.nome = nome;
 		this.email = email;
@@ -148,6 +151,22 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		this.perfilAcesso = perfilAcesso;
 	}
 
+	public String getConfirmarSenha() {
+		return confirmarSenha;
+	}
+
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
 	@Override
 	public int compareTo(Usuario usuario) {
 		return this.getNome().compareToIgnoreCase(usuario.getNome());
@@ -155,8 +174,8 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", usuario=" + usuario + ", senha=" + senha + ", tipoUsuario=" + tipoUsuario + ", perfilAcesso=" + perfilAcesso + ", statusUsuario=" + statusUsuario
-				+ ", cpf=" + cpf + "endereco=" + endereco + "telefone" + ", nome=" + nome + ", email=" + email + ", dataInclusao=" + dataInclusao + "]";
+		return "Usuario [idUsuario=" + idUsuario + ", usuario=" + usuario + ", senha=" + senha+ ", confirmarSenha=" + confirmarSenha + ", tipoUsuario=" + tipoUsuario + ", perfilAcesso=" + perfilAcesso + ", statusUsuario=" + statusUsuario
+				+ ", cpf=" + cpf + "endereco=" + endereco +"matricula=" + matricula+ "telefone" + ", nome=" + nome + ", email=" + email + ", dataInclusao=" + dataInclusao + "]";
 	}
 
 	

@@ -7,7 +7,7 @@
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 
-<div class="panel panel-success panel-addUser">
+<div class="panel panel-primary panel-addUser">
 
 	<div class="panel-heading text-center">Cadastro de Usuário</div>
 
@@ -20,32 +20,52 @@
 			<form method="post" action="main?acao=addUser">
 
 				<div class="form-group">
-					<label class="form-label ages">cpf: <span class="red">*</span></label> 
-					<input class="form-control" id="cpf" name="cpf"	value="${param.cpf}" type="number"  min="11111111111" max="99999999999" required> 
+				
+					<!--  <label class="form-label ages">Matrícula: <span class="red">*</span></label> 
+					<input class="form-control" id="matricula" name="matricula"	value="${param.matricula}" type="text" maxlength="9" required> --> 
+					
 					<label class="form-label ages">Nome: <span class="red">*</span></label> 
 					<input class="form-control" id="nome" name="nome" value="${param.nome}" type="text" maxlength="120" required>
+					
+				    <label class="form-label ages">Usuário: <span class="red">*</span></label> 
+					<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text" maxlength="120" required>
+						
 					<div class="row">
 						<div class="col-sm-6">
-						    <label class="form-label ages">Usuário: <span class="red">*</span></label> 
-							<input class="form-control" id="usuario" name="usuario" value="${param.usuario}" type="text"  maxlength="120" required>
+						    <label class="form-label ages">Senha: <span class="red">*</span></label> 
+							<input class="form-control" id="senha" name="senha" value="${param.senha}" type="password" maxlength="120" required>
 						</div>
 						<div class="col-sm-6">
-							<label class="form-label ages">Senha: <span class="red">*</span></label> 
-							<input class="form-control" id="senha" name="senha" value="${param.senha}" type="text" maxlength="8" required> 
-						</div>
-						<div class="col-sm-6">
-							<label class="form-label ages">telefone: <span class="red">*</span></label> 
-							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="number" min="11111111111" max="99999999999" required> 
+							<label class="form-label ages">Confirmar senha: <span class="red">*</span></label> 
+							<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="${param.confirmarSenha}" type="password" maxlength="8" required> 
 						</div>
 					</div>
 					
-					<label class="form-label ages">E-Mail: <span class="red">*</span></label> 
+					<label class="form-label ages">CPF: <span class="red">*</span></label> 
+					<input class="form-control" id="cpf" name="cpf" value="${param.cpf}" type="text" maxlength="11" required>
+					
+					<label class="form-label ages">E-mail: <span class="red">*</span></label> 
 					<input class="form-control" id="email" name="email" value="${param.email}" type="text" maxlength="120" required>
+					
+					<label class="form-label ages">Endereço: <span class="red">*</span></label> 
+					<input class="form-control" id="endereco" name="endereco" value="${param.endereco}" type="text" maxlength="120" required>
+						
+						<div class="row">
+						<div class="col-sm-6">
+							<label class="form-label ages">Telefone: <span class="red">*</span></label> 
+							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="text" maxlength="11" required> 
+						</div>
+						
+						<div class="col-sm-6">
+							<label class="form-label ages">Matricula: <span class="red">*</span></label> 
+							<input class="form-control" id="matricula" name="matricula" value="${param.matricula}" type="text" maxlength="11" required> 
+						</div>
+					</div>
+					
 
 					<div class="row">
 						<div class="col-sm-6">
-							<label class="form-label ages">Perfil de Acesso: <span class="red">*</span></label> <select class="form-control" id="perfilAcesso" name="perfilAcesso"
-								required>
+							<label class="form-label ages">Perfil de Acesso: <span class="red">*</span></label> <select class="form-control" id="perfilAcesso" name="perfilAcesso" required>
 								<option value="NAVEGADOR" <%="NAVEGADOR".equals(request.getParameter("perfilAcesso")) ? "selected" : ""%>>Navegador</option>
 								<option value="ADMINISTRADOR" <%="ADMINISTRADOR".equals(request.getParameter("perfilAcesso")) ? "selected" : ""%>>Administrador</option>
 							</select>
@@ -58,8 +78,7 @@
 							</select>
 						</div>
 					</div>
-					<label class="form-label ages">endereco: <span class="red">*</span></label> 
-					<input class="form-control" id="endereco" name="endereco" value="${param.endereco}" type="text" maxlength="120" required>
+					
 					<label class="form-label ages">Tipo de Usuário: <span class="red">*</span></label> <select class="form-control" id="tipoUsuario" name="tipoUsuario" required>
 						<%
 							List<TipoUsuario> listaTipoUsuarios = (List<TipoUsuario>) request.getAttribute("tipoUsuarios");
@@ -70,13 +89,15 @@
 							}
 						%>
 					</select>
+					
+					
 				</div>
 				<p>
 					Campos que contém <span class="red">*</span> são obrigatórios
 				</p>
 				<div class="text-center">
-					<input class="btn btn-default limparUser pull-left" type="reset" value="Limpar"> 
-					<input class="btn btn-success addUser pull-right" type="submit" value="Cadastrar">
+					<input class="btn btn-warning limparUser pull-left" type="reset" value="Limpar"> 
+					<input class="btn btn-primary addUser pull-right" type="submit" value="Cadastrar">
 				</div>
 			</form>
 	</div>
