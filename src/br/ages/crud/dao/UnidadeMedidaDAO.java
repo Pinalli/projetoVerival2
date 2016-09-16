@@ -11,11 +11,7 @@ import java.util.List;
 import com.mysql.jdbc.Statement;
 
 import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.PerfilAcesso;
-import br.ages.crud.model.StatusUsuario;
-import br.ages.crud.model.TipoUsuario;
 import br.ages.crud.model.UnidadeMedida;
-import br.ages.crud.model.Usuario;
 import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
 
@@ -48,10 +44,10 @@ public class UnidadeMedidaDAO {
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ");
 			sql.append("u.`ID_UNIDADE_MEDIDA`,");
-			sql.append("u.`DESCRICAO_ORIGEM`,");
-			sql.append("u.`DESCRICAO_CONVERSAO`,");
-			sql.append("u.`SIGLA`,");
-			sql.append("u.`MEDIDA_CONVERSAO`");			
+			sql.append("u.`UNIDADE_MEDIDA`,");
+			sql.append("u.`MEDIDA_CONVERSAO`,");
+			sql.append("u.`SIGLA_UNIDADE_MEDIDA`,");
+			sql.append("u.`FATOR_CONVERSAO`");
 			sql.append("from TB_UNIDADE_MEDIDA u"); 
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -59,10 +55,10 @@ public class UnidadeMedidaDAO {
 			while (resultset.next()) {
 				UnidadeMedida dto = new UnidadeMedida();
 				dto.setIdUnidadeMedida(resultset.getInt("ID_UNIDADE_MEDIDA"));
-				dto.setDescricaoOrigem(resultset.getString("DESCRICAO_ORIGEM"));
-				dto.setDescricaoConversao(resultset.getString("DESCRICAO_CONVERSAO"));
-				dto.setSigla(resultset.getString("SIGLA"));
-				dto.setMedidaConversao(resultset.getDouble("MEDIDA_CONVERSAO"));
+				dto.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
+				dto.setMedidaConversao(resultset.getString("MEDIDA_CONVERSAO"));
+				dto.setSiglaUnidadeMedida(resultset.getString("SIGLA_UNIDADE_MEDIDA"));
+				dto.setFatorConversao(resultset.getDouble("FATOR_CONVERSAO"));
 				listarUnidadeMedida.add(dto);
 			}
 
@@ -91,15 +87,15 @@ public class UnidadeMedidaDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into TB_UNIDADE_MEDIDA (DESCRICAO_ORIGEM, DESCRICAO_CONVERSAO, SIGLA, MEDIDA_CONVERSAO)");
+			sql.append("insert into TB_UNIDADE_MEDIDA (UNIDADE_MEDIDA, MEDIDA_CONVERSAO, SIGLA_UNIDADE_MEDIDA, FATOR_CONVERSAO)");
 			sql.append("values (?, ?, ?, ? )");
 
 			// Cadastra a medida e gera e busca id gerado
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
-			statement.setString(1, unidadeMedida.getDescricaoOrigem());
-			statement.setString(2, unidadeMedida.getDescricaoConversao());
-			statement.setString(3, unidadeMedida.getSigla());
-			statement.setString(4, String.valueOf(unidadeMedida.getMedidaConversao()));
+			statement.setString(1, unidadeMedida.getUnidadeMedida());
+			statement.setString(2, unidadeMedida.getMedidaConversao());
+			statement.setString(3, unidadeMedida.getSiglaUnidadeMedida());
+			statement.setString(4, String.valueOf(unidadeMedida.getFatorConversao()));
 
 			statement.executeUpdate();
 
@@ -111,7 +107,7 @@ public class UnidadeMedidaDAO {
 			return idUnidadeMedida;
 
 		} catch (ClassNotFoundException | SQLException e) {
-			throw new PersistenciaException(MensagemContantes.MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE.replace("?", unidadeMedida.getSigla()));
+			throw new PersistenciaException(MensagemContantes.MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE.replace("?", unidadeMedida.getSiglaUnidadeMedida()));
 		} finally {
 			conexao.close();
 		}
@@ -170,10 +166,10 @@ public class UnidadeMedidaDAO {
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ");
 			sql.append("u.`ID_UNIDADE_MEDIDA`,");
-			sql.append("u.`DESCRICAO_ORIGEM`,");
-			sql.append("u.`DESCRICAO_CONVERSAO`,");
-			sql.append("u.`SIGLA`,");
-			sql.append("u.`MEDIDA_CONVERSAO`");			
+			sql.append("u.`UNIDADE_MEDIDA`,");
+			sql.append("u.`MEDIDA_CONVERSAO`,");
+			sql.append("u.`SIGLA_UNIDADE_MEDIDA`,");
+			sql.append("u.`FATOR_CONVERSAO`");
 			sql.append(" from TB_UNIDADE_MEDIDA u "); 
 			sql.append("where ID_UNIDADE_MEDIDA = ?;");
 
@@ -183,10 +179,10 @@ public class UnidadeMedidaDAO {
 
 			while (resultset.next()) {
 				unidadeMedida.setIdUnidadeMedida(resultset.getInt("ID_UNIDADE_MEDIDA"));
-				unidadeMedida.setDescricaoOrigem(resultset.getString("DESCRICAO_ORIGEM"));
-				unidadeMedida.setDescricaoConversao(resultset.getString("DESCRICAO_CONVERSAO"));
-				unidadeMedida.setSigla(resultset.getString("SIGLA"));
-				unidadeMedida.setMedidaConversao(resultset.getDouble("MEDIDA_CONVERSAO"));
+				unidadeMedida.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
+				unidadeMedida.setMedidaConversao(resultset.getString("MEDIDA_CONVERSAO"));
+				unidadeMedida.setSiglaUnidadeMedida(resultset.getString("SIGLA_UNIDADE_MEDIDA"));
+				unidadeMedida.setFatorConversao(resultset.getDouble("FATOR_CONVERSAO"));
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -216,14 +212,14 @@ public class UnidadeMedidaDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = unidadeMedida.getIdUnidadeMedida();
 
-			sql.append("update TB_UNIDADE_MEDIDA set DESCRICAO_ORIGEM = ?," + "DESCRICAO_CONVERSAO = ?, SIGLA = ?, MEDIDA_CONVERSAO = ?" + " where ID_UNIDADE_MEDIDA = " + id + ";");
+			sql.append("update TB_UNIDADE_MEDIDA set UNIDADE_MEDIDA = ?," + "MEDIDA_CONVERSAO = ?, SIGLA_UNIDADE_MEDIDA = ?, FATOR_CONVERSAO = ?" + " where ID_UNIDADE_MEDIDA = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
-			statement.setString(1, unidadeMedida.getDescricaoOrigem());
-			statement.setString(2, unidadeMedida.getDescricaoConversao());
-			statement.setString(3, unidadeMedida.getSigla());
-			statement.setDouble(4, unidadeMedida.getMedidaConversao());
+			statement.setString(1, unidadeMedida.getUnidadeMedida());
+			statement.setString(2, unidadeMedida.getMedidaConversao());
+			statement.setString(3, unidadeMedida.getSiglaUnidadeMedida());
+			statement.setDouble(4, unidadeMedida.getFatorConversao());
 
 			ok = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {

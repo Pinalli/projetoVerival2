@@ -24,17 +24,17 @@ public class EditUnidadeMedidaCommand implements Command{
 		proxima = "unidadeMedida/editUnidadeMedida.jsp";
 		
 		int idUnidadeMedida = Integer.valueOf(request.getParameter("idUnidadeMedida"));
-		String descricaoOrigem = request.getParameter("descricaoOrigem");
-		String descricaoConversao = request.getParameter("descricaoConversao");
-		String sigla = request.getParameter("sigla");
-		double medidaConversao = Double.valueOf(request.getParameter("medidaConversao"));
+		String descricaoUnidadeMedida = request.getParameter("descricaoUnidadeMedida");
+		String siglaUnidadeMedida = request.getParameter("siglaUnidadeMedida");
+		String medidaConversao = request.getParameter("medidaConversao");
+		double fatorConversao = Double.valueOf(request.getParameter("fatorConversao"));
 				
 		try{			
 		    unidadeMedida = new UnidadeMedida();
-			unidadeMedida.setDescricaoOrigem(descricaoOrigem);
-			unidadeMedida.setDescricaoConversao(descricaoConversao);
-			unidadeMedida.setSigla(sigla);
+			unidadeMedida.setUnidadeMedida(descricaoUnidadeMedida);
 			unidadeMedida.setMedidaConversao(medidaConversao);
+			unidadeMedida.setSiglaUnidadeMedida(siglaUnidadeMedida);
+			unidadeMedida.setFatorConversao(fatorConversao);
 			unidadeMedida.setIdUnidadeMedida(idUnidadeMedida);
 			
 			boolean isValido = unidadeMedidaBO.validaUnidadeMedida(unidadeMedida);
@@ -42,7 +42,7 @@ public class EditUnidadeMedidaCommand implements Command{
 			if(isValido){
 				unidadeMedidaBO.editaUnidadeMedida(unidadeMedida);
 				proxima = "main?acao=listUnidadeMedida";
-				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_EDICAO_UNIDADE_MEDIDA.replace("?", sigla));
+				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_EDICAO_UNIDADE_MEDIDA.replace("?", siglaUnidadeMedida));
 			} else {				
 				request.setAttribute("msgErro", MensagemContantes.MSG_ERR_EDICAO_UNIDADE_MEDIDA);
 			}				

@@ -19,10 +19,10 @@
             <thead>
                 <tr>
                     <th style="text-align: center;">ID</th>
-                    <th style="text-align: center;">Descrição de origem</th>
-					<th style="text-align: center;">Descrição de conversão</th>
-					<th style="text-align: center;">Sigla</th>
-					<th style="text-align: center;">Medida de conversao</th>
+                    <th style="text-align: center;">Unidade de Medida</th>
+					<th style="text-align: center;">Sigla da Unidade de Medida</th>
+					<th style="text-align: center;">Medida de Conversão</th>
+					<th style="text-align: center;">Fator de conversao</th>
 		 			<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
@@ -35,20 +35,20 @@
 				          
             	<tr>
 	            	<td align="center"><%=unidadeMedida.getIdUnidadeMedida()%></td>
-	            	<td align="center"><%=unidadeMedida.getDescricaoOrigem()%></td>
-	            	<td align="center"><%=unidadeMedida.getDescricaoConversao()%></td>
-	            	<td align="center"><%=unidadeMedida.getSigla()%></td>
-	             	<td align="center"><%=unidadeMedida.getMedidaConversao()%></td> 
+	            	<td align="center"><%=unidadeMedida.getUnidadeMedida()%></td>
+	            	<td align="center"><%=unidadeMedida.getSiglaUnidadeMedida()%></td>
+	            	<td align="center"><%=unidadeMedida.getMedidaConversao()%></td>
+	             	<td align="center"><%=unidadeMedida.getFatorConversao()%></td>
 	             	<td align="center">
 						<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%=unidadeMedida.getIdUnidadeMedida() %>" data-usuario="<%=unidadeMedida.getDescricaoOrigem()%>" 
+            				<a href="" data-toggle="modal" data-id="<%=unidadeMedida.getIdUnidadeMedida() %>" data-usuario="<%=unidadeMedida.getUnidadeMedida()%>"
             				data-target="#modalEditar" title="Editar"> <i class="glyphicon glyphicon-pencil"></i></a>
             			</form>
             		</td>	
             		
             		<td align="center">
             			<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%=unidadeMedida.getIdUnidadeMedida() %>" data-usuario="<%=unidadeMedida.getDescricaoOrigem()%>" 
+            				<a href="" data-toggle="modal" data-id="<%=unidadeMedida.getIdUnidadeMedida() %>" data-usuario="<%=unidadeMedida.getUnidadeMedida()%>"
             				data-target="#modalExcluir" title="Deletar"> <i class="glyphicon glyphicon-trash"></i></a>
             			</form>
             		</td>

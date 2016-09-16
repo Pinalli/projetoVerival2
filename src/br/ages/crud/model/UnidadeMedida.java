@@ -6,21 +6,21 @@ package br.ages.crud.model;
 
 public class UnidadeMedida {
 	private int idUnidadeMedida;
-	private String descricaoOrigem;
-	private String descricaoConversao;
-	private String sigla;
-	private double medidaConversao;
+	private String unidadeMedida;
+	private String medidaConversao;
+	private String siglaUnidadeMedida;
+	private double fatorConversao;
 
 	public UnidadeMedida() {
 	}
 
-	public UnidadeMedida(int idUnidadeMedida, String descricaoOrigem, String descricaoConversao, String sigla,
-			double medidaConversao) {
+	public UnidadeMedida(int idUnidadeMedida, String unidadeMedida, String medidaConversao, String siglaUnidadeMedida,
+						 double fatorConversao) {
 		this.idUnidadeMedida = idUnidadeMedida;
-		this.descricaoOrigem = descricaoOrigem;
-		this.descricaoConversao = descricaoConversao;
-		this.sigla = sigla;
+		this.unidadeMedida = unidadeMedida;
 		this.medidaConversao = medidaConversao;
+		this.siglaUnidadeMedida = siglaUnidadeMedida;
+		this.fatorConversao = fatorConversao;
 	}
 
 	public int getIdUnidadeMedida() {
@@ -31,36 +31,36 @@ public class UnidadeMedida {
 		this.idUnidadeMedida = idUnidadeMedida;
 	}
 
-	public String getDescricaoOrigem() {
-		return descricaoOrigem;
+	public String getUnidadeMedida() {
+		return unidadeMedida;
 	}
 
-	public void setDescricaoOrigem(String descricaoOrigem) {
-		this.descricaoOrigem = descricaoOrigem;
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
 	}
 
-	public String getDescricaoConversao() {
-		return descricaoConversao;
-	}
-
-	public void setDescricaoConversao(String descricaoConversao) {
-		this.descricaoConversao = descricaoConversao;
-	}
-
-	public String getSigla() {
-		return sigla;
-	}
-
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
-	}
-
-	public double getMedidaConversao() {
+	public String getMedidaConversao() {
 		return medidaConversao;
 	}
 
-	public void setMedidaConversao(double medidaConversao) {
+	public void setMedidaConversao(String medidaConversao) {
 		this.medidaConversao = medidaConversao;
+	}
+
+	public String getSiglaUnidadeMedida() {
+		return siglaUnidadeMedida;
+	}
+
+	public void setSiglaUnidadeMedida(String siglaUnidadeMedida) {
+		this.siglaUnidadeMedida = siglaUnidadeMedida;
+	}
+
+	public double getFatorConversao() {
+		return fatorConversao;
+	}
+
+	public void setFatorConversao(double fatorConversao) {
+		this.fatorConversao = fatorConversao;
 	}
 
 }

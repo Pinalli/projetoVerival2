@@ -1,20 +1,14 @@
 package br.ages.crud.bo;
 
 import java.sql.SQLException;
-import java.text.Normalizer;
 import java.text.ParseException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import br.ages.crud.dao.UnidadeMedidaDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.TipoUsuario;
 import br.ages.crud.model.UnidadeMedida;
-import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
-import br.ages.crud.validator.SenhaValidator;
 
 /**
  * Gerencia os comportamentos de negocio da Unidade de Medida Associa os parametros da
@@ -47,15 +41,15 @@ public class UnidadeMedidaBO {
 		
 		try{
 			
-			if (unidadeMedida.getDescricaoOrigem().length() < 1 || unidadeMedida.getDescricaoOrigem().length() > 60) {
+			if (unidadeMedida.getUnidadeMedida().length() < 1 || unidadeMedida.getUnidadeMedida().length() > 60) {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_ORIGEM_INVALIDA.concat("<br/>"));
 			}
-			if (unidadeMedida.getDescricaoConversao().length() < 1 || unidadeMedida.getDescricaoConversao().length() > 60) {
+			if (unidadeMedida.getMedidaConversao().length() < 1 || unidadeMedida.getMedidaConversao().length() > 60) {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_CONVERSAO_INVALIDA.concat("<br/>"));
 			}
-			if (unidadeMedida.getSigla().length() < 1 || unidadeMedida.getSigla().length() > 10) {
+			if (unidadeMedida.getSiglaUnidadeMedida().length() < 1 || unidadeMedida.getSiglaUnidadeMedida().length() > 10) {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_UNIDADE_MEDIDA_SINGLA_INVALIDA.concat("<br/>"));
 			}

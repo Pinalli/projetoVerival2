@@ -67,7 +67,7 @@ public class MensagemContantes {
 	
 
 	//msgs de unidades de medidas
-	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA = "Unidade ? cadastrada com sucesso!";
+	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA = "Unidade ? editada com sucesso!";
 	
 	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA = "Ocorreu um erro na edição da unidade de medida.";
 	

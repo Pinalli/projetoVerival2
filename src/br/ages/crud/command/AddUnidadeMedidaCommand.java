@@ -9,19 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.text.ParseException;
 import br.ages.crud.bo.UnidadeMedidaBO;
-import br.ages.crud.bo.UsuarioBO;
-import br.ages.crud.exception.NegocioException;
-import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.PerfilAcesso;
-import br.ages.crud.model.StatusUsuario;
-import br.ages.crud.model.TipoUsuario;
 import br.ages.crud.model.UnidadeMedida;
-import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
-
-import javax.servlet.http.HttpServletRequest;
-import java.sql.SQLException;
-import java.text.ParseException;
 
 public class AddUnidadeMedidaCommand implements Command {
 	private String proxima;
@@ -31,17 +20,17 @@ public class AddUnidadeMedidaCommand implements Command {
 		unidadeMedidaBO = new UnidadeMedidaBO();
 		proxima = "main?acao=telaUnidadeMedida";
 
-		String descricaoOrigem = request.getParameter("descricaoOrigem");
-		String descricaoConversao = request.getParameter("descricaoConversao");
-		String sigla = request.getParameter("sigla");
-		double medidaConversao = Double.valueOf(request.getParameter("medidaConversao"));
+		String descricaoUnidadeMedida = request.getParameter("unidadeMedida");
+		String siglaUnidadeMedida = request.getParameter("siglaUnidadeMedida");
+		String medidaConversao = request.getParameter("medidaConversao");
+		double fatorConversao = Double.valueOf(request.getParameter("fatorConversao"));
 		
 		try {
 			UnidadeMedida unidadeMedida = new UnidadeMedida();
-			unidadeMedida.setDescricaoOrigem(descricaoOrigem);
-			unidadeMedida.setDescricaoConversao(descricaoConversao);
-			unidadeMedida.setSigla(sigla);
+			unidadeMedida.setUnidadeMedida(descricaoUnidadeMedida);
 			unidadeMedida.setMedidaConversao(medidaConversao);
+			unidadeMedida.setSiglaUnidadeMedida(siglaUnidadeMedida);
+			unidadeMedida.setFatorConversao(fatorConversao);
 			
 			boolean isValido = unidadeMedidaBO.validaUnidadeMedida(unidadeMedida);
 			if (isValido == false) {
@@ -49,7 +38,7 @@ public class AddUnidadeMedidaCommand implements Command {
 			} else { // cadastro de pessoa com sucesso
 				unidadeMedidaBO.cadastrarUnidadeMedida(unidadeMedida);
 				proxima = "main?acao=listUnidadeMedida";
-				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_UNIDADE_MEDIDA.replace("?", unidadeMedida.getSigla()));
+				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_UNIDADE_MEDIDA.replace("?", unidadeMedida.getSiglaUnidadeMedida()));
 
 			}
 		} catch (Exception e) {

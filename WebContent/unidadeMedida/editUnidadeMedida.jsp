@@ -23,30 +23,27 @@
         	<div class="table-responsive">
                 
                 <form method="post" action="main?acao=editUnidadeMedida">
-                	<div class="form-group">
-			           	<label class="form-label ages">ID</label>
-			           	<input class="form-control" id="idUnidadeMedida" name="idUnidadeMedida" value="<%=unidadeMedida.getIdUnidadeMedida() %>" type="text" maxlength="9" readonly>
-		            </div>
-		            
-		            <div class="form-group">
-			           	<label class="form-label ages">Descrição de origem: <span class="red">*</span></label>
-			           	<input class="form-control" id="descricaoOrigem" name="descricaoOrigem" value="<%=unidadeMedida.getDescricaoOrigem() %>" type="text" maxlength="120" required>
-		            </div>
+					<input class="form-control" type="hidden" id="idUnidadeMedida" name="idUnidadeMedida" value="<%=unidadeMedida.getIdUnidadeMedida()%>">
+					<div class="form-group">
+						<label class="form-label ages">Unidade de Medida: <span class="red">*</span></label>
+						<input class="form-control" id="descricaoUnidadeMedida" name="descricaoUnidadeMedida" value="<%=unidadeMedida.getUnidadeMedida()%>" type="text" maxlength="120" required>
+					</div>
 
 					<div class="form-group">
-			           	<label class="form-label ages">Descrição de Conversão: <span class="red">*</span></label>
-			           	<input class="form-control" id="descricaoConversao" name="descricaoConversao" value="<%=unidadeMedida.getDescricaoConversao() %>" type="text" maxlength="120" required>
-		            </div>
-                    
+						<label class="form-label ages">Sigla de Unidade de Medida: <span class="red">*</span></label>
+						<input class="form-control" id="siglaUnidadeMedida" name="siglaUnidadeMedida" value="<%=unidadeMedida.getSiglaUnidadeMedida()%>" type="text" maxlength="8" required>
+					</div>
+
 					<div class="form-group">
-			           	<label class="form-label ages">Sigla: <span class="red">*</span></label>
-			           	<input class="form-control" id="sigla" name="sigla" value="<%=unidadeMedida.getSigla() %>" type="text" maxlength="8" required>
-		            </div>
-		            
-		              <div class="form-group">
-			           	<label class="form-label ages">Medida de conversão: <span class="red">*</span></label>
-			           	<input class="form-control" id="medidaConversao" name="medidaConversao" value="<%=unidadeMedida.getMedidaConversao() %>" type="number" step="any" maxlength="120" min="0"  required>
-		            </div>
+						<label class="form-label ages">Medida de Conversão: <span class="red">*</span></label>
+						<input class="form-control" id="medidaConversao" name="medidaConversao" value="<%=unidadeMedida.getMedidaConversao()%>" type="text" maxlength="120" required>
+					</div>
+
+
+					<div class="form-group">
+						<label class="form-label ages">Fator de conversão: <span class="red">*</span></label>
+						<input class="form-control" id="fatorConversao" name="fatorConversao" value="<%=unidadeMedida.getFatorConversao()%>" type="number" step="any" min="0" maxlength="120" required>
+					</div>
 				    
                     <hr>
                     

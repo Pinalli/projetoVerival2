@@ -22,23 +22,24 @@
                 
                 <form method="post" action="main?acao=addUnidadeMedida">                	
 		            <div class="form-group">
-			           	<label class="form-label ages">Descrição de origem: <span class="red">*</span></label>
-			           	<input class="form-control" id="descricaoOrigem" name="descricaoOrigem" value="" type="text" maxlength="120" required>
+			           	<label class="form-label ages">Unidade de Medida: <span class="red">*</span></label>
+			           	<input class="form-control" id="unidadeMedida" name="unidadeMedida" value="" type="text" maxlength="120" required>
 		            </div>
 
 					<div class="form-group">
-			           	<label class="form-label ages">Descrição de Conversão: <span class="red">*</span></label>
-			           	<input class="form-control" id="descricaoConversao" name="descricaoConversao" value="" type="text" maxlength="120" required>
+						<label class="form-label ages">Sigla da Unidade de Medida: <span class="red">*</span></label>
+						<input class="form-control" id="siglaUnidadeMedida" name="siglaUnidadeMedida" value="" type="text" maxlength="8" required>
+					</div>
+
+					<div class="form-group">
+			           	<label class="form-label ages">Medida de Conversão: <span class="red">*</span></label>
+			           	<input class="form-control" id="medidaConversao" name="medidaConversao" value="" type="text" maxlength="120" required>
 		            </div>
                     
-					<div class="form-group">
-			           	<label class="form-label ages">Sigla: <span class="red">*</span></label>
-			           	<input class="form-control" id="sigla" name="sigla" value="" type="text" maxlength="8" required>
-		            </div>
-		            
+
 		              <div class="form-group">
-			           	<label class="form-label ages">Medida de conversão: <span class="red">*</span></label>
-			           	<input class="form-control" id="medidaConversao" name="medidaConversao" value="" type="number" step="any" min="0" maxlength="120" required>
+			           	<label class="form-label ages">Fator de conversão: <span class="red">*</span></label>
+			           	<input class="form-control" id="fatorConversao" name="fatorConversao" value="" type="number" step="any" min="0" maxlength="120" required>
 		            </div>
 				    
                     <hr>
