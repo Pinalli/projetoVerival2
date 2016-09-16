@@ -10,7 +10,7 @@
                    .text('Excluir unidade medida caseira');
 
             $(this).find('#modal-descricao')
-                   .text('VocÃª realmente deseja excluir a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
+                   .text('Você realmente deseja excluir a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
 
             $('#formExcluir').attr('action', "main?acao=removerUnidadeMedidaCaseira&id_unidade_medida_caseira=" + id);
         });
@@ -22,7 +22,7 @@
             var id = botao.data('id');
 
             $(this).find('.modal-title').text('Editar unidade medida caseira');
-            $(this).find('#modal-descricao').text('VocÃª realmente deseja editar a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
+            $(this).find('#modal-descricao').text('Você realmente deseja editar a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
 
             $('#formEditar')
                     .attr('action', "main?acao=telaUnidadeMedidaCaseira&id_unidade_medida_caseira=" + id + "&isEdit=true");
@@ -46,7 +46,7 @@
             <div class="modal-footer">
                 <form action="" method="post" id="formExcluir">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Excluir</button>
+                    <button type="submit" class="btn btn-success">Excluir</button>
                 </form>
             </div>
 
@@ -70,7 +70,7 @@
             <div class="modal-footer">
                 <form action="" method="post" id="formEditar">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Editar</button>
+                    <button type="submit" class="btn btn-success">Editar</button>
                 </form>
             </div>
 
