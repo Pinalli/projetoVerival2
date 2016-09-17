@@ -10,21 +10,23 @@
 
 USE ficha_e;
 
-drop table tb_ingredientes;
+drop table TB_INGREDIENTES;
 
 CREATE TABLE `TB_INGREDIENTES` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_EMPRESA` int(11) NOT NULL COMMENT 'Será necessário para quando tiver empresas',
+  `ID_EMPRESA` int(11) DEFAULT NULL COMMENT 'Será necessário para quando tiver empresas',
   `COD` int(11) NOT NULL,
+  `DESCRICAO` varchar(140) NOT NULL,
   `CARBOIDRATOS` decimal(10,2) DEFAULT NULL,
-  `KCALCARBOIDRATOS` decimal(10,2) DEFAULT NULL,
+  `KCAL_CARBOIDRATOS` decimal(10,2) DEFAULT NULL,
   `PROTEINAS` decimal(10,2) DEFAULT NULL,
-  `KCALPROTEINAS` decimal(10,2) DEFAULT NULL,
+  `KCAL_PROTEINAS` decimal(10,2) DEFAULT NULL,
   `LIPIDIOS` decimal(10,2) DEFAULT NULL,
-  `KCALLIPIDIOS` decimal(10,2) DEFAULT NULL,
-  `FATORCORRECAO` decimal(10,2) DEFAULT NULL,
-  `INDICECOCCAO` decimal(10,2) DEFAULT NULL,
+  `KCAL_LIPIDIOS` decimal(10,2) DEFAULT NULL,
+  `FATOR_CORRECAO` decimal(10,2) DEFAULT NULL,
+  `INDICE_COCCAO` decimal(10,2) DEFAULT NULL,
   `CUSTO` decimal(10,2) DEFAULT NULL,
+  `UNIDADE_MEDIDA` varchar(140) NOT NULL,
   `DATA_INSERCAO` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `COD_UNIQUE` (`COD`),

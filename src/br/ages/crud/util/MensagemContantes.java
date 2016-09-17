@@ -149,4 +149,16 @@ public class MensagemContantes {
 	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_NOME_INVALIDO = "A descrição da origem da unidade de medida Caseira deve ter de 1 a 60 caracteres";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_SINGLA_INVALIDA = "A sigla da unidade de medida Caseira deve ter de 1 a 10 caracteres";
 	public static final String MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA_EM_PROJETO = "Esta Unidade de Medida Caseira está em algum projeto e não pode ser removido!";
+	
+	//msgs das Ingredientes
+	public static final String MSG_SUC_REMOVE_INGREDIENTE = " Ingrediente ? removida com sucesso";
+	public static final String MSG_SUC_EDICAO_INGREDIENTE = " Ingrediente ? altera com sucesso!";
+	public static final String MSG_SUC_CADASTRO_INGREDIENTE = " Ingrediente ? cadastrada com sucesso!";	
+	public static final String MSG_ERR_EDICAO_INGREDIENTE = " Ingrediente ? não pode ser editada";
+	public static final String MSG_ERR_INGREDIENTE_JA_EXISTENTE = " Ingrediente ? já cadastrada";
+	public static final String MSG_ERR_INGREDIENTE_DADOS_INVALIDOS = "Dados da Ingrediente inválidos ou inconsistentes!";
+	public static final String MSG_ERR_INGREDIENTE_NOME_INVALIDO = "A descrição da origem da Ingrediente deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";
+	
+	
 }

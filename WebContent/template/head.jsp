@@ -80,7 +80,8 @@
 				          		<span class="caret"></span>
 				          	</a>
 				          	<ul class="dropdown-menu">				            	 
-				          		<li><a href="main?acao=telaIngredientes">Ingredientes</a>
+				          		<li><a href="main?acao=listIngrediente">Listar</a>
+				          		<li><a href="main?acao=telaIngredientes">Cadastrar</a>
 				          	</ul>
         				</li>
 

@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 import br.ages.crud.command.AddUnidadeMedidaCaseiraCommand;
 import br.ages.crud.command.AddUnidadeMedidaCommand;
 import br.ages.crud.command.AddUserCommand;
+import br.ages.crud.command.AddIngredienteCommand;
 import br.ages.crud.command.Command;
 import br.ages.crud.command.CreateScreenIngredientesCommand;
 import br.ages.crud.command.CreateScreenUnidadeMedidaCaseiraCommand;
@@ -25,9 +26,11 @@ import br.ages.crud.command.CreateScreenUserCommand;
 import br.ages.crud.command.EditUnidadeMedidaCaseiraCommand;
 import br.ages.crud.command.EditUnidadeMedidaCommand;
 import br.ages.crud.command.EditUserCommand;
+import br.ages.crud.command.EditIngredienteCommand;
 import br.ages.crud.command.ListUnidadeMedidaCaseiraCommand;
 import br.ages.crud.command.ListUnidadeMedidaCommand;
 import br.ages.crud.command.ListUserCommand;
+import br.ages.crud.command.ListIngredienteCommand;
 import br.ages.crud.command.LoginCommand;
 import br.ages.crud.command.LogoutCommand;
 import br.ages.crud.command.RemoveUnidadeMedidaCaseiraCommand;
@@ -48,27 +51,25 @@ public class MainServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		
+
 		comandos.put("login", new LoginCommand());
 		comandos.put("logout", new LogoutCommand());
 		comandos.put("recuperarSenha", new SenhaCommand());
-		
-		//COMANDOS DE USUARIO
-		
-		comandos.put("telaIngredientes", new CreateScreenIngredientesCommand());
+
+		// COMANDOS DE USUARIO
+
 		comandos.put("telaUser", new CreateScreenUserCommand());
 		comandos.put("listUser", new ListUserCommand());
 		comandos.put("addUser", new AddUserCommand());
 		comandos.put("editUser", new EditUserCommand());
 		comandos.put("removerUsuario", new RemoveUserCommand());
-		
-		//COMANDOS DE UNIDADE MEDIDA
-		comandos.put("listUnidadeMedida", new ListUnidadeMedidaCommand()); 
+
+		// COMANDOS DE UNIDADE MEDIDA
+		comandos.put("listUnidadeMedida", new ListUnidadeMedidaCommand());
 		comandos.put("addUnidadeMedida", new AddUnidadeMedidaCommand());
 		comandos.put("editUnidadeMedida", new EditUnidadeMedidaCommand());
 		comandos.put("removerUnidadeMedida", new RemoveUnidadeMedidaCommand());
 		comandos.put("telaUnidadeMedida", new CreateScreenUnidadeMedidaCommand());
-			
 
 		// COMANDOS DE UNIDADE DE MEDIDA CASEIRA
 		comandos.put("listUnidadeMedidaCaseira", new ListUnidadeMedidaCaseiraCommand());
@@ -76,11 +77,19 @@ public class MainServlet extends HttpServlet {
 		comandos.put("editUnidadeMedidaCaseira", new EditUnidadeMedidaCaseiraCommand());
 		comandos.put("removerUnidadeMedidaCaseira", new RemoveUnidadeMedidaCaseiraCommand());
 		comandos.put("telaUnidadeMedidaCaseira", new CreateScreenUnidadeMedidaCaseiraCommand());
-		
+
+		// COMANDO DE INGREDIENTE
+
+		comandos.put("telaIngredientes", new CreateScreenIngredientesCommand());
+		comandos.put("listIngrediente", new ListIngredienteCommand());
+		comandos.put("addIngrediente", new AddIngredienteCommand());
+		comandos.put("editIngrediente", new EditIngredienteCommand());
+
 	}
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse reponse) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse reponse)
+			throws ServletException, IOException {
 
 		String acao = request.getParameter("acao");
 		String proxima = null;
@@ -89,16 +98,16 @@ public class MainServlet extends HttpServlet {
 			Command comando = verificarComando(acao);
 			proxima = comando.execute(request);
 			Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioSessao");
-			if(usuario != null)
-				logger.debug("User: " +usuario.getUsuario() + " - comando " + comando.toString() + " acao: " +acao );
+			if (usuario != null)
+				logger.debug("User: " + usuario.getUsuario() + " - comando " + comando.toString() + " acao: " + acao);
 		} catch (NegocioException | SQLException | ParseException | PersistenciaException e) {
 			request.setAttribute("msgErro", e.getMessage());
 		}
-	
+
 		LogParametrosSession.logParametros(request);
-		
+
 		request.getRequestDispatcher(proxima).forward(request, reponse);
-		
+
 	}
 
 	private Command verificarComando(String acao) {
@@ -111,4 +120,3 @@ public class MainServlet extends HttpServlet {
 		return comando;
 	}
 }
-
