@@ -1,6 +1,6 @@
 
 --liquibase formatted sql
---changeset cassio:1
+--changeset cassio:3
 --comment Script para criação das primeiras tabelas do projeto.
 /***
 * Scripts para criacao e insersao de dados
@@ -62,4 +62,4 @@ INSERT INTO TB_USUARIO
 VALUES
 ('10', 'admin', 'admin', 'ADMINISTRADOR', 'ATIVO', '1', '03380192000', 'r. pitangueiras, n88', '82828787','Nutricionista Default', 'email.bacana@gmail.com', '2015-10-01 00:00:00');
 
-select * from TB_USUARIO;
+---select * from TB_USUARIO;
