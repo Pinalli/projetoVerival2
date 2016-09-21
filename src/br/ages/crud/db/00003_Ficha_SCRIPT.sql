@@ -15,7 +15,7 @@ DROP TABLE TB_TIPO_USUARIO;
 DROP TABLE TB_USUARIO;
 
 -- Tabela Usuario
---s
+-- s
 
 CREATE TABLE TB_USUARIO (
   ID_USUARIO int(11) NOT NULL AUTO_INCREMENT,
@@ -61,4 +61,4 @@ INSERT INTO TB_USUARIO
 VALUES
 ('10', 'admin', 'admin', 'ADMINISTRADOR', 'ATIVO', '1', '03380192000', 'r. pitangueiras, n88', '82828787','Nutricionista Default', 'email.bacana@gmail.com', '2015-10-01 00:00:00');
 
----select * from TB_USUARIO;
+-- select * from TB_USUARIO;
