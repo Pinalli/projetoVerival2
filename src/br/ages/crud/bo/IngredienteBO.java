@@ -74,9 +74,9 @@ public class IngredienteBO {
 
 	}
 
-	public Ingrediente buscaIngredienteId(int codigo) throws NegocioException {
+	public Ingrediente buscaIngredienteId(int idIngrediente) throws NegocioException {
 		try {
-			Ingrediente ingrediente = ingredienteDAO.buscaIngredienteCodigo(codigo);
+			Ingrediente ingrediente = ingredienteDAO.buscaIngredienteId(idIngrediente);
 
 			return ingrediente;
 		} catch (Exception e) {
@@ -99,4 +99,22 @@ public class IngredienteBO {
 	public void setIngredienteDAO(IngredienteDAO ingredienteDAO) {
 		this.ingredienteDAO = ingredienteDAO;
 	}
+	
+	/**
+	 * Remove Unidade de Medida Caseira da base
+	 * 
+	 * @param idIngrediente
+	 * @throws NegocioException
+	 * @throws SQLException
+	 */
+	public void removerIngrediente(Integer idIngrediente) throws NegocioException, SQLException {
+		try {
+				ingredienteDAO.removeIngrediente(idIngrediente);
+				
+		} catch (PersistenciaException e) {
+			e.printStackTrace();
+			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO);
+		}
+	}
+	
 }

@@ -1,6 +1,6 @@
 
 --liquibase formatted sql
---changeset cassio:1
+--changeset cassio:3
 --comment Script para criação das primeiras tabelas do projeto.
 /***
 * Scripts para criacao e insersao de dados

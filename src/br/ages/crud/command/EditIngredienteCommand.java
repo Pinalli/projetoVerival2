@@ -21,28 +21,36 @@ public class EditIngredienteCommand implements Command{
 	@Override
 	public String execute(HttpServletRequest request) throws SQLException {
 		ingredienteBO =  new IngredienteBO();
-		Ingrediente ingrediente;
-		proxima = "ingrediente/editaIngrediente.jsp";
+		proxima = "main?acao=telaIngredientes";
+		//proxima = "Ingredientes/telaIngredientes.jsp";
 		
-		String codigo = request.getParameter("codigo");
+		String id = request.getParameter("idIngrediente");
+		String codigo = request.getParameter("cod");
 		String descricao = request.getParameter("descricao");
-		String carboidrato = request.getParameter("carboidrato");
+		String carboidrato = request.getParameter("carboidratos");
+		String kcalCarboidrato = request.getParameter("kcalcarboidratos");
 		String proteinas = request.getParameter("proteinas");
+		String kcalProteinas = request.getParameter("kcalproteinas");
 		String lipidios = request.getParameter("lipidios");
-		String fatorCorrecao = request.getParameter("fatorCorrecao"); 
-		String indiceCoccao = request.getParameter("indiceCoccao");
+		String kcalLipidios = request.getParameter("kcallipidios");
+		String fatorCorrecao = request.getParameter("fatorcorrecao"); 
+		String indiceCoccao = request.getParameter("indicecoccao");
 		String custo = request.getParameter("custo");
 		String unidadeMedida = request.getParameter("unidadeMedida");
 		
 		
 		try{				
 			
-			ingrediente = new Ingrediente();
+			Ingrediente ingrediente = new Ingrediente();
+			ingrediente.setId(Integer.valueOf(id));
 			ingrediente.setCodigo(Integer.valueOf(codigo));
 			ingrediente.setDescricao(descricao);
 			ingrediente.setCarboidratos(Double.valueOf(carboidrato));
+			ingrediente.setKcalCarboidratos(Double.valueOf(kcalCarboidrato));
 			ingrediente.setProteinas(Double.valueOf(proteinas));
+			ingrediente.setKcalProteinas(Double.valueOf(kcalProteinas));
 			ingrediente.setLipidios(Double.valueOf(lipidios));
+			ingrediente.setKcalLipidios(Double.valueOf(kcalLipidios));
 			ingrediente.setFatorCorrecao(Double.valueOf(fatorCorrecao));
 			ingrediente.setIndiceCoccao(Double.valueOf(indiceCoccao));
 			ingrediente.setCusto(Double.valueOf(custo));
@@ -50,10 +58,9 @@ public class EditIngredienteCommand implements Command{
 			
 			request.setAttribute("ingrediente", ingrediente);
 			
-		
 				ingredienteBO.editaIngrediente(ingrediente);
 				proxima = "main?acao=listIngrediente";
-				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_EDICAO_USUARIO.replace("?", ingrediente.getDescricao()));				
+				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_EDICAO_INGREDIENTE.replace("?", ingrediente.getDescricao()));				
 		} catch(Exception e){		
 			request.setAttribute("msgErro", e.getMessage());
 		}

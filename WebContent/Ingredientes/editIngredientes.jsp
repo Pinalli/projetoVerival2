@@ -1,96 +1,108 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
-<%@page import="br.ages.crud.model.Usuario"%>
-<%@page import="br.ages.crud.model.TipoUsuario"%>
+<%@page import="br.ages.crud.model.Ingrediente"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
-<%Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
-
 <jsp:include page="../template/head.jsp"></jsp:include>
-	
-	<div class="panel panel-success panel-addUser">
-    		
-		<div class="panel-heading text-center">
-			Editar Usuário
-		</div>
-		
-		
-		<div class="panel-body">
-		
-        	<jsp:include page="/template/msg.jsp"></jsp:include>
-        	
-        	<div class="table-responsive">
-                
-                <form method="post" action="main?acao=editUser">
-                	<input class="form-control" type="hidden" id="idUsuario" name="idUsuario" value="<%=usuario.getIdUsuario()%>">
-               		<div class="form-group">
-			           	<label class="form-label ages">Matrícula:</label>
-			           	<input class="form-control" id="matricula" name="matricula" value="<%=usuario.getMatricula() %>" type="text" maxlength="9" readonly>
-		            </div>
-		            
-		            <div class="form-group">
-			           	<label class="form-label ages">Nome: <span class="red">*</span></label>
-			           	<input class="form-control" id="nome" name="nome" value="<%=usuario.getNome() %>" type="text" maxlength="120" required>
-		            </div>
+<head>
+	<script type="text/javascript" src="js/ingrediente.js"></script>
+</head>
+<%Ingrediente ingrediente = (Ingrediente) request.getAttribute("ingrediente"); %>
+<div class="panel panel-success panel-addUser">
 
-					<div class="form-group">
-			           	<label class="form-label ages">Usuário:</label>
-			           	<input class="form-control" id="usuario" name="usuario" value="<%=usuario.getUsuario() %>" type="text" maxlength="120" readonly>
-		            </div>
-                    
-					<div class="form-group">
-			           	<label class="form-label ages">Senha: <span class="red">*</span></label>
-			           	<input class="form-control" id="senha" name="senha" value="<%=usuario.getSenha() %>" type="text" maxlength="8" required>
-		            </div>
+	<div class="panel-heading text-center">Editar Ingrediente <b><%=ingrediente.getDescricao()%></b></div>
+
+
+	<div class="panel-body">
+
+		<jsp:include page="/template/msg.jsp"></jsp:include>
+
+
+			<form method="post" action="main?acao=editIngrediente">
+				<input class="form-control" type="hidden" id="idIngrediente" name="idIngrediente" value="<%=ingrediente.getId()%>">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-4">
+							<label class="form-label ages"> Código: </span></label> 
+							<input class="form-control" id="cod" name="cod"	value="<%=ingrediente.getCodigo()%>" type="value" maxlength="5" required> 
+						</div>
+						<div class="col-sm-8">
+							<label class="form-label ages"> Descrição: </span></label> 
+							<input class="form-control" id="descricao" name="descricao" value="<%=ingrediente.getDescricao()%>" type="text" maxlength="120" required>
+						</div>
+					</div>				
+					
+					<div class="row">						
+						<div class="col-sm-4">
+						    <label class="form-label ages">Carboidratos</span></label> 
+							<input class="form-control" id="carboidratos" name="carboidratos" value="<%=ingrediente.getCarboidratos() %>" type="number" step="any" onInput="multiplica('Carboidrato')" maxlength="5" required>
+						</div>
+						<div class="col-sm-8">
+						    <label class="form-label ages">Carboidratos Kcal </span></label> 
+							<input class="form-control"  readonly="readonly" id="kcalcarboidratos" name="kcalcarboidratos" value="<%=ingrediente.getKcalCarboidratos() %>" type="text" maxlength="120" required>
+						</div>
+					</div>
+					
+					<div class="row">					
+						<div class="col-sm-4">
+							<label class="form-label ages">Proteinas</span></label> 
+							<input class="form-control"  id="proteinas" name="proteinas" value="<%=ingrediente.getProteinas() %>" type="number" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
+						</div>
+						<div class="col-sm-8">
+							<label class="form-label ages">Proteinas Kcal </span></label> 
+							<input class="form-control"  readonly="readonly" id="kcalproteinas" name="kcalproteinas" value="<%=ingrediente.getKcalProteinas() %>" type="text" maxlength="5" required> 
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Lipidios</span></label> 
+							<input class="form-control" id="lipidios" name="lipidios" value="<%=ingrediente.getLipidios() %>" type="number" step="any" onInput="multiplica('Lipidios')" maxlength="5" required>
+						</div>
+
+						<div class="col-sm-8">
+						    <label class="form-label ages">Lipidios Kcal </span></label> 
+							<input class="form-control" readonly="readonly" id="kcallipidios" name="kcallipidios" value="<%=ingrediente.getKcalLipidios()%>" type="text" maxlength="5" required>
+						</div>					
+					</div>
+					
+					
+					
+					
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<label class="form-label ages"> Fator de Correção </span></label> 
+							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="<%=ingrediente.getFatorCorrecao()%>" type="value" maxlength="5" required> 
+						</div>
+						<div class="col-sm-6">
+							<label class="form-label ages"> Índice de Cocção </span></label> 
+							<input class="form-control" id="indicecoccao" name="indicecoccao" value="<%=ingrediente.getIndiceCoccao()%>" type="value" maxlength="5" required>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<label class="form-label ages"> Valor de Custo   </span></label> 
+							<input class="form-control" id="custo" name="custo" value="<%=ingrediente.getCusto()%>" type="value" maxlength="5" required>
+						</div>
+						<div class="col-sm-6">
+							<label class="form-label ages"> Unidade de Medida</span></label> 
+							<select class="form-control input-sm" id="unidadeMedida" name="unidadeMedida">
+								<option value="Kg"> Kg</option>
+								<option value="Grama"> grama</option>
+								<option value="Litro"> litro</option>
+							</select>
+						</div>
+					</div>					
+				</div>
 				
-					<div class="form-group">
-			           	<label class="form-label ages">E-Mail: <span class="red">*</span></label>
-			           	<input class="form-control" id="email" name="email" value="<%=usuario.getEmail() %>" type="text" maxlength="120" required>
-		            </div>
-                    
-                    <div class="form-group">
-			           	<label class="form-label ages">Perfil de Acesso: <span class="red">*</span></label>
-			           	<select class="form-control" id="perfilAcesso" name="perfilAcesso" required>
-                            <option value="NAVEGADOR" <%= "NAVEGADOR".equals(usuario.getPerfilAcesso().toString()) ? "selected" : "" %>>Navegador</option>
-			           		<option value="ADMINISTRADOR" <%= "ADMINISTRADOR".equals(usuario.getPerfilAcesso().toString()) ? "selected" : "" %>>Administrador</option>
-		           		</select>
-		            </div>
-		            
-		            <div class="form-group">
-			           	<label class="form-label ages">Status: <span class="red">*</span></label>
-			           	<select class="form-control" id="statusUsuario" name="statusUsuario" required>
-			           		<option value="ATIVO" <%= "ATIVO".equals(usuario.getStatusUsuario().toString()) ? "selected" : "" %>>Ativo</option>
-                            <option value="INATIVO" <%= "INATIVO".equals(usuario.getStatusUsuario().toString()) ? "selected" : "" %>>Inativo</option>
-		           		</select>
-		            </div>
-		            
-		            <div class="form-group">
-			           	<label class="form-label ages">Tipo de Usuário: <span class="red">*</span></label>
-			           	<select class="form-control" id="tipoUsuario" name="tipoUsuario" required>
-						<%
-							List<TipoUsuario> listaTipoUsuarios = (List<TipoUsuario>) request.getAttribute("tipoUsuarios");
-							for (TipoUsuario tipoUsuario : listaTipoUsuarios) {
-						%>
-						<option value="<%=tipoUsuario.getIdTipoUsuario()%>"<%=tipoUsuario.getIdTipoUsuario() == usuario.getTipoUsuario().getIdTipoUsuario() ? "selected" : "" %>><%=tipoUsuario.getNome()%></option>
-						<%
-							}
-						%>           	
-			           	</select>
-		            </div>
-                    
-                    <hr>
-                    
-                    <p>Campos que contém <span class="red">*</span> são obrigatórios</p>
-                    
-                    
-                    <div class="text-center">
-			           	<input class="btn btn-warning limparUser pull-left" type="reset" value="Limpar">
-			           	<input class="btn btn-success addUser pull-right" type="submit" value="Salvar">
-			        </div>
-			        
-                </form>
-            </div>
-		</div>
+				<div class="text-center">
+					<input class="btn btn-default limpaIngrediente" type="reset" value="Limpar"> 
+					<input class="btn btn-success addIngrediente pull-right" type="submit" value="Editar">
+				</div>
+								
+			</form>
 	</div>
-
+</div>
 <jsp:include page="/template/foot.jsp"></jsp:include>
