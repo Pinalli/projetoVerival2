@@ -23,7 +23,6 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	private String email;
 	private Date dataInclusao;
 	private String cpf;
-	private String matricula;
 	private String endereco;
 	private String telefone;
 	
@@ -106,6 +105,14 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	public void setSenha(String value) {
 		senha = value;
 	}
+	
+	public String getConfirmarSenha() {
+		return confirmarSenha;
+	}
+
+	public void setConfirmarSenha(String value) {
+		confirmarSenha = value;
+	}
 
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
@@ -151,22 +158,6 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		this.perfilAcesso = perfilAcesso;
 	}
 
-	public String getConfirmarSenha() {
-		return confirmarSenha;
-	}
-
-	public void setConfirmarSenha(String confirmarSenha) {
-		this.confirmarSenha = confirmarSenha;
-	}
-
-	public String getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
-
 	@Override
 	public int compareTo(Usuario usuario) {
 		return this.getNome().compareToIgnoreCase(usuario.getNome());
@@ -174,8 +165,8 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", usuario=" + usuario + ", senha=" + senha+ ", confirmarSenha=" + confirmarSenha + ", tipoUsuario=" + tipoUsuario + ", perfilAcesso=" + perfilAcesso + ", statusUsuario=" + statusUsuario
-				+ ", cpf=" + cpf + "endereco=" + endereco +"matricula=" + matricula+ "telefone" + ", nome=" + nome + ", email=" + email + ", dataInclusao=" + dataInclusao + "]";
+		return "Usuario [idUsuario=" + idUsuario + ", usuario=" + usuario + ", senha=" + senha + ", tipoUsuario=" + tipoUsuario + ", perfilAcesso=" + perfilAcesso + ", statusUsuario=" + statusUsuario
+				+ ", cpf=" + cpf + "endereco=" + endereco + "telefone" + ", nome=" + nome + ", email=" + email + ", dataInclusao=" + dataInclusao + "]";
 	}
 
 	
