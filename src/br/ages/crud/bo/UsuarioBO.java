@@ -129,7 +129,11 @@ public class UsuarioBO {
 			if (!new SenhaValidator().validar(valores)) {
 				isValido = false;
 			}
-			
+			//confirmarSenha
+			if(!usuario.getSenha().equals(usuario.getConfirmarSenha())){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERRO_CAMPO_SENHA_E_CONFIRMARRSENHA_DIFERENTES);
+			}
 
 			// flag administrador
 			/*

@@ -32,6 +32,7 @@ public class EditUserCommand implements Command{
 		String idUsuarioString = request.getParameter("idUsuario");
 		String usuarioString = request.getParameter("usuario");
 		String senhaString = request.getParameter("senha");
+		String confirmarSenha = request.getParameter("confirmarSenha");
 		String idTipoUsuario = request.getParameter("tipoUsuario");
 		String perfilAcessoString = request.getParameter("perfilAcesso");
 		String statusUsuarioString = request.getParameter("statusUsuario");
@@ -54,7 +55,8 @@ public class EditUserCommand implements Command{
 			
 			usuario.setIdUsuario(Integer.valueOf(idUsuarioString));
 			usuario.setUsuario(usuarioString);
-			usuario.setSenha(senhaString);		
+			usuario.setSenha(senhaString);	
+			usuario.setConfirmarSenha(confirmarSenha);
 			usuario.setTelefone(telefoneString);
 			
 			TipoUsuario tipoUsuario2 = usuarioBO.consultaTipoUsuario(idTipoUsuario);

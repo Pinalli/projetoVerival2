@@ -1,6 +1,8 @@
 package br.ages.crud.util;
 
 public class MensagemContantes {
+	
+	public static final String MSG_ERRO_CAMPO_SENHA_E_CONFIRMARRSENHA_DIFERENTES = "campoo senha e confirmar senha diferentes";
 
 	public static final String MSG_ERR_CAMPO_OBRIGATORIO = "Campo ? obrigatório!";
 	
