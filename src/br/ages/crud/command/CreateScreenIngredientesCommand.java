@@ -6,48 +6,44 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import br.ages.crud.bo.UsuarioBO;
+import br.ages.crud.bo.IngredienteBO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.model.PerfilAcesso;
 import br.ages.crud.model.TipoUsuario;
 import br.ages.crud.model.Usuario;
+import br.ages.crud.model.Ingrediente;
 import br.ages.crud.util.MensagemContantes;
 
 public class CreateScreenIngredientesCommand implements Command {
 
 	private String proxima;
 
-	private UsuarioBO usuarioBO;
+	private IngredienteBO ingredienteBO;
 	
 	//private StakeholderBO stakeholderBO;
 
 	public String execute(HttpServletRequest request) throws SQLException {
-		proxima = "main?acao=listIngredientes";
-		Usuario currentIngredientes = (Usuario)request.getSession().getAttribute("usuarioSessao");
+		proxima = "main?acao=listIngrediente";
+		Usuario currentUser = (Usuario)request.getSession().getAttribute("usuarioSessao");
 
 		try {			
-			if( !currentIngredientes.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_DENY);
+			if( !currentUser.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_DENY);
 			// Verifica se abre tela edição de pessoa ou de adição de pessoa.
 			
 			String isEdit = request.getParameter("isEdit");
 			
-			usuarioBO = new UsuarioBO();
-			List<TipoUsuario> tipoUsuarios = new ArrayList<TipoUsuario>();
-			tipoUsuarios = usuarioBO.listaTipoUsuarios();
-			request.setAttribute("tipoUsuarios", tipoUsuarios);
-			
 			if (isEdit != null && !"".equals(isEdit)) {
 				
-				usuarioBO = new UsuarioBO();
+				ingredienteBO = new IngredienteBO();
 				
-				int id = Integer.parseInt(request.getParameter("id_usuario"));
-				Usuario usuario = usuarioBO.buscaUsuarioId(id);
+				int id = Integer.parseInt(request.getParameter("idIngrediente"));
+				Ingrediente ingrediente = ingredienteBO.buscaIngredienteId(id);
 				
 				
-				request.setAttribute("usuario", usuario);
+				request.setAttribute("ingrediente", ingrediente);
 				proxima = "Ingredientes/editIngredientes.jsp";
 				
-			} else { // Adiciona um novo usuário
+			} else { // Vai pra tela de ingredientes
 				proxima = "Ingredientes/addIngredientes.jsp";		
 			}
 

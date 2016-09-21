@@ -33,6 +33,7 @@ import br.ages.crud.command.ListUserCommand;
 import br.ages.crud.command.ListIngredienteCommand;
 import br.ages.crud.command.LoginCommand;
 import br.ages.crud.command.LogoutCommand;
+import br.ages.crud.command.RemoveIngredienteCommand;
 import br.ages.crud.command.RemoveUnidadeMedidaCaseiraCommand;
 import br.ages.crud.command.RemoveUnidadeMedidaCommand;
 import br.ages.crud.command.RemoveUserCommand;
@@ -79,11 +80,11 @@ public class MainServlet extends HttpServlet {
 		comandos.put("telaUnidadeMedidaCaseira", new CreateScreenUnidadeMedidaCaseiraCommand());
 
 		// COMANDO DE INGREDIENTE
-
 		comandos.put("telaIngredientes", new CreateScreenIngredientesCommand());
 		comandos.put("listIngrediente", new ListIngredienteCommand());
 		comandos.put("addIngrediente", new AddIngredienteCommand());
 		comandos.put("editIngrediente", new EditIngredienteCommand());
+		comandos.put("removerIngrediente", new RemoveIngredienteCommand());
 
 	}
 

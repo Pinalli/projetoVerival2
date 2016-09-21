@@ -23,9 +23,10 @@ import br.ages.crud.util.MensagemContantes;
 public class IngredienteDAO {
 
 	private ArrayList<Ingrediente> listarIngredientes;
-
+	private String table;
 	public IngredienteDAO() {
 		listarIngredientes = new ArrayList<>();
+		this.table = "TB_INGREDIENTES";
 	}
 
 	/**
@@ -43,7 +44,7 @@ public class IngredienteDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT * ");
-			sql.append("from TB_INGREDIENTES i");
+			sql.append("from "+ this.table +" i");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
@@ -82,10 +83,12 @@ public class IngredienteDAO {
 			Integer idIngrediente = null;
 
 			conexao = ConexaoUtil.getConexao();
-
+			
 			StringBuilder sql = new StringBuilder();
 			sql.append(
-					"insert into TB_INGREDIENTE (`ID`, `COD`, "
+					"insert into "+ this.table +" ("
+					+ "`ID`, "
+					+ "`COD`, "
 					+ "`DESCRICAO`, "
 					+ "`CARBOIDRATOS`, "
 					+ "`KCAL_CARBOIDRATOS`, "
@@ -93,32 +96,30 @@ public class IngredienteDAO {
 					+ "`KCAL_PROTEINAS`, "
 					+ "`LIPIDIOS`, "
 					+ "`KCAL_LIPIDIOS`, "
-					+ "`FATORCORRECAO`, "
-					+ "`INDICECOCCAO`, "
+					+ "`FATOR_CORRECAO`, "
+					+ "`INDICE_COCCAO`, "
 					+ "`CUSTO`, "
 					+ "`UNIDADE_MEDIDA`, "
 					+ "`DATA_INSERCAO`)"
 					);
-			sql.append("VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
+			sql.append("VALUE (NULL ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
 			java.sql.Date dataInclusao = new java.sql.Date(utilDate.getTime());
-
 			// Cadastra o ingrediente e gera e busca id gerado
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
-			statement.setInt(1, idIngrediente);
-			statement.setInt(2, ingrediente.getCodigo());
-			statement.setString(3, ingrediente.getDescricao());
-			statement.setDouble(4, ingrediente.getCarboidratos());
-			statement.setDouble(5, ingrediente.getKcalCarboidratos());
-			statement.setDouble(6, ingrediente.getProteinas());
-			statement.setDouble(7, ingrediente.getKcalProteinas());
-			statement.setDouble(8, ingrediente.getLipidios());
-			statement.setDouble(9, ingrediente.getKcalLipidios());
-			statement.setDouble(10, ingrediente.getFatorCorrecao());
-			statement.setDouble(11, ingrediente.getIndiceCoccao());
-			statement.setDouble(12, ingrediente.getCusto());
-			statement.setString(13, ingrediente.getUnidadeMedida());
+			statement.setInt(1, ingrediente.getCodigo());
+			statement.setString(2, ingrediente.getDescricao());
+			statement.setDouble(3, ingrediente.getCarboidratos());
+			statement.setDouble(4, ingrediente.getKcalCarboidratos());
+			statement.setDouble(5, ingrediente.getProteinas());
+			statement.setDouble(6, ingrediente.getKcalProteinas());
+			statement.setDouble(7, ingrediente.getLipidios());
+			statement.setDouble(8, ingrediente.getKcalLipidios());
+			statement.setDouble(9, ingrediente.getFatorCorrecao());
+			statement.setDouble(10, ingrediente.getIndiceCoccao());
+			statement.setDouble(11, ingrediente.getCusto());
+			statement.setString(12, ingrediente.getUnidadeMedida());
 			
 			statement.executeUpdate();
 
@@ -149,7 +150,7 @@ public class IngredienteDAO {
 			// sql.append("SELECT * FROM TB_INGREDIENTE WHERE DESCRICAO = ?");
 			sql.append("select ");
 			sql.append("i.*");
-			sql.append("FROM TB_INGREDIENTE i");
+			sql.append("FROM "+ this.table +" i");
 			sql.append("where i.descricao = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, descricao);
@@ -157,15 +158,20 @@ public class IngredienteDAO {
 			ResultSet resultset = statement.executeQuery();
 
 			while (resultset.next()) {
-				ingrediente.setCodigo(resultset.getInt("codigo"));
-				ingrediente.setDescricao(resultset.getString("descricao"));
-				ingrediente.setCarboidratos(resultset.getDouble("carboidrato"));
-				ingrediente.setProteinas(resultset.getDouble("proteinas"));
-				ingrediente.setLipidios(resultset.getDouble("lipidios"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("fatorCorrecao"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("indiceCoccao"));
-				ingrediente.setCusto(resultset.getDouble("custo"));
-				ingrediente.setUnidadeMedida(resultset.getString("unidadeMedida"));				
+				ingrediente.setId(resultset.getInt("i.ID"));
+				ingrediente.setCodigo(resultset.getInt("i.COD"));
+				ingrediente.setDescricao(resultset.getString("i.DESCRICAO"));
+				ingrediente.setCarboidratos(resultset.getDouble("i.CARBOIDRATOS"));
+				ingrediente.setKcalCarboidratos(resultset.getDouble("i.KCAL_CARBOIDRATOS"));
+				ingrediente.setProteinas(resultset.getDouble("i.PROTEINAS"));
+				ingrediente.setKcalProteinas(resultset.getDouble("i.KCAL_PROTEINAS"));
+				ingrediente.setLipidios(resultset.getDouble("i.LIPIDIOS"));
+				ingrediente.setKcalLipidios(resultset.getDouble("i.KCAL_LIPIDIOS"));
+				ingrediente.setFatorCorrecao(resultset.getDouble("i.FATOR_CORRECAO"));
+				ingrediente.setIndiceCoccao(resultset.getDouble("i.INDICE_COCCAO"));
+				ingrediente.setCusto(resultset.getDouble("i.CUSTO"));
+				ingrediente.setUnidadeMedida(resultset.getString("i.UNIDADE_MEDIDA"));
+				ingrediente.setDataAlteracao(resultset.getDate("i.DATA_INSERCAO"));		
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
@@ -180,7 +186,7 @@ public class IngredienteDAO {
 		return ingrediente;
 	}
 
-	public Ingrediente buscaIngredienteCodigo(int codigo) throws PersistenciaException, SQLException {
+	public Ingrediente buscaIngredienteId(int idIngrediente) throws PersistenciaException, SQLException {
 		// adicionar informações de tipo de ingrediente?
 		Ingrediente ingrediente = new Ingrediente();
 
@@ -192,25 +198,29 @@ public class IngredienteDAO {
 			// sql.append("SELECT * FROM AGES_E.TB_INGREDIENTE WHERE CODIGO =
 			// ?;");
 			//
-			sql.append("select ");
-			sql.append("i.*");
-			sql.append("FROM TB_INGREDIENTE i");
-			sql.append("where i.codigo = ?;");
+			sql.append("select *");
+			sql.append(" FROM "+ this.table);
+			sql.append(" where ID = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
-			statement.setInt(1, codigo);
+			statement.setInt(1, idIngrediente);
 			
 			ResultSet resultset = statement.executeQuery();
 
 			while (resultset.next()) {
-				ingrediente.setCodigo(resultset.getInt("codigo"));
-				ingrediente.setDescricao(resultset.getString("descricao"));
-				ingrediente.setCarboidratos(resultset.getDouble("carboidrato"));
-				ingrediente.setProteinas(resultset.getDouble("proteinas"));
-				ingrediente.setLipidios(resultset.getDouble("lipidios"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("fatorCorrecao"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("indiceCoccao"));
-				ingrediente.setCusto(resultset.getDouble("custo"));
-				ingrediente.setUnidadeMedida(resultset.getString("unidadeMedida"));
+				ingrediente.setId(resultset.getInt("ID"));
+				ingrediente.setCodigo(resultset.getInt("COD"));
+				ingrediente.setDescricao(resultset.getString("DESCRICAO"));
+				ingrediente.setCarboidratos(resultset.getDouble("CARBOIDRATOS"));
+				ingrediente.setKcalCarboidratos(resultset.getDouble("KCAL_CARBOIDRATOS"));
+				ingrediente.setProteinas(resultset.getDouble("PROTEINAS"));
+				ingrediente.setKcalProteinas(resultset.getDouble("KCAL_PROTEINAS"));
+				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
+				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
+				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
+				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
+				ingrediente.setCusto(resultset.getDouble("CUSTO"));
+				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
+				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));		
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -233,30 +243,38 @@ public class IngredienteDAO {
 		try {
 			conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			int codigo = ingrediente.getCodigo();
-
-			sql.append("update TB_INGREDIENTE");
-			sql.append("SET descricao = ?");
-			sql.append("carboidratos = ?");
-			sql.append("proteinas = ?");
-			sql.append("lidipios = ?");
-			sql.append("fatorCorrecao = ?");
-			sql.append("indiceCoccao = ?");
-			sql.append("custo = ? ");
-			sql.append("unidadeMedida = ? ");
-			sql.append("WHERE");
-			sql.append("codigo = " + codigo + " LIMIT 1");
-		
+			int id = ingrediente.getId();
+			int cod = ingrediente.getCodigo();
+			sql.append("update "+ this.table);
+            sql.append(" SET COD = ? , DESCRICAO = ?,");
+            sql.append(" CARBOIDRATOS = ?,");
+            sql.append(" KCAL_CARBOIDRATOS = ?,");
+            sql.append(" PROTEINAS = ?,");
+            sql.append(" KCAL_PROTEINAS = ?,");
+            sql.append(" LIPIDIOS = ?,");
+            sql.append(" KCAL_LIPIDIOS = ?,");
+            sql.append(" FATOR_CORRECAO = ?,");
+            sql.append(" INDICE_COCCAO = ?,");
+            sql.append(" CUSTO = ?,");
+            sql.append(" UNIDADE_MEDIDA = ?");
+            sql.append(" WHERE");
+            sql.append(" ID =" + id + " LIMIT 1");
+            System.out.println(sql);
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
-
-			statement.setString(1, ingrediente.getDescricao());
-			statement.setDouble(2, ingrediente.getCarboidratos());
-			statement.setDouble(3, ingrediente.getProteinas());
-			statement.setDouble(4, ingrediente.getLipidios());
-			statement.setDouble(5, ingrediente.getFatorCorrecao());
-			statement.setDouble(6, ingrediente.getIndiceCoccao());
-			statement.setDouble(7, ingrediente.getCusto());
-			statement.setString(8, ingrediente.getUnidadeMedida());
+			
+			statement.setInt(1, ingrediente.getCodigo());
+			statement.setString(2, ingrediente.getDescricao());
+			statement.setDouble(3, ingrediente.getCarboidratos());
+			statement.setDouble(4, ingrediente.getKcalCarboidratos());
+			statement.setDouble(5, ingrediente.getProteinas());
+			statement.setDouble(6, ingrediente.getKcalProteinas());
+			statement.setDouble(7, ingrediente.getLipidios());
+			statement.setDouble(8, ingrediente.getKcalLipidios());
+			statement.setDouble(9, ingrediente.getFatorCorrecao());
+			statement.setDouble(10, ingrediente.getIndiceCoccao());
+			statement.setDouble(11, ingrediente.getCusto());
+			statement.setString(12, ingrediente.getUnidadeMedida());
+			
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
@@ -268,5 +286,33 @@ public class IngredienteDAO {
 			}
 		}
 		return okei;
+	}
+	public boolean removeIngrediente(Integer idIngrediente) throws PersistenciaException {
+		boolean removidoOK = false;
+		Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+
+			StringBuilder sql = new StringBuilder();
+			// sql.append("SELECT ID_TIPO_USUARIO FROM TB_USUARIO WHERE ID_USUARIO = ?
+			// ")
+			sql.append("DELETE FROM "+ this.table +" WHERE ID = ? ");
+//			System.out.println(sql);
+			// sql.append("DELETE FROM TB_TIPO_USUARIO WHERE
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			statement.setInt(1, idIngrediente);
+
+			removidoOK = statement.execute();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return removidoOK;
 	}
 }

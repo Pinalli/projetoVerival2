@@ -35,7 +35,7 @@
 					<div class="row">						
 						<div class="col-sm-4">
 						    <label class="form-label ages">Carboidratos</span></label> 
-							<input class="form-control" id="carboidratos" name="carboidratos" value="${param.carboidratos}" type="number" onInput="multiplica('Carboidrato')" maxlength="5" required>
+							<input class="form-control" id="carboidratos" name="carboidratos" value="${param.carboidratos}" type="number" step="any" onInput="multiplica('Carboidrato')" maxlength="5" required>
 						</div>
 						<div class="col-sm-8">
 						    <label class="form-label ages">Carboidratos Kcal </span></label> 
@@ -46,7 +46,7 @@
 					<div class="row">					
 						<div class="col-sm-4">
 							<label class="form-label ages">Proteinas</span></label> 
-							<input class="form-control"  id="proteinas" name="proteinas" value="${param.proteinas}" type="number" onInput="multiplica('Proteinas')" maxlength="5" required> 
+							<input class="form-control"  id="proteinas" name="proteinas" value="${param.proteinas}" type="number" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
 						</div>
 						<div class="col-sm-8">
 							<label class="form-label ages">Proteinas Kcal </span></label> 
@@ -57,7 +57,7 @@
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Lipidios</span></label> 
-							<input class="form-control" id="lipidios" name="lipidios" value="${param.lipidios}" type="number" onInput="multiplica('Lipidios')" maxlength="5" required>
+							<input class="form-control" id="lipidios" name="lipidios" value="${param.lipidios}" type="number" step="any"  onInput="multiplica('Lipidios')" maxlength="5" required>
 						</div>
 
 						<div class="col-sm-8">
