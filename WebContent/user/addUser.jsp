@@ -7,15 +7,18 @@
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 
-<div class="panel panel-primary panel-addUser">
+<div class="panel panel-success panel-addUser">
 
-	<div class="panel-heading text-center">Cadastro de Usuário</div>
+	<div class="panel-heading text-center">
+		Cadastro de Usuário
+	</div>
 
 
 	<div class="panel-body">
 
 		<jsp:include page="/template/msg.jsp"></jsp:include>
 
+		<div class="table-responsive">
 
 			<form method="post" action="main?acao=addUser">
 
@@ -52,15 +55,13 @@
 						
 						<div class="row">
 						<div class="col-sm-6">
-							<label class="form-label ages">Profissão: : <span class="red">*</span></label> <select class="form-control" id="profissao" name="profissao" required>
-								<option value="ESTAGIARIO" <%="ESTAGIARIO".equals(request.getParameter("profissao")) ? "selected" : ""%>>Estágiario(a)</option>
-								<option value="NUTRICIONISTA" <%="NUTRICIONISTA".equals(request.getParameter("profissao")) ? "selected" : ""%>>Nutricionista</option>
-							</select>
+							<label class="form-label ages">Telefone: <span class="red">*</span></label> 
+							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="text" maxlength="11" required> 
 						</div>
 						
 						<div class="col-sm-6">
-							<label class="form-label ages">Telefone: <span class="red">*</span></label> 
-							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="text" maxlength="11" required> 
+							<label class="form-label ages">Matricula: <span class="red">*</span></label> 
+							<input class="form-control" id="matricula" name="matricula" value="${param.matricula}" type="text" maxlength="11" required> 
 						</div>
 					</div>
 					
@@ -99,9 +100,10 @@
 				</p>
 				<div class="text-center">
 					<input class="btn btn-warning limparUser pull-left" type="reset" value="Limpar"> 
-					<input class="btn btn-primary addUser pull-right" type="submit" value="Cadastrar">
+					<input class="btn btn-success addUser pull-right" type="submit" value="Cadastrar">
 				</div>
 			</form>
+		</div>
 	</div>
 </div>
 

@@ -54,7 +54,7 @@
 				<div class="container-fluid">
 				
 		    		<div class="navbar-header">
-			      		<a class="navbar-brand" href="main?acao=listaProjetos">
+			      		<a class="navbar-brand">
 			        		<img class="logoNavBar" src="./img/logo-ftp.png" alt="">
 			      		</a>
 			    	</div>
@@ -67,11 +67,56 @@
 				          	</a>
 				          	<ul class="dropdown-menu">
 				            	<li><a href="main?acao=listUser">Listar</a></li>
-				            	<li><a href="main?acao=telaUser">Cadastrar</a></li> 
-				          		<li><a href="main?acao=telaIngredientes">Ingredientes</a>
+				            	<li><a href="main?acao=telaUser">Cadastrar</a></li>				          		
 				          	</ul>
         				</li>
 
+					</ul>
+					
+					<ul class="nav navbar-nav">
+						
+						<li class="dropdown">
+			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ingredientes
+				          		<span class="caret"></span>
+				          	</a>
+				          	<ul class="dropdown-menu">				            	 
+				          		<li><a href="main?acao=listIngrediente">Listar</a>
+				          		<li><a href="main?acao=telaIngredientes">Cadastrar</a>
+				          	</ul>
+        				</li>
+
+					</ul>
+					
+					<ul class="nav navbar-nav">
+
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Unidade Medida
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="main?acao=listUnidadeMedida">Listar</a></li>
+								<li><a href="main?acao=telaUnidadeMedida">Cadastar</a></li>
+							</ul>
+
+
+
+						</li>
+					</ul>
+					
+					<ul class="nav navbar-nav">
+
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Unidade Medida Caseira
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="main?acao=listUnidadeMedidaCaseira">Listar</a></li>
+								<li><a href="main?acao=addUnidadeMedidaCaseira">Cadastar</a></li>
+
+							</ul>
+							<%--</ul>--%>
+
+						</li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">

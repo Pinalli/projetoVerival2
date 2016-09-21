@@ -1,29 +1,25 @@
 package br.ages.crud.command;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
+//comentario nada a ver para o lucas poder pegar a classe :)
 import javax.servlet.http.HttpServletRequest;
-
-import br.ages.crud.bo.IngredienteBO;
-import br.ages.crud.exception.NegocioException;
 import br.ages.crud.model.PerfilAcesso;
-import br.ages.crud.model.TipoUsuario;
 import br.ages.crud.model.Usuario;
-import br.ages.crud.model.Ingrediente;
+import br.ages.crud.bo.UnidadeMedidaCaseiraBO;
+import br.ages.crud.exception.NegocioException;
+import br.ages.crud.model.UnidadeMedidaCaseira;
 import br.ages.crud.util.MensagemContantes;
 
-public class CreateScreenIngredientesCommand implements Command {
+public class CreateScreenUnidadeMedidaCaseiraCommand implements Command {
 
 	private String proxima;
 
-	private IngredienteBO ingredienteBO;
-	
+	private UnidadeMedidaCaseiraBO unidadeMedidaCaseiraBO;
+		
 	//private StakeholderBO stakeholderBO;
 
 	public String execute(HttpServletRequest request) throws SQLException {
-		proxima = "main?acao=listIngrediente";
 		Usuario currentUser = (Usuario)request.getSession().getAttribute("usuarioSessao");
 
 		try {			
@@ -34,17 +30,17 @@ public class CreateScreenIngredientesCommand implements Command {
 			
 			if (isEdit != null && !"".equals(isEdit)) {
 				
-				ingredienteBO = new IngredienteBO();
+				unidadeMedidaCaseiraBO = new UnidadeMedidaCaseiraBO();
 				
-				int id = Integer.parseInt(request.getParameter("idIngrediente"));
-				Ingrediente ingrediente = ingredienteBO.buscaIngredienteId(id);
+				int id = Integer.parseInt(request.getParameter("id_unidade_medida_caseira"));
+				UnidadeMedidaCaseira unidadeMedidaCaseira = unidadeMedidaCaseiraBO.buscaUnidadeMedidaCaseiraId(id);
 				
 				
-				request.setAttribute("ingrediente", ingrediente);
-				proxima = "Ingredientes/editIngredientes.jsp";
+				request.setAttribute("unidadeMedidaCaseira", unidadeMedidaCaseira);
+				proxima = "unidadeMedidaCaseira/editUnidadeMedidaCaseira.jsp";
 				
-			} else { // Vai pra tela de ingredientes
-				proxima = "Ingredientes/addIngredientes.jsp";		
+			} else { 
+				proxima = "unidadeMedidaCaseira/addUnidadeMedidaCaseira.jsp";
 			}
 
 		} catch (Exception e) {

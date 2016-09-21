@@ -24,8 +24,8 @@
                 <form method="post" action="main?acao=editUser">
                 	<input class="form-control" type="hidden" id="idUsuario" name="idUsuario" value="<%=usuario.getIdUsuario()%>">
                		<div class="form-group">
-			           	<label class="form-label ages">Matrícula:</label>
-			           	<input class="form-control" id="matricula" name="matricula" value="<%=usuario.getMatricula() %>" type="text" maxlength="9" readonly>
+			           	<label class="form-label ages">CPF:</label>
+			           	<input class="form-control" id="cpf" name="cpf" value="<%=usuario.getCpf() %>" type="number" min="11111111111" max="99999999999" readonly>
 		            </div>
 		            
 		            <div class="form-group">
@@ -64,6 +64,16 @@
 		           		</select>
 		            </div>
 		            
+		             <div class="form-group">
+			           	<label class="form-label ages">endereco: <span class="red">*</span></label>
+			           	<input class="form-control" id="endereco" name="endereco" value="<%=usuario.getEndereco() %>" type="text" maxlength="120" required>
+		            </div>
+		            
+		             <div class="form-group">
+			           	<label class="form-label ages">telefone: <span class="red">*</span></label>
+			           	<input class="form-control" id="telefone" name="telefone" value="<%=usuario.getTelefone() %>" type="number"  min="11111111111" max="99999999999"  required>
+		            </div>
+		            
 		            <div class="form-group">
 			           	<label class="form-label ages">Tipo de Usuário: <span class="red">*</span></label>
 			           	<select class="form-control" id="tipoUsuario" name="tipoUsuario" required>
@@ -84,7 +94,7 @@
                     
                     
                     <div class="text-center">
-			           	<input class="btn btn-warning limparUser pull-left" type="reset" value="Limpar">
+			           	<input class="btn btn-default limparUser pull-left" type="reset" value="Limpar">
 			           	<input class="btn btn-success addUser pull-right" type="submit" value="Salvar">
 			        </div>
 			        

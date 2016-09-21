@@ -1,7 +1,7 @@
 <%@page import="br.ages.crud.model.Usuario"%>
 <%@page import="java.util.List"%>
 <jsp:include page="../template/head.jsp"></jsp:include>
-
+<!-- s -->
 <!-- MODAL / POPUP -->
 <jsp:include page="../template/modal.jsp"></jsp:include>
  		
@@ -19,18 +19,18 @@
             <thead>
                 <tr>
                     <th style="text-align: center;">ID</th>
-                    <th style="text-align: center;">Matricula</th>
-					<th style="text-align: center;">Nome</th>
+                   	<th style="text-align: center;">Nome</th>
 					<th style="text-align: center;">E-mail</th>
 					<th style="text-align: center;">Usuário</th>
 					<th style="text-align: center;">Perfil</th>
 					<th style="text-align: center;">Status</th>
 					<th style="text-align: center;">Tipo</th>
+					<th style="text-align: center;">TELEFONE</th>
 					<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
             </thead>
-
+ 
             <tbody> 
             	<%
 					List<Usuario> listaUsuarios = (List<Usuario>) request.getAttribute("listaUsuarios");
@@ -39,13 +39,13 @@
 				          
             	<tr>
 	            	<td align="center"><%=usuario.getIdUsuario()%></td>
-	            	<td align="center"><%=usuario.getMatricula()%></td>
 	            	<td align="center"><%=usuario.getNome()%></td>
 	            	<td align="center"><%=usuario.getEmail()%></td>
 	            	<td align="center"><%=usuario.getUsuario()%></td>
 	            	<td align="center"><%=usuario.getPerfilAcesso()%></td> 
 	            	<td align="center"><%=usuario.getStatusUsuario()%></td>
 	            	<td align="center"><%=usuario.getTipoUsuario().getNome()%></td>
+	           		<td align="center"><%=usuario.getTelefone()%></td>
 	            	<td align="center">
 						<form action="" method="post">
             				<a href="" data-toggle="modal" data-id="<%=usuario.getIdUsuario() %>" data-usuario="<%=usuario.getNome()%>" 
@@ -64,7 +64,7 @@
 					} 
 				%>
 			</tbody>
-            
+             
         </table> 
 		</div>
     </div>

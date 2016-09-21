@@ -26,7 +26,7 @@ public class RemoveUserCommand implements Command {
 			
 			Integer idUsuario = Integer.parseInt(request.getParameter("id_usuario"));
 			usuarioBO.removerUsuario(idUsuario);
-			
+			if( usuario.getIdUsuario() == idUsuario ) throw new NegocioException(MensagemContantes.MSG_INF_DENY_SELF);
 			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_USUARIO.replace("?", idUsuario.toString()).concat("<br/>"));
 			
 		} catch (Exception e) {

@@ -35,7 +35,9 @@ public class EditUserCommand implements Command{
 		String idTipoUsuario = request.getParameter("tipoUsuario");
 		String perfilAcessoString = request.getParameter("perfilAcesso");
 		String statusUsuarioString = request.getParameter("statusUsuario");
-		String matriculaString = request.getParameter("matricula");
+		String cpfString = request.getParameter("cpf");
+		String enderecoString = request.getParameter("endereco");
+		String telefoneString = request.getParameter("telefone");
 		String nomeString = request.getParameter("nome");
 		String emailString = request.getParameter("email");
 		
@@ -53,13 +55,15 @@ public class EditUserCommand implements Command{
 			usuario.setIdUsuario(Integer.valueOf(idUsuarioString));
 			usuario.setUsuario(usuarioString);
 			usuario.setSenha(senhaString);		
+			usuario.setTelefone(telefoneString);
 			
 			TipoUsuario tipoUsuario2 = usuarioBO.consultaTipoUsuario(idTipoUsuario);
 			
 			usuario.setTipoUsuario(tipoUsuario2);
 			usuario.setPerfilAcesso(perfilAcesso);
 			usuario.setStatusUsuario(statusUsuario);
-			usuario.setMatricula(matriculaString);
+			usuario.setCpf(cpfString);
+			usuario.setEndereco(enderecoString);
 			usuario.setNome(nomeString);
 			usuario.setEmail(emailString);			
 			

@@ -7,3 +7,5 @@
 .settings/
 /pom.xml
 /.tern-project
+/FichaTP.iml
+.idea/

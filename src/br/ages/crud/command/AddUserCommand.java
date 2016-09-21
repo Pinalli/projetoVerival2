@@ -26,6 +26,10 @@ public class AddUserCommand implements Command {
 		String matricula = request.getParameter("matricula");
 		String usuario = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
+		String confirmarSenha = request.getParameter("confirmarSenha");
+		String cpf = request.getParameter("cpf");
+		String telefone = request.getParameter("telefone");
+		String endereco = request.getParameter("endereco");
 		String statusUsuario = request.getParameter("statusUsuario"); // XXX Acrescentado  StatusUsuario
 		String perfilAcesso = request.getParameter("perfilAcesso");
 		String tipoUsuario = request.getParameter("tipoUsuario");
@@ -36,6 +40,10 @@ public class AddUserCommand implements Command {
 			user.setMatricula(matricula);
 			user.setUsuario(usuario);
 			user.setSenha(senha);
+			user.setConfirmarSenha(confirmarSenha);
+			user.setCpf(cpf);
+			user.setTelefone(telefone);
+			user.setEndereco(endereco);
 			user.setStatusUsuario(StatusUsuario.valueOf(statusUsuario));
 			user.setPerfilAcesso(PerfilAcesso.valueOf(perfilAcesso));
 			TipoUsuario tUser = new TipoUsuario();

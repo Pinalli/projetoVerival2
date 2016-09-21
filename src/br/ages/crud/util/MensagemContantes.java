@@ -34,7 +34,9 @@ public class MensagemContantes {
 	
 	public static final String MSG_ERR_SENHA_INVALIDA = "A senha do usuario ï¿½ invï¿½lida: Deve ter no mï¿½nimo 3 e no mï¿½ximo 8 caracteres, apenas nï¿½meros e letras!";
 	
-	public static final String MSG_ERR_MATRICULA_INVALIDA = "Matrï¿½cula invï¿½lida!";
+	public static final String MSG_ERR_CPF_INVALIDA = "cpf invalido!";
+	
+	public static final String MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO = "campo de endereço obrigatorio!";
 	
 	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!"
 			+ "<br>Exemplo correto: ages_user@acad.pucrs.br";
@@ -59,11 +61,20 @@ public class MensagemContantes {
 	
 	public static final String MSG_INF_DENY = "Acesso negado! Você precisa logar primeiro.";
 	
+	public static final String MSG_INF_DENY_SELF = "Você não pode remover a si mesmo.";
+	
 	public static final String MSG_INF_SEM_PERISSAO = "Acesso negado! Você NÃO tem permissão apra acessar essa funcionalidade.";
 	
 
-	//msgs de projeto
-
+	//msgs de unidades de medidas
+	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA = "Unidade ? editada com sucesso!";
+	
+	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA = "Ocorreu um erro na edição da unidade de medida.";
+	
+	public static final String MSG_SUC_REMOVE_UNIDADE_MEDIDA = "Unidade de medida ? removida com sucesso!";
+	
+	//
+	
 	public static final String MSG_ERR_PROJETO_DADOS_INVALIDOS = "Dados do projeto inválidos ou inconsistentes!";
 		
 	public static final String MSG_ERR_PROJETO_ARQUIVO_INVALIDO = "Arquivo excede o ?Mb ou não é do tipo PDF!";
@@ -72,7 +83,7 @@ public class MensagemContantes {
 	
 	public static final String MSG_ERR_CADASTRO_PROJETO = "Ocorreu um erro no cadastro do projeto.";
 
-	public static final String MSG_SUC_CADASTRO_PROJETO = "Projeto ? cadastrado com sucesso!";
+	
 	
 	public static final String MSG_SUC_EDICAO_PROJETO = "Projeto ? editado com sucesso!";
 
@@ -116,5 +127,39 @@ public class MensagemContantes {
 	public static final String MSG_SUC_VALIDA_HORA_INVALIDA_PONTO = " Ponto validado com sucesso";
 	
 	public static final String MSG_ERR_VALIDA_HORA_INVALIDA_PONTO = " Senha do Responsável inválida";
-
+	
+	//msgs das Unidades de Medida
+	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA = "Unidade de Medida ? cadastrada com sucesso!";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE = " Unidade de Medida ? já cadastrada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_DADOS_INVALIDOS = "Dados da Unidade de Medida inválidos ou inconsistentes!";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_ORIGEM_INVALIDA = "A descrição da origem da unidade de medida deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_CONVERSAO_INVALIDA = "A descrição da conversão da unidade de medida deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_SINGLA_INVALIDA = "A sigla da unidade de medida deve ter de 1 a 10 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CONVERSAO_INVALIDA = "A medida de conversão deve ser um número.";
+	public static final String MSG_ERR_REMOVE_UNIDADE_MEDIDA_EM_PROJETO = "Esta Unidade de Medida está em algum projeto e não pode ser removido!";	
+	
+	//msgs das Unidades de Medida Caseira
+	
+	public static final String MSG_SUC_REMOVE_UNIDADE_MEDIDA_CASEIRA = "Unidade de medida caseira ? removida com sucesso";
+	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA_CASEIRA = " Unidade de Medida Caseira ? altera com sucesso!";
+	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA_CASEIRA = "Unidade de Medida Caseira ? cadastrada com sucesso!";	
+	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA_CASEIRA = " Unidade de Medida Caseira ? não pode ser editada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_JA_EXISTENTE = " Unidade de Medida Caseira ? já cadastrada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_DADOS_INVALIDOS = "Dados da Unidade de Medida Caseira inválidos ou inconsistentes!";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_NOME_INVALIDO = "A descrição da origem da unidade de medida Caseira deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_SINGLA_INVALIDA = "A sigla da unidade de medida Caseira deve ter de 1 a 10 caracteres";
+	public static final String MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA_EM_PROJETO = "Esta Unidade de Medida Caseira está em algum projeto e não pode ser removido!";
+	
+	//msgs das Ingredientes
+	public static final String MSG_SUC_REMOVE_INGREDIENTE = " Ingrediente ? removida com sucesso";
+	public static final String MSG_SUC_EDICAO_INGREDIENTE = " Ingrediente ? altera com sucesso!";
+	public static final String MSG_SUC_CADASTRO_INGREDIENTE = " Ingrediente ? cadastrada com sucesso!";	
+	public static final String MSG_ERR_EDICAO_INGREDIENTE = " Ingrediente ? não pode ser editada";
+	public static final String MSG_ERR_INGREDIENTE_JA_EXISTENTE = " Ingrediente ? já cadastrada";
+	public static final String MSG_ERR_INGREDIENTE_DADOS_INVALIDOS = "Dados da Ingrediente inválidos ou inconsistentes!";
+	public static final String MSG_ERR_INGREDIENTE_NOME_INVALIDO = "A descrição da origem da Ingrediente deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";
+	public static final String MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO = "Este Ingrediente está em algum projeto e não pode ser removido!";
+	
+	
 }
