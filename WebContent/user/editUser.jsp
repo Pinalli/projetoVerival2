@@ -42,6 +42,11 @@
 			           	<label class="form-label ages">Senha: <span class="red">*</span></label>
 			           	<input class="form-control" id="senha" name="senha" value="<%=usuario.getSenha() %>" type="text" maxlength="8" required>
 		            </div>
+		            
+		            <div class="form-group">
+			           	<label class="form-label ages">Confirmar Senha: <span class="red">*</span></label>
+			           	<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="<%=usuario.getSenha() %>" type="text" maxlength="8" required>
+		            </div>
 				
 					<div class="form-group">
 			           	<label class="form-label ages">E-Mail: <span class="red">*</span></label>

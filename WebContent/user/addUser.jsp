@@ -59,10 +59,6 @@
 							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="text" maxlength="11" required> 
 						</div>
 						
-						<div class="col-sm-6">
-							<label class="form-label ages">Matricula: <span class="red">*</span></label> 
-							<input class="form-control" id="matricula" name="matricula" value="${param.matricula}" type="text" maxlength="11" required> 
-						</div>
 					</div>
 					
 
