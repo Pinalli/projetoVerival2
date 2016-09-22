@@ -99,7 +99,7 @@
 				
 				<div class="text-center">
 					<input class="btn btn-warning limpaIngrediente" type="reset" value="Limpar"> 
-					<input class="btn btn-success addIngrediente pull-right" type="submit" value="Editar">
+					<input class="btn btn-success addIngrediente pull-right" type="submit" value="Salvar">
 				</div>
 								
 			</form>
