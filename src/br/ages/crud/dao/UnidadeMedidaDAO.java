@@ -196,6 +196,43 @@ public class UnidadeMedidaDAO {
 		}
 		return unidadeMedida;
 	}
+	
+	/**
+	 * Verifica se unidade de medida existe usando unidade de medida e sigla
+	 * 
+	 * @param idUnidadeMedida
+	 * @return UnidadeMedida object
+	 * @throws PersistenciaException
+	 * @throws SQLException
+	 */
+	public boolean existeUnidadeMedida(UnidadeMedida unidadeMedida) throws PersistenciaException, SQLException {
+		Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT u.`ID_UNIDADE_MEDIDA` ");
+			sql.append("from TB_UNIDADE_MEDIDA u "); 
+			sql.append("where SIGLA_UNIDADE_MEDIDA = ? ");
+			sql.append("and FATOR_CONVERSAO = ?;");
+
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			statement.setString(1, unidadeMedida.getSiglaUnidadeMedida());
+			statement.setDouble(2, unidadeMedida.getFatorConversao());
+			ResultSet resultset = statement.executeQuery();
+
+			return resultset.isBeforeFirst();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	/**
 	 * Edita unidade de medida

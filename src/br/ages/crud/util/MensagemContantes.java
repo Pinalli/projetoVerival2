@@ -132,7 +132,7 @@ public class MensagemContantes {
 	
 	//msgs das Unidades de Medida
 	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA = "Unidade de Medida ? cadastrada com sucesso!";
-	public static final String MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE = " Unidade de Medida ? já cadastrada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE = " Unidade de Medida já cadastrada";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_DADOS_INVALIDOS = "Dados da Unidade de Medida inválidos ou inconsistentes!";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_ORIGEM_INVALIDA = "A descrição da origem da unidade de medida deve ter de 1 a 60 caracteres";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_CONVERSAO_INVALIDA = "A descrição da conversão da unidade de medida deve ter de 1 a 60 caracteres";
