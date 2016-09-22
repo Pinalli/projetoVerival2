@@ -17,21 +17,11 @@
         <table id="listaIngredientes" class="table table-responsive table-striped table-hover table-condensed table-bordered">
 
             <thead>
-                <tr>
-                    <th style="text-align: center;">Id</th>
+                <tr>                    
                     <th style="text-align: center;">Código</th>
-					<th style="text-align: center;">Descrição</th>
-					<th style="text-align: center;">Carboidratos</th>
-					<th style="text-align: center;">Kcal Carboidratos</th>
-					<th style="text-align: center;">Proteinas</th>
-					<th style="text-align: center;">Kcal Proteinas</th>
-					<th style="text-align: center;">Lipidios</th>
-					<th style="text-align: center;">Kcal Lipidios</th>
+					<th style="text-align: center;">Descrição</th>					
 					<th style="text-align: center;">Fator Correção</th>
-					<th style="text-align: center;">Índice Cocção</th>
-					<th style="text-align: center;">Custo</th>
-					<th style="text-align: center;">Unidade de Medida</th>
-					<th style="text-align: center;">Data Inserção</th>
+					<th style="text-align: center;">Índice Cocção</th>					
 					<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
@@ -44,20 +34,10 @@
 				%>
 				          
             	<tr>
-	            	<td align="center"><%=ing.getId()%></td>
 	            	<td align="center"><%=ing.getCodigo()%></td>
-	            	<td align="center"><%=ing.getDescricao()%></td>
-	            	<td align="center"><%=ing.getCarboidratos()%></td>
-	            	<td align="center"><%=ing.getKcalCarboidratos()%></td>
-	            	<td align="center"><%=ing.getProteinas()%></td> 
-	            	<td align="center"><%=ing.getKcalProteinas()%></td>
-	            	<td align="center"><%=ing.getLipidios()%></td>
-	            	<td align="center"><%=ing.getKcalLipidios()%></td>
+	            	<td align="center"><%=ing.getDescricao()%></td>	            
 	            	<td align="center"><%=ing.getFatorCorrecao()%></td>
-	            	<td align="center"><%=ing.getIndiceCoccao()%></td>
-	            	<td align="center"><%=ing.getCusto()%></td>
-	            	<td align="center"><%=ing.getUnidadeMedida()%></td>
-	            	<td align="center"><%=ing.getDataAlteracao()%></td>
+	            	<td align="center"><%=ing.getIndiceCoccao()%></td>	            	
 	            	<td align="center">
 						<form action="" method="post">
             				<a href="" data-toggle="modal" data-id="<%=ing.getId() %>" data-ingrediente="<%=ing.getDescricao()%>" 
