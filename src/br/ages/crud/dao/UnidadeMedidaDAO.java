@@ -214,11 +214,11 @@ public class UnidadeMedidaDAO {
 			sql.append("SELECT u.`ID_UNIDADE_MEDIDA` ");
 			sql.append("from TB_UNIDADE_MEDIDA u "); 
 			sql.append("where SIGLA_UNIDADE_MEDIDA = ? ");
-			sql.append("and FATOR_CONVERSAO = ?;");
+			sql.append("and MEDIDA_CONVERSAO = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, unidadeMedida.getSiglaUnidadeMedida());
-			statement.setDouble(2, unidadeMedida.getFatorConversao());
+			statement.setString(2, unidadeMedida.getMedidaConversao());
 			ResultSet resultset = statement.executeQuery();
 
 			return resultset.isBeforeFirst();
