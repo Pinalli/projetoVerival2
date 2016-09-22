@@ -10,7 +10,7 @@
                    .text('Excluir unidade medida caseira');
 
             $(this).find('#modal-descricao')
-                   .text('Você realmente deseja excluir a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
+                   .text('Realmente deseja excluir a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
 
             $('#formExcluir').attr('action', "main?acao=removerUnidadeMedidaCaseira&id_unidade_medida_caseira=" + id);
         });
@@ -22,7 +22,7 @@
             var id = botao.data('id');
 
             $(this).find('.modal-title').text('Editar unidade medida caseira');
-            $(this).find('#modal-descricao').text('Você realmente deseja editar a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
+            $(this).find('#modal-descricao').text('Realmente deseja editar a unidade medida caseira (' + unidadeMedidaCaseira + ')?');
 
             $('#formEditar')
                     .attr('action', "main?acao=telaUnidadeMedidaCaseira&id_unidade_medida_caseira=" + id + "&isEdit=true");

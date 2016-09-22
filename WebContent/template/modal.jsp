@@ -7,7 +7,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Excluir usuário');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja excluir o usuário (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja excluir o usuário (' + usuario + ')?');
 	  	
 	  	$('#formExcluir').attr('action', "main?acao=removerUsuario&id_usuario=" + id);
 	});
@@ -19,7 +19,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Editar usuário');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja editar o usuário (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja editar o usuário (' + usuario + ')?');
 	  	
 	  	$('#formEditar').attr('action', "main?acao=telaUser&id_usuario=" + id + "&isEdit=true");
 	});

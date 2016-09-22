@@ -7,7 +7,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Excluir stakeholder');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja excluir o stakeholder (' + stakeholder + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja excluir o stakeholder (' + stakeholder + ')?');
 	  	
 	  	$('#formExcluir').attr('action', "main?acao=removeStakeholder&id_stakeholder=" + id);
 	});
@@ -19,7 +19,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Editar stakeholder');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja editar o stakeholder (' + stakeholder + id + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja editar o stakeholder (' + stakeholder + id + ')?');
 	  	+
 	  	$('#formEditar').attr('action', "main?acao=telaStakeholder&id_stakeholder=" + id + "&isEdit=true");
 	});

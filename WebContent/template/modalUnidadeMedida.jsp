@@ -7,7 +7,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 			
 	  	$(this).find('.modal-title').text('Excluir unidade de medida');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja excluir a unidade de medida (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a unidade de medida (' + usuario + ')?');
 	  	
 	  	$('#formExcluir').attr('action', "main?acao=removerUnidadeMedida&id_unidadeMedida=" + id);
 	});
@@ -19,7 +19,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Editar unidade de medida');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja editar a unidade de medida (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja editar a unidade de medida (' + usuario + ')?');
 	  	
 	  	$('#formEditar').attr('action', "main?acao=telaUnidadeMedida&id_unidadeMedida=" + id + "&isEdit=true");
 	});
