@@ -5,6 +5,40 @@
 <%@page import="br.ages.crud.model.TipoUsuario"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
+
+<head>
+ <link rel="javascript" type="text/javascript" href="script.js">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+ <script>
+function show() {
+    var p = document.getElementById('senha');
+	var p2 = document.getElementById('confirmarSenha');
+    p.setAttribute('type', 'text');
+	p2.setAttribute('type', 'text');
+}
+
+function hide() {
+    var p = document.getElementById('senha');
+	var p2 = document.getElementById('confirmarSenha');
+    p.setAttribute('type', 'password');
+	p2.setAttribute('type', 'password');
+}
+
+$(document).ready(function(){
+var pwShown = 0;
+
+	$("#mostrar").click(function(){
+		if (pwShown == 0) {
+        pwShown = 1;
+        show();
+    } else {
+        pwShown = 0;
+        hide();
+    }
+	});
+})
+</script>
 <jsp:include page="../template/head.jsp"></jsp:include>
 
 <div class="panel panel-success panel-addUser">
@@ -24,9 +58,6 @@
 
 				<div class="form-group">
 				
-					<!--  <label class="form-label ages">Matrícula: <span class="red">*</span></label> 
-					<input class="form-control" id="matricula" name="matricula"	value="${param.matricula}" type="text" maxlength="9" required> --> 
-					
 					<label class="form-label ages">Nome: <span class="red">*</span></label> 
 					<input class="form-control" id="nome" name="nome" value="${param.nome}" type="text" maxlength="120" required>
 					
@@ -41,6 +72,10 @@
 						<div class="col-sm-6">
 							<label class="form-label ages">Confirmar senha: <span class="red">*</span></label> 
 							<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="${param.confirmarSenha}" type="password" maxlength="8" required> 
+						</div>
+						
+						<div class="col-sm-12">
+							<input type="checkbox" id="mostrar" alt="mostrar" style="margin-top: 10px; margin-left: 350px;"> Mostrar senha
 						</div>
 					</div>
 					
