@@ -7,7 +7,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Excluir usuário');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja excluir o ponto do aluno (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja excluir o ponto do aluno (' + usuario + ')?');
 	  	
 	  	$('#formExcluir').attr('action', "main?acao=removerPontoAluno&id_ponto=" + id);
 	});
@@ -19,7 +19,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Editar usuário');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja editar o ponto do Aluno (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja editar o ponto do Aluno (' + usuario + ')?');
 	  	
 	  	$('#formEditar').attr('action', "main?acao=registrarPonto&id_ponto=" + id + "&isEdit=true");
 	});

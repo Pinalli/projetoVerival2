@@ -11,7 +11,7 @@
 							$(this).find('.modal-title').text(
 									'Excluir Ingrediente');
 							$(this).find('#modal-descricao').text(
-									'Você realmente deseja excluir o ingrediente ('
+									'Realmente deseja excluir o ingrediente ('
 											+ ingrediente + ')?');
 
 							$('#formExcluir').attr(
@@ -30,7 +30,7 @@
 							$(this).find('.modal-title').text(
 									'Editar unidade de medida');
 							$(this).find('#modal-descricao').text(
-									'Você realmente deseja editar o ingrediente ('
+									'Realmente deseja editar o ingrediente ('
 											+ ingrediente + ')?');
 
 							$('#formEditar').attr(
