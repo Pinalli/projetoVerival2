@@ -54,11 +54,11 @@ body{
 	width: 100%;
 }
 
-.addUser, .addIngrediente {
+.addUser, .addIngrediente, .addUnidadeMedida, .addUnidadeMedidaCaseira {
 	width: 78%;
 }
 
-.limparUser, .limpaIngrediente{
+.limparUser, .limpaIngrediente, .limpaUnidadeMedida, .limpaUnidadeMedidaCaseira{
 	width: 20%;
 }
 
