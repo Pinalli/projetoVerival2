@@ -28,7 +28,7 @@
 							var id = botao.data('id');
 
 							$(this).find('.modal-title').text(
-									'Editar unidade de medida');
+									'Editar ingrediente');
 							$(this).find('#modal-descricao').text(
 									'Realmente deseja editar o ingrediente ('
 											+ ingrediente + ')?');
