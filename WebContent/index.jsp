@@ -18,10 +18,10 @@
   
         <!-- Conteúdo principal -->
         <main>
-            <img class="logo" src="img/logo-ftp.png" alt="Nutri">
+            <img class="logoEmpresa" src="img/faenfi.png" alt="FAENFI">
            
             <section class="login">
-                <h1>Ficha <span>T</span>écnica</h1><!-- Título principal -->
+                <h1>Bem <span>V</span>indo</h1><!-- Título principal -->
                 
                 <label id="msg" name="msg"></label>
         

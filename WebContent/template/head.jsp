@@ -54,11 +54,11 @@
 				<div class="container-fluid">
 				
 		    		<div class="navbar-header">
-			      		<a class="navbar-brand">
+			      		<a  href="./index.jsp" class="navbar-brand">
 			        		<img class="logoNavBar" src="./img/logo-ftp.png" alt="">
 			      		</a>
 			    	</div>
-
+			    	
 					<ul class="nav navbar-nav">
 						
 						<li class="dropdown">
@@ -132,6 +132,20 @@
         					</ul>
         				</li>
 			      	</ul>
+					
+					<ul class="nav navbar-nav">
+						
+						<li class="dropdown">
+			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Preview FTs
+				          		<span class="caret"></span>
+				          	</a>
+				          	<ul class="dropdown-menu">
+				            	<li><a>Completa</a></li>
+				            	<li><a>Simplificada</a></li>				          		
+				          	</ul>
+        				</li>
+
+					</ul>
 			      	
 		    	</div>
 			</nav>
