@@ -12,7 +12,7 @@
 	<div class="panel panel-success panel-addUser">
     		
 		<div class="panel-heading text-center">
-			Editar Unidade de Medida
+			Editar Unidade de Medida <b><%=unidadeMedida.getUnidadeMedida()%></b>
 		</div>
 		
 		
