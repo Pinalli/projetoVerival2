@@ -34,7 +34,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <div class="modal-header modal-ages">
+            <div class="modal-header modal-exclude">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title"></h4>
             </div>
@@ -46,7 +46,7 @@
             <div class="modal-footer">
                 <form action="" method="post" id="formExcluir">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-success">Excluir</button>
+                    <button type="submit" class="btn btn-exclude">Excluir</button>
                 </form>
             </div>
 

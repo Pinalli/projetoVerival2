@@ -18,6 +18,11 @@ body{
     margin-right: auto;
 }
 
+.modal-exclude{
+	color: #fff;
+	background-color: #CC0000;
+}
+
 .panel-addIngrediente {
 	max-width: 750px;
 	float: none;
