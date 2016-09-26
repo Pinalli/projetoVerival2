@@ -18,8 +18,8 @@
   
         <!-- Conteúdo principal -->
         <main>
-            <img class="logoEmpresa" src="img/faenfi.png" alt="FAENFI">
-           
+            <img class="logoEmpresa" src="img/faenfinobg.png" alt="FAENFI">
+            <img class="logoEmpresa" src="img/agesnobg.png" alt="AGES">
             <section class="login">
                 <h1>Bem <span>V</span>indo</h1><!-- Título principal -->
                 
