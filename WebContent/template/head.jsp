@@ -119,6 +119,21 @@
 						</li>
 					</ul>
 
+					
+					<ul class="nav navbar-nav">
+						
+						<li class="dropdown">
+			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Preview FTs
+				          		<span class="caret"></span>
+				          	</a>
+				          	<ul class="dropdown-menu">
+				            	<li><a>Completa</a></li>
+				            	<li><a  href="./preview/previewFTsimplificada.html">Simplificada</a></li>				          		
+				          	</ul>
+        				</li>
+
+					</ul>
+					
 					<ul class="nav navbar-nav navbar-right">
         				<li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -133,19 +148,6 @@
         				</li>
 			      	</ul>
 					
-					<ul class="nav navbar-nav">
-						
-						<li class="dropdown">
-			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Preview FTs
-				          		<span class="caret"></span>
-				          	</a>
-				          	<ul class="dropdown-menu">
-				            	<li><a>Completa</a></li>
-				            	<li><a>Simplificada</a></li>				          		
-				          	</ul>
-        				</li>
-
-					</ul>
 			      	
 		    	</div>
 			</nav>
