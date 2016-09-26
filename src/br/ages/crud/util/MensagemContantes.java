@@ -163,7 +163,7 @@ public class MensagemContantes {
 	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";
 	public static final String MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO = "Este Ingrediente está em algum projeto e não pode ser removido!";
 	
-	//msgs das Ingredientes
+	//msgs das Empresa
 		public static final String MSG_SUC_REMOVE_EMPRESA = " Empresa ? removida com sucesso";
 		public static final String MSG_SUC_EDICAO_EMPRESA = " Empresa ? altera com sucesso!";
 		public static final String MSG_SUC_CADASTRO_EMPRESA = " Empresa ? cadastrada com sucesso!";	
