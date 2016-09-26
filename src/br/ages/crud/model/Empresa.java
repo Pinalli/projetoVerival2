@@ -11,6 +11,7 @@ public class Empresa {
 	private String cidade;
 	private String razaoSocial;
 	private String responsavel;
+	private String logo; //caminho da imagem
 	
 	private Date dataAlteracao;
 	
@@ -18,18 +19,22 @@ public class Empresa {
 		this.dataAlteracao = new Date();
 	}
 
-
-	public Empresa(int idEmpresa, int cnpj, String nome, String telefone, String endereco, String cidade, String razaoSocial, String responsavel) {
+	public Empresa(int idEmpresa, int cnpj, String telefone, String nome, String endereco, String cidade,
+			String razaoSocial, String responsavel, String logo) {
+		super();
 		this.idEmpresa = idEmpresa;
 		this.cnpj = cnpj;
 		this.telefone = telefone;
+		this.nome = nome;
 		this.endereco = endereco;
 		this.cidade = cidade;
 		this.razaoSocial = razaoSocial;
-		this.nome = nome;
-		this.responsavel =responsavel;
+		this.responsavel = responsavel;
+		this.logo = logo;
 		this.dataAlteracao = new Date();
 	}
+
+
 
 	public int getIdEmpresa() {
 		return idEmpresa;
