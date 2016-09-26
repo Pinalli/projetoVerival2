@@ -10,6 +10,7 @@ public class Empresa {
 	private String endereco;
 	private String cidade;
 	private String razaoSocial;
+	private String responsavel;
 	
 	private Date dataAlteracao;
 	
@@ -18,7 +19,7 @@ public class Empresa {
 	}
 
 
-	public Empresa(int idEmpresa, int cnpj, String nome, String telefone, String endereco, String cidade, String razaoSocial) {
+	public Empresa(int idEmpresa, int cnpj, String nome, String telefone, String endereco, String cidade, String razaoSocial, String responsavel) {
 		this.idEmpresa = idEmpresa;
 		this.cnpj = cnpj;
 		this.telefone = telefone;
@@ -26,6 +27,7 @@ public class Empresa {
 		this.cidade = cidade;
 		this.razaoSocial = razaoSocial;
 		this.nome = nome;
+		this.responsavel =responsavel;
 		this.dataAlteracao = new Date();
 	}
 
@@ -36,7 +38,13 @@ public class Empresa {
 	public void setIdEmpresa(int idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
+	public String getResponsavel() {
+		return responsavel;
+	}
 
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
+	}
 	public int getCnpj() {
 		return cnpj;
 	}
