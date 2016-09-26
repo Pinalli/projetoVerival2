@@ -18,7 +18,6 @@ public class Empresa {
 	}
 
 
-
 	public Empresa(int idEmpresa, int cnpj, String nome, String telefone, String endereco, String cidade, String razaoSocial) {
 		this.idEmpresa = idEmpresa;
 		this.cnpj = cnpj;
