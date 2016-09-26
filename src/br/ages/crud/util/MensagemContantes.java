@@ -163,5 +163,15 @@ public class MensagemContantes {
 	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";
 	public static final String MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO = "Este Ingrediente está em algum projeto e não pode ser removido!";
 	
+	//msgs das Ingredientes
+		public static final String MSG_SUC_REMOVE_EMPRESA = " Empresa ? removida com sucesso";
+		public static final String MSG_SUC_EDICAO_EMPRESA = " Empresa ? altera com sucesso!";
+		public static final String MSG_SUC_CADASTRO_EMPRESA = " Empresa ? cadastrada com sucesso!";	
+		public static final String MSG_ERR_EDICAO_EMPRESA = " Empresa ? não pode ser editada";
+		public static final String MSG_ERR_EMPRESA_JA_EXISTENTE = " Empresa ? já cadastrada";
+		public static final String MSG_ERR_EMPRESA_DADOS_INVALIDOS = "Dados da Empresa inválidos ou inconsistentes!";
+		public static final String MSG_ERR_EMPRESA_NOME_INVALIDO = "A descrição da origem da Empresa deve ter de 1 a 60 caracteres";
+		public static final String MSG_ERR_REMOVE_EMPRESA_EM_PROJETO = "Esta Empresa está em algum projeto e não pode ser removido!";
+	
 	
 }
