@@ -9,36 +9,8 @@
 <head>
  <link rel="javascript" type="text/javascript" href="script.js">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="./js/mostrarsenha.js"></script>
 </head>
- <script>
-function show() {
-    var p = document.getElementById('senha');
-	var p2 = document.getElementById('confirmarSenha');
-    p.setAttribute('type', 'text');
-	p2.setAttribute('type', 'text');
-}
-
-function hide() {
-    var p = document.getElementById('senha');
-	var p2 = document.getElementById('confirmarSenha');
-    p.setAttribute('type', 'password');
-	p2.setAttribute('type', 'password');
-}
-
-$(document).ready(function(){
-var pwShown = 0;
-
-	$("#mostrar").click(function(){
-		if (pwShown == 0) {
-        pwShown = 1;
-        show();
-    } else {
-        pwShown = 0;
-        hide();
-    }
-	});
-})
-</script>
 <jsp:include page="../template/head.jsp"></jsp:include>
 
 <div class="panel panel-success panel-addUser">
@@ -52,7 +24,6 @@ var pwShown = 0;
 
 		<jsp:include page="/template/msg.jsp"></jsp:include>
 
-		<div class="table-responsive">
 
 			<form method="post" action="main?acao=addUser">
 
@@ -134,7 +105,6 @@ var pwShown = 0;
 					<input class="btn btn-success addUser pull-right" type="submit" value="Cadastrar">
 				</div>
 			</form>
-		</div>
 	</div>
 </div>
 
