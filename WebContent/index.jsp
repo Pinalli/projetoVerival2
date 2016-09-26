@@ -18,16 +18,14 @@
   
         <!-- Conteúdo principal -->
         <main>
+        
+        	<h1 class="welcome">Bem <span>V</span>indo</h1><!-- Título principal -->
             <img class="logoEmpresa" src="img/faenfinobg.png" alt="FAENFI">
             <img class="logoEmpresa" src="img/agesnobg.png" alt="AGES">
-            <section class="login">
-                <h1>Bem <span>V</span>indo</h1><!-- Título principal -->
+            
                 
-                <label id="msg" name="msg"></label>
+                
         
-        <!-- Rodapé -->
-        <footer>
-            <!-- Pseudo rodapé -->
-        </footer>
+       <jsp:include page="/template/foot.jsp"></jsp:include>
     </body>
 </html>
