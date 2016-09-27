@@ -51,7 +51,7 @@
 					</div>
 					
 					<label class="form-label ages">CPF: <span class="red">*</span></label> 
-					<input class="form-control" id="cpf" name="cpf" value="<%=usuario.getCpf() %>"" type="text" maxlength="11" required>
+					<input class="form-control" id="cpf" name="cpf" value="<%=usuario.getCpf() %>"" type="text" maxlength="11" required readonly="readonly">
 					
 					<label class="form-label ages">E-mail: <span class="red">*</span></label> 
 					<input class="form-control" id="email" name="email" value="<%=usuario.getEmail() %>"" type="text" maxlength="120" required>
