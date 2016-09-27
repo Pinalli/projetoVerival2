@@ -51,12 +51,12 @@ public class EmpresaDAO {
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, empresaDTO.getNome());
-			statement.setInt(2, empresaDTO.getCnpj());
+			statement.setString(2, empresaDTO.getCnpj());
 
 			ResultSet resultset = statement.executeQuery();
 			if (resultset.next()) {
 				empresa.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
-				empresa.setCnpj(resultset.getInt("CNPJ"));
+				empresa.setCnpj(resultset.getString("CNPJ"));
 				empresa.setNome(resultset.getString("NOME"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				empresa.setCidade(resultset.getString("CIDADE"));
@@ -89,14 +89,12 @@ public class EmpresaDAO {
 			sql.append("SELECT ");
 			sql.append("u.`ID_EMPRESA`,");
 			sql.append("u.`CNPJ`,");
-			sql.append("u.`NOME` unome,");
+			sql.append("u.`NOME`,");
 			sql.append("u.`TELEFONE`,");
 			sql.append("u.`ENDERECO`,");
 			sql.append("u.`CIDADE`,");
 			sql.append("u.`RAZAO_SOCIAL`, ");
-			sql.append("u.`RESPONSAVEL`,");
-			
-						
+			sql.append("u.`RESPONSAVEL` ");			
 			sql.append("FROM TB_EMPRESA u"); 
 						
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -104,7 +102,7 @@ public class EmpresaDAO {
 			while (resultset.next()) {
 				Empresa dto = new Empresa();
 				dto.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
-				dto.setCnpj(resultset.getInt("CNPJ"));
+				dto.setCnpj(resultset.getString("CNPJ"));
 				dto.setNome(resultset.getString("NOME"));
 				dto.setTelefone(resultset.getString("TELEFONE"));
 				dto.setEndereco(resultset.getString("ENDERECO"));
@@ -141,7 +139,7 @@ public class EmpresaDAO {
 
 			// Cadastra a pessoa e gera e busca id gerado
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
-			statement.setInt(1, empresa.getCnpj());
+			statement.setString(1, empresa.getCnpj());
 			statement.setString(2, empresa.getNome());
 			statement.setString(3, empresa.getTelefone());
 			statement.setString(4, empresa.getEndereco());
@@ -223,7 +221,7 @@ public class EmpresaDAO {
 			while (resultset.next()) {
 				
 				empresa.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
-				empresa.setCnpj(resultset.getInt("CNPJ"));
+				empresa.setCnpj(resultset.getString("CNPJ"));
 				empresa.setNome(resultset.getString("NOME"));
 				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setEndereco(resultset.getString("ENDERECO"));
@@ -273,7 +271,7 @@ public class EmpresaDAO {
 
 			while (resultset.next()) {
 				empresa.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
-				empresa.setCnpj(resultset.getInt("CNPJ"));
+				empresa.setCnpj(resultset.getString("CNPJ"));
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setNome(resultset.getString("unome"));
@@ -310,7 +308,7 @@ public class EmpresaDAO {
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
-			statement.setInt(1, empresa.getCnpj());
+			statement.setString(1, empresa.getCnpj());
 			statement.setString(2, empresa.getNome());
 			statement.setString(3, empresa.getTelefone());
 			statement.setString(4, empresa.getEndereco());

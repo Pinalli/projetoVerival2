@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Empresa {
 	private int idEmpresa;
-	private int cnpj;
+	private String cnpj;
 	private String telefone;
 	private String nome;
 	private String endereco;
@@ -19,7 +19,7 @@ public class Empresa {
 		this.dataAlteracao = new Date();
 	}
 
-	public Empresa(int idEmpresa, int cnpj, String telefone, String nome, String endereco, String cidade,
+	public Empresa(int idEmpresa, String cnpj, String telefone, String nome, String endereco, String cidade,
 			String razaoSocial, String responsavel, String logo) {
 		super();
 		this.idEmpresa = idEmpresa;
@@ -50,11 +50,12 @@ public class Empresa {
 	public void setResponsavel(String responsavel) {
 		this.responsavel = responsavel;
 	}
-	public int getCnpj() {
+
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(int cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
