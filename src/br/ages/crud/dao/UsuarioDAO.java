@@ -41,8 +41,8 @@ public class UsuarioDAO {
 
 			Connection conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("select * from TB_USUARIO ");
-			sql.append("where usuario = ? and senha = ?");
+			sql.append("SELECT * FROM TB_USUARIO ");
+			sql.append("WHERE usuario = ? AND senha = ?");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, usuarioDTO.getUsuario());
@@ -100,7 +100,7 @@ public class UsuarioDAO {
 			sql.append("t.`DESCRICAO`,");
 			sql.append("t.`DATA_INCLUSAO`");
 			
-			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t "); 
+			sql.append("FROM TB_USUARIO u INNER JOIN TB_TIPO_USUARIO t "); 
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
 			
 			//funciona no workbench mas aqui n䯍
@@ -148,8 +148,8 @@ public class UsuarioDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into TB_USUARIO (usuario, senha, confirmar_senha, perfil_acesso, status_usuario, id_tipo_usuario, cpf, endereco, telefone, nome, email, data_inclusao)");
-			sql.append("values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			sql.append("INSERT INTO TB_USUARIO (usuario, senha, confirmar_senha, perfil_acesso, status_usuario, id_tipo_usuario, cpf, endereco, telefone, nome, email, data_inclusao)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
@@ -202,7 +202,7 @@ public class UsuarioDAO {
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT ID_TIPO_USUARIO FROM TB_USUARIO WHERE ID_USUARIO = ?
 			// ")
-			sql.append("update TB_USUARIO set STATUS_USUARIO='INATIVO'  where id_usuario= ? ");
+			sql.append("UPDATE TB_USUARIO set STATUS_USUARIO='INATIVO'  WHERE id_usuario= ? ");
 			
 			// sql.append("DELETE FROM TB_TIPO_USUARIO WHERE
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -231,7 +231,7 @@ public class UsuarioDAO {
 
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT * FROM TB_USUARIO WHERE NOME = ?");
-			sql.append("select ");
+			sql.append("SELECT ");
 			sql.append("u.`id_usuario`,");
 			sql.append("u.`usuario`,");
 			sql.append("u.`senha`,");
@@ -248,9 +248,9 @@ public class UsuarioDAO {
 			sql.append("t.`nome` tnome,");
 			sql.append("t.`descricao`,");
 			sql.append("t.`data_inclusao`");
-			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
+			sql.append("FROM TB_USUARIO u INNER JOIN TB_TIPO_USUARIO t ");
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
-			sql.append("where u.nome = ?;");
+			sql.append("WHERE u.nome = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, nomeUsuario);
 
@@ -299,7 +299,7 @@ public class UsuarioDAO {
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT * FROM AGES_E.TB_USUARIO WHERE ID_USUARIO = ?;");
 			//
-			sql.append("select ");
+			sql.append("SELECT ");
 			sql.append("u.`id_usuario`,");
 			sql.append("u.`usuario`,");
 			sql.append("u.`senha`,");
@@ -316,9 +316,9 @@ public class UsuarioDAO {
 			sql.append("t.`nome` tnome,");
 			sql.append("t.`descricao`,");
 			sql.append("t.`data_inclusao`");
-			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
+			sql.append("FROM TB_USUARIO u INNER JOIN TB_TIPO_USUARIO t ");
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
-			sql.append("where id_usuario = ?;");
+			sql.append("WHERE id_usuario = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idUsuario);
@@ -366,7 +366,7 @@ public class UsuarioDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("select * from TB_TIPO_USUARIO where id_tipo_usuario = ?;");
+			sql.append("SELECT * FROM TB_TIPO_USUARIO WHERE id_tipo_usuario = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, idTipoUsuario);
@@ -397,7 +397,7 @@ public class UsuarioDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = usuario.getIdUsuario();
 
-			sql.append("update TB_USUARIO set senha = ?, perfil_acesso = ?," + "status_usuario = ?, id_tipo_usuario = ?, nome = ?, email = ?, cpf = ?, endereco = ?, telefone = ?, confirmar_senha = ? " + "  where id_usuario = " + id + ";");
+			sql.append("UPDATE TB_USUARIO set senha = ?, perfil_acesso = ?," + "status_usuario = ?, id_tipo_usuario = ?, nome = ?, email = ?, cpf = ?, endereco = ?, telefone = ?, confirmar_senha = ? " + "  WHERE id_usuario = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
@@ -494,7 +494,7 @@ public class UsuarioDAO {
 			listarUsuarios = new ArrayList<>();
 			
 			StringBuilder sql = new StringBuilder();
-			sql.append("select ");
+			sql.append("SELECT ");
 			sql.append("u.`id_usuario`,");
 			sql.append("u.`usuario`,");
 			sql.append("u.`senha`,");
@@ -508,9 +508,9 @@ public class UsuarioDAO {
 			sql.append("u.`nome`,");
 			sql.append("u.`email` ");
 
-			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
+			sql.append("FROM TB_USUARIO u INNER JOIN TB_TIPO_USUARIO t ");
 			sql.append(" on t.id_tipo_usuario = u.id_tipo_usuario");
-			sql.append(" where t.flag_responsavel = 1;");
+			sql.append(" WHERE t.flag_responsavel = 1;");
 			
 					
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -554,7 +554,7 @@ public class UsuarioDAO {
 			listarUsuarios = new ArrayList<>();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("select ");
+			sql.append("SELECT ");
 			sql.append("u.`id_usuario`,");
 			sql.append("u.`usuario`,");
 			sql.append("u.`senha`,");
@@ -568,9 +568,9 @@ public class UsuarioDAO {
 			sql.append("u.`nome`,");
 			sql.append("u.`email` ");
 
-			sql.append("from TB_USUARIO u inner join TB_TIPO_USUARIO t ");
+			sql.append("FROM TB_USUARIO u INNER JOIN TB_TIPO_USUARIO t ");
 			sql.append(" on t.id_tipo_usuario = u.id_tipo_usuario");
-			sql.append(" where t.nome = 'aluno';");
+			sql.append(" WHERE t.nome = 'aluno';");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();

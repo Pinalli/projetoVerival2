@@ -46,8 +46,8 @@ public class EmpresaDAO {
 
 			Connection conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("select * from TB_EMPRESA ");
-			sql.append("where empresa = ? and cnpj = ?");
+			sql.append("SELECT * FROM TB_EMPRESA ");
+			sql.append("WHERE empresa = ? AND cnpj = ?");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, empresaDTO.getNome());
@@ -97,7 +97,7 @@ public class EmpresaDAO {
 			sql.append("u.`RESPONSAVEL`,");
 			
 						
-			sql.append("from TB_EMPRESA u"); 
+			sql.append("FROM TB_EMPRESA u"); 
 						
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
@@ -133,7 +133,7 @@ public class EmpresaDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("INSERT INTO TB_EMPRESA (CNPJ, NOME, TELEFONE, ENDERECO, CIDADE, RAZAO_SOCIAL, RESPONSAVEL, DATA_INCLUSAO)");
-			sql.append("values (?, ?, ?, ?, ?, ?, ?, ?)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
@@ -204,7 +204,7 @@ public class EmpresaDAO {
 
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT * FROM TB_USUARIO WHERE NOME = ?");
-			sql.append("select ");
+			sql.append("SELECT ");
 			sql.append("u.`ID_EMPRESA`,");
 			sql.append("u.`CNPJ`,");
 			sql.append("u.`NOME` unome,");
@@ -212,9 +212,9 @@ public class EmpresaDAO {
 			sql.append("u.`ENDERECO`,");
 			sql.append("u.`CIDADE`,");
 			sql.append("u.`RAZAO_SOCIAL`, ");
-			sql.append("from TB_EMPRESA u ");
+			sql.append("FROM TB_EMPRESA u ");
 			sql.append("t.`data_inclusao`");
-			sql.append("where u.nome = ?;");
+			sql.append("WHERE u.nome = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, nome);
 
@@ -254,7 +254,7 @@ public class EmpresaDAO {
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT * FROM AGES_E.TB_USUARIO WHERE ID_USUARIO = ?;");
 			//
-			sql.append("select ");
+			sql.append("SELECT ");
 			sql.append("u.`ID_EMPRESA`,");
 			sql.append("u.`CNPJ`,");
 			sql.append("u.`NOME` unome,");
@@ -262,10 +262,10 @@ public class EmpresaDAO {
 			sql.append("u.`ENDERECO`,");
 			sql.append("u.`CIDADE`,");
 			sql.append("u.`RAZAO_SOCIAL`, ");
-			sql.append("from TB_EMPRESA u ");
+			sql.append("FROM TB_EMPRESA u ");
 			sql.append("t.`data_inclusao`");
-			sql.append("from TB_EMPRESA u ");
-			sql.append("where ID_EMPRESA = ?;");
+			sql.append("FROM TB_EMPRESA u ");
+			sql.append("WHERE ID_EMPRESA = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idEmpresa);
@@ -274,8 +274,8 @@ public class EmpresaDAO {
 			while (resultset.next()) {
 				empresa.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
 				empresa.setCnpj(resultset.getInt("CNPJ"));
-				empresa.setEndereco(resultset.getString("endereco"));
-				empresa.setTelefone(resultset.getString("telefone"));
+				empresa.setEndereco(resultset.getString("ENDERECO"));
+				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setNome(resultset.getString("unome"));
 				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
 			}

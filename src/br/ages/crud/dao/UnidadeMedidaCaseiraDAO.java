@@ -42,7 +42,7 @@ public class UnidadeMedidaCaseiraDAO {
 			sql.append("u.`ID_UNIDADE_MEDIDA_CASEIRA`,");
 			sql.append("u.`nome`,");
 			sql.append("u.`sigla`");
-			sql.append("from TB_UNIDADE_MEDIDA_CASEIRA u"); 
+			sql.append("FROM TB_UNIDADE_MEDIDA_CASEIRA u"); 
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
@@ -77,8 +77,8 @@ public class UnidadeMedidaCaseiraDAO {
 			conexao = ConexaoUtil.getConexao();
 			
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into TB_UNIDADE_MEDIDA_CASEIRA (NOME, SIGLA)");
-			sql.append("values (?, ?)");
+			sql.append("INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA (NOME, SIGLA)");
+			sql.append("VALUES (?, ?)");
 			
 			// Cadastra a medida e gera e busca id gerado
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
@@ -145,8 +145,8 @@ public class UnidadeMedidaCaseiraDAO {
 			sql.append("u.`ID_UNIDADE_MEDIDA_CASEIRA`,");
 			sql.append("u.`NOME`,");
 			sql.append("u.`SIGLA`");
-			sql.append(" from TB_UNIDADE_MEDIDA_CASEIRA u "); 
-			sql.append("where ID_UNIDADE_MEDIDA_CASEIRA = ?;");
+			sql.append(" FROM TB_UNIDADE_MEDIDA_CASEIRA u "); 
+			sql.append("WHERE ID_UNIDADE_MEDIDA_CASEIRA = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idUnidadeMedidaCaseira);
 			ResultSet resultset = statement.executeQuery();
@@ -181,7 +181,7 @@ public class UnidadeMedidaCaseiraDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = unidadeMedidaCaseira.getIdUnidadeMedidaCaseira();
 
-			sql.append("update TB_UNIDADE_MEDIDA_CASEIRA set NOME = ?," + " SIGLA = ?" + " where ID_UNIDADE_MEDIDA_CASEIRA = " + id + ";");
+			sql.append("UPDATE TB_UNIDADE_MEDIDA_CASEIRA set NOME = ?," + " SIGLA = ?" + " WHERE ID_UNIDADE_MEDIDA_CASEIRA = " + id + ";");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, unidadeMedidaCaseira.getNome());
 			statement.setString(2, unidadeMedidaCaseira.getSigla());
