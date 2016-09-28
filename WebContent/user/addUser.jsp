@@ -7,7 +7,7 @@
 
 
 <head>
- <link rel="javascript" type="text/javascript" href="script.js">
+ <link rel="javascript" type="text/javascript" href="./js/mostrarsenha.js">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="./js/mostrarsenha.js"></script>
 </head>

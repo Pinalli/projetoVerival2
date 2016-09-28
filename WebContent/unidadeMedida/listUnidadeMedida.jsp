@@ -18,7 +18,6 @@
 
             <thead>
                 <tr>
-                    <th style="text-align: center;">ID</th>
                     <th style="text-align: center;">Unidade de Medida</th>
 					<th style="text-align: center;">Sigla da Unidade de Medida</th>
 					<th style="text-align: center;">Medida de Conversão</th>
@@ -34,7 +33,6 @@
 				%>
 				          
             	<tr>
-	            	<td align="center"><%=unidadeMedida.getIdUnidadeMedida()%></td>
 	            	<td align="center"><%=unidadeMedida.getUnidadeMedida()%></td>
 	            	<td align="center"><%=unidadeMedida.getSiglaUnidadeMedida()%></td>
 	            	<td align="center"><%=unidadeMedida.getMedidaConversao()%></td>
