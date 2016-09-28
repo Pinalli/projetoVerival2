@@ -34,6 +34,7 @@ import br.ages.crud.command.ListUserCommand;
 import br.ages.crud.command.ListIngredienteCommand;
 import br.ages.crud.command.LoginCommand;
 import br.ages.crud.command.LogoutCommand;
+import br.ages.crud.command.RemoveEmpresaCommand;
 import br.ages.crud.command.RemoveIngredienteCommand;
 import br.ages.crud.command.RemoveUnidadeMedidaCaseiraCommand;
 import br.ages.crud.command.RemoveUnidadeMedidaCommand;
@@ -92,7 +93,7 @@ public class MainServlet extends HttpServlet {
 		//comandos.put("telaEmpresa", new CreateScreenEmpresaCommand());
 		//comandos.put("addEmpresa", new AddEmpresaCommand());
 		//comandos.put("editEmpresa", new EditEmpresaCommand());
-		//comandos.put("removerEmpresa", new RemoveEmpresaCommand());
+		comandos.put("removerEmpresa", new RemoveEmpresaCommand());
 	}
 
 	@Override

@@ -46,7 +46,7 @@ INSERT INTO TB_TIPO_USUARIO VALUES
 INSERT INTO TB_USUARIO
 (ID_USUARIO,USUARIO,SENHA, CONFIRMAR_SENHA, PERFIL_ACESSO,STATUS_USUARIO,ID_TIPO_USUARIO, CPF,ENDERECO,TELEFONE,NOME,EMAIL,DATA_INCLUSAO)
 VALUES
-('10', 'admin', 'admin', 'admin', 'ADMINISTRADOR', 'ATIVO', '1', '03380192000', 'r. pitangueiras, n88', '82828787','Nutricionista Default', 'email.bacana@gmail.com', '2015-10-01 00:00:00');
+('10', 'admin', 'admin', 'admin', 'ADMINISTRADOR', 'ATIVO', '1', '03380192000', 'r. pitangueiras, n88', '82828787','Raissa', 'email.bacana@gmail.com', '2015-10-01 00:00:00');
 
 
 /*----------SCRIPT PARA INGRDIENTES----------*/
@@ -111,5 +111,5 @@ CREATE TABLE `TB_UNIDADE_MEDIDA` (
 INSERT INTO TB_EMPRESA
 (ID_EMPRESA, CNPJ, TELEFONE, NOME, ENDERECO, CIDADE, RAZAO_SOCIAL, RESPONSAVEL, LOGO, DATA_INCLUSAO)
 VALUES
-(null, '17338792000101', '05199677239', 'Go Horse SoluÃ§Ãµes', 'r. das empresas, 69', 'Ponta Grossa', 'Socialista Nacional', 'Hortencia', null, '2015-10-01 00:00:00');
+('10', '17338792000101', '05199677239', 'Go Horse Soluções', 'r. das empresas, 69', 'Ponta Grossa', 'Socialista Nacional', 'Hortencia', null, '2015-10-01 00:00:00');
 

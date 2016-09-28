@@ -38,10 +38,10 @@ public class CreateScreenEmpresaCommand implements Command {
 				
 				
 				request.setAttribute("empresa", empresa);
-				proxima = "Empresa/editEmpresa.jsp";
+				proxima = "empresa/editEmpresa.jsp";
 				
 			} else { // Vai pra tela de empresa
-				proxima = "Empresa/addEmpresa.jsp";		
+				proxima = "empresa/addEmpresa.jsp";		
 			}
 
 		} catch (Exception e) {
