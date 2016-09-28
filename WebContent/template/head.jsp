@@ -118,6 +118,22 @@
 
 						</li>
 					</ul>
+					
+					<ul class="nav navbar-nav">
+
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Empresa
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="main?acao=listEmpresa">Listar</a></li>
+								<li><a href="main?acao=addEmpresa">Cadastar</a></li>
+
+							</ul>
+							<%--</ul>--%>
+
+						</li>
+					</ul>
 
 					
 					<ul class="nav navbar-nav">
