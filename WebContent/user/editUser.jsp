@@ -62,7 +62,7 @@
 						<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages">Telefone: <span class="red">*</span></label> 
-							<input class="form-control" id="telefone" name="telefone" value="<%=usuario.getTelefone() %>"" type="text" maxlength="11" required> 
+							<input class="form-control" id="telefone" name="telefone" value="<%=usuario.getTelefone() %>"" type="text" minlength="11" maxlength="11" required> 
 						</div>
 						
 					</div>
