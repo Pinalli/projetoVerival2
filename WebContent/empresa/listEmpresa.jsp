@@ -3,7 +3,7 @@
 <jsp:include page="../template/head.jsp"></jsp:include>
 
 <!-- MODAL / POPUP -->
-<jsp:include page="../template/modalUnidadeMedida.jsp"></jsp:include>
+<jsp:include page="../template/modalEmpresa.jsp"></jsp:include>
  		
 <div class="panel panel-success">
    		
@@ -43,14 +43,14 @@
 	             	<td align="center"><%=empresa.getRazaoSocial()%></td>
 	             	<td align="center">
 						<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%=empresa.getIdEmpresa() %>" 
-            				data-target="#modalEditar" title="Editar"> <i class="glyphicon glyphicon-pencil"></i></a>
+            				<a href="" data-toggle="modal" data-id="<%=empresa.getIdEmpresa() %>" data-empresa="<%=empresa.getNome()%>" 
+            				data-target="#modalEditar" title="Editar"> <i class="	 glyphicon-pencil"></i></a>
             			</form>
             		</td>	
             		
             		<td align="center">
             			<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%=empresa.getIdEmpresa() %>"
+            				<a href="" data-toggle="modal" data-id="<%=empresa.getIdEmpresa() %>" data-empresa="<%=empresa.getNome()%>"
             				data-target="#modalExcluir" title="Deletar"> <i class="glyphicon glyphicon-trash"></i></a>
             			</form>
             		</td>

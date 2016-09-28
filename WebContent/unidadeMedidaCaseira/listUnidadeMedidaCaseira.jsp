@@ -19,7 +19,6 @@
 
                 <thead>
                 <tr>
-                    <th style="text-align: center;">ID</th>
                     <th style="text-align: center;">Nome</th>
                     <th style="text-align: center;">Sigla</th>
                     <th style="text-align: center;"></th>
@@ -35,7 +34,6 @@
                 %>
 
                 <tr>
-                    <td  align="center" ><%=unidadeMedidaCaseira.getIdUnidadeMedidaCaseira()%></td>
                     <td align="center"><%=unidadeMedidaCaseira.getNome()%></td>
                     <td align="center"><%=unidadeMedidaCaseira.getSigla()%></td>
                     <td align="center">
