@@ -63,6 +63,7 @@ public class EmpresaDAO {
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
+				empresa.setResponsavel(resultset.getString("LOGO"));
 			} else
 				empresa = null;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -86,17 +87,9 @@ public class EmpresaDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT ");
-			sql.append("u.`ID_EMPRESA`,");
-			sql.append("u.`CNPJ`,");
-			sql.append("u.`NOME`,");
-			sql.append("u.`TELEFONE`,");
-			sql.append("u.`ENDERECO`,");
-			sql.append("u.`CIDADE`,");
-			sql.append("u.`RAZAO_SOCIAL`, ");
-			sql.append("u.`RESPONSAVEL` ");			
-			sql.append("FROM TB_EMPRESA u"); 
-						
+			sql.append("SELECT e.* ");
+			sql.append("FROM TB_EMPRESA e");
+
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
 			while (resultset.next()) {
@@ -109,6 +102,7 @@ public class EmpresaDAO {
 				dto.setCidade(resultset.getString("CIDADE"));
 				dto.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				dto.setResponsavel(resultset.getString("RESPONSAVEL"));
+				dto.setResponsavel(resultset.getString("LOGO"));
 				
 				listarEmpresa.add(dto);
 			}
@@ -130,12 +124,9 @@ public class EmpresaDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO TB_EMPRESA (CNPJ, NOME, TELEFONE, ENDERECO, CIDADE, RAZAO_SOCIAL, RESPONSAVEL, DATA_INCLUSAO)");
-			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-
-			// converte a data para data Juliana, data que o banco reconhece;
-			java.util.Date utilDate = new java.util.Date();
-			java.sql.Date dataCadastro = new java.sql.Date(utilDate.getTime());
+			sql.append(
+					"INSERT INTO TB_EMPRESA (CNPJ, NOME, TELEFONE, ENDERECO, CIDADE, RAZAO_SOCIAL, RESPONSAVEL, LOGO, DATA_INCLUSAO)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
 
 			// Cadastra a pessoa e gera e busca id gerado
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
@@ -145,8 +136,9 @@ public class EmpresaDAO {
 			statement.setString(4, empresa.getEndereco());
 			statement.setString(5, empresa.getCidade());
 			statement.setString(6, empresa.getRazaoSocial());
-			
-			statement.setDate(7, dataCadastro);
+			statement.setString(7, empresa.getResponsavel());
+			statement.setString(8, empresa.getLogo());
+
 
 			statement.executeUpdate();
 
@@ -158,7 +150,8 @@ public class EmpresaDAO {
 			return idEmpresa;
 
 		} catch (ClassNotFoundException | SQLException e) {
-			throw new PersistenciaException(MensagemContantes.MSG_ERR_EMPRESA_JA_EXISTENTE.replace("?", empresa.getNome()));
+			throw new PersistenciaException(
+					MensagemContantes.MSG_ERR_EMPRESA_JA_EXISTENTE.replace("?", empresa.getNome()));
 
 		} finally {
 			conexao.close();
@@ -177,7 +170,7 @@ public class EmpresaDAO {
 		try {
 			conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-					
+
 			sql.append("DELETE FROM TB_EMPRESA WHERE ID_EMPRESA = ?");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idEmpresa);
@@ -193,6 +186,7 @@ public class EmpresaDAO {
 		}
 		return removidoOK;
 	}
+
 	public Empresa buscaEmpresaNome(String nome) throws PersistenciaException {
 
 		Empresa empresa = new Empresa();
@@ -202,24 +196,15 @@ public class EmpresaDAO {
 
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT * FROM TB_USUARIO WHERE NOME = ?");
-			sql.append("SELECT ");
-			sql.append("u.`ID_EMPRESA`,");
-			sql.append("u.`CNPJ`,");
-			sql.append("u.`NOME` unome,");
-			sql.append("u.`TELEFONE`,");
-			sql.append("u.`ENDERECO`,");
-			sql.append("u.`CIDADE`,");
-			sql.append("u.`RAZAO_SOCIAL`, ");
-			sql.append("FROM TB_EMPRESA u ");
-			sql.append("t.`data_inclusao`");
-			sql.append("WHERE u.nome = ?;");
+			sql.append("SELECT e.* FROM TB_EMPRESA e");
+			sql.append("WHERE e.nome = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, nome);
 
 			ResultSet resultset = statement.executeQuery();
 
 			while (resultset.next()) {
-				
+
 				empresa.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
 				empresa.setCnpj(resultset.getString("CNPJ"));
 				empresa.setNome(resultset.getString("NOME"));
@@ -227,7 +212,9 @@ public class EmpresaDAO {
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setCidade(resultset.getString("CIDADE"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
-							}
+				empresa.setResponsavel(resultset.getString("RESPOSAVEL"));
+				empresa.setLogo(resultset.getString("LOGO"));
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
 		} finally {
@@ -243,27 +230,19 @@ public class EmpresaDAO {
 
 	public Empresa buscaEmpresaId(int idEmpresa) throws PersistenciaException, SQLException {
 		// adicionar informações de tipo de usuario?
-		Empresa empresa= new Empresa();
+		Empresa empresa = new Empresa();
 
 		Connection conexao = null;
 		try {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			// sql.append("SELECT * FROM AGES_E.TB_USUARIO WHERE ID_USUARIO = ?;");
+			// sql.append("SELECT * FROM AGES_E.TB_USUARIO WHERE ID_USUARIO =
+			// ?;");
 			//
-			sql.append("SELECT ");
-			sql.append("u.`ID_EMPRESA`,");
-			sql.append("u.`CNPJ`,");
-			sql.append("u.`NOME` unome,");
-			sql.append("u.`TELEFONE`,");
-			sql.append("u.`ENDERECO`,");
-			sql.append("u.`CIDADE`,");
-			sql.append("u.`RAZAO_SOCIAL`, ");
-			sql.append("FROM TB_EMPRESA u ");
-			sql.append("t.`data_inclusao`");
-			sql.append("FROM TB_EMPRESA u ");
-			sql.append("WHERE ID_EMPRESA = ?;");
+			sql.append("SELECT e.*");
+			sql.append("FROM TB_EMPRESA e ");
+			sql.append("WHERE e.ID_EMPRESA = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idEmpresa);
@@ -272,10 +251,13 @@ public class EmpresaDAO {
 			while (resultset.next()) {
 				empresa.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
 				empresa.setCnpj(resultset.getString("CNPJ"));
-				empresa.setEndereco(resultset.getString("ENDERECO"));
+				empresa.setNome(resultset.getString("NOME"));
 				empresa.setTelefone(resultset.getString("TELEFONE"));
-				empresa.setNome(resultset.getString("unome"));
-				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
+				empresa.setEndereco(resultset.getString("ENDERECO"));
+				empresa.setCidade(resultset.getString("CIDADE"));
+				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
+				empresa.setResponsavel(resultset.getString("RESPOSAVEL"));
+				empresa.setLogo(resultset.getString("LOGO"));
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -292,10 +274,6 @@ public class EmpresaDAO {
 
 	}
 
-	
-
-	
-
 	public boolean editaEmpresa(Empresa empresa) throws PersistenciaException {
 		boolean okei = false;
 		Connection conexao = null;
@@ -304,7 +282,9 @@ public class EmpresaDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = empresa.getIdEmpresa();
 
-			sql.append("UPDATE TB_EMPRESA SET CNPJ = ?, NOME = ?," + "TELEFONE = ?, ENDERECO = ?, CIDADE = ?, RAZAO_SOCIAL = ?, RESPONSAVEL = ?" + "  WHERE ID_EMPRESA = " + id + ";");
+			sql.append("UPDATE TB_EMPRESA SET CNPJ = ?, NOME = ?,"
+					+ "TELEFONE = ?, ENDERECO = ?, CIDADE = ?, RAZAO_SOCIAL = ?, RESPONSAVEL = ?, LOGO = ? "
+					+ "  WHERE ID_EMPRESA = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
@@ -315,12 +295,13 @@ public class EmpresaDAO {
 			statement.setString(5, empresa.getCidade());
 			statement.setString(6, empresa.getRazaoSocial());
 			statement.setString(7, empresa.getResponsavel());
+			statement.setString(8, empresa.getLogo());
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
 		} finally {
 			try {
-				conexao.close();
+				conexao.close(); 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
