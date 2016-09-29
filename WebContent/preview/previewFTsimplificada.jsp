@@ -1,58 +1,14 @@
-<!DOCTYPE html>
-<html>
+
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+<jsp:include page="../template/head.jsp"></jsp:include>
+<jsp:include page="/template/msg.jsp"></jsp:include>
 <head>
-<style>
-body{
-	min-width:1010px; 
-}
-li, p{
-	font-size : 110%;
-}
-
-div.container {
-	font-family: "Calibri";
-    width: 60%;
-    border: 1px solid gray;
-	margin-left:auto; 
-    margin-right:auto;
-}
-
-header, footer {
-    padding: 5px;
-    color: black;
-    background-color: #d9ffb3;
-    clear: left;
-    text-align: center;
-}
-
-article {
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-img {
-	max-width: 300px;
-	border-style: solid;
-	border-color : black;
-}
-
-</style>
+		<link rel="stylesheet" href="./css/ficha.css">
 </head>
 <body>
 
-<div class="container">
+<div class="bloco">
 
 <header>
    <h2>Molho Pesto</h2>
@@ -60,9 +16,9 @@ img {
 
 <article>
 	<center>
-	<img src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" align="middle">
+	<img src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" align="middle" >
 
-	<h3>Rendimento: 4 pessoas</h3>
+	<h3>Rendimento: 4 pratos</h3>
 	</center>
 	
 	<table>
@@ -154,4 +110,4 @@ img {
 </div>
 
 </body>
-</html>
+<jsp:include page="/template/foot.jsp"></jsp:include>

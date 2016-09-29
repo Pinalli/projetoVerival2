@@ -44,7 +44,7 @@
 	             	<td align="center">
 						<form action="" method="post">
             				<a href="" data-toggle="modal" data-id="<%=empresa.getIdEmpresa() %>" data-empresa="<%=empresa.getNome()%>" 
-            				data-target="#modalEditar" title="Editar"> <i class="	 glyphicon-pencil"></i></a>
+            				data-target="#modalEditar" title="Editar"> <i class="glyphicon glyphicon-pencil"></i></a>
             			</form>
             		</td>	
             		

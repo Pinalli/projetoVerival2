@@ -1,0 +1,45 @@
+body{
+		
+}
+li, p{
+	font-size : 110%;
+}
+
+div.bloco {
+	font-family: "Calibri";
+    width: 60%;
+    border: 1px solid gray;
+	margin-left:auto; 
+    margin-right:auto;
+}
+
+header, footer {
+    padding: 5px;
+    color: black;
+    background-color: #d9ffb3;
+    clear: left;
+    text-align: center;
+}
+
+article {
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+img{
+	max-width: 300px;
+	border-style: solid;
+	border-color: black;
+}

@@ -144,7 +144,7 @@
 				          	</a>
 				          	<ul class="dropdown-menu">
 				            	<li><a>Completa</a></li>
-				            	<li><a  href="./preview/previewFTsimplificada.html">Simplificada</a></li>				          		
+				            	<li><a  href="main?acao=telaFicha">Simplificada</a></li>				          		
 				          	</ul>
         				</li>
 

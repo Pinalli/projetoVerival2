@@ -19,6 +19,7 @@ import br.ages.crud.command.AddUnidadeMedidaCommand;
 import br.ages.crud.command.AddUserCommand;
 import br.ages.crud.command.AddIngredienteCommand;
 import br.ages.crud.command.Command;
+import br.ages.crud.command.CreateScreenFichaCommand;
 import br.ages.crud.command.CreateScreenIngredientesCommand;
 import br.ages.crud.command.CreateScreenUnidadeMedidaCaseiraCommand;
 import br.ages.crud.command.CreateScreenUnidadeMedidaCommand;
@@ -94,6 +95,11 @@ public class MainServlet extends HttpServlet {
 		//comandos.put("addEmpresa", new AddEmpresaCommand());
 		//comandos.put("editEmpresa", new EditEmpresaCommand());
 		comandos.put("removerEmpresa", new RemoveEmpresaCommand());
+		
+		// COMANDOS DA FICHA TECNICA
+		//comandos.put("listEmpresa", new ListEmpresaCommand());
+		comandos.put("telaFicha", new CreateScreenFichaCommand());
+		
 	}
 
 	@Override
