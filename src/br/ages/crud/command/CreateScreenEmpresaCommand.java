@@ -24,7 +24,7 @@ public class CreateScreenEmpresaCommand implements Command {
 		Usuario currentUser = (Usuario)request.getSession().getAttribute("usuarioSessao");
 
 		try {			
-			if( !currentUser.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_DENY);
+			if( !currentUser.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
 			// Verifica se abre tela edição de empresa ou de adição de empresa.
 			
 			String isEdit = request.getParameter("isEdit");
