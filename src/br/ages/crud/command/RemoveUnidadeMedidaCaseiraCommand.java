@@ -35,7 +35,7 @@ public class RemoveUnidadeMedidaCaseiraCommand implements Command {
 
         try {
             if (!usuario.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR))
-                throw new NegocioException(MensagemContantes.MSG_INF_DENY);
+                throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
 
 
             Integer idUnidadeMedidaCaseira = Integer.parseInt(request.getParameter("id_unidade_medida_caseira"));

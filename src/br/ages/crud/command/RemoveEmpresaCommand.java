@@ -23,7 +23,7 @@ public class RemoveEmpresaCommand implements Command {
 		Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioSessao");
 		
 		try {
-			if( !usuario.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_DENY);
+			if( !usuario.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
 			
 			Integer idEmpresa = Integer.parseInt(request.getParameter("id_empresa"));
 			empresaBO.removerEmpresa(idEmpresa);
