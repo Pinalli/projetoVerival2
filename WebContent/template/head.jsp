@@ -10,8 +10,12 @@
         
 		<!-- BOOTSTRAP -->
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
-	 	<link rel="stylesheet" href="./css/bootstrap-theme.min.css"> 
-
+	 	<link rel="stylesheet" href="./css/bootstrap-theme.min.css">
+	 	
+	 	<!-- SELECT2 -->
+		<link rel="stylesheet" href="./css/select2.min.css">
+		<link rel="stylesheet" href="./css/select2-bootstrap.css">
+		
 		<!-- Include the plugin's CSS and JS: Cassio DataTable -->
 	<!-- 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"> -->
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
@@ -23,8 +27,10 @@
         <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 
 		<!-- BOOTSTRAP -->
-		<script src="./js/bootstrap.min.js"></script> 
-
+		<script src="./js/bootstrap.min.js"></script>
+		
+		<!-- BOOTSTRAP -->		
+		<script src="./js/select2.min.js"></script>
 
 		<!-- Include the plugin's CSS and JS: Cassio DataTable -->
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>

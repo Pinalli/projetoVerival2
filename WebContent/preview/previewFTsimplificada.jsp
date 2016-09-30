@@ -4,110 +4,133 @@
 <jsp:include page="../template/head.jsp"></jsp:include>
 <jsp:include page="/template/msg.jsp"></jsp:include>
 <head>
-		<link rel="stylesheet" href="./css/ficha.css">
+		<!--link rel="stylesheet" href="./css/ficha.css"-->
 </head>
 <body>
 
-<div class="bloco">
-
-<header>
-   <h2>Molho Pesto</h2>
-</header>
-
+<div class="container">
+	    
 <article>
-	<center>
-	<img src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" align="middle" >
+	<form>
+		<div class="form-group col-md-4 col-md-offset-4">
+			<input type="text" name="nome" id="nome" class="form-control text-center" placeholder="Nome"/>
+		</div>
+	<div class="form-group col-md-12 text-center">
+		<img class="img-responsive img-thumbnail" src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" width="305" align="middle" >
+	</div>
+	<div class="form-group col-md-4 col-md-offset-4">
+		<input type="text" name="rendimento" id="rendimento" class="form-control text-center" placeholder="Rendimento"/>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-md-offset-1 hidden-sm hidden-xs">
+			<div class="col-md-2"><p class="text-center"><b>Ingrediente</b></p></div>
+			<div class="col-md-1"><p class="text-center"><b>Qtd</b></p></div>
+			<div class="col-md-2"><p class="text-center"><b>Unidade de Medida</b></p></div>
+			<div class="col-md-1"><p class="text-center"><b>Qtd</b></p></div>
+			<div class="col-md-2"><p class="text-center"><b>Medida Caseira</b></p></div>
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+	
+	<div class="row" id="table-rows">
+	<div class="row table-row" style="border-bottom:1px solid #CCC;padding:5px 0;margin-bottom:5px;">
+			<div class="form-group col-md-2 col-md-offset-1">
+				<label for="select-ingredientes" class="hidden-md hidden-lg">Ingrediente</label> 
+			    <select id="select-ingredientes" data-live-search="true" class="form-control select2">
+			        <option value="1">Dente de alho</option>
+			        <option value="2">Azeite de oliva extra virgem</option>
+			        <option value="3">Parmesão ralado</option>
+			        <option value="4">Pecorino ralado</option>
+			        <option value="5">Pinoli</option>
+			    </select>
+			</div>
+			<div class="form-group col-md-1">
+				<label for="qnt-unidade-medida" class="hidden-md hidden-lg">Quantidade</label>
+			    <input type="number" class="form-control" id="qnt-unidade-medida" placeholder="Qnt">
+			</div>
+			<div class="form-group col-md-2">
+				<label for="select-unidade-medida" class="hidden-md hidden-lg">Unidade de medida</label>
+			    <select id="select-unidade-medida" data-native-menu="false" class="form-control select2">
+			        <option value="1">grama(s)</option>
+			        <option value="2">mililitros(s)</option>
+			        <option value="3">kilo(s)</option>
+			        <option value="4">litro(s)</option>
+			    </select>
+			</div>
+			<div class="form-group col-md-1">
+				<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
+			    <input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt">
+			</div>
+			<div class="form-group col-md-2">
+				<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label>
+			    <select id="select-medida-caseira" data-native-menu="false" class="form-control select2">
+			        <option value="1">Unidade(s)</option>
+			        <option value="2">Colher de sopa</option>
+			    </select>
+			</div>
+			<div class="form-group col-md-2 btn-excluir-wrapper">
+				
+			</div>
+	</div>	
+	</div>
+	<div class="row">
+		<div class="col-md-10">
+			<button class="btn btn-success pull-right" id="add-row-btn">Adicionar</button>
+		</div>
+	</div>		
+		<div class="row">
+			<div class="col-md-12">
+			<div class="form-group col-md-12">
+			 	<h3 class="text-center">Modo de Preparo</h3>
+					<textarea rows="10" cols="" class="form-control"></textarea>	
+				</div>
+			</div>
+		</div>
+	</form>
 
-	<h3>Rendimento: 4 pratos</h3>
-	</center>
 	
-	<table>
-		<col width="160">
-		<col width="10">
-		<col width="120">
-		<col width="10" background-color=#f8f8f8>
-		<col width="130" background-color=#f8f8f8>
-		<tr>
-			<th bgcolor="#F9F9F9">Ingrediente</th>
-			<th bgcolor="#F6F6F6">Qtd</th>
-			<th bgcolor="#F6F6F6">Unidade de Medida</th>
-			<th bgcolor="#F1F1F1">Qtd</th>
-			<th bgcolor="#F1F1F1">Medida Caseira</th>
-		</tr>
-		<tr>
-			<td><i><b>autocomplete</i></b></td>
-			<td><i><b>input type number</i></b></td>
-			<td><i><b>autocomplete</i></b></td>
-			<td><i><b>input type number</i></b></td>
-			<td><i><b>autocomplete</i></b></td>
-		</tr>
-		<tr>
-			<td>Dente de alho</td>
-			<td>100</td>
-			<td>grama(s)</td>
-			<td>2</td>
-			<td>Unidade(s)</td>
-		</tr>
-		<tr>
-			<td>Azeite de oliva extra virgem</td>
-			<td>100</td>
-			<td>mililitro(s)</td>
-			<td>7</td>
-			<td>Colher(es) de Sopa</td>
-		</tr>
-		<tr>
-			<td>Parmesão ralado</td>
-			<td>70</td>
-			<td>grama(s)</td>
-			<td>6</td>
-			<td>Colher(es) de Sopa</td>
-		</tr>
-		<tr>
-			<td>Pecorino ralado</td>
-			<td>30</td>
-			<td>grama(s)</td>
-			<td>2</td>
-			<td>Colher(es) de Sopa</td>
-		</tr>
-		<tr>
-			<td>Pinoli</td>
-			<td>15</td>
-			<td>grama(s)</td>
-			<td>1</td>
-			<td>Colher(es) de Sopa</td>
-		</tr>
-	</table>
-	
-	 <h3>Modo de Preparo</h3>
-				<ol>
-					<li>A receita original pede o uso de um socador para bater as folhas de manjericão, mas para facilitar as coisas te passamos a receita utilizando um liquidificador.
-					</li>
-					<li>Para começar, é importante lavar as folhas de manjericão mas não com água e sim com um pano úmido. Este processo é muito importante para obter um excelente molho pesto.</li>
-					<li>Uma vez que as folhas de manjericão devem estar secas e não podem estar enrugadas.</li>
-					<li>Coloque todos os ingredientes, menos o queijo, no liquidificador. </li>
-					<li>Bata tudo lentamente até que a mistura vire um
-					composto líquido e cremoso. </li>
-					<li>Neste ponto, adicione o queijo e mexa bem até que tudo fique bem
-					misturado.</li> 
-					<li>Mantenha o molho pesto na geladeira por durante 2-3 dias num recipiente hermético,
-					tendo o cuidado de cobri-lo com uma camada de azeite extra virgem de oliva.</li>
-				</ol>
-	<h3>Montagem</h3>
-				<p>Selecione um prato fundo e não muito grande, como um prato de sobremesa.
-				Você deve pôr a mistura batida sem deixar que transborde, e é possível ornamentar a 
-				apresentação com folhas de manjericão no topo. Leve à mesa com uma colher grande, 
-				para que cada um possa se servir individualmente.
-				</p>
-	<h3>Orientações e Armazenamento</h3>
-				<p>No caso de sobrar, você não deve deixar o molho exposto, vedando-o com papel 
-				filme e colocando na geladeira. É recomendável que se consuma a sobra até 1 semana depois 
-				do preparo. Também é possível congelar no freezer e aquecer ao se usar novamente.
-				</p>
 </article>
 
-<footer>Ficha Técnica Simplificada</footer>
-
+<!--footer>Ficha Técnica Simplificada</footer-->
 </div>
-
 </body>
+<script>
+	$(document).ready(function(){
+		//Select2
+		$('.select2').select2();
+		
+		//Add row
+		$('#add-row-btn').click(function(e){
+			e.preventDefault();
+			add();
+			addRemoveListener();
+		});
+		
+		//Delete row				
+		function addRemoveListener(){
+			$('.delete-row').each(function(){
+				$(this).click(function(e){
+					e.preventDefault();
+					$(this).closest('.table-row').remove();
+				});
+			});	
+		}
+		
+		//Add row
+		function add(){
+			//Clona a ultima linha
+			$('.table-row').last().clone().appendTo($('#table-rows'));
+			//Adiciona botão de excluir na linha clona se ela não contém um
+			var btn = $.parseHTML('<button class="btn btn-danger delete-row ">Excluir</button>');
+			var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
+			if(len == 0){
+				$('.btn-excluir-wrapper').last().append(btn);			
+			}
+		}
+		
+		
+		
+		
+	});
+</script>
 <jsp:include page="/template/foot.jsp"></jsp:include>
