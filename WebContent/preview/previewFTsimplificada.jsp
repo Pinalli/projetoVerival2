@@ -75,7 +75,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-10">
-			<button class="btn btn-success pull-right" id="add-row-btn">Adicionar</button>
+			<a class="btn btn-success pull-right" id="add-row-btn">Adicionar</a>
 		</div>
 	</div>		
 		<div class="row">
@@ -88,7 +88,6 @@
 		</div>
 	</form>
 
-	
 </article>
 
 <!--footer>Ficha Técnica Simplificada</footer-->
@@ -120,17 +119,13 @@
 		function add(){
 			//Clona a ultima linha
 			$('.table-row').last().clone().appendTo($('#table-rows'));
-			//Adiciona botão de excluir na linha clona se ela não contém um
+			//Adiciona botão de excluir na linha clonada se ela não contém um
 			var btn = $.parseHTML('<button class="btn btn-danger delete-row ">Excluir</button>');
 			var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
 			if(len == 0){
 				$('.btn-excluir-wrapper').last().append(btn);			
 			}
 		}
-		
-		
-		
-		
 	});
 </script>
 <jsp:include page="/template/foot.jsp"></jsp:include>
