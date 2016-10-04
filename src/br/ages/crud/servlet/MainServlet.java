@@ -17,8 +17,10 @@ import org.apache.log4j.Logger;
 import br.ages.crud.command.AddUnidadeMedidaCaseiraCommand;
 import br.ages.crud.command.AddUnidadeMedidaCommand;
 import br.ages.crud.command.AddUserCommand;
+import br.ages.crud.command.AddEmpresaCommand;
 import br.ages.crud.command.AddIngredienteCommand;
 import br.ages.crud.command.Command;
+import br.ages.crud.command.CreateScreenEmpresaCommand;
 import br.ages.crud.command.CreateScreenFichaCommand;
 import br.ages.crud.command.CreateScreenIngredientesCommand;
 import br.ages.crud.command.CreateScreenUnidadeMedidaCaseiraCommand;
@@ -91,8 +93,8 @@ public class MainServlet extends HttpServlet {
 		
 		// COMANDOS DE EMPRESA
 		comandos.put("listEmpresa", new ListEmpresaCommand());
-		//comandos.put("telaEmpresa", new CreateScreenEmpresaCommand());
-		//comandos.put("addEmpresa", new AddEmpresaCommand());
+		comandos.put("telaEmpresa", new CreateScreenEmpresaCommand());
+		comandos.put("addEmpresa", new AddEmpresaCommand());
 		//comandos.put("editEmpresa", new EditEmpresaCommand());
 		comandos.put("removerEmpresa", new RemoveEmpresaCommand());
 		
