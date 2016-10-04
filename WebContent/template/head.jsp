@@ -133,7 +133,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><a href="main?acao=listEmpresa">Listar</a></li>
-								<li><a href="main?acao=addEmpresa">Cadastar</a></li>
+								<li><a href="main?acao=telaEmpresa">Cadastar</a></li>
 
 							</ul>
 							<%--</ul>--%>
