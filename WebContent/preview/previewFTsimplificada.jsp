@@ -36,12 +36,7 @@
 	<div class="row table-row" style="border-bottom:1px solid #CCC;padding:5px 0;margin-bottom:5px;">
 			<div class="form-group col-md-2 col-md-offset-1">
 				<label for="select-ingredientes" class="hidden-md hidden-lg">Ingrediente</label> 
-			    <select id="select-ingredientes" data-live-search="true" class="form-control select2">
-			        <option value="1">Dente de alho</option>
-			        <option value="2">Azeite de oliva extra virgem</option>
-			        <option value="3">Parmesão ralado</option>
-			        <option value="4">Pecorino ralado</option>
-			        <option value="5">Pinoli</option>
+			    <select id="select-ingredientes" data-live-search="true" class="form-control selectBatata">
 			    </select>
 			</div>
 			<div class="form-group col-md-1">
@@ -50,11 +45,7 @@
 			</div>
 			<div class="form-group col-md-2">
 				<label for="select-unidade-medida" class="hidden-md hidden-lg">Unidade de medida</label>
-			    <select id="select-unidade-medida" data-native-menu="false" class="form-control select2">
-			        <option value="1">grama(s)</option>
-			        <option value="2">mililitros(s)</option>
-			        <option value="3">kilo(s)</option>
-			        <option value="4">litro(s)</option>
+			    <select id="select-unidade-medida" data-native-menu="false" class="form-control selectBatata">
 			    </select>
 			</div>
 			<div class="form-group col-md-1">
@@ -63,9 +54,7 @@
 			</div>
 			<div class="form-group col-md-2">
 				<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label>
-			    <select id="select-medida-caseira" data-native-menu="false" class="form-control select2">
-			        <option value="1">Unidade(s)</option>
-			        <option value="2">Colher de sopa</option>
+			    <select id="select-medida-caseira" data-native-menu="false" class="form-control selectBatata">
 			    </select>
 			</div>
 			<div class="form-group col-md-2 btn-excluir-wrapper">
@@ -95,14 +84,32 @@
 </body>
 <script>
 	$(document).ready(function(){
+		var ingredientes  = [{id:'1',text:'batata'}, {id:'2',text:'batata frita'}, {id:'3',text:'batata doce'}, {id:'4',text:'batata chips'}];
+		var unidadeMedida = [{id:'1',text:'grama(s)'}, {id:'2',text:'kilo(s)'}];
+		var medidaCaseira = [{id:'1',text:'Unidade(s)'}, {id:'2',text:'Colher de sopa'}];
 		//Select2
-		$('.select2').select2();
+		//$('.selectBatata').select2();
+		setSelect2();
+		
+		function setSelect2(){
+			//$('.selectBatata').select2();
+			$('.selectBatata').each(function(i,obj){
+				if(obj.id == 'select-ingredientes'){
+					$(this).select2({data:ingredientes});
+				}else if(obj.id == 'select-unidade-medida'){
+					$(this).select2({data:unidadeMedida});					
+				}else if(obj.id == 'select-medida-caseira'){
+					$(this).select2({data:medidaCaseira});
+				}
+			});
+		}
 		
 		//Add row
 		$('#add-row-btn').click(function(e){
 			e.preventDefault();
 			add();
 			addRemoveListener();
+			setSelect2();
 		});
 		
 		//Delete row				
@@ -118,7 +125,10 @@
 		//Add row
 		function add(){
 			//Clona a ultima linha
-			$('.table-row').last().clone().appendTo($('#table-rows'));
+			var row = $('.table-row').last().clone(); 			
+			row.find('.select2').remove();
+			row.find('select').removeClass('select2-hidden-accessible');
+			row.appendTo($('#table-rows'));
 			//Adiciona botão de excluir na linha clonada se ela não contém um
 			var btn = $.parseHTML('<button class="btn btn-danger delete-row ">Excluir</button>');
 			var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
