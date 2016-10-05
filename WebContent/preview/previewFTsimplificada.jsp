@@ -18,7 +18,8 @@
 	<div class="form-group col-md-12 text-center">
 		<img class="img-responsive img-thumbnail" src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" width="305" align="middle" >
 	</div>
-	<div class="form-group col-md-4 col-md-offset-4">
+	<div class="form-group  col-md-4 col-md-offset-4">
+		<label for="select-rendimento" class=" hidden-sm col-md-12 text-center">Rendimento</label> 
 		<input type="text" name="rendimento" id="rendimento" class="form-control text-center" placeholder="Rendimento"/>
 	</div>
 	<div class="row">
@@ -71,6 +72,23 @@
 			<div class="col-md-12">
 			<div class="form-group col-md-12">
 			 	<h3 class="text-center">Modo de Preparo</h3>
+					<textarea rows="10" cols="" class="form-control"></textarea>	
+				</div>
+			</div>
+		</div>
+		
+			<div class="row">
+			<div class="col-md-12">
+			<div class="form-group col-md-12">
+			 	<h3 class="text-center">Montagem</h3>
+					<textarea rows="10" cols="" class="form-control"></textarea>	
+				</div>
+			</div>
+		</div>
+		<div class="row">	
+			<div class="col-md-12">
+			<div class="form-group col-md-12">
+			 	<h3 class="text-center">Orientações e armazenamento</h3>
 					<textarea rows="10" cols="" class="form-control"></textarea>	
 				</div>
 			</div>
