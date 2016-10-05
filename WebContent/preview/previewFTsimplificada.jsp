@@ -34,7 +34,8 @@
 	</div>
 	
 	<div class="row" id="table-rows">
-	<div class="row table-row" style="border-bottom:1px solid #CCC;padding:5px 0;margin-bottom:5px;">
+	<div class="table-row" style="padding:5px 0;margin-bottom:5px;width:100%;float:left;">
+		<div class="col-md-12">
 			<div class="form-group col-md-2 col-md-offset-1">
 				<label for="select-ingredientes" class="hidden-md hidden-lg">Ingrediente</label> 
 			    <select id="select-ingredientes" data-live-search="true" class="form-control selectBatata">
@@ -60,6 +61,7 @@
 			</div>
 			<div class="form-group col-md-2 btn-excluir-wrapper">
 				
+			</div>
 			</div>
 	</div>	
 	</div>
