@@ -43,7 +43,7 @@
 			</div>
 			<div class="form-group col-md-1">
 				<label for="qnt-unidade-medida" class="hidden-md hidden-lg">Quantidade</label>
-			    <input type="number" class="form-control" id="qnt-unidade-medida" placeholder="Qnt">
+			    <input type="number" class="form-control" id="qnt-unidade-medida" placeholder="Qnt" min="1">
 			</div>
 			<div class="form-group col-md-2">
 				<label for="select-unidade-medida" class="hidden-md hidden-lg">Unidade de medida</label>
@@ -52,7 +52,7 @@
 			</div>
 			<div class="form-group col-md-1">
 				<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
-			    <input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt">
+			    <input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt" min="0.1" step="0.1">
 			</div>
 			<div class="form-group col-md-2">
 				<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label>
