@@ -15,8 +15,9 @@
 		<div class="form-group col-md-4 col-md-offset-4">
 			<input type="text" name="nome" id="nome" class="form-control text-center" placeholder="Nome"/>
 		</div>
-	<div class="form-group col-md-12 text-center">
-		<img class="img-responsive img-thumbnail" src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" width="305" align="middle" >
+	<div class="form-group col-md-12 text-center" >
+		<img class="img-responsive img-thumbnail" src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" width="305" align="middle"> 
+		<center><input id="imgFile" name="fotoDaReceita" class="input-file" type="file" accept="image/*"></center>
 	</div>
 	<div class="form-group  col-md-4 col-md-offset-4">
 		<label for="select-rendimento" class=" hidden-sm col-md-12 text-center">Rendimento</label> 
@@ -105,7 +106,7 @@
 <script>
 	$(document).ready(function(){
 		var ingredientes  = [{id:'1',text:'batata'}, {id:'2',text:'batata frita'}, {id:'3',text:'batata doce'}, {id:'4',text:'batata chips'}];
-		var unidadeMedida = [{id:'1',text:'grama(s)'}, {id:'2',text:'kilo(s)'}];
+		var unidadeMedida = [{id:'1',text:'grama(s)'}, {id:'2',text:'quilo(s)'}];
 		var medidaCaseira = [{id:'1',text:'Unidade(s)'}, {id:'2',text:'Colher de sopa'}];
 		//Select2
 		//$('.selectBatata').select2();

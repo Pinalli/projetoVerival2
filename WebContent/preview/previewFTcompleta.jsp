@@ -17,10 +17,11 @@
 		</div>
 	<div class="form-group col-md-12 text-center">
 		<img class="img-responsive img-thumbnail" src="http://div.bg/pictures/856317_824_.jpg" width="305" align="middle" >
+		<center><input id="imgFile" name="fotoDaReceita" class="input-file" type="file" accept="image/*"></center>
 	</div>
 	<div class="form-group  col-md-4 col-md-offset-4">
 		<label for="select-rendimento" class=" hidden-sm col-md-12 text-center">Rendimento</label> 
-		<input type="text" name="rendimento" id="rendimento" class="form-control text-center" placeholder="Rendimento"/>
+		<input type="text" name="rendimento" id="rendimento" class="form-control text-center" placeholder="Ex: 10 pratos"/>
 	</div>
 	<div class="row">
 		<div class="col-md-12 col-md-offset-1 hidden-sm hidden-xs">
@@ -38,7 +39,7 @@
 		<div class="col-md-12">
 			<div class="form-group col-md-2 col-md-offset-1">
 				<label for="select-ingredientes" class="hidden-md hidden-lg">Ingrediente</label> 
-			    <select id="select-ingredientes" data-live-search="true" class="form-control selectBatata">
+			    <select id="select-ingredientes" data-live-search="true" class="form-control selectIng">
 			    </select>
 			</div>
 			<div class="form-group col-md-1">
@@ -47,7 +48,7 @@
 			</div>
 			<div class="form-group col-md-2">
 				<label for="select-unidade-medida" class="hidden-md hidden-lg">Unidade de medida</label>
-			    <select id="select-unidade-medida" data-native-menu="false" class="form-control selectBatata">
+			    <select id="select-unidade-medida" data-native-menu="false" class="form-control selectIng">
 			    </select>
 			</div>
 			<div class="form-group col-md-1">
@@ -56,7 +57,7 @@
 			</div>
 			<div class="form-group col-md-2">
 				<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label>
-			    <select id="select-medida-caseira" data-native-menu="false" class="form-control selectBatata">
+			    <select id="select-medida-caseira" data-native-menu="false" class="form-control selectIng">
 			    </select>
 			</div>
 			<div class="form-group col-md-2 btn-excluir-wrapper">
@@ -74,7 +75,8 @@
 			<div class="col-md-12">
 			<div class="form-group col-md-12">
 			 	<h3 class="text-center">Modo de Preparo</h3>
-					<textarea rows="10" cols="" class="form-control"></textarea>	
+					<textarea rows="10" cols="" class="form-control"
+					placeholder="Oi gente. Como cada ingrediente tem mttts itens na ficha completa, acho melhor pensar num jeito de fazer um 'hide & show' do menu editável, pra cada ingrediente. "></textarea>	
 				</div>
 			</div>
 		</div>
@@ -95,6 +97,30 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-12">
+			<div class="form-group col-md-12">
+			 	<h3 class="text-center">Textura</h3>
+					<textarea rows="10" cols="" class="form-control"></textarea>	
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			<div class="form-group col-md-12">
+			 	<h3 class="text-center">Sabor</h3>
+					<textarea rows="10" cols="" class="form-control"></textarea>	
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			<div class="form-group col-md-12">
+			 	<h3 class="text-center">Apresentação</h3>
+					<textarea rows="10" cols="" class="form-control"></textarea>	
+				</div>
+			</div>
+		</div>
 	</form>
 
 </article>
@@ -104,16 +130,16 @@
 </body>
 <script>
 	$(document).ready(function(){
-		var ingredientes  = [{id:'1',text:'batata'}, {id:'2',text:'batata frita'}, {id:'3',text:'batata doce'}, {id:'4',text:'batata chips'}];
+		var ingredientes  = [{id:'1',text:''}, {id:'2',text:'Ovo'}, {id:'3',text:'Pimenta'}, {id:'4',text:'Sal'}];
 		var unidadeMedida = [{id:'1',text:'grama(s)'}, {id:'2',text:'kilo(s)'}];
-		var medidaCaseira = [{id:'1',text:'Unidade(s)'}, {id:'2',text:'Colher de sopa'}];
+		var medidaCaseira = [{id:'1',text:'Unidade(s)'}, {id:'2',text:'Colher de sopa'}, {id:'3',text:'Xícara'}];
 		//Select2
 		//$('.selectBatata').select2();
 		setSelect2();
 		
 		function setSelect2(){
-			//$('.selectBatata').select2();
-			$('.selectBatata').each(function(i,obj){
+			//$('.selectIng').select2();
+			$('.selectIng').each(function(i,obj){
 				if(obj.id == 'select-ingredientes'){
 					$(this).select2({data:ingredientes});
 				}else if(obj.id == 'select-unidade-medida'){
