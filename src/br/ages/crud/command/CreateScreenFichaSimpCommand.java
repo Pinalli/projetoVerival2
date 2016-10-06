@@ -13,12 +13,12 @@ import br.ages.crud.model.PerfilAcesso;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
 
-public class CreateScreenFichaCommand implements Command {
-	//É interessante manter essa classe pra caso integremos ambas as fichas numa página só.
+public class CreateScreenFichaSimpCommand implements Command {
+
 
 	private String proxima;
 
-
+	
 	public String execute(HttpServletRequest request) throws SQLException {
 		proxima = "preview/previewFTsimplificada.jsp";
 		

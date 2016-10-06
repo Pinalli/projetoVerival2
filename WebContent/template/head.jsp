@@ -149,8 +149,8 @@
 				          		<span class="caret"></span>
 				          	</a>
 				          	<ul class="dropdown-menu">
-				            	<li><a>Completa</a></li>
-				            	<li><a  href="main?acao=telaFicha">Simplificada</a></li>				          		
+				            	<li><a  href="main?acao=telaFichaComp">Completa</a></li>
+				            	<li><a  href="main?acao=telaFichaSimp">Simplificada</a></li>				          		
 				          	</ul>
         				</li>
 
