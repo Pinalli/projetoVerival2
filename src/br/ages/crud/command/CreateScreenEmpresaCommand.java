@@ -33,7 +33,7 @@ public class CreateScreenEmpresaCommand implements Command {
 				
 				empresaBO = new EmpresaBO();
 				
-				int id = Integer.parseInt(request.getParameter("idEmpresa"));
+				int id = Integer.parseInt(request.getParameter("id_empresa"));
 				Empresa empresa = empresaBO.buscaEmpresaId(id);
 				
 				

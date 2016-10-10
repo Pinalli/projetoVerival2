@@ -8,6 +8,8 @@
 <jsp:include page="../template/head.jsp"></jsp:include>
 <head>
 <script type="text/javascript" src="js/empresa.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
 </head>
 <div class="panel panel-success panel-addUser">
 
@@ -19,12 +21,12 @@
 		<jsp:include page="/template/msg.jsp"></jsp:include>
 
 
-		<form method="post" class="form-horizontal" action="main?acao=addIngrediente">
+		<form method="post" class="form-horizontal" action="main?acao=addEmpresa">
 
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="cnpj">CNPJ</label>
+				<label class="col-md-3 control-label ages" for="cnpj">CNPJ</label>
 				<div class="col-md-6">
-					<input id="cnpj" name="cnpj" type="text"
+					<input id="cnpj" name="cnpj" value="${param.cnpj}" type="text"
 						placeholder="Ex: 000.000.1000/20" class="form-control input-md"
 						required="">
 
@@ -33,9 +35,9 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="telefone">Telefone</label>
+				<label class="col-md-3 control-label ages" for="telefone">Telefone</label>
 				<div class="col-md-6">
-					<input id="telefone" name="telefone" type="text"
+					<input id="telefone" name="telefone" value="${param.telefone}" type="text"
 						placeholder="5199017442" class="form-control input-md" required="">
 
 				</div>
@@ -43,26 +45,26 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="nome">Nome</label>
+				<label class="col-md-3 control-label ages" for="nome">Nome</label>
 				<div class="col-md-6">
-					<input id="nome" name="nome" type="text" placeholder=""
+					<input id="nome" name="nome" value="${param.nome}" type="text" placeholder=""
 						class="form-control input-md" required="">
 
 				</div>
 			</div>
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="cidade">Endereço</label>
+				<label class="col-md-3 control-label ages" for="cidade">Endereço</label>
 				<div class="col-md-6">
-					<input id="endereco" name="endereco" type="text" placeholder=""
+					<input id="endereco" name="endereco" value="${param.endereco}" type="text" placeholder=""
 						class="form-control input-md" required="">
 
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="cidade">Cidade</label>
+				<label class="col-md-3 control-label ages" for="cidade">Cidade</label>
 				<div class="col-md-6">
-					<input id="cidade" name="cidade" type="text" placeholder=""
+					<input id="cidade" name="cidade" value="${param.cidade}" type="text" placeholder=""
 						class="form-control input-md" required="">
 
 				</div>
@@ -70,10 +72,10 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="razaoSocial">Razão
+				<label class="col-md-3 control-label ages" for="razaoSocial">Razão
 					Social</label>
 				<div class="col-md-6">
-					<input id="razaoSocial" name="razaoSocial" type="text"
+					<input id="razaoSocial" name="razaoSocial" value="${param.razaoSocial}" type="text"
 						placeholder="" class="form-control input-md" required="">
 
 				</div>
@@ -81,9 +83,9 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="responsavel">Responsavel</label>
+				<label class="col-md-3 control-label ages" for="responsavel">Responsavel</label>
 				<div class="col-md-6">
-					<input id="responsavel" name="responsavel" type="text"
+					<input id="responsavel" name="responsavel" value="${param.responsavel}" type="text"
 						placeholder="Responsavel pela empresa"
 						class="form-control input-md" required="">
 
@@ -92,7 +94,7 @@
 
 			<!-- File Button -->
 			<div class="form-group">
-				<label class="col-md-3 control-label" for="logotipo">Logo</label>
+				<label class="col-md-3 control-label ages" for="logotipo">Logo</label>
 				<div class="col-md-6">
 					<input id="logotipo" name="logotipo" class="input-file" type="file">
 				</div>
