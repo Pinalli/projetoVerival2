@@ -63,7 +63,7 @@ public class EmpresaDAO {
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
-				empresa.setResponsavel(resultset.getString("LOGO"));
+				empresa.setLogo(resultset.getString("LOGO"));
 			} else
 				empresa = null;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -102,7 +102,7 @@ public class EmpresaDAO {
 				dto.setCidade(resultset.getString("CIDADE"));
 				dto.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				dto.setResponsavel(resultset.getString("RESPONSAVEL"));
-				dto.setResponsavel(resultset.getString("LOGO"));
+				dto.setLogo(resultset.getString("LOGO"));
 				
 				listarEmpresa.add(dto);
 			}
