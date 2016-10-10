@@ -33,7 +33,7 @@ public class LoginCommand implements Command {
 			if (user != null) {
 				request.getSession().setAttribute("usuarioSessao", user);
 				request.getSession().setAttribute("versao", util.getVersion());
-				proxima = "main?acao=listUser";
+				proxima = "/index.jsp";
 			
 			}
 		} catch (NegocioException e) {

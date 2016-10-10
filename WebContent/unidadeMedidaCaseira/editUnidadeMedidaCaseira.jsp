@@ -10,7 +10,7 @@
 	<div class="panel panel-success panel-addUser">
     		
 		<div class="panel-heading text-center">
-			Editar Unidade Medida Caseira
+			Editar Unidade Medida Caseira <b><%=unidadeMedidaCaseira.getNome() %></b>
 		</div>
 		
 		
@@ -22,10 +22,10 @@
                 
                 <form method="post" action="main?acao=editUnidadeMedidaCaseira">
                 	<input class="form-control" type="hidden" id="idUnidadeMedidaCaseira" name="idUnidadeMedidaCaseira" value="<%=unidadeMedidaCaseira.getIdUnidadeMedidaCaseira()%>">
-                		<div class="form-group">
+                	<!--div class="form-group">
 			           	<label class="form-label ages">IdUnidadeMedidaCaseira:</label>
 			           	<input class="form-control" id="idUnidadeMedidaCaseira" name="idUnidadeMedidaCaseira" value="<%=unidadeMedidaCaseira.getIdUnidadeMedidaCaseira()%>" type="text" maxlength="9" readonly>
-		            </div>
+		            </div-->
 		            
 		            <div class="form-group">
 			           	<label class="form-label ages">Nome: <span class="red">*</span></label>
@@ -43,8 +43,8 @@
                     
                     
                     <div class="text-center">
-			           	<input class="btn btn-default limparUser pull-left" type="reset" value="Limpar">
-			           	<input class="btn btn-success addUser pull-right" type="submit" value="Salvar">
+			           	<input class="btn btn-warning limparUnidadeMedidaCaseira pull-left" type="reset" value="Limpar">
+			           	<input class="btn btn-success addUnidadeMedidaCaseira pull-right" type="submit" value="Salvar">
 			        </div>
 			        
                 </form>

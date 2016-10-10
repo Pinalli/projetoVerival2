@@ -11,7 +11,7 @@
 							$(this).find('.modal-title').text(
 									'Excluir Ingrediente');
 							$(this).find('#modal-descricao').text(
-									'Você realmente deseja excluir o ingrediente ('
+									'Realmente deseja excluir o ingrediente ('
 											+ ingrediente + ')?');
 
 							$('#formExcluir').attr(
@@ -28,9 +28,9 @@
 							var id = botao.data('id');
 
 							$(this).find('.modal-title').text(
-									'Editar unidade de medida');
+									'Editar ingrediente');
 							$(this).find('#modal-descricao').text(
-									'Você realmente deseja editar o ingrediente ('
+									'Realmente deseja editar o ingrediente ('
 											+ ingrediente + ')?');
 
 							$('#formEditar').attr(
@@ -45,7 +45,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 
-			<div class="modal-header modal-ages">
+			<div class="modal-header modal-exclude">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4 class="modal-title"></h4>
 			</div>
@@ -57,7 +57,7 @@
 			<div class="modal-footer">
 				<form action="" method="post" id="formExcluir">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					<button type="submit" class="btn btn-success">Excluir</button>
+					<button type="submit" class="btn btn-exclude">Excluir</button>
 				</form>
 			</div>
 

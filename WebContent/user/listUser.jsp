@@ -18,8 +18,7 @@
 
             <thead>
                 <tr>
-                    <th style="text-align: center;">ID</th>
-                   	<th style="text-align: center;">Nome</th>
+                    <th style="text-align: center;">Nome</th>
 					<th style="text-align: center;">E-mail</th>
 					<th style="text-align: center;">Usuário</th>
 					<th style="text-align: center;">Perfil</th>
@@ -38,7 +37,6 @@
 				%>
 				          
             	<tr>
-	            	<td align="center"><%=usuario.getIdUsuario()%></td>
 	            	<td align="center"><%=usuario.getNome()%></td>
 	            	<td align="center"><%=usuario.getEmail()%></td>
 	            	<td align="center"><%=usuario.getUsuario()%></td>

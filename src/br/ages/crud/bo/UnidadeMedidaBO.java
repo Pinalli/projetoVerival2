@@ -41,6 +41,10 @@ public class UnidadeMedidaBO {
 		
 		try{
 			
+			if(this.existeUnidadeMedida(unidadeMedida)){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE.concat("<br/>"));
+			}			
 			if (unidadeMedida.getUnidadeMedida().length() < 1 || unidadeMedida.getUnidadeMedida().length() > 60) {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_ORIGEM_INVALIDA.concat("<br/>"));
@@ -147,6 +151,20 @@ public class UnidadeMedidaBO {
 			throw new NegocioException(e);
 		}
 
+	}
+	
+	/**
+	 * Verifica se unidade de medida existe
+	 * @param unidadeMedida
+	 * @throws NegocioException
+	 */
+	public boolean existeUnidadeMedida(UnidadeMedida unidadeMedida) throws NegocioException {
+		try {
+			return unidadeMedidaDAO.existeUnidadeMedida(unidadeMedida);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
 	}
 
 	public void setUnidadeMedidaDAO(UnidadeMedidaDAO unidadeMedidaDAO) {

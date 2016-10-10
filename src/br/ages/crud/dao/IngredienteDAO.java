@@ -44,7 +44,7 @@ public class IngredienteDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT * ");
-			sql.append("from "+ this.table +" i");
+			sql.append("FROM "+ this.table +" i");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
@@ -86,7 +86,7 @@ public class IngredienteDAO {
 			
 			StringBuilder sql = new StringBuilder();
 			sql.append(
-					"insert into "+ this.table +" ("
+					"INSERT INTO "+ this.table +" ("
 					+ "`ID`, "
 					+ "`COD`, "
 					+ "`DESCRICAO`, "
@@ -148,10 +148,10 @@ public class IngredienteDAO {
 
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT * FROM TB_INGREDIENTE WHERE DESCRICAO = ?");
-			sql.append("select ");
+			sql.append("SELECT ");
 			sql.append("i.*");
 			sql.append("FROM "+ this.table +" i");
-			sql.append("where i.descricao = ?;");
+			sql.append("WHERE i.descricao = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, descricao);
 
@@ -198,9 +198,9 @@ public class IngredienteDAO {
 			// sql.append("SELECT * FROM AGES_E.TB_INGREDIENTE WHERE CODIGO =
 			// ?;");
 			//
-			sql.append("select *");
+			sql.append("SELECT *");
 			sql.append(" FROM "+ this.table);
-			sql.append(" where ID = ?;");
+			sql.append(" WHERE ID = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idIngrediente);
 			
@@ -245,7 +245,7 @@ public class IngredienteDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = ingrediente.getId();
 			int cod = ingrediente.getCodigo();
-			sql.append("update "+ this.table);
+			sql.append("UPDATE "+ this.table);
             sql.append(" SET COD = ? , DESCRICAO = ?,");
             sql.append(" CARBOIDRATOS = ?,");
             sql.append(" KCAL_CARBOIDRATOS = ?,");

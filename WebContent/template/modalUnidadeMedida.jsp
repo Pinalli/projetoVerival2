@@ -7,7 +7,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 			
 	  	$(this).find('.modal-title').text('Excluir unidade de medida');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja excluir a unidade de medida (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a unidade de medida (' + usuario + ')?');
 	  	
 	  	$('#formExcluir').attr('action', "main?acao=removerUnidadeMedida&id_unidadeMedida=" + id);
 	});
@@ -19,7 +19,7 @@ $( document ).ready(function() {
 		var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Editar unidade de medida');
-	  	$(this).find('#modal-descricao').text('Você realmente deseja editar a unidade de medida (' + usuario + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja editar a unidade de medida (' + usuario + ')?');
 	  	
 	  	$('#formEditar').attr('action', "main?acao=telaUnidadeMedida&id_unidadeMedida=" + id + "&isEdit=true");
 	});
@@ -30,7 +30,7 @@ $( document ).ready(function() {
   		<div class="modal-dialog">
 	  		<div class="modal-content">
 	  		
-	      		<div class="modal-header modal-ages">
+	      		<div class="modal-header modal-exclude">
 		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
 		        	<h4 class="modal-title"></h4>
 	      		</div>
@@ -42,7 +42,7 @@ $( document ).ready(function() {
 		      	<div class="modal-footer">
 		      		<form action="" method="post" id="formExcluir">
 		      			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-		      			<button type="submit" class="btn btn-success">Excluir</button>
+		      			<button type="submit" class="btn btn-exclude">Excluir</button>
 		      		</form>
 		      	</div>
 		      	

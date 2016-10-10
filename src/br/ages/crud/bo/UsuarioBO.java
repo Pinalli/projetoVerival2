@@ -13,6 +13,7 @@ import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.TipoUsuario;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
+import br.ages.crud.util.Util;
 import br.ages.crud.validator.SenhaValidator;
 
 /**
@@ -97,6 +98,13 @@ public class UsuarioBO {
 			 * 
 			 * }
 			 */
+			
+			boolean cpfValido = Util.isCPF(usuario.getCpf());
+			
+			if(cpfValido==false){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CPF_INVALIDA + "<br/>");
+			}
 			if(usuario.getEndereco()== null){
 				isValido= false;
 				msg.append(MensagemContantes.MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO + "<br/>");
@@ -107,7 +115,7 @@ public class UsuarioBO {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
 			}
-			// Usuário
+			// Usuâ³©o
 			if (usuario.getUsuario() == null || "".equals(usuario.getUsuario())) {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_CAMPO_OBRIGATORIO.replace("?", "Usuario ").concat("<br/>"));
@@ -290,7 +298,7 @@ public class UsuarioBO {
 	}
 
 	/**
-	 * Lista os usuários responsáveis
+	 * Lista os usuâ³©os responsâ·¥is
 	 * 
 	 * @return
 	 * @throws NegocioException

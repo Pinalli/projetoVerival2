@@ -18,6 +18,11 @@ body{
     margin-right: auto;
 }
 
+.modal-exclude{
+	color: #fff;
+	background-color: #CC0000;
+}
+
 .panel-addIngrediente {
 	max-width: 750px;
 	float: none;
@@ -54,11 +59,11 @@ body{
 	width: 100%;
 }
 
-.addUser, .addIngrediente {
+.addUser, .addIngrediente, .addUnidadeMedida, .addUnidadeMedidaCaseira {
 	width: 78%;
 }
 
-.limparUser, .limpaIngrediente{
+.limparUser, .limpaIngrediente, .limpaUnidadeMedida, .limpaUnidadeMedidaCaseira{
 	width: 20%;
 }
 

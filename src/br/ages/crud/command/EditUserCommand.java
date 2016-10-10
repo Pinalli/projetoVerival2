@@ -27,7 +27,7 @@ public class EditUserCommand implements Command{
 	public String execute(HttpServletRequest request) throws SQLException {
 		usuarioBO =  new UsuarioBO();
 		Usuario usuario;
-		proxima = "user/editUser.jsp";
+		proxima = "main?acao=telaUser";
 		
 		String idUsuarioString = request.getParameter("idUsuario");
 		String usuarioString = request.getParameter("usuario");
@@ -82,6 +82,7 @@ public class EditUserCommand implements Command{
 			}				
 		} catch(Exception e){		
 			request.setAttribute("msgErro", e.getMessage());
+			proxima = "main?acao=telaUser";
 		}
 		return proxima;
 	}

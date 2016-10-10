@@ -10,8 +10,12 @@
         
 		<!-- BOOTSTRAP -->
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
-	 	<link rel="stylesheet" href="./css/bootstrap-theme.min.css"> 
-
+	 	<link rel="stylesheet" href="./css/bootstrap-theme.min.css">
+	 	
+	 	<!-- SELECT2 -->
+		<link rel="stylesheet" href="./css/select2.min.css">
+		<link rel="stylesheet" href="./css/select2-bootstrap.css">
+		
 		<!-- Include the plugin's CSS and JS: Cassio DataTable -->
 	<!-- 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"> -->
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
@@ -23,8 +27,10 @@
         <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 
 		<!-- BOOTSTRAP -->
-		<script src="./js/bootstrap.min.js"></script> 
-
+		<script src="./js/bootstrap.min.js"></script>
+		
+		<!-- BOOTSTRAP -->		
+		<script src="./js/select2.min.js"></script>
 
 		<!-- Include the plugin's CSS and JS: Cassio DataTable -->
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
@@ -54,11 +60,11 @@
 				<div class="container-fluid">
 				
 		    		<div class="navbar-header">
-			      		<a class="navbar-brand">
+			      		<a  href="./index.jsp" class="navbar-brand">
 			        		<img class="logoNavBar" src="./img/logo-ftp.png" alt="">
 			      		</a>
 			    	</div>
-
+			    	
 					<ul class="nav navbar-nav">
 						
 						<li class="dropdown">
@@ -118,7 +124,39 @@
 
 						</li>
 					</ul>
+					
+					<ul class="nav navbar-nav">
 
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Empresa
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="main?acao=listEmpresa">Listar</a></li>
+								<li><a href="main?acao=telaEmpresa">Cadastar</a></li>
+
+							</ul>
+							<%--</ul>--%>
+
+						</li>
+					</ul>
+
+					
+					<ul class="nav navbar-nav">
+						
+						<li class="dropdown">
+			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Preview FTs
+				          		<span class="caret"></span>
+				          	</a>
+				          	<ul class="dropdown-menu">
+				          		<!-- ainda existe a acao "telaFicha", pra caso integremos ambas numa pág só. -->
+				            	<li><a  href="main?acao=telaFichaComp">Completa</a></li>
+				            	<li><a  href="main?acao=telaFichaSimp">Simplificada</a></li>				          		
+				          	</ul>
+        				</li>
+
+					</ul>
+					
 					<ul class="nav navbar-nav navbar-right">
         				<li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -132,6 +170,7 @@
         					</ul>
         				</li>
 			      	</ul>
+					
 			      	
 		    	</div>
 			</nav>

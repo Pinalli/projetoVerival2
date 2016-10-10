@@ -12,7 +12,7 @@
 	<div class="panel panel-success panel-addUser">
     		
 		<div class="panel-heading text-center">
-			Editar Unidade de Medida
+			Editar Unidade de Medida <b><%=unidadeMedida.getUnidadeMedida()%></b>
 		</div>
 		
 		
@@ -51,8 +51,8 @@
                     
                     
                     <div class="text-center">
-			           	<input class="btn btn-default limparUser pull-left" type="reset" value="Limpar">
-			           	<input class="btn btn-success addUser pull-right" type="submit" value="Salvar">
+			           	<input class="btn btn-warning limparUnidadeMedida pull-left" type="reset" value="Limpar">
+			           	<input class="btn btn-success addUnidadeMedida pull-right" type="submit" value="Salvar">
 			        </div>
 			        
                 </form>

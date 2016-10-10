@@ -2,7 +2,11 @@ package br.ages.crud.util;
 
 public class MensagemContantes {
 	
-	public static final String MSG_ERRO_CAMPO_SENHA_E_CONFIRMARRSENHA_DIFERENTES = "campoo senha e confirmar senha diferentes";
+	public static final String MSG_ERR_CAMPO_CNPJ_MENOR_RECOMENDADO = "Campo ? com menos de 11 caracteres!";
+	
+	public static final String MSG_ERR_CAMPO_CNPJ_MAIOR_RECOMENDADO = "Campo ? com mais de 11 caracteres!";
+	
+	public static final String MSG_ERRO_CAMPO_SENHA_E_CONFIRMARRSENHA_DIFERENTES = "Campos Senha e Confirmar senha diferentes";
 
 	public static final String MSG_ERR_CAMPO_OBRIGATORIO = "Campo ? obrigatório!";
 	
@@ -36,9 +40,9 @@ public class MensagemContantes {
 	
 	public static final String MSG_ERR_SENHA_INVALIDA = "A senha do usuario ï¿½ invï¿½lida: Deve ter no mï¿½nimo 3 e no mï¿½ximo 8 caracteres, apenas nï¿½meros e letras!";
 	
-	public static final String MSG_ERR_CPF_INVALIDA = "cpf invalido!";
+	public static final String MSG_ERR_CPF_INVALIDA = "CPF invalido!";
 	
-	public static final String MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO = "campo de endereço obrigatorio!";
+	public static final String MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO = "Campo Endereço obrigatorio!";
 	
 	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!"
 			+ "<br>Exemplo correto: ages_user@acad.pucrs.br";
@@ -65,7 +69,7 @@ public class MensagemContantes {
 	
 	public static final String MSG_INF_DENY_SELF = "Você não pode remover a si mesmo.";
 	
-	public static final String MSG_INF_SEM_PERISSAO = "Acesso negado! Você NÃO tem permissão apra acessar essa funcionalidade.";
+	public static final String MSG_INF_SEM_PERISSAO = "Acesso negado! Você NÃO tem permissão para acessar essa funcionalidade.";
 	
 
 	//msgs de unidades de medidas
@@ -132,7 +136,7 @@ public class MensagemContantes {
 	
 	//msgs das Unidades de Medida
 	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA = "Unidade de Medida ? cadastrada com sucesso!";
-	public static final String MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE = " Unidade de Medida ? já cadastrada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE = " Unidade de Medida já cadastrada";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_DADOS_INVALIDOS = "Dados da Unidade de Medida inválidos ou inconsistentes!";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_ORIGEM_INVALIDA = "A descrição da origem da unidade de medida deve ter de 1 a 60 caracteres";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_DESCRICAO_CONVERSAO_INVALIDA = "A descrição da conversão da unidade de medida deve ter de 1 a 60 caracteres";
@@ -162,6 +166,16 @@ public class MensagemContantes {
 	public static final String MSG_ERR_INGREDIENTE_NOME_INVALIDO = "A descrição da origem da Ingrediente deve ter de 1 a 60 caracteres";
 	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";
 	public static final String MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO = "Este Ingrediente está em algum projeto e não pode ser removido!";
+	
+	//msgs das Empresa
+		public static final String MSG_SUC_REMOVE_EMPRESA = " Empresa ? removida com sucesso";
+		public static final String MSG_SUC_EDICAO_EMPRESA = " Empresa ? altera com sucesso!";
+		public static final String MSG_SUC_CADASTRO_EMPRESA = " Empresa ? cadastrada com sucesso!";	
+		public static final String MSG_ERR_EDICAO_EMPRESA = " Empresa ? não pode ser editada";
+		public static final String MSG_ERR_EMPRESA_JA_EXISTENTE = " Empresa ? já cadastrada";
+		public static final String MSG_ERR_EMPRESA_DADOS_INVALIDOS = "Dados da Empresa inválidos ou inconsistentes!";
+		public static final String MSG_ERR_EMPRESA_NOME_INVALIDO = "A descrição da origem da Empresa deve ter de 1 a 60 caracteres";
+		public static final String MSG_ERR_REMOVE_EMPRESA_EM_PROJETO = "Esta Empresa está em algum projeto e não pode ser removido!";
 	
 	
 }

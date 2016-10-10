@@ -4,6 +4,11 @@
     display: block;
 }
 
+.logoEmpresa {
+    margin: 20px auto 20px;
+    display: block;
+}
+
 .login {
     width: 300px;
     margin: 0 auto; /* Centraliza no meio da tela */

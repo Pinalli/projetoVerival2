@@ -5,6 +5,12 @@
 <%@page import="br.ages.crud.model.TipoUsuario"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
+
+<head>
+ <link rel="javascript" type="text/javascript" href="./js/mostrarsenha.js">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="./js/mostrarsenha.js"></script>
+</head>
 <jsp:include page="../template/head.jsp"></jsp:include>
 
 <div class="panel panel-success panel-addUser">
@@ -18,15 +24,11 @@
 
 		<jsp:include page="/template/msg.jsp"></jsp:include>
 
-		<div class="table-responsive">
 
 			<form method="post" action="main?acao=addUser">
 
 				<div class="form-group">
 				
-					<!--  <label class="form-label ages">Matrícula: <span class="red">*</span></label> 
-					<input class="form-control" id="matricula" name="matricula"	value="${param.matricula}" type="text" maxlength="9" required> --> 
-					
 					<label class="form-label ages">Nome: <span class="red">*</span></label> 
 					<input class="form-control" id="nome" name="nome" value="${param.nome}" type="text" maxlength="120" required>
 					
@@ -41,6 +43,10 @@
 						<div class="col-sm-6">
 							<label class="form-label ages">Confirmar senha: <span class="red">*</span></label> 
 							<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="${param.confirmarSenha}" type="password" maxlength="8" required> 
+						</div>
+						
+						<div class="col-sm-12">
+							<input type="checkbox" id="mostrar" alt="mostrar" style="margin-top: 10px; margin-left: 350px;"> Mostrar senha
 						</div>
 					</div>
 					
@@ -99,7 +105,6 @@
 					<input class="btn btn-success addUser pull-right" type="submit" value="Cadastrar">
 				</div>
 			</form>
-		</div>
 	</div>
 </div>
 
