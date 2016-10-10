@@ -12,39 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ages.crud.command.*;
 import org.apache.log4j.Logger;
 
 //import br.ages.crud.command.AddEmpresaCommand;
-import br.ages.crud.command.AddIngredienteCommand;
-import br.ages.crud.command.AddUnidadeMedidaCaseiraCommand;
-import br.ages.crud.command.AddUnidadeMedidaCommand;
-import br.ages.crud.command.AddUserCommand;
-import br.ages.crud.command.Command;
-import br.ages.crud.command.CreateScreenEmpresaCommand;
-import br.ages.crud.command.CreateScreenFichaCommand;
-import br.ages.crud.command.CreateScreenFichaCompCommand;
-import br.ages.crud.command.CreateScreenFichaSimpCommand;
-import br.ages.crud.command.CreateScreenIngredientesCommand;
-import br.ages.crud.command.CreateScreenUnidadeMedidaCaseiraCommand;
-import br.ages.crud.command.CreateScreenUnidadeMedidaCommand;
-import br.ages.crud.command.CreateScreenUserCommand;
-import br.ages.crud.command.EditIngredienteCommand;
-import br.ages.crud.command.EditUnidadeMedidaCaseiraCommand;
-import br.ages.crud.command.EditUnidadeMedidaCommand;
-import br.ages.crud.command.EditUserCommand;
-import br.ages.crud.command.ListEmpresaCommand;
-import br.ages.crud.command.ListIngredienteCommand;
-import br.ages.crud.command.ListUnidadeMedidaCaseiraCommand;
-import br.ages.crud.command.ListUnidadeMedidaCommand;
-import br.ages.crud.command.ListUserCommand;
-import br.ages.crud.command.LoginCommand;
-import br.ages.crud.command.LogoutCommand;
-import br.ages.crud.command.RemoveEmpresaCommand;
-import br.ages.crud.command.RemoveIngredienteCommand;
-import br.ages.crud.command.RemoveUnidadeMedidaCaseiraCommand;
-import br.ages.crud.command.RemoveUnidadeMedidaCommand;
-import br.ages.crud.command.RemoveUserCommand;
-import br.ages.crud.command.SenhaCommand;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Usuario;
@@ -96,9 +67,10 @@ public class MainServlet extends HttpServlet {
 		// COMANDOS DE EMPRESA
 		comandos.put("listEmpresa", new ListEmpresaCommand());
 		comandos.put("telaEmpresa", new CreateScreenEmpresaCommand());
-		//comandos.put("addEmpresa", new AddEmpresaCommand());
-		//comandos.put("editEmpresa", new EditEmpresaCommand());
+		comandos.put("addEmpresa", new AddEmpresaCommand());
+		comandos.put("editEmpresa", new EditEmpresaCommand());
 		comandos.put("removerEmpresa", new RemoveEmpresaCommand());
+
 		
 		// COMANDOS DA FICHA TECNICA
 

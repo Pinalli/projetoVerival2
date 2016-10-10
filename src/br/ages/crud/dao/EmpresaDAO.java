@@ -256,7 +256,7 @@ public class EmpresaDAO {
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setCidade(resultset.getString("CIDADE"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
-				empresa.setResponsavel(resultset.getString("RESPOSAVEL"));
+				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
 				empresa.setLogo(resultset.getString("LOGO"));
 			}
 
