@@ -12,11 +12,11 @@ public class AddEmpresaCommand implements Command {
 
 	private String proxima;
 
-	private EmpresaBO EmpresaBO;
+	private EmpresaBO empresaBO;
 
 	@Override
 	public String execute(HttpServletRequest request) {
-		EmpresaBO = new EmpresaBO();
+		empresaBO = new EmpresaBO();
 		proxima = "main?acao=telaEmpresa";
 		String cnpj = request.getParameter("cnpj");
 		String telefone = request.getParameter("telefone");
@@ -36,10 +36,15 @@ public class AddEmpresaCommand implements Command {
 			empresa.setRazaoSocial(razaoSocial);
 			empresa.setResponsavel(responsavel);
 			empresa.setLogo(logotipo);
+			boolean isValido = empresaBO.validaEmpresa(empresa);
+			if (isValido == false) {
+				request.setAttribute("msgErro", MensagemContantes.MSG_ERR_EMPRESA_DADOS_INVALIDOS);
+			} else { // cadastro de pessoa com sucesso
 			
-			EmpresaBO.cadastraEmpresa(empresa);
+			empresaBO.cadastraEmpresa(empresa);
 				proxima = "main?acao=listEmpresa";
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_EMPRESA.replace("?", empresa.getNome()));
+				}
 			//proxima = "main?acao=listUser";
 		} catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());

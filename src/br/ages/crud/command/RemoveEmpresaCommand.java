@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import br.ages.crud.bo.EmpresaBO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.model.PerfilAcesso;
-import br.ages.crud.model.Empresa;
+
 import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
 
@@ -26,9 +26,10 @@ public class RemoveEmpresaCommand implements Command {
 			if( !usuario.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
 			
 			Integer idEmpresa = Integer.parseInt(request.getParameter("id_empresa"));
+			String nome = request.getParameter("nome");
 			empresaBO.removerEmpresa(idEmpresa);
 			
-			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_EMPRESA.replace("?", idEmpresa.toString()).concat("<br/>"));
+			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_EMPRESA.replace("?", nome.toString()).concat("<br/>"));
 			
 		} catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());

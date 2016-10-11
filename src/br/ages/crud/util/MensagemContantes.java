@@ -2,6 +2,7 @@ package br.ages.crud.util;
 
 public class MensagemContantes {
 	
+	public static final String MSG_ERR_CNPJ_INVALIDA = " campo cnpj invalido";
 	public static final String MSG_ERR_CAMPO_CNPJ_MENOR_RECOMENDADO = "Campo ? com menos de 11 caracteres!";
 	
 	public static final String MSG_ERR_CAMPO_CNPJ_MAIOR_RECOMENDADO = "Campo ? com mais de 11 caracteres!";

@@ -13,6 +13,7 @@ import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Empresa;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
+import br.ages.crud.util.Util;
 import br.ages.crud.validator.SenhaValidator;
 
 /**
@@ -29,7 +30,68 @@ public class EmpresaBO {
 	public EmpresaBO() {
 		empresaDAO = new EmpresaDAO();
 	}
+	
+	public boolean validaEmpresa(Empresa empresa) throws NegocioException {
+		boolean isValido = true;
+		StringBuilder msg = new StringBuilder();
+	
+		try {
+			
+			boolean cnpjValido = Util.isCNPJ(empresa.getCnpj());
+			
+			if(cnpjValido==false){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CNPJ_INVALIDA + "<br/>");
+			}
+			if(empresa.getEndereco()== null){
+				isValido= false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO + "<br/>");
+			}
+			
+			// Nome
+			if (empresa.getTelefone() == null || "".equals(empresa.getTelefone())) {
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+			}
+			if (empresa.getCidade() == null || "".equals(empresa.getCidade())) {
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+			}
+			
+			if (empresa.getNome() == null || "".equals(empresa.getNome())) {
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+			}
+			// Usu⳩o
+			if (empresa.getResponsavel() == null || "".equals(empresa.getResponsavel())) {
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_OBRIGATORIO.replace("?", " responsavel ").concat("<br/>"));
+			}
+			if (empresa.getRazaoSocial() == null || "".equals(empresa.getRazaoSocial())){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_OBRIGATORIO.replace("?", "razao social ").concat("<br/>"));
+			}
 
+			String nome = Normalizer.normalize(empresa.getNome(), Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+
+			if (!nome.matches("([a-zA-Z]*)(.*)")) {
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_NOME_INVALIDO.replace("?", "Nome ").concat("<br/>"));
+			}
+						
+			if (!isValido) {
+				throw new NegocioException(msg.toString());
+			}
+			//
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+
+		return isValido;
+
+	}
 	
 	public void cadastraEmpresa(Empresa empresa) throws NegocioException, SQLException, ParseException {
 

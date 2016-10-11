@@ -112,7 +112,7 @@
 				<input class="btn btn-warning limpaIngrediente" type="reset"
 					value="Limpar"> <input
 					class="btn btn-success addIngrediente pull-right" type="submit"
-					value="Cadastrar">
+					value="Salvar">
 			</div>
 
 		</form>
