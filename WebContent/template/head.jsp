@@ -5,7 +5,8 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Nutrição - Ficha Técnica</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <title>Nutrição - Ficha Técnica a</title>
         <link rel="icon" href="img/iconutri.ico">
         
 		<!-- BOOTSTRAP -->
