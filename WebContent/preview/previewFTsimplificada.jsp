@@ -50,10 +50,14 @@
 		<img class="img-responsive img-thumbnail" src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg" width="305" align="middle"> 
 		<center><input id="imgFile" name="fotoDaReceita" class="input-file" type="file" accept="image/*"></center>
 	</div>
-	<div class="form-group  col-md-4 col-md-offset-4">
-		<label for="rendimento" class=" hidden-sm col-md-12 col-sm-12 col-xs-12 text-center">Rendimento</label> 
-		<input type="text" name="rendimento" id="rendimento" class="form-control text-center" placeholder="Rendimento"/>
+	
+	<div class="col-xs-6 col-sm-4">
+		<label for="rendimento" class="col-md-12 col-md-offset-9 form-control-static">Rendimento</label> 
 	</div>
+	<div class="col-xs-6 col-sm-4"> 
+		<input type="text" name="rendimento" id="rendimento" class="form-control text-center box-transparent" placeholder="Rendimento"/>
+	</div>
+	
 	<div class="row"><div class="col-md-9 col-md-offset-1 horizontal-divider"></div></div>
 	<div class="row">
 		<div class="col-md-12 col-md-offset-1 hidden-sm hidden-xs">
