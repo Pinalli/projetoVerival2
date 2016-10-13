@@ -78,7 +78,7 @@
 			    <select id="select-ingredientes" data-live-search="true" class="form-control selectBatata">
 			    </select>
 			</div>
-			<div class="form-group col-md-1">
+			<div class="form-group col-md-1 col-xs-4">
 				<label for="qnt-unidade-medida" class="hidden-md hidden-lg">Quantidade</label>
 			    <input 
 			    type="number" 
@@ -92,12 +92,12 @@
 				onKeyUp="limitText(this,4);"
 				>
 			</div>
-			<div class="form-group col-md-2">
+			<div class="form-group col-md-2 col-xs-8">
 				<label for="select-unidade-medida" class="hidden-md hidden-lg">Unidade de medida</label>
 			    <select id="select-unidade-medida" data-native-menu="false" class="form-control selectBatata">
 			    </select>
 			</div>
-			<div class="form-group col-md-1">
+			<div class="form-group col-md-1 col-xs-4">
 				<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
 			    <input 
 			    type="number" 
@@ -112,7 +112,7 @@
 				onKeyUp="limitText(this,4);"
 			    >
 			</div>
-			<div class="form-group col-md-2">
+			<div class="form-group col-md-2 col-xs-8">
 				<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label>
 			    <select id="select-medida-caseira" data-native-menu="false" class="form-control selectBatata">
 			    </select>
