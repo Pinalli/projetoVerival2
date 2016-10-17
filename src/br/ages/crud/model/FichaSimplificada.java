@@ -3,7 +3,7 @@ package br.ages.crud.model;
 import java.util.Date;
 
 public class FichaSimplificada {
-	private int idFichaSimplifica;
+	private int idFichaSimplificada;
 	private String nome;
 	private String rendimento;
 	private String modoPreparo;
@@ -16,12 +16,12 @@ public class FichaSimplificada {
 		this.dataInclusao = new Date();
 	}
 
-	public int getIdFichaSimplifica() {
-		return idFichaSimplifica;
+	public int getIdFichaSimplificada() {
+		return idFichaSimplificada;
 	}
 
-	public void setIdFichaSimplifica(int idFichaSimplifica) {
-		this.idFichaSimplifica = idFichaSimplifica;
+	public void setIdFichaSimplificada(int idFichaSimplificada) {
+		this.idFichaSimplificada = idFichaSimplificada;
 	}
 
 	public String getNome() {
