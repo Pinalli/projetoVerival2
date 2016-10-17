@@ -169,14 +169,21 @@ public class MensagemContantes {
 	public static final String MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO = "Este Ingrediente está em algum projeto e não pode ser removido!";
 	
 	//msgs das Empresa
-		public static final String MSG_SUC_REMOVE_EMPRESA = " Empresa ? removida com sucesso";
-		public static final String MSG_SUC_EDICAO_EMPRESA = " Empresa ? altera com sucesso!";
-		public static final String MSG_SUC_CADASTRO_EMPRESA = " Empresa ? cadastrada com sucesso!";	
-		public static final String MSG_ERR_EDICAO_EMPRESA = " Empresa ? não pode ser editada";
-		public static final String MSG_ERR_EMPRESA_JA_EXISTENTE = " Empresa ? já cadastrada";
-		public static final String MSG_ERR_EMPRESA_DADOS_INVALIDOS = "Dados da Empresa inválidos ou inconsistentes!";
-		public static final String MSG_ERR_EMPRESA_NOME_INVALIDO = "A descrição da origem da Empresa deve ter de 1 a 60 caracteres";
-		public static final String MSG_ERR_REMOVE_EMPRESA_EM_PROJETO = "Esta Empresa está em algum projeto e não pode ser removido!";
+	public static final String MSG_SUC_REMOVE_EMPRESA = " Empresa ? removida com sucesso";
+	public static final String MSG_SUC_EDICAO_EMPRESA = " Empresa ? altera com sucesso!";
+	public static final String MSG_SUC_CADASTRO_EMPRESA = " Empresa ? cadastrada com sucesso!";	
+	public static final String MSG_ERR_EDICAO_EMPRESA = " Empresa ? não pode ser editada";
+	public static final String MSG_ERR_EMPRESA_JA_EXISTENTE = " Empresa ? já cadastrada";
+	public static final String MSG_ERR_EMPRESA_DADOS_INVALIDOS = "Dados da Empresa inválidos ou inconsistentes!";
+	public static final String MSG_ERR_EMPRESA_NOME_INVALIDO = "A descrição da origem da Empresa deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_REMOVE_EMPRESA_EM_PROJETO = "Esta Empresa está em algum projeto e não pode ser removido!";
+	
+	//msgs da ficha tecnica simplificada
+	public static final String MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA = " Ficha técnica simplificada ? cadastrada com sucesso!";	
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE = "Ficha técnica simplificada já existente";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS = "Dados da ficha técnica inválido ou inconsistentes";
+	
+	
 	
 	
 }

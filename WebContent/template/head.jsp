@@ -151,8 +151,8 @@
 				          	</a>
 				          	<ul class="dropdown-menu">
 				          		<!-- ainda existe a acao "telaFicha", pra caso integremos ambas numa pág só. -->
-				            	<li><a  href="main?acao=telaFichaComp">Completa</a></li>
-				            	<li><a  href="main?acao=telaFichaSimp">Simplificada</a></li>				          		
+				            	<li><a  href="main?acao=telaFichaCompleta">Completa</a></li>
+				            	<li><a  href="main?acao=telaFichaSimplificada">Simplificada</a></li>				          		
 				          	</ul>
         				</li>
 
