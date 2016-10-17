@@ -17,6 +17,7 @@ import br.ages.crud.model.TipoUsuario;
 import br.ages.crud.model.Empresa;
 import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
+import br.ages.crud.util.Util;
 
 /**
  * 
@@ -95,7 +96,7 @@ public class EmpresaDAO {
 			while (resultset.next()) {
 				Empresa dto = new Empresa();
 				dto.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
-				dto.setCnpj(resultset.getString("CNPJ"));
+				dto.setCnpj(Util.imprimeCNPJ(resultset.getString("CNPJ")));
 				dto.setNome(resultset.getString("NOME"));
 				dto.setTelefone(resultset.getString("TELEFONE"));
 				dto.setEndereco(resultset.getString("ENDERECO"));

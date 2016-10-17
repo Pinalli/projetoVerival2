@@ -28,6 +28,7 @@ public class AddEmpresaCommand implements Command {
 		String logotipo = request.getParameter("logotipo");
 		try {
 			Empresa empresa = new Empresa();
+			cnpj = cnpj.replace(".", "").replace("-", "").replace("/", "");
 			empresa.setCnpj(cnpj);
 			empresa.setTelefone(telefone);
 			empresa.setNome(nome);
