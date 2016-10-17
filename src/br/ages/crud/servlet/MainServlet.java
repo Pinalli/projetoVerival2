@@ -77,8 +77,13 @@ public class MainServlet extends HttpServlet {
 		//É interessante manter essa ação pra caso integremos ambas as fichas numa página só.
 		comandos.put("telaFicha", new CreateScreenFichaCommand());
 
-		comandos.put("telaFichaSimp", new CreateScreenFichaSimpCommand());
-		comandos.put("telaFichaComp", new CreateScreenFichaCompCommand());
+		comandos.put("telaFichaSimplificada", new CreateScreenFichaCommand());
+		comandos.put("telaFichaCompleta", new CreateScreenFichaCompCommand());
+		
+		/*
+		comandos.put("telaFichaSimplificada", new CreateScreenFichaSimpCommand());
+		comandos.put("telaFichaCompleta", new CreateScreenFichaCompletaCommand());
+		*/
 	}
 
 	@Override

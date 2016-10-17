@@ -37,10 +37,17 @@ public class EditEmpresaCommand implements Command {
             empresa.setResponsavel(responsavel);
             empresa.setLogo(logotipo);
             empresa.setIdEmpresa(idEmpresa);
-
+            
+            boolean isValido = empresaBO.validaEmpresa(empresa);
+			if (isValido == false) {
+				request.setAttribute("msgErro", MensagemContantes.MSG_ERR_EMPRESA_DADOS_INVALIDOS);
+			} else { // cadastro de pessoa com sucesso
+			
+			
             empresaBO.editaEmpresa(empresa);
             proxima = "main?acao=listEmpresa";
             request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_EMPRESA.replace("?", empresa.getNome()));
+            }
             //proxima = "main?acao=listUser";
         } catch (Exception e) {
             request.setAttribute("msgErro", e.getMessage());

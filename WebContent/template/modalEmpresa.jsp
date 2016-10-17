@@ -9,7 +9,7 @@ $( document ).ready(function() {
 	  	$(this).find('.modal-title').text('Excluir empresa');
 	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a empresa (' + empresa + ')?');
 	  	
-	  	$('#formExcluir').attr('action', "main?acao=removerEmpresa&id_empresa=" + id);
+	  	$('#formExcluir').attr('action', "main?acao=removerEmpresa&id_empresa=" + id +"&nome=" +empresa);
 	});
 	
 	
