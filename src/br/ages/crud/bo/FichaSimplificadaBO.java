@@ -6,7 +6,7 @@ import java.text.ParseException;
 import br.ages.crud.dao.FichaSimplificadaDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.FichaSimplificada;
+import br.ages.crud.model.Ficha;
 
 /**
  * @author Alessandro
@@ -20,7 +20,7 @@ public class FichaSimplificadaBO {
 		fichaSimplificadaDAO = new FichaSimplificadaDAO();
 	}
 	
-	public void cadastrarFichaSimplificada(FichaSimplificada fichaSimplificada)throws NegocioException, SQLException, ParseException {
+	public void cadastrarFichaSimplificada(Ficha fichaSimplificada)throws NegocioException, SQLException, ParseException {
 		
 		try{
 			fichaSimplificadaDAO.cadastrarFichaSimplificada(fichaSimplificada);

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import com.mysql.jdbc.Statement;
 
 import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.FichaSimplificada;
+import br.ages.crud.model.Ficha;
 import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
 
@@ -19,7 +19,7 @@ import br.ages.crud.util.MensagemContantes;
 
 public class FichaSimplificadaDAO {
 	
-	public int cadastrarFichaSimplificada(FichaSimplificada fichaSimplificada) throws SQLException, PersistenciaException{
+	public int cadastrarFichaSimplificada(Ficha fichaSimplificada) throws SQLException, PersistenciaException{
 		Connection conexao = null;
 		
 		try{

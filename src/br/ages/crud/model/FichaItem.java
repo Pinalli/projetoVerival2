@@ -1,29 +1,27 @@
 package br.ages.crud.model;
 
-import java.util.Date;
+public class FichaItem {
 
-public class FichaSimplificadaItem {
-
-	private int idFichaSimplificadaItem;
+	private int idFichaItem;
 	private int idUnidadeMedida;
 	private int idMedidaCaseira;
-	private int idIngredientes;
-	private int idFichaSimplicada;
+	private int idIngrediente;
+	private int idFicha;
 	private int quantidadeUnidadeMedida;
 	private int quantidadeMedidaCaseira;
-	private Date dataInclusao;
+	private double perCapita;
+	private double valorUnit;
 
-	public FichaSimplificadaItem() {
+	public FichaItem() {
 		super();
-		this.dataInclusao = new Date();
 	}
 
-	public int getIdFichaSimplificadaItem() {
-		return idFichaSimplificadaItem;
+	public int getIdFichaItem() {
+		return idFichaItem;
 	}
 
-	public void setIdFichaSimplificadaItem(int idFichaSimplificadaItem) {
-		this.idFichaSimplificadaItem = idFichaSimplificadaItem;
+	public void setIdFichaItem(int idFichaItem) {
+		this.idFichaItem = idFichaItem;
 	}
 
 	public int getIdUnidadeMedida() {
@@ -42,20 +40,20 @@ public class FichaSimplificadaItem {
 		this.idMedidaCaseira = idMedidaCaseira;
 	}
 
-	public int getIdIngredientes() {
-		return idIngredientes;
+	public int getIdIngrediente() {
+		return idIngrediente;
 	}
 
-	public void setIdIngredientes(int idIngredientes) {
-		this.idIngredientes = idIngredientes;
+	public void setIdIngrediente(int idIngrediente) {
+		this.idIngrediente = idIngrediente;
 	}
 
-	public int getIdFichaSimplicada() {
-		return idFichaSimplicada;
+	public int getIdFicha() {
+		return idFicha;
 	}
 
-	public void setIdFichaSimplicada(int idFichaSimplicada) {
-		this.idFichaSimplicada = idFichaSimplicada;
+	public void setIdFicha(int idFicha) {
+		this.idFicha = idFicha;
 	}
 
 	public int getQuantidadeUnidadeMedida() {
@@ -74,12 +72,20 @@ public class FichaSimplificadaItem {
 		this.quantidadeMedidaCaseira = quantidadeMedidaCaseira;
 	}
 
-	public Date getDataInclusao() {
-		return dataInclusao;
+	public double getPerCapita() {
+		return perCapita;
 	}
 
-	public void setDataInclusao(Date dataInclusao) {
-		this.dataInclusao = dataInclusao;
+	public void setPerCapita(double perCapita) {
+		this.perCapita = perCapita;
+	}
+
+	public double getValorUnit() {
+		return valorUnit;
+	}
+
+	public void setValorUnit(double valorUnit) {
+		this.valorUnit = valorUnit;
 	}
 
 }

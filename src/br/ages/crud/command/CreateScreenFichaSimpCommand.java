@@ -2,7 +2,7 @@ package br.ages.crud.command;
 
 import javax.servlet.http.HttpServletRequest;
 import br.ages.crud.bo.FichaSimplificadaBO;
-import br.ages.crud.model.FichaSimplificada;
+import br.ages.crud.model.Ficha;
 import br.ages.crud.util.MensagemContantes;
 
 public class CreateScreenFichaSimpCommand implements Command {
@@ -23,7 +23,7 @@ public class CreateScreenFichaSimpCommand implements Command {
 		String montagem = request.getParameter("montagem");
 		String orientacoesArmazenamento = request.getParameter("orientacoesArmazenamento");
 		try{
-			FichaSimplificada fichaSimplificada = new FichaSimplificada();
+			Ficha fichaSimplificada = new Ficha();
 			fichaSimplificada.setNome(nome);
 			fichaSimplificada.setRendimento(rendimento);
 			fichaSimplificada.setModoPreparo(modoPreparo);
