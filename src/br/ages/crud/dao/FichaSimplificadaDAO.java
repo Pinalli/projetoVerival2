@@ -103,7 +103,7 @@ public class FichaSimplificadaDAO {
 		return listarFichasSimplificada;
 	}
 
-	public boolean editarFichaSimplificada(Ficha fichaSimplificada) {
+	public boolean editarFichaSimplificada(Ficha fichaSimplificada) throws PersistenciaException {
 		boolean okei = false;
 		Connection conexao = null;
 		try {
@@ -126,7 +126,7 @@ public class FichaSimplificadaDAO {
 		return okei;
 	}
 
-	public boolean removerFichaSimplificada(Integer idFicha) {
+	public boolean removerFichaSimplificada(Integer idFicha) throws PersistenciaException {
 		boolean removidoOK = false;
 		Connection conexao = null;
 

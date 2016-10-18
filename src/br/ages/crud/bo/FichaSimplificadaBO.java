@@ -76,7 +76,7 @@ public class FichaSimplificadaBO {
 		return isValido;
 	}
 	
-	public List<Ficha> listarFichasSimplificada() throws NegocioException, PersistenciaException, SQLException{
+	public List<Ficha> listarFichaSimplificada() throws NegocioException, PersistenciaException, SQLException{
 		
 		List<Ficha> listFichaSimplificada = null;
 		
