@@ -28,16 +28,15 @@ public class CreateScreenFichaSimpCommand implements Command {
 			fichaSimplificada.setRendimento(rendimento);
 			fichaSimplificada.setModoPreparo(modoPreparo);
 			fichaSimplificada.setOrientacoesArmazenamento(orientacoesArmazenamento);
-			
-			  /**A implementar...
-			  boolean isValido = fichaTecnicaSimplificadaBO.validarFichaTecnicaSimplificada(fichaSimplificada)
+			  
+			  boolean isValido = fichaSimplificadaBO.validarFichaTecnicaSimplificada(fichaSimplificada);
 			  if(isValido == false){
-			  	request.setAttribute("msgErro", MensagemContantes.MSG_ERR_FICHA_TECNICA_SIMPLIFICADA_DADOS_INVALIDOS)
+			  	request.setAttribute("msgErro", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
 			  }else{ // cadastro ficha tecnica simplificada
-			  	fichaSimplificadaBO.cadastrarFichaTecnicaSimplificada(fichaSimplificada);
+			  	fichaSimplificadaBO.cadastrarFichaSimplificada(fichaSimplificada);
 			  	proxima = "main?acao=listFichaSimplificada";
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_TECNICA_SIMPLIFICADA.replace("?", fichaSimplificada.getNome()));
-			  }*/
+			  }
 			
 			fichaSimplificadaBO.cadastrarFichaSimplificada(fichaSimplificada);
 			proxima = "main?acao=listFichaSimplificada";
