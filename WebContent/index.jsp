@@ -3,7 +3,7 @@
 <html lang="pt-br"><!-- lang="pt-br" informa que a página está na linguagem português(Brasil) -->
     <head>
         <meta charset="utf-8"><!-- Codificação de caracteres. A UTF-8 permite utilizar caaracteres especiais e acentos -->
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Nutrição - Ficha Técnica</title><!-- Título da página -->
         
         <link rel="icon" href="img/iconutri.ico"><!-- Favicon é aquela imagem que vai na aba do navegador -->

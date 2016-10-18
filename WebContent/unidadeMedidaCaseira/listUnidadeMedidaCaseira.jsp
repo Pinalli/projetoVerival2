@@ -7,7 +7,7 @@
 
 <div class="panel panel-success">
 
-    <div class="panel-heading text-center">Lista de Unidades de Medida</div>
+    <div class="panel-heading text-center">Lista de Unidades de Medida Caseira</div>
 
     <div class="panel-body">
 

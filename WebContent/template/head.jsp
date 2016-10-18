@@ -50,116 +50,78 @@
 		<script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/bootstrap-datetimepicker.min.css">
 		
-	
 	</head>
     
     <body>
-     <% Usuario usuarioSessao = (Usuario) session.getAttribute("usuarioSessao"); %>
-    	<div class="container">
-    	
-    			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-				
-		    		<div class="navbar-header">
-			      		<a  href="./index.jsp" class="navbar-brand">
-			        		<img class="logoNavBar" src="./img/logo-ftp.png" alt="">
-			      		</a>
-			    	</div>
-			    	
-					<ul class="nav navbar-nav">
-						
-						<li class="dropdown">
-			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuários
-				          		<span class="caret"></span>
-				          	</a>
-				          	<ul class="dropdown-menu">
-				            	<li><a href="main?acao=listUser">Listar</a></li>
-				            	<li><a href="main?acao=telaUser">Cadastrar</a></li>				          		
-				          	</ul>
-        				</li>
+    
+    <% Usuario usuarioSessao = (Usuario) session.getAttribute("usuarioSessao"); %>
+    
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img class="logoNavBar" src="./img/logo-ftp.png" alt=""></a>
+    </div>
 
-					</ul>
-					
-					<ul class="nav navbar-nav">
-						
-						<li class="dropdown">
-			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ingredientes
-				          		<span class="caret"></span>
-				          	</a>
-				          	<ul class="dropdown-menu">				            	 
-				          		<li><a href="main?acao=listIngrediente">Listar</a>
-				          		<li><a href="main?acao=telaIngredientes">Cadastrar</a>
-				          	</ul>
-        				</li>
-
-					</ul>
-					
-					<ul class="nav navbar-nav">
-
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Unidade Medida
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="main?acao=listUnidadeMedida">Listar</a></li>
-								<li><a href="main?acao=telaUnidadeMedida">Cadastar</a></li>
-							</ul>
-
-
-
-						</li>
-					</ul>
-					
-					<ul class="nav navbar-nav">
-
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Unidade Medida Caseira
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="main?acao=listUnidadeMedidaCaseira">Listar</a></li>
-								<li><a href="main?acao=addUnidadeMedidaCaseira">Cadastar</a></li>
-
-							</ul>
-							<%--</ul>--%>
-
-						</li>
-					</ul>
-					
-					<ul class="nav navbar-nav">
-
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Empresa
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="main?acao=listEmpresa">Listar</a></li>
-								<li><a href="main?acao=telaEmpresa">Cadastar</a></li>
-
-							</ul>
-							<%--</ul>--%>
-
-						</li>
-					</ul>
-
-					
-					<ul class="nav navbar-nav">
-						
-						<li class="dropdown">
-			          		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Preview FTs
-				          		<span class="caret"></span>
-				          	</a>
-				          	<ul class="dropdown-menu">
-				          		<!-- ainda existe a acao "telaFicha", pra caso integremos ambas numa pág só. -->
-				            	<li><a  href="main?acao=telaFichaCompleta">Completa</a></li>
-				            	<li><a  href="main?acao=telaFichaSimplificada">Simplificada</a></li>				          		
-				          	</ul>
-        				</li>
-
-					</ul>
-					
-					<ul class="nav navbar-nav navbar-right">
-        				<li class="dropdown">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav">        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="main?acao=listUser">Listar</a></li>
+            <li><a href="main?acao=telaUser">Cadastrar</a></li>            
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredientes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="main?acao=listIngrediente">Listar</a></li>
+            <li><a href="main?acao=telaIngredientes">Cadastrar</a></li>            
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unidade Medida<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="main?acao=listUnidadeMedida">Listar</a></li>
+            <li><a href="main?acao=telaUnidadeMedida">Cadastrar</a></li>            
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unidade Medida Caseira<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="main?acao=listUnidadeMedidaCaseira">Listar</a></li>
+            <li><a href="main?acao=telaUnidadeMedidaCaseira">Cadastrar</a></li>            
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="main?acao=listEmpresa">Listar</a></li>
+            <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preview FTs<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+	        <li><a  href="main?acao=telaFichaCompleta">Completa</a></li>
+			<li><a  href="main?acao=telaFichaSimplificada">Simplificada</a></li>            
+          </ul>
+        </li>
+        
+        <li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
         						<span class="glyphicon glyphicon-user"></span>
         						Olá, <%=usuarioSessao.getNome()%>!
@@ -170,10 +132,12 @@
         						<li><a href="main?acao=logout">Logout</a></li>
         					</ul>
         				</li>
-			      	</ul>
-					
-			      	
-		    	</div>
-			</nav>
-
+        
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+   
+    	<div class="container">    	
     		
