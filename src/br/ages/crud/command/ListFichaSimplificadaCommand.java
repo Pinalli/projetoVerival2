@@ -11,7 +11,7 @@ import br.ages.crud.bo.UnidadeMedidaBO;
 import br.ages.crud.bo.UsuarioBO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.FichaSimplificada;
+import br.ages.crud.model.Ficha;
 import br.ages.crud.model.UnidadeMedida;
 import br.ages.crud.model.Usuario;
 
@@ -29,7 +29,7 @@ public class ListFichaSimplificadaCommand implements Command {
 		this.fichaSimplificadaBO = new FichaSimplificadaBO();
 		proxima = "fichaSimplificada/listFichaSimplificada.jsp";
 		try {
-			List<FichaSimplificada> listaFichaSimplificada = fichaSimplificadaBO.listarFichaSimplificada();
+			List<Ficha> listaFichaSimplificada = fichaSimplificadaBO.listarFichaSimplificada();
 			request.setAttribute("listaFichaSimplificada", listaFichaSimplificada);
 		} catch (NegocioException e) {
 			e.printStackTrace();
