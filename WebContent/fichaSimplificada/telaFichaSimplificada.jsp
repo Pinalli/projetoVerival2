@@ -45,6 +45,17 @@
 		!important;
 }
 
+.box-transparent {
+		    background-color:transparent;
+		    color:black;
+		    border: none;
+		    outline:none;
+		    height:30px;
+		    font-weight:bold;
+		    transition:height 1s;
+		    -webkit-transition:height 1s;
+		}
+
 .select2-container--default .select2-selection--single .select2-selection__rendered
 	{
 	line-height: 20px !important;
@@ -58,10 +69,8 @@
 		<article>
 			<form>
 				<div class="form-group col-md-4 col-md-offset-4">
-					<label for="nome"
-						class="hidden-sm col-md-12 col-sm-12 col-xs-12 text-center">Nome</label>
 					<input type="text" name="nome" id="nome"
-						class="form-control text-center" placeholder="Nome" />
+						class="form-control text-center box-transparent" placeholder="Digite o nome da receita"/>
 				</div>
 				<div class="form-group col-md-12 text-center">
 					<img class="img-responsive img-thumbnail"
