@@ -36,7 +36,7 @@ public class FileUploadServlet extends HttpServlet {
 
 		try {
 			logger.debug("Iniciando o Upload");
-			String appPath = "logoEmpresas";
+			String appPath = "img";
 			String savePath = SAVE_DIR + File.separator + appPath;
 			File fileSaveDir = new File(savePath);
 

@@ -99,6 +99,9 @@
 					<input id="logotipo" name="logotipo" class="input-file" type="file">
 				</div>
 			</div>
+			<div class="form-group">
+				<div id="image_preview" style="display:none; margin-left:30%;"><img id="previewing" src="" /></div>
+			</div>
 			<h4 id='loading'></h4>
 			<div id="message"></div>
 
