@@ -122,7 +122,7 @@
 				<div class="row" id="table-rows">
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
 					    
-					    <div class="panel panel-primary hidden-md hidden-lg">
+					    <div class="panel panel-info hidden-md hidden-lg">
 						  <div class="panel-heading show-item-btn" id="ingrediente-1">Ingredientes</div>
 						</div>
 					    
