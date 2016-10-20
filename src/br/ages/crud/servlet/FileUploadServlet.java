@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.apache.log4j.Logger;
+import org.hamcrest.core.IsInstanceOf;
 
 import br.ages.crud.model.Empresa;
 import br.ages.crud.util.Constantes;
@@ -42,16 +43,17 @@ public class FileUploadServlet extends HttpServlet {
 
 			if (!fileSaveDir.exists())
 				fileSaveDir.mkdir();
-
+			String fileName;
 			Part part = request.getPart("file");
-			String fileName = extractFileName(part);
+			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
+			fileName = extractFileName(part);
+			if(empresa){
+				//necessario para alterar o nome do arquivo
+				fileName = "logo-empresa" + fileName.substring(fileName.lastIndexOf("."), fileName.length());
+			} 
 			part.write(new File(savePath + File.separator + fileName).toString());
 
 			request.setAttribute("msgSucesso", "Upload feito com sucesso!");
-
-			// request.setAttribute("acao", "listaProjetos");
-		//	getServletContext().getRequestDispatcher("/main?acao=listEmpresa").forward(request, response);
-
 			logger.info("Executado o Upload em: " + savePath + " - " + fileName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

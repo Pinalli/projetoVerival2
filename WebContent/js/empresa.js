@@ -8,8 +8,11 @@ $(document).ready(function(e){
 				|| (imagefile == match[1]) || (imagefile == match[2]))) {
 				return false;
 			} else {
+				file.name = "logo-empresa";
 				form = new FormData()
-				form.append('file',this.files[0]);
+				form.append('file',file);
+				form.append('empresa', true);
+				console.log(form.toString());
 				var reader = new FileReader();
 				reader.onload = imageIsLoaded;
 				reader.readAsDataURL(this.files[0]);
