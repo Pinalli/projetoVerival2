@@ -2,6 +2,10 @@ package br.ages.crud.model;
 
 import java.util.Date;
 
+/**
+ * @author Luis Santana
+ *
+ */
 public class Empresa {
 	private int idEmpresa;
 	private String cnpj;

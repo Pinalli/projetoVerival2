@@ -49,7 +49,7 @@ public class FileUploadServlet extends HttpServlet {
 			fileName = extractFileName(part);
 			if(empresa){
 				//necessario para alterar o nome do arquivo
-				fileName = "logo-empresa" + fileName.substring(fileName.lastIndexOf("."), fileName.length());
+				fileName = "logo-empresa";
 			} 
 			part.write(new File(savePath + File.separator + fileName).toString());
 
