@@ -5,13 +5,15 @@
 <%@page import="br.ages.crud.model.TipoUsuario"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
+<jsp:include page="../template/head.jsp"></jsp:include>
 
 <head>
- <link rel="javascript" type="text/javascript" href="./js/mostrarsenha.js">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="./js/mostrarsenha.js"></script>
+<script type="text/javascript" src="js/mostrarsenha.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+<script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
 </head>
-<jsp:include page="../template/head.jsp"></jsp:include>
+
 
 <div class="panel panel-success panel-addUser">
 
@@ -51,7 +53,7 @@
 					</div>
 					
 					<label class="form-label ages">CPF: <span class="red">*</span></label> 
-					<input class="form-control" id="cpf" name="cpf" value="${param.cpf}" type="text" maxlength="11" required>
+					<input class="form-control" id="cpf" name="cpf" value="${param.cpf}" type="text" placeholder="Ex: 000.000.000-20" required>
 					
 					<label class="form-label ages">E-mail: <span class="red">*</span></label> 
 					<input class="form-control" id="email" name="email" value="${param.email}" type="text" maxlength="120" required>
@@ -62,7 +64,7 @@
 						<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages">Telefone: <span class="red">*</span></label> 
-							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="text" maxlength="11" required> 
+							<input class="form-control" id="telefone" name="telefone" value="${param.telefone}" type="text" required=""> 
 						</div>
 						
 					</div>

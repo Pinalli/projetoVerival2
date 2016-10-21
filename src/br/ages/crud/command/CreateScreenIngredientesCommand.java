@@ -6,10 +6,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.ages.crud.bo.UnidadeMedidaBO;
 import br.ages.crud.bo.IngredienteBO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.model.PerfilAcesso;
-import br.ages.crud.model.TipoUsuario;
+import br.ages.crud.model.UnidadeMedida;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.model.Ingrediente;
 import br.ages.crud.util.MensagemContantes;
@@ -18,6 +19,7 @@ public class CreateScreenIngredientesCommand implements Command {
 
 	private String proxima;
 
+	private UnidadeMedidaBO unidadeMedidaBO;
 	private IngredienteBO ingredienteBO;
 	
 	//private StakeholderBO stakeholderBO;
@@ -29,6 +31,10 @@ public class CreateScreenIngredientesCommand implements Command {
 		try {			
 			if( !currentUser.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
 			// Verifica se abre tela edição de pessoa ou de adição de pessoa.
+			
+			this.unidadeMedidaBO = new UnidadeMedidaBO();
+			List<UnidadeMedida> listaUnidadesMedida = unidadeMedidaBO.listarUnidadesMedida();
+			request.setAttribute("listaUnidadesMedida", listaUnidadesMedida);
 			
 			String isEdit = request.getParameter("isEdit");
 			
@@ -44,7 +50,11 @@ public class CreateScreenIngredientesCommand implements Command {
 				proxima = "Ingredientes/editIngredientes.jsp";
 				
 			} else { // Vai pra tela de ingredientes
-				proxima = "Ingredientes/addIngredientes.jsp";		
+				
+				
+				
+				proxima = "Ingredientes/addIngredientes.jsp";	
+				
 			}
 
 		} catch (Exception e) {

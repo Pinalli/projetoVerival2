@@ -20,7 +20,7 @@ public class AddUserCommand implements Command {
 	public String execute(HttpServletRequest request) {
 		usuarioBO = new UsuarioBO();
 		proxima = "main?acao=telaUser";
-
+		
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String cpf = request.getParameter("cpf");
@@ -34,6 +34,7 @@ public class AddUserCommand implements Command {
 		String tipoUsuario = request.getParameter("tipoUsuario");
 		try {
 			Usuario user = new Usuario();
+			cpf = cpf.replace(".", "").replace("-", "");
 			user.setNome(nome);
 			user.setEmail(email);
 			user.setCpf(cpf);
