@@ -56,13 +56,17 @@ $(document).ready(function(e){
 	        element.mask("(99) 9999-9999?9");  
 	    }  
 	});
-
+	
 	$("#cnpj").mask("99.999.999/9999-99").focusout(function (event) {  
-		$("#cnpj").unmask(); 
+		var target, phone, element;  
+		target = (event.currentTarget) 	? event.currentTarget : event.srcElement;  
+		phone = target.value.replace(/\D/g, '');
+		element = $(target);  
+		element.unmask();
+		element.mask("99.999.999/9999-99");
 	});
-
+	
 });
-
 
 function check_multifile_logo(file) {
     var extension = file.substr((file.lastIndexOf('.') + 1))

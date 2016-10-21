@@ -61,6 +61,7 @@ public class EditUserCommand implements Command{
 			
 			TipoUsuario tipoUsuario2 = usuarioBO.consultaTipoUsuario(idTipoUsuario);
 			
+			cpfString = cpfString.replace(".", "").replace("-", "");
 			usuario.setTipoUsuario(tipoUsuario2);
 			usuario.setPerfilAcesso(perfilAcesso);
 			usuario.setStatusUsuario(statusUsuario);
