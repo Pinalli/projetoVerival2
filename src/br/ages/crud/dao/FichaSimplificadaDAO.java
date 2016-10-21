@@ -1,7 +1,6 @@
 package br.ages.crud.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +11,7 @@ import com.mysql.jdbc.Statement;
 
 import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Ficha;
+import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
 
@@ -31,22 +31,18 @@ public class FichaSimplificadaDAO {
 
 			conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append(
-					"INSERT INTO TB_FICHA_SIMPLIFICADA (nome, rendimento, modo_preparo, montagem, orientacoes_armazenamento, foto, data_inclusao)");
+			sql.append("INSERT INTO TB_FICHA_SIMPLIFICADA (nome, rendimento, foto, modo_preparo, montagem, orientacoes_armazenamento, tipo_ficha)");
 			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?)");
-
-			java.util.Date utilDate = new java.util.Date();
-			java.sql.Date dataCadastro = new java.sql.Date(utilDate.getTime());
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
 			statement.setString(1, fichaSimplificada.getNome());
 			statement.setString(2, fichaSimplificada.getRendimento());
-			statement.setString(3, fichaSimplificada.getModoPreparo());
-			statement.setString(4, fichaSimplificada.getMontagem());
-			statement.setString(5, fichaSimplificada.getOrientacoesArmazenamento());
-			statement.setString(6, fichaSimplificada.getFoto());
-			statement.setDate(7, dataCadastro);
+			statement.setString(3, fichaSimplificada.getFoto());
+			statement.setString(4, fichaSimplificada.getModoPreparo());
+			statement.setString(5, fichaSimplificada.getMontagem());
+			statement.setString(6, fichaSimplificada.getOrientacoesArmazenamento());
+			statement.setString(7, fichaSimplificada.getTipoFicha());
 
 			statement.executeUpdate();
 
@@ -54,12 +50,38 @@ public class FichaSimplificadaDAO {
 			if (resultset.first()) {
 				idFichaSimplificada = resultset.getInt(1);
 			}
+			
+			fichaSimplificada.setIdFicha(idFichaSimplificada);
+
+			StringBuilder sql2 = new StringBuilder();
+			for (FichaItem fichaItem : fichaSimplificada.getItens()) {
+				sql2.append("INSERT INTO TB_FICHA_ITEM (ID_UNIDADE_MEDIDA, ID_MEDIDA_CASEIRA, ID_INGREDIENTE, ID_FICHA, QUANTIDADE_UNIDADE_MEDIDA,QUANTIDADE_MEDIDA_CASEIRA )");
+				sql.append("VALUES (?, ?, ?, ?, ?, ?)");
+				
+				PreparedStatement statement2 = conexao.prepareStatement(sql2.toString(), Statement.RETURN_GENERATED_KEYS);
+				
+				statement2.setInt(1, fichaItem.getIdUnidadeMedida());
+				statement2.setInt(2, fichaItem.getIdMedidaCaseira());
+				statement2.setInt(3, fichaItem.getIdIngrediente());
+				statement2.setInt(4, idFichaSimplificada);
+				statement2.setInt(5, fichaItem.getQuantidadeUnidadeMedida());
+				statement2.setInt(6, fichaItem.getQuantidadeMedidaCaseira());
+				
+				statement2.executeUpdate();
+				
+				ResultSet resultset2 = statement.getGeneratedKeys();
+				int idFichaItem = 0;
+				if (resultset.first()) {
+					idFichaItem = resultset2.getInt(1);
+				}
+				fichaItem.setIdFicha(idFichaItem);
+			}
+			
 
 			return idFichaSimplificada;
 
 		} catch (ClassNotFoundException | SQLException e) {
-			throw new PersistenciaException(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE.replace("?",
-					fichaSimplificada.getNome()));
+			throw new PersistenciaException(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE.replace("?",fichaSimplificada.getNome()));
 
 		} finally {
 			conexao.close();
@@ -112,7 +134,9 @@ public class FichaSimplificadaDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = fichaSimplificada.getIdFicha();
 
-			sql.append("UPDATE TB_FICHA_SIMPLIFICADA set nome = ?, rendimento = ?, foto = ?, modo_preparo = ?, montagem = ?, orientacaoes_armazenamento = ?, tipo_ficha = ?, textura = ?, sabor = ?, apresentacao = ?, foto = ?  WHERE id_usuario = "+ id + ";");
+			sql.append(
+					"UPDATE TB_FICHA_SIMPLIFICADA set nome = ?, rendimento = ?, foto = ?, modo_preparo = ?, montagem = ?, orientacaoes_armazenamento = ?, tipo_ficha = ?, textura = ?, sabor = ?, apresentacao = ?  WHERE id_usuario = "
+							+ id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 		} catch (ClassNotFoundException | SQLException e) {
