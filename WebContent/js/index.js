@@ -1,3 +1,21 @@
+$(document).ready(function(){
+	if(imgExist("img/img/logo-empresa")){
+		console.log("entrei arqui");
+		$("#logoEmpresa").attr("src","img/img/logo-empresa");	
+	}
+});
+
+function imgExist(file) {
+	var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', file, false);
+    xhr.send();
+    if (xhr.status == "404") {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 //Função para validar senha
 function validaSenha(){
     var senha = document.getElementById("senha"); //Guarda um objeto do elemento input password
@@ -20,8 +38,3 @@ function validaSenha(){
         }
     };
 }
-
-//Espera toda página carregar pra rodar o código
-window.onload = function(){
-   // validaSenha(); //Chama a função de validar senh
-};

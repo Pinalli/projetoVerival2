@@ -103,8 +103,9 @@ public class EmpresaDAO {
 				dto.setCidade(resultset.getString("CIDADE"));
 				dto.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				dto.setResponsavel(resultset.getString("RESPONSAVEL"));
-				dto.setLogo(resultset.getString("LOGO"));
-				
+				//dto.setLogo(resultset.getString("LOGO"));
+				//por enquando nao eh por id, dessa forma o logo sempre sera o mesmo:
+				dto.setLogo("logo-empresa");
 				listarEmpresa.add(dto);
 			}
 
@@ -258,7 +259,9 @@ public class EmpresaDAO {
 				empresa.setCidade(resultset.getString("CIDADE"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
-				empresa.setLogo(resultset.getString("LOGO"));
+				//dto.setLogo(resultset.getString("LOGO"));
+				//por enquando nao eh por id, dessa forma o logo sempre sera o mesmo:
+				empresa.setLogo("logo-empresa");
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {

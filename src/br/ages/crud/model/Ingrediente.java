@@ -2,6 +2,10 @@ package br.ages.crud.model;
 
 import java.util.Date;
 
+/**
+ * @author Luis Santana
+ *
+ */
 public class Ingrediente {
 	private int id;
 	private int codigo;

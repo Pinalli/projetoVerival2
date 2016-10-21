@@ -5,6 +5,18 @@
 <jsp:include page="/template/msg.jsp"></jsp:include>
 <head>
 		<!--link rel="stylesheet" href="./css/ficha.css"-->
+		<style>
+		.box-transparent {
+		    background-color:transparent;
+		    color:black;
+		    border: none;
+		    outline:none;
+		    height:30px;
+		    font-weight:bold;
+		    transition:height 1s;
+		    -webkit-transition:height 1s;
+		}
+		</style>
 </head>
 <body>
 
@@ -13,7 +25,7 @@
 <article>
 	<form>
 		<div class="form-group col-md-4 col-md-offset-4">
-			<input type="text" name="nome" id="nome" class="form-control text-center" placeholder="Nome"/>
+			<input type="text" name="nome" id="nome" class="form-control text-center box-transparent" placeholder="Digite o nome da receita"/>
 		</div>
 	<div class="form-group col-md-12 text-center">
 		<img class="img-responsive img-thumbnail" src="http://div.bg/pictures/856317_824_.jpg" width="305" align="middle" >

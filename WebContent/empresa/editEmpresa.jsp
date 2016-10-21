@@ -101,8 +101,11 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label ages" for="logotipo">Logo</label>
 				<div class="col-md-6">
-					<input id="logotipo" name="logotipo" class="input-file" type="file" value="<%= empresa.getLogo()%>">
+					<input id="logotipo" name="logotipo" class="input-file" type="file" value="">
 				</div>
+			</div>
+			<div class="form-group">
+				<div id="image_preview" style="display:block; margin-left:30%;"><img id="previewing" style="width: 150px; height: 150px;" src="img/img/<%= empresa.getLogo()%>" /></div>
 			</div>
 			<h4 id='loading'></h4>
 			<div id="message"></div>

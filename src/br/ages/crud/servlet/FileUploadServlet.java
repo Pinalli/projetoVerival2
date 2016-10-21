@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.apache.log4j.Logger;
-
+import org.hamcrest.core.IsInstanceOf;
 import br.ages.crud.model.Empresa;
 import br.ages.crud.util.Constantes;
 
@@ -36,22 +36,27 @@ public class FileUploadServlet extends HttpServlet {
 
 		try {
 			logger.debug("Iniciando o Upload");
-			String appPath = "logoEmpresas";
+			String appPath = "img";
 			String savePath = SAVE_DIR + File.separator + appPath;
 			File fileSaveDir = new File(savePath);
 
 			if (!fileSaveDir.exists())
 				fileSaveDir.mkdir();
-
+			String fileName;
 			Part part = request.getPart("file");
-			String fileName = extractFileName(part);
+			boolean fichaSimplificada = Boolean.valueOf(request.getParameter("fichaSimplificada"));
+			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
+			fileName = extractFileName(part); //NAO TERMINEI PQ ALISSA ME EXPULSOU DA AGES :(
+			if(fichaSimplificada){
+				fileName = "foto";
+			}
+			if(empresa){
+				//necessario para alterar o nome do arquivo
+				fileName = "logo-empresa";
+			} 
 			part.write(new File(savePath + File.separator + fileName).toString());
 
 			request.setAttribute("msgSucesso", "Upload feito com sucesso!");
-
-			// request.setAttribute("acao", "listaProjetos");
-		//	getServletContext().getRequestDispatcher("/main?acao=listEmpresa").forward(request, response);
-
 			logger.info("Executado o Upload em: " + savePath + " - " + fileName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

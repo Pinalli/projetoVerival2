@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var RESOLUCAO_MINIMA = 990;
 	var qntIngredientes = 2;
 	var ingredientes  = [{id : '1',text : 'batata'}, {id : '2',text : 'batata frita'}, {id : '3',text : 'batata doce'}, {id : '4',text : 'batata chips'} ];
 	var unidadeMedida = [{id : '1',text : 'grama(s)'}, {id : '2',text : 'quilo(s)'} ];
@@ -51,9 +52,11 @@ $(document).ready(function() {
 			$(this).click(function(e) {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 			
-				target.fadeOut(1000, function(){
+				target.fadeOut(300, function(){
 					target.remove();
-					scroll($('.table-row:last'));
+					if($(window).width() <= RESOLUCAO_MINIMA){
+						scroll($('.table-row:last'));
+					}
 				});				
 				qntIngredientes--;			
 			});
@@ -76,7 +79,7 @@ $(document).ready(function() {
 		});
 		row.find('.select2').remove();
 		row.find('select').removeClass('select2-hidden-accessible');
-		row.appendTo($('#table-rows'));
+		row.hide().appendTo($('#table-rows')).fadeIn(300);
 		
 		//Adiciona botão de excluir na linha clonada se ela não contém um
 		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
@@ -85,7 +88,9 @@ $(document).ready(function() {
 			$('.btn-excluir-wrapper').last().append(btn);
 		}
 		//Scroll
-		scroll($('#'+id));
+		if($(window).width() <= RESOLUCAO_MINIMA){
+			scroll($('#'+id));
+		}
 	}
 	
 	function scroll(target){
@@ -128,7 +133,7 @@ $(document).ready(function() {
 	/**
 	 * Altera o layou em resoluções com larguras menores que 990px 
 	 */
-	if($(window).width() <= 990){
+	if($(window).width() <= RESOLUCAO_MINIMA){
 		document.onreadystatechange = function () {
 			if (document.readyState == "complete") {						
 				showItemListener();
