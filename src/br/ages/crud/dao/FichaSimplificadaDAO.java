@@ -32,8 +32,8 @@ public class FichaSimplificadaDAO {
 			conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
 			sql.append(
-					"INSERT INTO TB_FICHA_SIMPLIFICADA (nome, rendimento, modo_preparo, montagem, orientacoes_armazenamento, data_inclusao)");
-			sql.append("VALUES (?, ?, ?, ?, ?, ?)");
+					"INSERT INTO TB_FICHA_SIMPLIFICADA (nome, rendimento, modo_preparo, montagem, orientacoes_armazenamento, foto, data_inclusao)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 			java.util.Date utilDate = new java.util.Date();
 			java.sql.Date dataCadastro = new java.sql.Date(utilDate.getTime());
@@ -45,7 +45,8 @@ public class FichaSimplificadaDAO {
 			statement.setString(3, fichaSimplificada.getModoPreparo());
 			statement.setString(4, fichaSimplificada.getMontagem());
 			statement.setString(5, fichaSimplificada.getOrientacoesArmazenamento());
-			statement.setDate(6, dataCadastro);
+			statement.setString(6, fichaSimplificada.getFoto());
+			statement.setDate(7, dataCadastro);
 
 			statement.executeUpdate();
 
@@ -111,7 +112,7 @@ public class FichaSimplificadaDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = fichaSimplificada.getIdFicha();
 
-			sql.append("UPDATE TB_FICHA_SIMPLIFICADA set nome = ?, rendimento = ?, foto = ?, modo_preparo = ?, montagem = ?, orientacaoes_armazenamento = ?, tipo_ficha = ?, textura = ?, sabor = ?, apresentacao = ?  WHERE id_usuario = "+ id + ";");
+			sql.append("UPDATE TB_FICHA_SIMPLIFICADA set nome = ?, rendimento = ?, foto = ?, modo_preparo = ?, montagem = ?, orientacaoes_armazenamento = ?, tipo_ficha = ?, textura = ?, sabor = ?, apresentacao = ?, foto = ?  WHERE id_usuario = "+ id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 		} catch (ClassNotFoundException | SQLException e) {

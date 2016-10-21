@@ -14,7 +14,6 @@ import javax.servlet.http.Part;
 
 import org.apache.log4j.Logger;
 import org.hamcrest.core.IsInstanceOf;
-
 import br.ages.crud.model.Empresa;
 import br.ages.crud.util.Constantes;
 
@@ -45,8 +44,12 @@ public class FileUploadServlet extends HttpServlet {
 				fileSaveDir.mkdir();
 			String fileName;
 			Part part = request.getPart("file");
+			boolean fichaSimplificada = Boolean.valueOf(request.getParameter("fichaSimplificada"));
 			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
-			fileName = extractFileName(part);
+			fileName = extractFileName(part); //NAO TERMINEI PQ ALISSA ME EXPULSOU DA AGES :(
+			if(fichaSimplificada){
+				fileName = "foto";
+			}
 			if(empresa){
 				//necessario para alterar o nome do arquivo
 				fileName = "logo-empresa";
