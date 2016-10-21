@@ -48,7 +48,7 @@ public class FileUploadServlet extends HttpServlet {
 			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
 			fileName = extractFileName(part); //NAO TERMINEI PQ ALISSA ME EXPULSOU DA AGES :(
 			if(fichaSimplificada){
-				fileName = "foto";
+				fileName = "imgFile";
 			}
 			if(empresa){
 				//necessario para alterar o nome do arquivo

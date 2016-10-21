@@ -150,4 +150,57 @@ $(document).ready(function() {
 		}
 	}
 	
+	$(function() {
+		$("#imgFile").change(function() {
+			var file = this.files[0];
+			var imagefile = file.type;
+			var match = [ "image/jpeg","image/png", "image/jpg" ];
+			if (!((imagefile == match[0])
+				|| (imagefile == match[1]) || (imagefile == match[2]))) {
+				return false;
+			} else {
+				form = new FormData()
+				form.append('file',file);
+				form.append('fichaSimplificada', true);
+				console.log(form.toString());
+				var reader = new FileReader();
+				reader.onload = imageIsLoaded;
+				reader.readAsDataURL(this.files[0]);
+				if (check_multifile_logo($("#imgFile").prop("files")[0]['name'])) {
+		            $.ajax({
+		                url: "/FichaTP/upload",
+		                cache: false,
+		                contentType: false,
+		                processData: false,
+		                async: false,
+		                data: form,
+		                type: 'POST',
+		                success: function(data) {
+		                    
+		                }
+		            });
+		        } else {
+		            $("#imgFile").html('');
+		            alert('We only accept JPG, JPEG, PNG, GIF and BMP files');
+		        }
+			}
+		});
+	});
+	function imageIsLoaded(e) {
+		$("#imgFile").css("color", "green");
+		$('#image_preview').css("display", "block");
+		$('#previewing').attr('src', e.target.result);
+		$('#previewing').attr('width', '300px');
+		$('#previewing').attr('height', '300px');
+	};
+	
 });
+
+function check_multifile_logo(file) {
+    var extension = file.substr((file.lastIndexOf('.') + 1))
+    if (extension === 'jpg' || extension === 'jpeg' || extension === 'png') {
+        return true;
+    } else {
+        return false;
+    }
+}

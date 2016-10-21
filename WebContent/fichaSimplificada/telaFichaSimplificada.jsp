@@ -72,17 +72,22 @@
 					<input type="text" name="nome" id="nome"
 						class="form-control text-center box-transparent" placeholder="Digite o nome da receita"/>
 				</div>
-				<div class="form-group col-md-12 text-center">
-					<img class="img-responsive img-thumbnail"
-						src="http://beeblob.blob.core.windows.net/pecadodevinhocom/2013/06/molho-pesto.jpg"
-						width="305" align="middle">
-
-					<center>
-						<input id="imgFile" name="fotoDaReceita" class="input-file"
-							type="file" accept="image/*">
-					</center>
-
+				
+					<!-- File Button -->
+			<div class="form-group col-md-12 col-md-offset-2	">
+				<label class="col-md-3 control-label ages" for="Foto"></label>
+				<div class="col-md-6">
+					<input id="imgFile" name="imgFile" class="input-file" type="file">
 				</div>
+			</div>
+			<div class="form-group col-md-12" >
+				<div id="image_preview" style="display:none; margin-left:35%;">
+				<img id="previewing" src=""/>
+				</div>
+			</div>
+			<h4 id='loading'></h4>
+			<div id="message"></div>
+			
 
 				<div class="col-xs-6 col-sm-4">
 					<label for="rendimento"

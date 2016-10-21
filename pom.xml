@@ -22,7 +22,7 @@
 				<sgbd.url>jdbc:mysql://localhost:3306/ficha_e</sgbd.url>
 				<sgbd.user>root</sgbd.user>
 				<sgbd.password>senha</sgbd.password>
-				<upload.path>c:\\uploadProjetos</upload.path>
+				<upload.path>H:\\Workspace</upload.path>
 				<log.path>c:\\cawt\\</log.path>
 			</properties>
 		</profile>
