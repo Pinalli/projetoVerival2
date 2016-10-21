@@ -61,10 +61,6 @@ public class CreateScreenFichaSimpCommand implements Command {
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", fichaSimplificada.getNome()));
 			  }
 			
-			fichaSimplificadaBO.cadastrarFichaSimplificada(fichaSimplificada);
-			proxima = "main?acao=listFichaSimplificada";
-			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", fichaSimplificada.getNome()));
-
 		}catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
 			proxima = "main?acao=telaFichaTecnicaSimplificada";
