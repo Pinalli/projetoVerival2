@@ -81,7 +81,7 @@ public class FichaSimplificadaBO {
 		List<Ficha> listFichaSimplificada = null;
 		
 		try{
-			fichaSimplificadaDAO.listarFichasSimplificada();
+			listFichaSimplificada = fichaSimplificadaDAO.listarFichasSimplificada();
 		} catch (PersistenciaException | SQLException e) {
 			e.printStackTrace();
 			throw new NegocioException(e);
