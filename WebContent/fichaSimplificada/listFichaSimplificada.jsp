@@ -26,23 +26,23 @@
             </thead>
          <tbody> 
             	<%
-					List<Ficha> listaFicha = (List<Ficha>) request.getAttribute("listaFicha");
-					for (Ficha Ficha : listaFicha) {
+					List<Ficha> listaFicha = (List<Ficha>) request.getAttribute("listaFichaSimplificada");
+					for (Ficha ficha : listaFicha) {
 				%>
 				          
             	<tr>
-	            	<td align="center"><%=Ficha.getNome()%></td>
-	            	<td align="center"><%=Ficha.getRendimento()%></td>
+	            	<td align="center"><%=ficha.getNome()%></td>
+	            	<td align="center"><%=ficha.getRendimento()%></td>
 	            	<td align="center">
 						<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%= Ficha.getIdFicha()  %>" data-fichaS="<%=Ficha.getNome()%>"
+            				<a href="" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>"
             				data-target="#modalEditar" title="Editar"> <i class="glyphicon glyphicon-pencil"></i></a>
             			</form>
             		</td>	
             		
             		<td align="center">
             			<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%=Ficha.getIdFicha() %>" data-fichaS="<%=Ficha.getNome()%>"
+            				<a href="" data-toggle="modal" data-id="<%=ficha.getIdFicha() %>" data-fichaS="<%=ficha.getNome()%>"
             				data-target="#modalExcluir" title="Deletar"> <i class="glyphicon glyphicon-trash"></i></a>
             			</form>
             		</td>
