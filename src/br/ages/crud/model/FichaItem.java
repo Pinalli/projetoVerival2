@@ -9,8 +9,10 @@ public class FichaItem {
 	private int idFicha;
 	private int quantidadeUnidadeMedida;
 	private int quantidadeMedidaCaseira;
+	// Item da Ficha Completa
 	private double perCapita;
 	private double valorUnit;
+
 
 	public FichaItem() {
 		super();

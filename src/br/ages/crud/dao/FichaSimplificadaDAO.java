@@ -22,6 +22,7 @@ public class FichaSimplificadaDAO {
 
     private List<Ficha> listarFichasSimplificada;
 
+
     public int cadastrarFichaSimplificada(Ficha fichaSimplificada) throws SQLException, PersistenciaException {
         Connection conexao = null;
 
@@ -30,8 +31,8 @@ public class FichaSimplificadaDAO {
 
             conexao = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
-            sql.append("INSERT INTO TB_FICHA_SIMPLIFICADA (nome, rendimento, foto, modo_preparo, montagem, orientacoes_armazenamento, tipo_ficha)");
-            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?)");
+            sql.append("INSERT INTO TB_FICHA (NOME, RENDIMENTO, FOTO, MODO_PREPARO, MONTAGEM, ORIENTACOES_ARMAZENAMENTO, ID_EMPRESA,TIPO_FICHA)");
+            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -41,7 +42,8 @@ public class FichaSimplificadaDAO {
             statement.setString(4, fichaSimplificada.getModoPreparo());
             statement.setString(5, fichaSimplificada.getMontagem());
             statement.setString(6, fichaSimplificada.getOrientacoesArmazenamento());
-            statement.setString(7, fichaSimplificada.getTipoFicha());
+            statement.setInt(7, fichaSimplificada.getIdEmpresa());
+            statement.setString(8, fichaSimplificada.getTipoFicha());
 
             statement.executeUpdate();
 
@@ -55,7 +57,7 @@ public class FichaSimplificadaDAO {
             StringBuilder sql2 = new StringBuilder();
             for (FichaItem fichaItem : fichaSimplificada.getItens()) {
                 sql2.append("INSERT INTO TB_FICHA_ITEM (ID_UNIDADE_MEDIDA, ID_MEDIDA_CASEIRA, ID_INGREDIENTE, ID_FICHA, QUANTIDADE_UNIDADE_MEDIDA,QUANTIDADE_MEDIDA_CASEIRA )");
-                sql.append("VALUES (?, ?, ?, ?, ?, ?)");
+                sql2.append("VALUES (?, ?, ?, ?, ?, ?)");
 
                 PreparedStatement statement2 = conexao.prepareStatement(sql2.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -68,9 +70,9 @@ public class FichaSimplificadaDAO {
 
                 statement2.executeUpdate();
 
-                ResultSet resultset2 = statement.getGeneratedKeys();
+                ResultSet resultset2 = statement2.getGeneratedKeys();
                 int idFichaItem = 0;
-                if (resultset.first()) {
+                if (resultset2.first()) {
                     idFichaItem = resultset2.getInt(1);
                 }
                 fichaItem.setIdFicha(idFichaItem);
@@ -95,13 +97,14 @@ public class FichaSimplificadaDAO {
             conexao = ConexaoUtil.getConexao();
 
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT ID_FICHA, NOME, RENDIMENTO, FOTO, MODO_PREPARO, MONTAGEM, ORIENTACOES_ARMAZENAMENTO, TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 's' ");
+            sql.append("SELECT ID_FICHA, NOME, RENDIMENTO, FOTO, MODO_PREPARO, MONTAGEM, ORIENTACOES_ARMAZENAMENTO, ID_EMPRESA,TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 's' ");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
             ResultSet resultset = statement.executeQuery();
             while (resultset.next()) {
                 Ficha dto = new Ficha();
-                dto.setIdEmpresa(resultset.getInt("ID_FICHA"));
+                dto.setIdFicha(resultset.getInt("ID_FICHA"));
+                dto.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
                 dto.setNome(resultset.getString("NOME"));
                 dto.setRendimento(resultset.getString("RENDIMENTO"));
                 dto.setFoto(resultset.getString("FOTO"));
