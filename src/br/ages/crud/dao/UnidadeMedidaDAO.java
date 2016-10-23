@@ -198,6 +198,84 @@ public class UnidadeMedidaDAO {
 	}
 	
 	/**
+	 * Busca unidades de medidas
+	 * 
+	 * @return List<UnidadeMedida>
+	 * @throws PersistenciaException
+	 * @throws SQLException
+	 */
+	public ArrayList<UnidadeMedida> buscaUnidadesMedida(int offset, int limit) throws PersistenciaException, SQLException {
+		Connection conexao = null;
+		ArrayList<UnidadeMedida> listaUnidadeMedida = new ArrayList<UnidadeMedida>(); 
+
+		try {
+			conexao = ConexaoUtil.getConexao();
+
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT * FROM TB_UNIDADE_MEDIDA LIMIT "+offset+","+limit);
+			
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultset = statement.executeQuery();
+			while (resultset.next()) {
+				UnidadeMedida dto = new UnidadeMedida();
+				dto.setIdUnidadeMedida(resultset.getInt("ID_UNIDADE_MEDIDA"));
+				dto.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
+				dto.setMedidaConversao(resultset.getString("MEDIDA_CONVERSAO"));
+				dto.setSiglaUnidadeMedida(resultset.getString("SIGLA_UNIDADE_MEDIDA"));
+				dto.setFatorConversao(resultset.getDouble("FATOR_CONVERSAO"));
+				listaUnidadeMedida.add(dto);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			conexao.close();
+		}
+		return listaUnidadeMedida;
+	}
+	
+	/**
+	 * Busca unidades de medidas pelo nome
+	 * 
+	 * @return List<UnidadeMedida>
+	 * @throws PersistenciaException
+	 * @throws SQLException
+	 */
+	public ArrayList<UnidadeMedida> buscaUnidadesMedidaUnidade(String unidade, int limit) throws PersistenciaException, SQLException {
+		Connection conexao = null;
+
+		try {
+			conexao = ConexaoUtil.getConexao();
+
+			StringBuilder sql = new StringBuilder();
+			if(limit == 0){
+				sql.append("SELECT * FROM TB_UNIDADE_MEDIDA WHERE UNIDADE_MEDIDA LIKE '%"+unidade+"%' ");
+			}else{
+				sql.append("SELECT * FROM TB_UNIDADE_MEDIDA WHERE UNIDADE_MEDIDA LIKE '%"+unidade+"%' LIMIT "+limit);
+			}
+			
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultset = statement.executeQuery();
+			while (resultset.next()) {
+				UnidadeMedida dto = new UnidadeMedida();
+				dto.setIdUnidadeMedida(resultset.getInt("ID_UNIDADE_MEDIDA"));
+				dto.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
+				dto.setMedidaConversao(resultset.getString("MEDIDA_CONVERSAO"));
+				dto.setSiglaUnidadeMedida(resultset.getString("SIGLA_UNIDADE_MEDIDA"));
+				dto.setFatorConversao(resultset.getDouble("FATOR_CONVERSAO"));
+				listarUnidadeMedida.add(dto);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			conexao.close();
+		}
+		return listarUnidadeMedida;
+	}
+
+	
+	/**
 	 * Verifica se unidade de medida existe usando unidade de medida e sigla
 	 * 
 	 * @param idUnidadeMedida

@@ -14,11 +14,75 @@ $(document).ready(function() {
 		$('.selectBatata').each(function(i, obj) {
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				if (obj.id == 'select-ingredientes') {
-					$(this).select2({data : ingredientes});
+					$(this).select2({
+						 ajax: {							 
+							    url: "/FichaTP/ajax?acao=buscaIngredienteDescricaoAjax",
+							    method: "GET",
+							    data: function (params) {							    	
+							        return {'descricao':params.term, 'limit':10};
+							    },
+							    processResults: function (data, params) {
+							    	var select2Data = [];
+							    	var json = jQuery.parseJSON(data);
+							    	for(var i=0; i<json.length; i++){
+										var obj = {'id':json[i].id, 'text':json[i].descricao}
+										select2Data.push(obj);				
+									}
+							        return {							          
+						                results: select2Data
+						            };
+							      },
+							      cache: true
+							  },
+					      
+					});
 				} else if (obj.id == 'select-unidade-medida') {
-					$(this).select2({data : unidadeMedida});
+					$(this).select2({
+						 ajax: {							 
+							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaUnidadeAjax",
+							    method: "GET",
+							    data: function (params) {	
+							        return {'unidade':params.term, 'limit':10};
+							    },
+							    processResults: function (data, params) {
+							    	var select2Data = [];
+							    	var json = jQuery.parseJSON(data);
+							    	for(var i=0; i<json.length; i++){
+										var obj = {'id':json[i].idUnidadeMedida, 'text':json[i].unidadeMedida}
+										select2Data.push(obj);				
+									}
+							        return {							          
+						                results: select2Data
+						            };
+							      },
+							      cache: true
+							  },
+					      
+					});
 				} else if (obj.id == 'select-medida-caseira') {
-					$(this).select2({data : medidaCaseira});
+					$(this).select2({
+						 ajax: {							 
+							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
+							    method: "GET",
+							    data: function (params) {
+							        return {'nome':params.term, 'limit':10};
+							    },
+							    
+							    processResults: function (data, params) {
+							    	var select2Data = [];
+							    	var json = jQuery.parseJSON(data);
+							    	for(var i=0; i<json.length; i++){
+										var obj = {'id':json[i].idUnidadeMedidaCaseira, 'text':json[i].nome}
+										select2Data.push(obj);				
+									}
+							        return {							          
+						                results: select2Data
+						            };
+							      },
+							      cache: true
+							  },
+					      
+					});
 				}
 			}else{
 				console.log('1');
@@ -118,7 +182,9 @@ $(document).ready(function() {
 				//Define texto do botao
 				var select = $('#select-ingredientes', $(this).closest('.table-row')); 
 				var nome = $('option:selected', select).text();
-				$(this).html(nome);
+				if(nome.length > 0 && typeof nome !== 'undefined'){
+					$(this).html(nome);
+				}
 				
 				//Atualiza texto do botao
 				select.on('change', function(){
@@ -131,7 +197,7 @@ $(document).ready(function() {
 	}	
 
 	/**
-	 * Altera o layou em resoluções com larguras menores que 990px 
+	 * Altera o layout em resoluções com larguras menores que 990px 
 	 */
 	if($(window).width() <= RESOLUCAO_MINIMA){
 		document.onreadystatechange = function () {
