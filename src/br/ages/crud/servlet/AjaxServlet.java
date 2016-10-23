@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ages.crud.command.*;
 import org.apache.log4j.Logger;
 
+import br.ages.crud.command.AddFichaSimplificadaAjaxCommand;
+import br.ages.crud.command.BuscaIngredienteDescricaoAjaxCommand;
+import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
+import br.ages.crud.command.BuscaUnidadeMedidaUnidadeAjaxCommand;
+import br.ages.crud.command.Command;
 //import br.ages.crud.command.AddEmpresaCommand;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
@@ -30,10 +34,17 @@ public class AjaxServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		// COMANDO DE INGREDIENTE
+		//COMANDOS DE INGREDIENTE
 		comandos.put("buscaIngredienteDescricaoAjax", new BuscaIngredienteDescricaoAjaxCommand());
+		
+		//COMANDOS DE UNIDADE DE MEDIDA
 		comandos.put("buscaUnidadeMedidaUnidadeAjax", new BuscaUnidadeMedidaUnidadeAjaxCommand());
+		
+		//COMANDOS DE UNIDADE DE MEDIDA CASEIRA
 		comandos.put("buscaUnidadeMedidaCaseiraNomeAjax", new BuscaUnidadeMedidaCaseiraNomeAjaxCommand());
+		
+		//COMANDOS DE FICHA TECNICA SIMPLIFICADA
+		comandos.put("addFichaTecnicaSimplificadaAjax", new AddFichaSimplificadaAjaxCommand());
 	}
 
 	@Override

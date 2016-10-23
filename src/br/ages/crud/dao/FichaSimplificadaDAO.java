@@ -77,12 +77,11 @@ public class FichaSimplificadaDAO {
                 }
                 fichaItem.setIdFicha(idFichaItem);
             }
-
-
             return idFichaSimplificada;
 
         } catch (ClassNotFoundException | SQLException e) {
-            throw new PersistenciaException(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE.replace("?", fichaSimplificada.getNome()));
+        	throw new PersistenciaException(e.getMessage());
+            //throw new PersistenciaException(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE.replace("?", fichaSimplificada.getNome()));
 
         } finally {
             conexao.close();

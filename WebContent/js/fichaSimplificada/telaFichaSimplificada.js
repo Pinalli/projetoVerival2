@@ -1,9 +1,6 @@
 $(document).ready(function() {
 	var RESOLUCAO_MINIMA = 990;
 	var qntIngredientes = 2;
-	var ingredientes  = [{id : '1',text : 'batata'}, {id : '2',text : 'batata frita'}, {id : '3',text : 'batata doce'}, {id : '4',text : 'batata chips'} ];
-	var unidadeMedida = [{id : '1',text : 'grama(s)'}, {id : '2',text : 'quilo(s)'} ];
-	var medidaCaseira = [{id : '1',text : 'Unidade(s)'}, {id : '2',text : 'Colher de sopa'} ];
 		
 	setSelect2();
 

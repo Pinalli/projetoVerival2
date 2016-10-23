@@ -67,7 +67,7 @@
 	<div class="container">
 
 		<article>
-			<form>
+			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaSimplificada">
 				<div class="form-group col-md-4 col-md-offset-4">
 					<input type="text" name="nome" id="nome"
 						class="form-control text-center box-transparent" placeholder="Digite o nome da receita"/>
@@ -160,7 +160,7 @@
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
 								<input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt" min="0.1" max="100"
-									step="0.1" name="qnt-unidade-medida" onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+									step="0.1" name="qnt-medida-caseira" onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
 							</div>
 							<div class="form-group col-md-2 col-xs-8">
 								<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label> 
@@ -189,7 +189,7 @@
 						<div class="form-group">
 							<label class="text-center col-md-12 col-sm-12 col-xs-12">Modo
 								de Preparo</label>
-							<textarea rows="10" cols="" class="form-control"></textarea>
+							<textarea rows="10" cols="" class="form-control" name="modoPreparo"></textarea>
 						</div>
 					</div>
 				</div>
@@ -198,7 +198,7 @@
 					<div class="col-md-9 col-md-offset-1">
 						<div class="form-group">
 							<label class="text-center col-md-12 col-sm-12 col-xs-12">Montagem</label>
-							<textarea rows="10" cols="" class="form-control"></textarea>
+							<textarea rows="10" cols="" class="form-control" name="montagem"></textarea>
 						</div>
 					</div>
 				</div>
@@ -207,7 +207,7 @@
 						<div class="form-group">
 							<label class="text-center col-md-12 col-sm-12 col-xs-12">Orientações
 								e armazenamento</label>
-							<textarea rows="10" cols="" class="form-control"></textarea>
+							<textarea rows="10" cols="" class="form-control" name="orientacaoArmazenamento"></textarea>
 						</div>
 					</div>
 				</div>
@@ -231,6 +231,7 @@
 	</div>
 </body>
 <script src="./js/fichaSimplificada/telaFichaSimplificada.js"></script>
+<script src="./js/fichaSimplificada/addFichaSimplificada.js"></script>
 
 <script type="text/javascript">
 	function limitText(limitField, limitNum) {
