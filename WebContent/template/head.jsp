@@ -114,20 +114,22 @@
         </li>
 
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ficha Simplificada<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><a  href="main?acao=listFichaSimplificada">Listar</a></li>
-                  <li><a  href="main?acao=telaFichaSimplificada">Cadastrar</a></li>
+                  <li><a  href="main?acao=listFichaSimplificada">Listar Fichas Técnicas Simplificadas</a></li>
+                  <li><a  href="main?acao=telaFichaSimplificada">Cadastrar Fichas Técnicas Simplificadas</a></li>
+                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Fichas Técnicas Completa</a></li>
+				  <!--li><a  href="main?acao=telaFichaSimplificada">Simplificada</a></li-->
               </ul>
           </li>
 
-        <li class="dropdown">
+        <!--li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preview FTs<span class="caret"></span></a>
           <ul class="dropdown-menu">
 	        <li><a  href="main?acao=telaFichaCompleta">Completa</a></li>
 			<li><a  href="main?acao=telaFichaSimplificada">Simplificada</a></li>            
           </ul>
-        </li>
+        </li-->
         
         <li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
