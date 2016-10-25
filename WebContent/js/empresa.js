@@ -8,11 +8,15 @@ $(document).ready(function(e){
 				|| (imagefile == match[1]) || (imagefile == match[2]))) {
 				return false;
 			} else {
-				file.name = "logo-empresa";
+				var idEmpresa = $('#idEmpresa').val();
+				if(idEmpresa == null){
+					idEmpresa = 0;
+				}
+				console.log(idEmpresa);
 				form = new FormData()
 				form.append('file',file);
 				form.append('empresa', true);
-				console.log(form.toString());
+				form.append('idEmpresa', idEmpresa);
 				var reader = new FileReader();
 				reader.onload = imageIsLoaded;
 				reader.readAsDataURL(this.files[0]);
@@ -76,3 +80,13 @@ function check_multifile_logo(file) {
         return false;
     }
 }
+
+function getId(){
+	var id = $('#idEmpresa').val();
+	if(id == ""){
+		$.get("ajax?acao=buscaUltimoIdEmpresaAjax", function(data){
+			return data;
+		});
+	}
+}
+

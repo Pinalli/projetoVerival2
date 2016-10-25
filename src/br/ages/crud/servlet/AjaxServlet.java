@@ -18,6 +18,7 @@ import br.ages.crud.command.AddFichaSimplificadaAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteDescricaoAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaUnidadeAjaxCommand;
+import br.ages.crud.command.BuscaEmpresaLogoAjaxCommand;
 import br.ages.crud.command.Command;
 //import br.ages.crud.command.AddEmpresaCommand;
 import br.ages.crud.exception.NegocioException;
@@ -34,17 +35,19 @@ public class AjaxServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		//COMANDOS DE INGREDIENTE
+		// COMANDOS DE INGREDIENTE
 		comandos.put("buscaIngredienteDescricaoAjax", new BuscaIngredienteDescricaoAjaxCommand());
-		
-		//COMANDOS DE UNIDADE DE MEDIDA
+
+		// COMANDOS DE UNIDADE DE MEDIDA
 		comandos.put("buscaUnidadeMedidaUnidadeAjax", new BuscaUnidadeMedidaUnidadeAjaxCommand());
-		
-		//COMANDOS DE UNIDADE DE MEDIDA CASEIRA
+
+		// COMANDOS DE UNIDADE DE MEDIDA CASEIRA
 		comandos.put("buscaUnidadeMedidaCaseiraNomeAjax", new BuscaUnidadeMedidaCaseiraNomeAjaxCommand());
-		
-		//COMANDOS DE FICHA TECNICA SIMPLIFICADA
+
+		// COMANDOS DE FICHA TECNICA SIMPLIFICADA
 		comandos.put("addFichaTecnicaSimplificadaAjax", new AddFichaSimplificadaAjaxCommand());
+		// COMANDOS DE EMPRESA
+		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
 	}
 
 	@Override

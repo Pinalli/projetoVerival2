@@ -103,9 +103,7 @@ public class EmpresaDAO {
 				dto.setCidade(resultset.getString("CIDADE"));
 				dto.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				dto.setResponsavel(resultset.getString("RESPONSAVEL"));
-				//dto.setLogo(resultset.getString("LOGO"));
-				//por enquando nao eh por id, dessa forma o logo sempre sera o mesmo:
-				dto.setLogo("logo-empresa");
+				dto.setLogo(resultset.getString("LOGO"));
 				listarEmpresa.add(dto);
 			}
 
@@ -231,7 +229,6 @@ public class EmpresaDAO {
 	}
 
 	public Empresa buscaEmpresaId(int idEmpresa) throws PersistenciaException, SQLException {
-		// adicionar informações de tipo de usuario?
 		Empresa empresa = new Empresa();
 
 		Connection conexao = null;
@@ -239,9 +236,6 @@ public class EmpresaDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			// sql.append("SELECT * FROM AGES_E.TB_USUARIO WHERE ID_USUARIO =
-			// ?;");
-			//
 			sql.append("SELECT e.*");
 			sql.append("FROM TB_EMPRESA e ");
 			sql.append("WHERE e.ID_EMPRESA = ?;");
@@ -259,9 +253,7 @@ public class EmpresaDAO {
 				empresa.setCidade(resultset.getString("CIDADE"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
-				//dto.setLogo(resultset.getString("LOGO"));
-				//por enquando nao eh por id, dessa forma o logo sempre sera o mesmo:
-				empresa.setLogo("logo-empresa");
+				empresa.setLogo(resultset.getString("LOGO"));
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -311,6 +303,35 @@ public class EmpresaDAO {
 			}
 		}
 		return okei;
+	}
+	
+	public int getProximoIdEmpresa() throws PersistenciaException, SQLException {
+		
+		int idRetorno = 0;
+		Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+			String table = "TB_EMPRESA";
+			StringBuilder sql = new StringBuilder();
+			sql.append("SHOW TABLE STATUS LIKE '"+table+"'");
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+
+			ResultSet resultset = statement.executeQuery();
+
+			while (resultset.next()) {
+				idRetorno = Integer.valueOf(resultset.getString("Auto_increment"));
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return idRetorno;
 	}
 
 }
