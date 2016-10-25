@@ -37,9 +37,9 @@ $(document).ready(function() {
 			//itens:itens
 		};
 		
-		$.post( "/FichaTP/ajax?acao=addFichaTecnicaSimplificadaAjax", data, function() {
+		$.post( "ajax?acao=addFichaTecnicaSimplificadaAjax", data, function() {
 			console.log( "success" );
-			window.location.href = "/FichaTP/main?acao=listFichaSimplificada";
+			window.location.href = "main?acao=listFichaSimplificada";
 		}).done(function() {
 			console.log( "done" );
 			
