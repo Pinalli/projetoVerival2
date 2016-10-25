@@ -132,7 +132,7 @@ public class IngredienteDAO {
 
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(
-					MensagemContantes.MSG_ERR_INGREDIENTE_JA_EXISTENTE.replace("?", ingrediente.getDescricao()));
+					MensagemContantes.MSG_ERR_CODIGO_JA_USADO);
 
 		} finally {
 			conexao.close();

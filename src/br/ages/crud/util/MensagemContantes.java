@@ -163,6 +163,7 @@ public class MensagemContantes {
 	public static final String MSG_SUC_CADASTRO_INGREDIENTE = " Ingrediente ? cadastrada com sucesso!";	
 	public static final String MSG_ERR_EDICAO_INGREDIENTE = " Ingrediente ? não pode ser editada";
 	public static final String MSG_ERR_INGREDIENTE_JA_EXISTENTE = " Ingrediente ? já cadastrada";
+	public static final String MSG_ERR_CODIGO_JA_USADO = "Código já usado";
 	public static final String MSG_ERR_INGREDIENTE_DADOS_INVALIDOS = "Dados da Ingrediente inválidos ou inconsistentes!";
 	public static final String MSG_ERR_INGREDIENTE_NOME_INVALIDO = "A descrição da origem da Ingrediente deve ter de 1 a 60 caracteres";
 	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";

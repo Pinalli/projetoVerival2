@@ -117,8 +117,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">
                   <li><a  href="main?acao=listFichaSimplificada">Listar Fichas Técnicas Simplificadas</a></li>
-                  <li><a  href="main?acao=telaFichaSimplificada">Cadastrar Fichas Técnicas Simplificadas</a></li>
-                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Fichas Técnicas Completa</a></li>
+                  <li><a  href="main?acao=telaFichaSimplificada">Cadastrar Ficha Técnica Simplificada</a></li>
+                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Técnica Completa</a></li>
 				  <!--li><a  href="main?acao=telaFichaSimplificada">Simplificada</a></li-->
               </ul>
           </li>
