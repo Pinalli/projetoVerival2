@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FilenameUtils;
+
 import com.mysql.jdbc.Statement;
 
 import br.ages.crud.exception.PersistenciaException;
@@ -137,7 +139,9 @@ public class EmpresaDAO {
 			statement.setString(5, empresa.getCidade());
 			statement.setString(6, empresa.getRazaoSocial());
 			statement.setString(7, empresa.getResponsavel());
-			statement.setString(8, empresa.getLogo());
+			String logo = empresa.getLogo();
+			logo = "logo-empresa-"+this.getProximoIdEmpresa()+"."+FilenameUtils.getExtension(logo);
+			statement.setString(8, logo);
 
 
 			statement.executeUpdate();
@@ -291,7 +295,9 @@ public class EmpresaDAO {
 			statement.setString(5, empresa.getCidade());
 			statement.setString(6, empresa.getRazaoSocial());
 			statement.setString(7, empresa.getResponsavel());
-			statement.setString(8, empresa.getLogo());
+			String logo = empresa.getLogo();
+			logo = "logo-empresa-"+id+"."+FilenameUtils.getExtension(logo);
+			statement.setString(8, logo);
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
