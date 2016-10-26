@@ -70,6 +70,11 @@ $(document).ready(function(e){
 		element.mask("99.999.999/9999-99");
 	});
 	
+	//limpar preview da imagem
+	$("#limparForm").click(function(){
+		$("#image_preview").css("display","none");	
+	});
+	
 });
 
 function check_multifile_logo(file) {
