@@ -50,7 +50,7 @@ public class EmpresaDAO {
 			Connection conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT * FROM TB_EMPRESA ");
-			sql.append("WHERE empresa = ? AND cnpj = ?");
+			sql.append("WHERE EMPRESA = ? AND CNPJ = ?");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, empresaDTO.getNome());
@@ -200,8 +200,8 @@ public class EmpresaDAO {
 
 			StringBuilder sql = new StringBuilder();
 			// sql.append("SELECT * FROM TB_USUARIO WHERE NOME = ?");
-			sql.append("SELECT e.* FROM TB_EMPRESA e");
-			sql.append("WHERE e.nome = ?;");
+			sql.append("SELECT E.* FROM TB_EMPRESA E");
+			sql.append("WHERE E.NOME = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, nome);
 
@@ -240,9 +240,9 @@ public class EmpresaDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT e.*");
-			sql.append("FROM TB_EMPRESA e ");
-			sql.append("WHERE e.ID_EMPRESA = ?;");
+			sql.append("SELECT E.*");
+			sql.append("FROM TB_EMPRESA E ");
+			sql.append("WHERE E.ID_EMPRESA = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idEmpresa);

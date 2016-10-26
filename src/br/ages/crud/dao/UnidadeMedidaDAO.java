@@ -43,11 +43,11 @@ public class UnidadeMedidaDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ");
-			sql.append("u.`ID_UNIDADE_MEDIDA`,");
-			sql.append("u.`UNIDADE_MEDIDA`,");
-			sql.append("u.`MEDIDA_CONVERSAO`,");
-			sql.append("u.`SIGLA_UNIDADE_MEDIDA`,");
-			sql.append("u.`FATOR_CONVERSAO` ");
+			sql.append("U.`ID_UNIDADE_MEDIDA`,");
+			sql.append("U.`UNIDADE_MEDIDA`,");
+			sql.append("U.`MEDIDA_CONVERSAO`,");
+			sql.append("U.`SIGLA_UNIDADE_MEDIDA`,");
+			sql.append("U.`FATOR_CONVERSAO` ");
 			sql.append("FROM TB_UNIDADE_MEDIDA u"); 
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -165,12 +165,12 @@ public class UnidadeMedidaDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ");
-			sql.append("u.`ID_UNIDADE_MEDIDA`,");
-			sql.append("u.`UNIDADE_MEDIDA`,");
-			sql.append("u.`MEDIDA_CONVERSAO`,");
-			sql.append("u.`SIGLA_UNIDADE_MEDIDA`,");
-			sql.append("u.`FATOR_CONVERSAO`");
-			sql.append(" FROM TB_UNIDADE_MEDIDA u "); 
+			sql.append("U.`ID_UNIDADE_MEDIDA`,");
+			sql.append("U.`UNIDADE_MEDIDA`,");
+			sql.append("U.`MEDIDA_CONVERSAO`,");
+			sql.append("U.`SIGLA_UNIDADE_MEDIDA`,");
+			sql.append("U.`FATOR_CONVERSAO`");
+			sql.append(" FROM TB_UNIDADE_MEDIDA U "); 
 			sql.append("WHERE ID_UNIDADE_MEDIDA = ?;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -289,8 +289,8 @@ public class UnidadeMedidaDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT u.`ID_UNIDADE_MEDIDA` ");
-			sql.append("FROM TB_UNIDADE_MEDIDA u "); 
+			sql.append("SELECT U.`ID_UNIDADE_MEDIDA` ");
+			sql.append("FROM TB_UNIDADE_MEDIDA U "); 
 			sql.append("WHERE SIGLA_UNIDADE_MEDIDA = ? ");
 			sql.append("AND FATOR_CONVERSAO = ?;");
 

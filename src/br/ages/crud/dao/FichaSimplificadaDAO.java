@@ -133,7 +133,7 @@ public class FichaSimplificadaDAO {
             int id = fichaSimplificada.getIdFicha();
 
             sql.append(
-                    "UPDATE TB_FICHA_SIMPLIFICADA set nome = ?, rendimento = ?, foto = ?, modo_preparo = ?, montagem = ?, orientacaoes_armazenamento = ?, tipo_ficha = ? WHERE id_usuario = "
+                    "UPDATE TB_FICHA_SIMPLIFICADA SET NOME = ?, RENDIMENTO = ?, FOTO = ?, MODO_PREPARO = ?, MONTAGEM = ?, ORIENTACOES_ARMAZENAMENTO = ?, TIPO_FICHA = ? WHERE ID_USUARIO = "
                             + id + ";");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
