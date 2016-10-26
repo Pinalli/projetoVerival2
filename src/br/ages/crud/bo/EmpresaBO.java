@@ -147,7 +147,15 @@ public class EmpresaBO {
 		}
 	}
 	
-	
+	public String buscaLogoEmpresaId(int idEmpresa) throws NegocioException {
+		try {
+			Empresa empresa = empresaDAO.buscaEmpresaId(idEmpresa);
+			return empresa.getLogo();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+	}
 
 	public void setEmpresaDAO(EmpresaDAO empresaDAO) {
 		this.empresaDAO = empresaDAO;
@@ -168,6 +176,18 @@ public class EmpresaBO {
 			e.printStackTrace();
 			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_EMPRESA_EM_PROJETO);
 		}
+	}
+	
+	public int getLastIdEmpresa() throws NegocioException {
+		int idRetornado = 0;
+		try {
+			idRetornado= empresaDAO.getProximoIdEmpresa();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+		return idRetornado;
+		
 	}
 	
 }

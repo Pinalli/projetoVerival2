@@ -107,7 +107,7 @@
 
 
 			<div class="text-center">
-				<input class="btn btn-warning limpaIngrediente" type="reset"
+				<input class="btn btn-warning limpaIngrediente" id="limparForm" type="reset"
 					value="Limpar"> <input
 					class="btn btn-success addIngrediente pull-right" type="submit"
 					value="Cadastrar">

@@ -1,141 +1,48 @@
 package br.ages.crud.util;
 
 public class MensagemContantes {
-	
+	//gerais: cadastro, login, logout
 	public static final String MSG_ERR_CNPJ_INVALIDA = " campo cnpj invalido";
 	public static final String MSG_ERR_CAMPO_CNPJ_MENOR_RECOMENDADO = "Campo ? com menos de 11 caracteres!";
-	
 	public static final String MSG_ERR_CAMPO_CNPJ_MAIOR_RECOMENDADO = "Campo ? com mais de 11 caracteres!";
-	
 	public static final String MSG_ERRO_CAMPO_SENHA_E_CONFIRMARRSENHA_DIFERENTES = "Campos Senha e Confirmar senha diferentes";
-
 	public static final String MSG_ERR_CAMPO_OBRIGATORIO = "Campo ? obrigatório!";
-	
 	public static final String MSG_ERR_CAMPO_NOME_OBRIGATORIO = "Campo Nome obrigatório!";
-
 	public static final String MSG_ERR_CAMPO_SEXO_OBRIGATORIO = "Campo Sexo obrigatório!";
-	
 	public static final String MSG_ERR_CAMPO_CIDADE_OBRIGATORIO = "Campo Cidade obrigatório!";
-	
 	public static final String MSG_ERR_CAMPO_ESTADO_OBRIGATORIO = "Campo Estado obrigatório!";
-	
 	public static final String MSG_ERR_CAMPO_LOGRADOURO_OBRIGATORIO = "Campo Logradouro obrigatório!";
-	
 	public static final String MSG_ERR_CAMPO_INVALIDO = "Campo ? inválido!";
-	
 	public static final String MSG_ERR_USUARIO_SENHA_INVALIDOS = "Usuário/Senha inválidos!";
-	
 	public static final String MSG_ERR_PESSOA_DADOS_INVALIDOS = "Dados da pessoa inválidos ou inconsistentes!";
-
 	public static final String MSG_ERR_USUARIO_DADOS_INVALIDOS = "Dados do Usuário inválidos ou inconsistentes!";
-	
 	public static final String MSG_ERR_CAMPO_CPF_MAIOR_RECOMENDADO = "Campo ? com mais de 11 caracteres!";
-	
 	public static final String MSG_ERR_CAMPO_CPF_MENOR_RECOMENDADO = "Campo ? com menos de 11 caracteres!";
-
 	public static final String MSG_ERR_CAMPO_DATA_MAIOR_RECOMENDADO = "Campo ? com mais de 10 caracteres!";
-
 	public static final String MSG_ERR_CAMPO_DATA_MENOR_RECOMENDADO = "Campo ? com menos de 10 caracteres!";
-	
 	public static final String MSG_ERR_CAMPO_DATA_INVALIDO = "Ocorreu algum problema no envio da data";	
-	
 	public static final String MSG_ERR_SENHA_INVALIDA = "A senha do usuario ï¿½ invï¿½lida: Deve ter no mï¿½nimo 3 e no mï¿½ximo 8 caracteres, apenas nï¿½meros e letras!";
-	
 	public static final String MSG_ERR_CPF_INVALIDA = "CPF invalido!";
-	
 	public static final String MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO = "Campo Endereço obrigatorio!";
-	
-	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!"
-			+ "<br>Exemplo correto: ages_user@acad.pucrs.br";
-	
+	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!<br>Exemplo correto: ages_user@acad.pucrs.br";
 	public static final String MSG_ERR_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo correto: Joï¿½o Cardoso";
-	
 	public static final String MSG_ERR_USUARIO_JA_EXISTENTE = "Usuário ou matrï¿½culajá cadastrados!";
-	
 	public static final String MSG_ERR_REMOVE_USUARIO_EM_PROJETO = "Este Usuáriojá está em algum projeto e não pode ser removido!";
-	
 	public static final String MSG_SUC_CADASTRO_PESSOA = "Cadastro de Pessoa efetuado com sucesso!";
-	
 	public static final String MSG_SUC_CADASTRO_USUARIO = "Usuário ? cadastrado com sucesso!";
-	
 	public static final String MSG_SUC_EDICAO_USUARIO = "Usuário ? editado com sucesso!";
-	
 	public static final String MSG_SUC_REMOVE_USUARIO= "Usuário ? removido com sucesso!";
-	
 	public static final String MSG_SUC_ATUALIZADA_PESSOA = "Atualização de Pessoa efetuada com sucesso!";
-	
 	public static final String MSG_INF_LOGOUT = "Logout do Usuário efetuado com sucesso!";
-	
 	public static final String MSG_INF_DENY = "Acesso negado! Você precisa logar primeiro.";
-	
 	public static final String MSG_INF_DENY_SELF = "Você não pode remover a si mesmo.";
-	
 	public static final String MSG_INF_SEM_PERISSAO = "Acesso negado! Você NÃO tem permissão para acessar essa funcionalidade.";
 	
 
 	//msgs de unidades de medidas
 	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA = "Unidade ? editada com sucesso!";
-	
 	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA = "Ocorreu um erro na edição da unidade de medida.";
-	
 	public static final String MSG_SUC_REMOVE_UNIDADE_MEDIDA = "Unidade de medida ? removida com sucesso!";
-	
-	//
-	
-	public static final String MSG_ERR_PROJETO_DADOS_INVALIDOS = "Dados do projeto inválidos ou inconsistentes!";
-		
-	public static final String MSG_ERR_PROJETO_ARQUIVO_INVALIDO = "Arquivo excede o ?Mb ou não é do tipo PDF!";
-	
-	public static final String MSG_ERR_PROJETO_DATA_INCONSISTENTE = "Data de inicio deve ser anterior à data de fim?!"; //'?' proposital
-	
-	public static final String MSG_ERR_CADASTRO_PROJETO = "Ocorreu um erro no cadastro do projeto.";
-
-	
-	
-	public static final String MSG_SUC_EDICAO_PROJETO = "Projeto ? editado com sucesso!";
-
-	public static final String MSG_SUC_REMOVE_PROJETO = "Projeto ? removido com sucesso!";
-
-	//msgs de stakeholder
-	
-	public static final String  MSG_ERR_STAKEHOLDER_JA_EXISTENTE = "Stakeholder ? já cadastrado!";
-	
-	public static final String MSG_ERR_STAKEHOLDER_DADO_INVALIDO = "Dado do Stakeholder inválido ou inconsistente!";
-	
-	public static final String MSG_ERR_STAKEHOLDER_NOME_OBRIGATORIO = "Campo Nome obrigatório!";
-	
-
-	public static final String MSG_ERR_STAKEHOLDER_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo: João Pedro";
-	
-	public static final String MSG_ERR_REMOVE_STAKEHOLDER_EM_PROJETO = "Este stakeholder já está em algum projeto e não pode ser removido!";
-
-	public static final String MSG_SUC_CADASTRO_STAKEHOLDER = "Stakeholder ? cadastrado com sucesso";
-	
-	public static final String MSG_SUC_EDITA_STAKEHOLDER ="Stakeholder ? editado com sucesso";
-
-	public static final String MSG_SUC_REMOVE_STAKEHOLDER = "Stakeholder de id ? removido com sucesso";
-	
-	//msgs do Ponto
-
-	public static final String MSG_ERR_CADASTRO_PONTO= "Erro ao salvar o Ponto do Aluno ?";
-
-	public static final String MSG_ERR_CADASTRO_PONTO_DATA_INVALIDA = " Data de Saida menor que Data de Entrada";
-
-	public static final String MSG_SUC_CADASTRO_PONTO = " Cadastrado com SUCESSO o Ponto do Aluno ?";
-	
-	public static final String MSG_SUC_EDITA_PONTO = " Ponto do Aluno ? editadocom SUCESSO";
-
-	public static final String MSG_SUC_AVALIACAO = " Aluno ? avaliado com SUCESSO";
-
-	public static final String MSG_ERR_AVALIACAO = " ERRO na Avaliação Aluno ?";
-	
-	public static final String MSG_ERR_PONTO_JA_EXISTENTE = " Ponto ja existente para o Aluno ? na data";
-	
-	public static final String MSG_SUC_VALIDA_HORA_INVALIDA_PONTO = " Ponto validado com sucesso";
-	
-	public static final String MSG_ERR_VALIDA_HORA_INVALIDA_PONTO = " Senha do Responsável inválida";
-	
-	//msgs das Unidades de Medida
 	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA = "Unidade de Medida ? cadastrada com sucesso!";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_JA_EXISTENTE = " Unidade de Medida já cadastrada";
 	public static final String MSG_ERR_UNIDADE_MEDIDA_DADOS_INVALIDOS = "Dados da Unidade de Medida inválidos ou inconsistentes!";
@@ -169,7 +76,7 @@ public class MensagemContantes {
 	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";
 	public static final String MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO = "Este Ingrediente está em algum projeto e não pode ser removido!";
 	
-	//msgs das Empresa
+	//msgs de Empresa
 	public static final String MSG_SUC_REMOVE_EMPRESA = " Empresa ? removida com sucesso";
 	public static final String MSG_SUC_EDICAO_EMPRESA = " Empresa ? altera com sucesso!";
 	public static final String MSG_SUC_CADASTRO_EMPRESA = " Empresa ? cadastrada com sucesso!";	
