@@ -80,11 +80,11 @@
 					<input id="imgFile" name="imgFile" class="input-file" type="file">
 				</div>
 			</div>
-			<div class="form-group col-md-12" >
-				<div id="image_preview" style="display:none; margin-left:35%;">
-				<img id="previewing" src=""/>
+				<div class="form-group col-md-12" >
+					<div id="image_preview">
+					<img id="previewing" src="" class="img-responsive img-thumbnail center-block"/>
+					</div>
 				</div>
-			</div>
 			<h4 id='loading'></h4>
 			<div id="message"></div>
 			
