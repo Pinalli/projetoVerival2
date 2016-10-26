@@ -132,8 +132,8 @@
 						<div class="col-md-1"></div>
 					</div>
 				</div>
-
-				<div class="row" id="table-rows">
+	
+					<div class="row" id="table-rows">
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
 					    
 					    <div class="panel panel-info hidden-md hidden-lg">

@@ -182,11 +182,27 @@ $(document).ready(function() {
 				if(nome.length > 0 && typeof nome !== 'undefined'){
 					$(this).html(nome);
 				}
+				var selectUni = $('#select-unidade-medida', $(this).closest('.table-row')); 
+				var selectQtn = $('#qnt-unidade-medida', $(this).closest('.table-row').val());
+				
 				
 				//Atualiza texto do botao
 				select.on('change', function(){
-					var select = $('#select-ingredientes', $(this).closest('.table-row')); 
-					var nome = $('option:selected', select).text();
+					//var select = $('#select-ingredientes', $(this).closest('.table-row')); 
+					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
+					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $(this)).text();
+					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				});
+				selectUni.on('change', function(){
+					//var selectUni = $('#select-unidade-medida', $(this).closest('.table-row')); 
+					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
+					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $('#select-ingredientes')).text();
+					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				});
+				selectQtn.on('change', function(){
+					//var selectQtn = $('#select-qnt-unidade-medida', $(this).closest('.table-row')); 
+					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
+					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $('#select-ingredientes')).text();
 					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
 				});
 			}
