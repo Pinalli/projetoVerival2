@@ -158,12 +158,23 @@ public class FichaSimplificadaDAO {
             conexao = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
 
-            sql.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ?");
+            //delete TB_FICHA_ITEM
+            sql.append("DELETE FROM TB_FICHA_ITEM WHERE ID_FICHA = ?");
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
             statement.setInt(1, idFicha);
-            removidoOK = statement.execute();
+            statement.execute();
+            
+            //delete TB_FICHA
+            StringBuilder sql2 = new StringBuilder();
+            sql2.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ? AND  TIPO_FICHA = 's' ");
+            PreparedStatement statement2 = conexao.prepareStatement(sql2.toString());
 
+            statement2.setInt(1, idFicha);
+            statement2.execute();
+            
+            removidoOK = true;
+            
         } catch (ClassNotFoundException | SQLException e) {
             throw new PersistenciaException(e);
         } finally {
