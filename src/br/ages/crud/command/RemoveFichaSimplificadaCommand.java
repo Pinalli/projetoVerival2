@@ -19,7 +19,7 @@ public class RemoveFichaSimplificadaCommand implements Command{
 	
 	@Override
 	public String execute(HttpServletRequest request) {
-		proximo = "fichaSimplificada/listFichaSimplificada.jsp";
+		proximo = "main?acao=listFichaSimplificada";
 		
 		this.fichaSimplificadaBO = new FichaSimplificadaBO();
 		
