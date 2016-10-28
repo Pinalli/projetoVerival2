@@ -22,7 +22,7 @@ $(document).ready(function(e){
 				reader.readAsDataURL(this.files[0]);
 				if (check_multifile_logo($("#logotipo").prop("files")[0]['name'])) {
 		            $.ajax({
-		                url: "/FichaTP/upload",
+		                url: "upload",
 		                cache: false,
 		                contentType: false,
 		                processData: false,
