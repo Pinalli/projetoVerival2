@@ -110,5 +110,12 @@ public class FichaSimplificadaBO {
 			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_FICHA_EM_PROJETO);
 		}
 	}
-	
+
+	public int getProximoIdFicha() throws NegocioException, SQLException, PersistenciaException {
+		try {
+			return fichaSimplificadaDAO.getProximoIdFicha();
+		} catch (PersistenciaException | SQLException e){
+			throw new NegocioException(e);
+		}
+	}
 }

@@ -81,7 +81,7 @@
 				</div>
 			</div>
 				<div class="form-group col-md-12" >
-					<div id="image_preview">
+					<div id="image_preview" style="display:none">
 					<img id="previewing" src="" class="img-responsive img-thumbnail center-block"/>
 					</div>
 				</div>

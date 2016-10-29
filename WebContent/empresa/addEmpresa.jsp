@@ -102,8 +102,11 @@
 			<div class="form-group">
 				<div id="image_preview" style="display:none; margin-left:30%;"><img id="previewing" src="" /></div>
 			</div>
-			<h4 id='loading'></h4>
-			<div id="message"></div>
+
+			<div id="errorMessage" class="alert alert-danger" style="display:none">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Erro! </strong> Imagem deve ser JPG, JPEG ou PNG.
+			</div>
 
 
 			<div class="text-center">

@@ -186,4 +186,33 @@ public class FichaSimplificadaDAO {
         }
         return removidoOK;
     }
+
+    public int getProximoIdFicha() throws PersistenciaException, SQLException {
+
+        int idRetorno = 0;
+        Connection conexao = null;
+        try {
+            conexao = ConexaoUtil.getConexao();
+            String table = "TB_FICHA";
+            StringBuilder sql = new StringBuilder();
+            sql.append("SHOW TABLE STATUS LIKE '"+table+"'");
+            PreparedStatement statement = conexao.prepareStatement(sql.toString());
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                idRetorno = Integer.valueOf(resultset.getString("Auto_increment"));
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new PersistenciaException(e);
+        } finally {
+            try {
+                conexao.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return idRetorno;
+    }
 }
