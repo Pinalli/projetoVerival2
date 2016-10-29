@@ -140,43 +140,35 @@
 							<div class="form-group col-md-12" >
 							<div class="form-group col-md-1 col-xs-4" >
 								<label for="cho" class="">CHO</label>
-								<input type="number" readonly="readonly" class="form-control"id="cho" placeholder="Import" min="1" max="9999"
-									name="cho" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="cho" placeholder="Import">
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="ptn" class="">PTN</label>
-								<input type="number" readonly="readonly" class="form-control"id="ptn" placeholder="Import" min="1" max="9999"
-									name="ptn" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="ptn" placeholder="Import">
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="lip" class="">LIP</label>
-								<input type="number" readonly="readonly" class="form-control"id="lip" placeholder="Import" min="1" max="9999"
-									name="lip" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="lip" placeholder="Import">
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="kcal" class="">Kcal</label>
-								<input type="number" readonly="readonly" class="form-control"id="kcal" placeholder="Import" min="1" max="9999"
-									name="kcal" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="kcal" placeholder="Import">>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label>
-								<input type="number" readonly="readonly" class="form-control"id="valor-unitario" placeholder="Import" min="1" max="9999"
-									name="valor-unitario" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="valor-unitario" placeholder="Import">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="custo-real" class="">Custo Real</label>
-								<input type="number" readonly="readonly" class="form-control"id="custo-real" placeholder="Import" min="1" max="9999"
-									name="custo-real" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="custo-real" placeholder="Import">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de Correção</label>
-								<input type="number" readonly="readonly" class="form-control"id="fator-de-correcao" placeholder="Import" min="1" max="9999"
-									name="fator-de-correcao" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="fator-de-correcao" placeholder="Import">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="indice-de-coccao" class="">Índice de Cocção</label>
-								<input type="number" readonly="readonly" class="form-control"id="indice-de-coccao" placeholder="Import" min="1" max="9999"
-									name="indice-de-coccao" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
+								<input type="number" readonly="readonly" class="form-control"id="indice-de-coccao" placeholder="Import">
 							</div>
 							</div>
 							<div class="form-group col-md-1 btn-excluir-wrapper"></div>
