@@ -18,7 +18,7 @@ import br.ages.crud.command.AddFichaSimplificadaAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteDescricaoAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaUnidadeAjaxCommand;
-import br.ages.crud.command.BuscaEmpresaLogoAjaxCommand;
+//import br.ages.crud.command.BuscaEmpresaLogoAjaxCommand;
 import br.ages.crud.command.Command;
 //import br.ages.crud.command.AddEmpresaCommand;
 import br.ages.crud.exception.NegocioException;
@@ -47,7 +47,7 @@ public class AjaxServlet extends HttpServlet {
 		// COMANDOS DE FICHA TECNICA SIMPLIFICADA
 		comandos.put("addFichaTecnicaSimplificadaAjax", new AddFichaSimplificadaAjaxCommand());
 		// COMANDOS DE EMPRESA
-		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
+		//comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
 	}
 
 	@Override
@@ -58,6 +58,7 @@ public class AjaxServlet extends HttpServlet {
 		String json = "";
 
 		try {
+			logger.debug("acao: "+acao);
 			Command comando = verificarComando(acao);
 			json = comando.execute(request);
 			Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioSessao");
@@ -66,7 +67,9 @@ public class AjaxServlet extends HttpServlet {
 		} catch (NegocioException | SQLException | ParseException | PersistenciaException e) {
 			request.setAttribute("msgErro", e.getMessage());
 		}
-		LogParametrosSession.logParametros(request);
+		//LogParametrosSession.logParametros(request);
+		reponse.setContentType("text/plain; charset=utf-8");
+		reponse.setCharacterEncoding("UTF-8");
 		reponse.getWriter().write(json);
 	}
 

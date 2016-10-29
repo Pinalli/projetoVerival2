@@ -80,7 +80,7 @@ public class MainServlet extends HttpServlet {
 		comandos.put("telaFichaSimplificada", new CreateScreenFichaCommand());
 		comandos.put("telaFichaCompleta", new CreateScreenFichaCompCommand());
 		comandos.put("listFichaSimplificada", new ListFichaSimplificadaCommand());
-		comandos.put("removerFichaSimplificada", new RemoveFichaSimplificadaCommand());
+		//comandos.put("removerFichaSimplificada", new RemoveFichaSimplificadaCommand());
 
 		/*
 		comandos.put("telaFichaSimplificada", new CreateScreenFichaSimpCommand());
