@@ -6,6 +6,7 @@ import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
 import com.mysql.jdbc.Statement;
+import org.apache.commons.io.FilenameUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,7 +39,9 @@ public class FichaSimplificadaDAO {
 
             statement.setString(1, fichaSimplificada.getNome());
             statement.setString(2, fichaSimplificada.getRendimento());
-            statement.setString(3, fichaSimplificada.getFoto());
+            String logo = fichaSimplificada.getFoto();
+            logo = "ficha-"+this.getProximoIdFicha()+"."+ FilenameUtils.getExtension(logo);
+            statement.setString(3, logo);
             statement.setString(4, fichaSimplificada.getModoPreparo());
             statement.setString(5, fichaSimplificada.getMontagem());
             statement.setString(6, fichaSimplificada.getOrientacoesArmazenamento());
