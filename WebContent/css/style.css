@@ -101,3 +101,23 @@ body{
 	margin: 0 0 4px 240px;
 }
 
+/* ========================== */
+/* Para o About 			  */
+/* ========================== */
+.logosAbout {
+   width:100px;
+   height:100px;
+   margin: 0 auto;
+}
+.panel-about {
+	max-width: 500px;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+ 
+.titulo {   
+    color: #ae0057;
+    font-weight: bold;
+    font-size: 20px;
+}
