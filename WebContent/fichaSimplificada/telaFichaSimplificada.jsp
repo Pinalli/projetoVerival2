@@ -81,7 +81,7 @@
 				</div>
 			</div>
 				<div class="form-group col-md-12" >
-					<div id="image_preview">
+					<div id="image_preview" style="display:none">
 					<img id="previewing" src="" class="img-responsive img-thumbnail center-block"/>
 					</div>
 				</div>
@@ -132,8 +132,8 @@
 						<div class="col-md-1"></div>
 					</div>
 				</div>
-
-				<div class="row" id="table-rows">
+	
+					<div class="row" id="table-rows">
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
 					    
 					    <div class="panel panel-info hidden-md hidden-lg">

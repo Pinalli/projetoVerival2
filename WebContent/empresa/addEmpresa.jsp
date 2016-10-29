@@ -69,6 +69,44 @@
 
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label class="col-md-3 control-label ages" for="uf">UF</label>
+				<div class="col-md-6">
+					<select id="uf" name="uf" value="${param.uf}" type="text" placeholder=""
+						class="form-control input-md" required="">
+							<option value="">Selecione</option>
+							<option value="AC">Acre</option>
+							<option value="AL">Alagoas</option>
+							<option value="AP">Amapá</option>
+							<option value="AM">Amazonas</option>
+							<option value="BA">Bahia</option>
+							<option value="CE">Ceará</option>
+							<option value="DF">Distrito Federal</option>
+							<option value="ES">Espirito Santo</option>
+							<option value="GO">Goiás</option>
+							<option value="MA">Maranhão</option>
+							<option value="MS">Mato Grosso do Sul</option>
+							<option value="MT">Mato Grosso</option>
+							<option value="MG">Minas Gerais</option>
+							<option value="PA">Pará</option>
+							<option value="PB">Paraíba</option>
+							<option value="PR">Paraná</option>
+							<option value="PE">Pernambuco</option>
+							<option value="PI">Piauí</option>
+							<option value="RJ">Rio de Janeiro</option>
+							<option value="RN">Rio Grande do Norte</option>
+							<option value="RS">Rio Grande do Sul</option>
+							<option value="RO">Rondônia</option>
+							<option value="RR">Roraima</option>
+							<option value="SC">Santa Catarina</option>
+							<option value="SP">São Paulo</option>
+							<option value="SE">Sergipe</option>
+							<option value="TO">Tocantins</option>
+				    </select>
+				</div>
+			</div>
+			
 
 			<!-- Text input-->
 			<div class="form-group">
@@ -102,15 +140,16 @@
 			<div class="form-group">
 				<div id="image_preview" style="display:none; margin-left:30%;"><img id="previewing" src="" /></div>
 			</div>
-			<h4 id='loading'></h4>
-			<div id="message"></div>
+
+			<div id="errorMessage" class="alert alert-danger" style="display:none">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Erro! </strong> Imagem deve ser JPG, JPEG ou PNG.
+			</div>
 
 
 			<div class="text-center">
-				<input class="btn btn-warning limpaIngrediente" type="reset"
-					value="Limpar"> <input
-					class="btn btn-success addIngrediente pull-right" type="submit"
-					value="Cadastrar">
+				<input class="btn btn-warning limpaEmpresa" id="limparForm" type="reset" value="Limpar"> 
+				<input class="btn btn-success addEmpresa pull-right" type="submit"	value="Cadastrar">
 			</div>
 
 		</form>

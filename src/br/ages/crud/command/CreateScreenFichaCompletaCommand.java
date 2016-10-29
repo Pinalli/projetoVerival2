@@ -13,7 +13,7 @@ import br.ages.crud.model.PerfilAcesso;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
 
-public class CreateScreenFichaCompCommand implements Command {
+public class CreateScreenFichaCompletaCommand implements Command {
 
 
 	private String proxima;

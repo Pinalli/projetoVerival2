@@ -182,11 +182,27 @@ $(document).ready(function() {
 				if(nome.length > 0 && typeof nome !== 'undefined'){
 					$(this).html(nome);
 				}
+				var selectUni = $('#select-unidade-medida', $(this).closest('.table-row')); 
+				var selectQtn = $('#qnt-unidade-medida', $(this).closest('.table-row').val());
+				
 				
 				//Atualiza texto do botao
 				select.on('change', function(){
-					var select = $('#select-ingredientes', $(this).closest('.table-row')); 
-					var nome = $('option:selected', select).text();
+					//var select = $('#select-ingredientes', $(this).closest('.table-row')); 
+					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
+					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $(this)).text();
+					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				});
+				selectUni.on('change', function(){
+					//var selectUni = $('#select-unidade-medida', $(this).closest('.table-row')); 
+					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
+					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $('#select-ingredientes')).text();
+					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				});
+				selectQtn.on('change', function(){
+					//var selectQtn = $('#select-qnt-unidade-medida', $(this).closest('.table-row')); 
+					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
+					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $('#select-ingredientes')).text();
 					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
 				});
 			}
@@ -220,18 +236,24 @@ $(document).ready(function() {
 			var match = [ "image/jpeg","image/png", "image/jpg" ];
 			if (!((imagefile == match[0])
 				|| (imagefile == match[1]) || (imagefile == match[2]))) {
+				$("#errorMessage").css("display","block");
 				return false;
 			} else {
+				$("#errorMessage").css("display","none");
+				var idFicha = $('#idFicha').val();
+				if(idFicha == null){
+					idFicha = 0;
+				}
 				form = new FormData()
 				form.append('file',file);
 				form.append('fichaSimplificada', true);
+				form.append('idFicha', idFicha);
 				console.log(form.toString());
 				var reader = new FileReader();
 				reader.onload = imageIsLoaded;
 				reader.readAsDataURL(this.files[0]);
-				if (check_multifile_logo($("#imgFile").prop("files")[0]['name'])) {
 		            $.ajax({
-		                url: "/FichaTP/upload",
+		                url: "upload",
 		                cache: false,
 		                contentType: false,
 		                processData: false,
@@ -242,10 +264,6 @@ $(document).ready(function() {
 		                    
 		                }
 		            });
-		        } else {
-		            $("#imgFile").html('');
-		            alert('We only accept JPG, JPEG, PNG, GIF and BMP files');
-		        }
 			}
 		});
 	});
@@ -258,12 +276,3 @@ $(document).ready(function() {
 	};
 	
 });
-
-function check_multifile_logo(file) {
-    var extension = file.substr((file.lastIndexOf('.') + 1))
-    if (extension === 'jpg' || extension === 'jpeg' || extension === 'png') {
-        return true;
-    } else {
-        return false;
-    }
-}

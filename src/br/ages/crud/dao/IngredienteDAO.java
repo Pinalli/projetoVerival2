@@ -44,26 +44,26 @@ public class IngredienteDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT * ");
-			sql.append("FROM "+ this.table +" i");
+			sql.append("FROM "+ this.table +" I");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
 			while (resultset.next()) {
 				Ingrediente dto = new Ingrediente();
-				dto.setId(resultset.getInt("i.ID"));
-				dto.setCodigo(resultset.getInt("i.COD"));
-				dto.setDescricao(resultset.getString("i.DESCRICAO"));
-				dto.setCarboidratos(resultset.getDouble("i.CARBOIDRATOS"));
-				dto.setKcalCarboidratos(resultset.getDouble("i.KCAL_CARBOIDRATOS"));
-				dto.setProteinas(resultset.getDouble("i.PROTEINAS"));
-				dto.setKcalProteinas(resultset.getDouble("i.KCAL_PROTEINAS"));
-				dto.setLipidios(resultset.getDouble("i.LIPIDIOS"));
-				dto.setKcalLipidios(resultset.getDouble("i.KCAL_LIPIDIOS"));
-				dto.setFatorCorrecao(resultset.getDouble("i.FATOR_CORRECAO"));
-				dto.setIndiceCoccao(resultset.getDouble("i.INDICE_COCCAO"));
-				dto.setCusto(resultset.getDouble("i.CUSTO"));
-				dto.setUnidadeMedida(resultset.getString("i.UNIDADE_MEDIDA"));
-				dto.setDataAlteracao(resultset.getDate("i.DATA_INSERCAO"));
+				dto.setId(resultset.getInt("I.ID"));
+				dto.setCodigo(resultset.getInt("I.COD"));
+				dto.setDescricao(resultset.getString("I.DESCRICAO"));
+				dto.setCarboidratos(resultset.getDouble("I.CARBOIDRATOS"));
+				dto.setKcalCarboidratos(resultset.getDouble("I.KCAL_CARBOIDRATOS"));
+				dto.setProteinas(resultset.getDouble("I.PROTEINAS"));
+				dto.setKcalProteinas(resultset.getDouble("I.KCAL_PROTEINAS"));
+				dto.setLipidios(resultset.getDouble("I.LIPIDIOS"));
+				dto.setKcalLipidios(resultset.getDouble("I.KCAL_LIPIDIOS"));
+				dto.setFatorCorrecao(resultset.getDouble("I.FATOR_CORRECAO"));
+				dto.setIndiceCoccao(resultset.getDouble("I.INDICE_COCCAO"));
+				dto.setCusto(resultset.getDouble("I.CUSTO"));
+				dto.setUnidadeMedida(resultset.getString("I.UNIDADE_MEDIDA"));
+				dto.setDataAlteracao(resultset.getDate("I.DATA_INSERCAO"));
 				listarIngredientes.add(dto);
 			}
 

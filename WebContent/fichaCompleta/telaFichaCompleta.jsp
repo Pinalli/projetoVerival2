@@ -1,4 +1,3 @@
-<!-- CÓPIA DE telaFichaSimplificada.jsp -->
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -46,6 +45,9 @@
 }
 
 .box-transparent {
+		<!--link rel="stylesheet" href="./css/ficha.css"-->
+		<style>
+		.box-transparent {
 		    background-color:transparent;
 		    color:black;
 		    border: none;
@@ -278,6 +280,5 @@
 		}
 	}
 </script>
-
 
 <jsp:include page="/template/foot.jsp"></jsp:include>

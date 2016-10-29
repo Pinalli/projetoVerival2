@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +15,9 @@ import javax.servlet.http.Part;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
-import org.hamcrest.core.IsInstanceOf;
-import br.ages.crud.model.Empresa;
 import br.ages.crud.util.Constantes;
 import br.ages.crud.bo.EmpresaBO;
+import br.ages.crud.bo.FichaSimplificadaBO;
 
 /**
  * Grava a imagem no savePath.
@@ -42,12 +42,22 @@ public class FileUploadServlet extends HttpServlet {
 
 		try {
 			logger.debug("Iniciando o Upload");
+			int idFicha = 0;
 			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
-			String appPath = "img";
-			String savePath = SAVE_DIR + File.separator + appPath;
+			boolean fichaSimplificada = Boolean.valueOf(request.getParameter("fichaSimplificada"));
+			String appPath = "";
+			String savePath = getAppPath()+File.separator+"upload"+File.separator;
+			if(fichaSimplificada){
+				idFicha = Integer.valueOf(request.getParameter("idFicha"));
+				if(idFicha == 0){
+					idFicha = new FichaSimplificadaBO().getProximoIdFicha();
+				}
+				appPath = "fichas"+File.separator+"ficha-"+idFicha;
+				savePath += appPath;
+			}
 			if (empresa){
 				appPath = "logo";
-				savePath = "/home/PORTOALEGRE/16104290/Documents/fichatecnicapreparo/"+appPath;
+				savePath += appPath;
 			}
 			File fileSaveDir = new File(savePath);
 
@@ -55,14 +65,15 @@ public class FileUploadServlet extends HttpServlet {
 				fileSaveDir.mkdir();
 			String fileName;
 			Part part = request.getPart("file");
-			boolean fichaSimplificada = Boolean.valueOf(request.getParameter("fichaSimplificada"));
 			
 			fileName = extractFileName(part); //NAO TERMINEI PQ ALISSA ME EXPULSOU DA AGES :(
 			if(fichaSimplificada){
-				fileName = "imgFile";
+				//gravar nome logo-empresa-1.jpg
+				fileName = "foto-ficha-"+idFicha+"."+FilenameUtils.getExtension(fileName);
 			}
-			int idEmpresa = Integer.valueOf(request.getParameter("idEmpresa"));
+
 			if(empresa){
+				int idEmpresa = Integer.valueOf(request.getParameter("idEmpresa"));
 				if(idEmpresa == 0){
 					idEmpresa = new EmpresaBO().getLastIdEmpresa();
 				}
@@ -88,6 +99,13 @@ public class FileUploadServlet extends HttpServlet {
 			}
 		}
 		return "";
+	}
+
+	private String getAppPath()	{
+		ServletContext servletContext = getServletContext();
+		String contextPath = servletContext.getRealPath(File.separator);
+		File path = new File (new File(new File(new File(contextPath).getParent()).getParent()).getParent());
+		return path.getPath()+File.separator+"WebContent"+File.separator;
 	}
 
 }
