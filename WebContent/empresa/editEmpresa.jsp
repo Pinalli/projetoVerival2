@@ -17,7 +17,7 @@
 <div class="panel panel-success panel-addUser">
 
     <div class="panel-heading text-center">
-		Editar Empresa<b><%=empresa.getNome()%></b>
+		Editar Empresa <b><%=empresa.getNome()%></b>
 	</div>
 
 	<div class="panel-body">
@@ -74,6 +74,16 @@
 
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label class="col-md-3 control-label ages" for="cidade">UF</label>
+				<div class="col-md-6">
+					<input id="cidade" name="cidade" value="<%= empresa.getUf()%>" type="text" placeholder=""
+						class="form-control input-md" required="">
+
+				</div>
+			</div>
+			
 
 			<!-- Text input-->
 			<div class="form-group">

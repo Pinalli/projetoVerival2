@@ -23,6 +23,7 @@ public class EditEmpresaCommand implements Command {
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         String cidade = request.getParameter("cidade");
+        String uf = request.getParameter("uf");
         String razaoSocial = request.getParameter("razaoSocial");
         String responsavel = request.getParameter("responsavel");
         String logotipo = request.getParameter("logotipo");
@@ -34,6 +35,7 @@ public class EditEmpresaCommand implements Command {
             empresa.setNome(nome);
             empresa.setEndereco(endereco);
             empresa.setCidade(cidade);
+            empresa.setUf(uf);
             empresa.setRazaoSocial(razaoSocial);
             empresa.setResponsavel(responsavel);
             empresa.setLogo(logotipo);
