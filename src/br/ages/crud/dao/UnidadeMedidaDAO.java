@@ -48,7 +48,7 @@ public class UnidadeMedidaDAO {
 			sql.append("U.`MEDIDA_CONVERSAO`,");
 			sql.append("U.`SIGLA_UNIDADE_MEDIDA`,");
 			sql.append("U.`FATOR_CONVERSAO` ");
-			sql.append("FROM TB_UNIDADE_MEDIDA u"); 
+			sql.append("FROM TB_UNIDADE_MEDIDA U");
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();

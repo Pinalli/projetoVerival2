@@ -98,7 +98,7 @@ public class MensagemContantes {
 	public static final String MSG_ERR_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO = "Campo orientação e armazenamento obrigatório!";
 	public static final String MSG_ERR_REMOVE_FICHA_EM_PROJETO = "Esta Ficha já está em algum projeto e não pode ser removido!";
 	
-	
-	
+	//msgs da ficha técnica completa
+	public static final String MSG_SUC_CADASTRO_FICHA_COMPLETA = " Ficha técnica completa ? cadastrada com sucesso!";
 	
 }
