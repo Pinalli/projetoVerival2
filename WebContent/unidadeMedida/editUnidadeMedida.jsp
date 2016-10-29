@@ -51,7 +51,7 @@
                     
                     
                     <div class="text-center">
-			           	<input class="btn btn-warning limparUnidadeMedida pull-left" type="reset" value="Limpar">
+			           	<input class="btn btn-warning limpaUnidadeMedida pull-left" type="reset" value="Limpar">
 			           	<input class="btn btn-success addUnidadeMedida pull-right" type="submit" value="Salvar">
 			        </div>
 			        

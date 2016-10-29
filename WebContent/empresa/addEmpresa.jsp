@@ -107,10 +107,8 @@
 
 
 			<div class="text-center">
-				<input class="btn btn-warning limpaIngrediente" id="limparForm" type="reset"
-					value="Limpar"> <input
-					class="btn btn-success addIngrediente pull-right" type="submit"
-					value="Cadastrar">
+				<input class="btn btn-warning limpaEmpresa" id="limparForm" type="reset" value="Limpar"> 
+				<input class="btn btn-success addEmpresa pull-right" type="submit"	value="Cadastrar">
 			</div>
 
 		</form>
