@@ -23,6 +23,7 @@
 					<th style="text-align: center;">Nome</th>
 					<th style="text-align: center;">Endereço</th>
 					<th style="text-align: center;">Cidade</th>
+					<th style="text-align: center;">UF</th>
 					<th style="text-align: center;">Razão social</th>
 		 			<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
@@ -40,6 +41,7 @@
 	            	<td align="center"><%=empresa.getNome()%></td>
 	            	<td align="center"><%=empresa.getEndereco()%></td>
 	             	<td align="center"><%=empresa.getCidade()%></td>
+	             	<td align="center"><%=empresa.getUf()%></td>
 	             	<td align="center"><%=empresa.getRazaoSocial()%></td>
 	             	<td align="center">
 						<form action="" method="post">
