@@ -46,7 +46,7 @@ public class FileUploadServlet extends HttpServlet {
 			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
 			boolean fichaSimplificada = Boolean.valueOf(request.getParameter("fichaSimplificada"));
 			String appPath = "";
-			String savePath = getAppPath()+File.separator+"upload"+File.separator;
+			String savePath = SAVE_DIR+File.separator+"upload"+File.separator;
 			if(fichaSimplificada){
 				idFicha = Integer.valueOf(request.getParameter("idFicha"));
 				if(idFicha == 0){
@@ -68,7 +68,7 @@ public class FileUploadServlet extends HttpServlet {
 			
 			fileName = extractFileName(part); //NAO TERMINEI PQ ALISSA ME EXPULSOU DA AGES :(
 			if(fichaSimplificada){
-				//gravar nome logo-empresa-1.jpg
+				//gravar foto ficha-id/foto-ficha-id.extensao
 				fileName = "foto-ficha-"+idFicha+"."+FilenameUtils.getExtension(fileName);
 			}
 
@@ -99,13 +99,6 @@ public class FileUploadServlet extends HttpServlet {
 			}
 		}
 		return "";
-	}
-
-	private String getAppPath()	{
-		ServletContext servletContext = getServletContext();
-		String contextPath = servletContext.getRealPath(File.separator);
-		File path = new File (new File(new File(new File(contextPath).getParent()).getParent()).getParent());
-		return path.getPath()+File.separator+"WebContent"+File.separator;
 	}
 
 }

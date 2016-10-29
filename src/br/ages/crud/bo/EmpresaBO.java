@@ -51,15 +51,15 @@ public class EmpresaBO {
 			// Nome
 			if (empresa.getTelefone() == null || "".equals(empresa.getTelefone())) {
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_TELEFONE_OBRIGATORIO + "<br/>");
 			}
 			if (empresa.getCidade() == null || "".equals(empresa.getCidade())) {
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_CIDADE_OBRIGATORIO + "<br/>");
 			}
 			if (empresa.getUf() == null || "".equals(empresa.getUf())) {
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_UF_OBRIGATORIO + "<br/>");
 			}
 			
 			if (empresa.getNome() == null || "".equals(empresa.getNome())) {

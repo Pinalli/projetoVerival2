@@ -1,20 +1,14 @@
 $(document).ready(function(){
-	if(imgExist("img/img/logo-empresa")){
-		console.log("entrei arqui");
-		$("#logoEmpresa").attr("src","img/img/logo-empresa");	
-	}
+    var idEmpresa = $("#idEmpresa").val();
+    var result = null;
+    $.get("ajax?acao=buscaEmpresaLogoAjax&idEmpresa="+idEmpresa, function(data){
+        result = jQuery.parseJSON(data);
+    }).done(function(){
+        if(result != null){
+             $("#logoEmpresa").attr("src","upload/logo/"+result);
+        }
+    });
 });
-
-function imgExist(file) {
-	var xhr = new XMLHttpRequest();
-    xhr.open('HEAD', file, false);
-    xhr.send();
-    if (xhr.status == "404") {
-        return false;
-    } else {
-        return true;
-    }
-}
 
 //Função para validar senha
 function validaSenha(){

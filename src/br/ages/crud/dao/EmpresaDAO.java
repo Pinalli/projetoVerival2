@@ -287,9 +287,17 @@ public class EmpresaDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = empresa.getIdEmpresa();
 
-			sql.append("UPDATE TB_EMPRESA SET CNPJ = ?, NOME = ?,"
-					+ "TELEFONE = ?, ENDERECO = ?, CIDADE = ?, UF = ?, RAZAO_SOCIAL = ?, RESPONSAVEL = ?, LOGO = ? "
-					+ "  WHERE ID_EMPRESA = " + id + ";");
+			sql.append("UPDATE TB_EMPRESA SET " +
+					"CNPJ = ?, " +
+					"NOME = ?," +
+					"TELEFONE = ?, " +
+					"ENDERECO = ?, " +
+					"CIDADE = ?, " +
+					"UF = ?, " +
+					"RAZAO_SOCIAL = ?, " +
+					"RESPONSAVEL = ?, " +
+					"LOGO = ? " +
+					"  WHERE ID_EMPRESA = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
@@ -303,7 +311,7 @@ public class EmpresaDAO {
 			statement.setString(8, empresa.getResponsavel());
 			String logo = empresa.getLogo();
 			logo = "logo-empresa-"+id+"."+FilenameUtils.getExtension(logo);
-			statement.setString(8, logo);
+			statement.setString(9, logo);
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);

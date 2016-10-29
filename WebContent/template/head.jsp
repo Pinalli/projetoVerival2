@@ -66,7 +66,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img class="logoNavBar" src="./img/logo-ftp.png" alt=""></a>
+      <a class="navbar-brand" href="index.jsp"><img class="logoNavBar" src="./img/logo-ftp.png" alt=""></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
