@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import br.ages.crud.command.AddFichaCompletaAjaxCommand;
 import br.ages.crud.command.AddFichaSimplificadaAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteDescricaoAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
@@ -44,10 +45,14 @@ public class AjaxServlet extends HttpServlet {
 		// COMANDOS DE UNIDADE DE MEDIDA CASEIRA
 		comandos.put("buscaUnidadeMedidaCaseiraNomeAjax", new BuscaUnidadeMedidaCaseiraNomeAjaxCommand());
 
-		// COMANDOS DE FICHA TECNICA SIMPLIFICADA
-		comandos.put("addFichaTecnicaSimplificadaAjax", new AddFichaSimplificadaAjaxCommand());
 		// COMANDOS DE EMPRESA
 		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
+		
+		// COMANDOS DE FICHA TÉCNICA SIMPLIFICADA
+		comandos.put("addFichaTecnicaSimplificadaAjax", new AddFichaSimplificadaAjaxCommand());
+		
+		//COMANDOS DE FICHA TÉCNICA COMPLETA
+		comandos.put("addFichaTecnicaCompletaAajax", new AddFichaCompletaAjaxCommand());
 	}
 
 	@Override
