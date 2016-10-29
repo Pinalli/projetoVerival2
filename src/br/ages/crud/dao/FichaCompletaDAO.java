@@ -6,7 +6,6 @@ import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
 import com.mysql.jdbc.Statement;
-import org.apache.commons.io.FilenameUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,16 +18,16 @@ import java.util.List;
  * @author Alessandro
  */
 
-public class FichaSimplificadaDAO {
+public class FichaCompletaDAO {
 
-    private List<Ficha> listarFichasSimplificada;
+    private List<Ficha> listarFichasCompleta;
 
 
-    public int cadastrarFichaSimplificada(Ficha fichaSimplificada) throws SQLException, PersistenciaException {
+    public int cadastrarFichaCompleta(Ficha fichaCompleta) throws SQLException, PersistenciaException {
         Connection conexao = null;
 
         try {
-            Integer idFichaSimplificada = null;
+            Integer idFichaCompleta = null;
 
             conexao = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
@@ -37,28 +36,26 @@ public class FichaSimplificadaDAO {
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
-            statement.setString(1, fichaSimplificada.getNome());
-            statement.setString(2, fichaSimplificada.getRendimento());
-            String logo = fichaSimplificada.getFoto();
-            logo = "ficha-"+this.getProximoIdFicha()+"."+ FilenameUtils.getExtension(logo);
-            statement.setString(3, logo);
-            statement.setString(4, fichaSimplificada.getModoPreparo());
-            statement.setString(5, fichaSimplificada.getMontagem());
-            statement.setString(6, fichaSimplificada.getOrientacoesArmazenamento());
-            statement.setInt(7, fichaSimplificada.getIdEmpresa());
-            statement.setString(8, fichaSimplificada.getTipoFicha());
+            statement.setString(1, fichaCompleta.getNome());
+            statement.setString(2, fichaCompleta.getRendimento());
+            statement.setString(3, fichaCompleta.getFoto());
+            statement.setString(4, fichaCompleta.getModoPreparo());
+            statement.setString(5, fichaCompleta.getMontagem());
+            statement.setString(6, fichaCompleta.getOrientacoesArmazenamento());
+            statement.setInt(7, fichaCompleta.getIdEmpresa());
+            statement.setString(8, fichaCompleta.getTipoFicha());
 
             statement.executeUpdate();
 
             ResultSet resultset = statement.getGeneratedKeys();
             if (resultset.first()) {
-                idFichaSimplificada = resultset.getInt(1);
+                idFichaCompleta = resultset.getInt(1);
             }
 
-            fichaSimplificada.setIdFicha(idFichaSimplificada);
+            fichaCompleta.setIdFicha(idFichaCompleta);
 
             StringBuilder sql2 = new StringBuilder();
-            for (FichaItem fichaItem : fichaSimplificada.getItens()) {
+            for (FichaItem fichaItem : fichaCompleta.getItens()) {
                 sql2.append("INSERT INTO TB_FICHA_ITEM (ID_UNIDADE_MEDIDA, ID_MEDIDA_CASEIRA, ID_INGREDIENTE, ID_FICHA, QUANTIDADE_UNIDADE_MEDIDA,QUANTIDADE_MEDIDA_CASEIRA )");
                 sql2.append("VALUES (?, ?, ?, ?, ?, ?)");
 
@@ -67,7 +64,7 @@ public class FichaSimplificadaDAO {
                 statement2.setInt(1, fichaItem.getIdUnidadeMedida());
                 statement2.setInt(2, fichaItem.getIdMedidaCaseira());
                 statement2.setInt(3, fichaItem.getIdIngrediente());
-                statement2.setInt(4, idFichaSimplificada);
+                statement2.setInt(4, idFichaCompleta);
                 statement2.setInt(5, fichaItem.getQuantidadeUnidadeMedida());
                 statement2.setInt(6, fichaItem.getQuantidadeMedidaCaseira());
 
@@ -80,20 +77,20 @@ public class FichaSimplificadaDAO {
                 }
                 fichaItem.setIdFicha(idFichaItem);
             }
-            return idFichaSimplificada;
+            return idFichaCompleta;
 
         } catch (ClassNotFoundException | SQLException e) {
         	throw new PersistenciaException(e.getMessage());
-            //throw new PersistenciaException(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE.replace("?", fichaSimplificada.getNome()));
+            //throw new PersistenciaException(MensagemContantes.MSG_ERR_FICHA_Completa_JA_EXISTENTE.replace("?", fichaCompleta.getNome()));
 
         } finally {
             conexao.close();
         }
     }
 
-    public List<Ficha> listarFichasSimplificada() throws PersistenciaException, SQLException {
+    public List<Ficha> listarFichasCompleta() throws PersistenciaException, SQLException {
         Connection conexao = null;
-        listarFichasSimplificada = new ArrayList<>();
+        listarFichasCompleta = new ArrayList<>();
         try {
 
             conexao = ConexaoUtil.getConexao();
@@ -115,7 +112,7 @@ public class FichaSimplificadaDAO {
                 dto.setOrientacoesArmazenamento(resultset.getString("ORIENTACOES_ARMAZENAMENTO"));
                 dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
 
-                listarFichasSimplificada.add(dto);
+                listarFichasCompleta.add(dto);
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -124,19 +121,19 @@ public class FichaSimplificadaDAO {
         } finally {
             conexao.close();
         }
-        return listarFichasSimplificada;
+        return listarFichasCompleta;
     }
 
-    public boolean editarFichaSimplificada(Ficha fichaSimplificada) throws PersistenciaException {
+    public boolean editarFichaCompleta(Ficha fichaCompleta) throws PersistenciaException {
         boolean okei = false;
         Connection conexao = null;
         try {
             conexao = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
-            int id = fichaSimplificada.getIdFicha();
+            int id = fichaCompleta.getIdFicha();
 
             sql.append(
-                    "UPDATE TB_FICHA_SIMPLIFICADA SET NOME = ?, RENDIMENTO = ?, FOTO = ?, MODO_PREPARO = ?, MONTAGEM = ?, ORIENTACOES_ARMAZENAMENTO = ?, TIPO_FICHA = ? WHERE ID_USUARIO = "
+                    "UPDATE TB_FICHA_Completa SET NOME = ?, RENDIMENTO = ?, FOTO = ?, MODO_PREPARO = ?, MONTAGEM = ?, ORIENTACOES_ARMAZENAMENTO = ?, TIPO_FICHA = ? WHERE ID_USUARIO = "
                             + id + ";");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -152,7 +149,7 @@ public class FichaSimplificadaDAO {
         return okei;
     }
 
-    public boolean removerFichaSimplificada(Integer idFicha) throws PersistenciaException {
+    public boolean removerFichaCompleta(Integer idFicha) throws PersistenciaException {
         boolean removidoOK = false;
         Connection conexao = null;
 
@@ -188,34 +185,5 @@ public class FichaSimplificadaDAO {
             }
         }
         return removidoOK;
-    }
-
-    public int getProximoIdFicha() throws PersistenciaException, SQLException {
-
-        int idRetorno = 0;
-        Connection conexao = null;
-        try {
-            conexao = ConexaoUtil.getConexao();
-            String table = "TB_FICHA";
-            StringBuilder sql = new StringBuilder();
-            sql.append("SHOW TABLE STATUS LIKE '"+table+"'");
-            PreparedStatement statement = conexao.prepareStatement(sql.toString());
-
-            ResultSet resultset = statement.executeQuery();
-
-            while (resultset.next()) {
-                idRetorno = Integer.valueOf(resultset.getString("Auto_increment"));
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new PersistenciaException(e);
-        } finally {
-            try {
-                conexao.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return idRetorno;
     }
 }

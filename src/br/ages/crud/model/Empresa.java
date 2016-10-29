@@ -13,6 +13,7 @@ public class Empresa {
 	private String nome;
 	private String endereco;
 	private String cidade;
+	private String uf;
 	private String razaoSocial;
 	private String responsavel;
 	private String logo; //caminho da imagem
@@ -23,7 +24,7 @@ public class Empresa {
 		this.dataAlteracao = new Date();
 	}
 
-	public Empresa(int idEmpresa, String cnpj, String telefone, String nome, String endereco, String cidade,
+	public Empresa(int idEmpresa, String cnpj, String telefone, String nome, String endereco, String cidade, String uf,
 			String razaoSocial, String responsavel, String logo) {
 		super();
 		this.idEmpresa = idEmpresa;
@@ -32,6 +33,7 @@ public class Empresa {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.cidade = cidade;
+		this.uf = uf;
 		this.razaoSocial = razaoSocial;
 		this.responsavel = responsavel;
 		this.logo = logo;
@@ -103,6 +105,13 @@ public class Empresa {
 		this.cidade = cidade;
 	}
 
+	public String getUf(){
+		return uf;
+	}
+	
+	public void setUf(String uf){
+		this.uf = uf;
+	}
 	
 	public String getLogo() {
 		return logo;
@@ -114,8 +123,8 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return "Empresa" + " CNPJ=" + cnpj + ", Nome=" + nome + ", Cidade="
-				+ cidade + ", Razao Social=" + razaoSocial + ", Telefone=" + telefone
+		return "Empresa" + " CNPJ=" + cnpj + ", Nome=" + nome + ", Cidade="+ cidade + ", UF=" + uf +  
+				", Razao Social=" + razaoSocial + ", Telefone=" + telefone
 				+ ", Endereco=" + endereco + "]";
 	}
 	
