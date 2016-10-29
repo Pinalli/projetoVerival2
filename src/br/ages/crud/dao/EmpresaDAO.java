@@ -63,6 +63,7 @@ public class EmpresaDAO {
 				empresa.setNome(resultset.getString("NOME"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				empresa.setCidade(resultset.getString("CIDADE"));
+				empresa.setUf(resultset.getString("UF"));
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
@@ -103,6 +104,7 @@ public class EmpresaDAO {
 				dto.setTelefone(resultset.getString("TELEFONE"));
 				dto.setEndereco(resultset.getString("ENDERECO"));
 				dto.setCidade(resultset.getString("CIDADE"));
+				dto.setUf(resultset.getString("UF"));
 				dto.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				dto.setResponsavel(resultset.getString("RESPONSAVEL"));
 				dto.setLogo(resultset.getString("LOGO"));
@@ -127,21 +129,22 @@ public class EmpresaDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append(
-					"INSERT INTO TB_EMPRESA (CNPJ, NOME, TELEFONE, ENDERECO, CIDADE, RAZAO_SOCIAL, RESPONSAVEL, LOGO, DATA_INCLUSAO)");
-			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
+					"INSERT INTO TB_EMPRESA (CNPJ, NOME, TELEFONE, ENDERECO, CIDADE, UF, RAZAO_SOCIAL, RESPONSAVEL, LOGO, DATA_INCLUSAO)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
 
-			// Cadastra a pessoa e gera e busca id gerado
+			// Cadastra a empresa e gera e busca id gerado
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, empresa.getCnpj());
 			statement.setString(2, empresa.getNome());
 			statement.setString(3, empresa.getTelefone());
 			statement.setString(4, empresa.getEndereco());
 			statement.setString(5, empresa.getCidade());
-			statement.setString(6, empresa.getRazaoSocial());
-			statement.setString(7, empresa.getResponsavel());
+			statement.setString(6, empresa.getUf());
+			statement.setString(7, empresa.getRazaoSocial());
+			statement.setString(8, empresa.getResponsavel());
 			String logo = empresa.getLogo();
 			logo = "logo-empresa-"+this.getProximoIdEmpresa()+"."+FilenameUtils.getExtension(logo);
-			statement.setString(8, logo);
+			statement.setString(9, logo);
 
 
 			statement.executeUpdate();
@@ -215,6 +218,7 @@ public class EmpresaDAO {
 				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setCidade(resultset.getString("CIDADE"));
+				empresa.setUf(resultset.getString("UF"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				empresa.setResponsavel(resultset.getString("RESPOSAVEL"));
 				empresa.setLogo(resultset.getString("LOGO"));
@@ -255,6 +259,7 @@ public class EmpresaDAO {
 				empresa.setTelefone(resultset.getString("TELEFONE"));
 				empresa.setEndereco(resultset.getString("ENDERECO"));
 				empresa.setCidade(resultset.getString("CIDADE"));
+				empresa.setUf(resultset.getString("UF"));
 				empresa.setRazaoSocial(resultset.getString("RAZAO_SOCIAL"));
 				empresa.setResponsavel(resultset.getString("RESPONSAVEL"));
 				empresa.setLogo(resultset.getString("LOGO"));
@@ -283,7 +288,7 @@ public class EmpresaDAO {
 			int id = empresa.getIdEmpresa();
 
 			sql.append("UPDATE TB_EMPRESA SET CNPJ = ?, NOME = ?,"
-					+ "TELEFONE = ?, ENDERECO = ?, CIDADE = ?, RAZAO_SOCIAL = ?, RESPONSAVEL = ?, LOGO = ? "
+					+ "TELEFONE = ?, ENDERECO = ?, CIDADE = ?, UF = ?, RAZAO_SOCIAL = ?, RESPONSAVEL = ?, LOGO = ? "
 					+ "  WHERE ID_EMPRESA = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -293,8 +298,9 @@ public class EmpresaDAO {
 			statement.setString(3, empresa.getTelefone());
 			statement.setString(4, empresa.getEndereco());
 			statement.setString(5, empresa.getCidade());
-			statement.setString(6, empresa.getRazaoSocial());
-			statement.setString(7, empresa.getResponsavel());
+			statement.setString(6, empresa.getUf());
+			statement.setString(7, empresa.getRazaoSocial());
+			statement.setString(8, empresa.getResponsavel());
 			String logo = empresa.getLogo();
 			logo = "logo-empresa-"+id+"."+FilenameUtils.getExtension(logo);
 			statement.setString(8, logo);

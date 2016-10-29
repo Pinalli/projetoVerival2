@@ -57,6 +57,10 @@ public class EmpresaBO {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
 			}
+			if (empresa.getUf() == null || "".equals(empresa.getUf())) {
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+			}
 			
 			if (empresa.getNome() == null || "".equals(empresa.getNome())) {
 				isValido = false;

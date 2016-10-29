@@ -17,7 +17,7 @@
 <div class="panel panel-success panel-addUser">
 
     <div class="panel-heading text-center">
-		Editar Empresa<b><%=empresa.getNome()%></b>
+		Editar Empresa <b><%=empresa.getNome()%></b>
 	</div>
 
 	<div class="panel-body">
@@ -74,6 +74,16 @@
 
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label class="col-md-3 control-label ages" for="cidade">UF</label>
+				<div class="col-md-6">
+					<input id="cidade" name="cidade" value="<%= empresa.getUf()%>" type="text" placeholder=""
+						class="form-control input-md" required="">
+
+				</div>
+			</div>
+			
 
 			<!-- Text input-->
 			<div class="form-group">
@@ -107,15 +117,15 @@
 			<div class="form-group">
 				<div id="image_preview" style="display:block; margin-left:30%;"><img id="previewing" style="width: 150px; height: 150px;" src="img/img/<%= empresa.getLogo()%>" /></div>
 			</div>
-			<h4 id='loading'></h4>
-			<div id="message"></div>
+			<div id="errorMessage" class="alert alert-danger" style="display:none">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Erro! </strong> Imagem deve ser JPG, JPEG ou PNG.
+			</div>
 
 
 			<div class="text-center">
-				<input class="btn btn-warning limpaIngrediente" type="reset"
-					value="Limpar"> <input
-					class="btn btn-success addIngrediente pull-right" type="submit"
-					value="Salvar">
+				<input class="btn btn-warning limpaEmpresa" type="reset" value="Limpar"> 
+				<input	class="btn btn-success addEmpresa pull-right" type="submit"	value="Salvar">
 			</div>
 
 		</form>

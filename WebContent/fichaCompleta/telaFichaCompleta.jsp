@@ -3,7 +3,6 @@
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 <jsp:include page="/template/msg.jsp"></jsp:include>
-<jsp:include page="/template/modalFichaSimplificada.jsp"></jsp:include>
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
 <style>
@@ -46,6 +45,9 @@
 }
 
 .box-transparent {
+		<!--link rel="stylesheet" href="./css/ficha.css"-->
+		<style>
+		.box-transparent {
 		    background-color:transparent;
 		    color:black;
 		    border: none;
@@ -63,9 +65,6 @@
 </style>
 </head>
 <body>
-
-	<div class="container">
-
 		<article>
 			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaSimplificada">
 				<div class="form-group col-md-4 col-md-offset-4">
@@ -81,7 +80,7 @@
 				</div>
 			</div>
 				<div class="form-group col-md-12" >
-					<div id="image_preview" style="display:none">
+					<div id="image_preview">
 					<img id="previewing" src="" class="img-responsive img-thumbnail center-block"/>
 					</div>
 				</div>
@@ -89,7 +88,7 @@
 			<div id="message"></div>
 			
 
-				<div"class="col-xs-6 col-sm-4">
+				<div class="col-xs-6 col-sm-4">
 					<label for="rendimento"
 						class="col-md-12 col-md-offset-9 form-control-static">Rendimento</label>
 				</div>
@@ -102,77 +101,82 @@
 				<div class="row">
 					<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 col-md-offset-1 hidden-sm hidden-xs">
-						<div class="col-md-2">
-							<p class="text-center">
-								<b>Ingrediente</b>
-							</p>
-						</div>
-						<div class="col-md-1">
-							<p class="text-center">
-								<b>Qtd</b>
-							</p>
-						</div>
-						<div class="col-md-2">
-							<p class="text-center">
-								<b>Unidade de Medida</b>
-							</p>
-						</div>
-						<div class="col-md-1">
-							<p class="text-center">
-								<b>Qtd</b>
-							</p>
-						</div>
-						<div class="col-md-2">
-							<p class="text-center">
-								<b>Medida Caseira</b>
-							</p>
-						</div>
-						<div class="col-md-1"></div>
-					</div>
-				</div>
-	
+				
+
 				<div class="row" id="table-rows">
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
 					    
-					    <div class="panel panel-info hidden-md hidden-lg">
+					    <div class="panel panel-info">
 						  <div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 						</div>
 					    
 						<div class="col-md-12 item-wrapper">
 							<div class="form-group col-md-2 col-sm-12 col-xs-12 col-md-offset-1">
-								<label for="select-ingredientes" class="hidden-md hidden-lg">Ingrediente</label>
+								<label for="select-ingredientes" class="">Ingrediente</label>
 								<select id="select-ingredientes" name="select-ingredientes" data-live-search="true"class="form-control selectBatata">
 								</select>
 							</div>
 							
 							<div class="form-group col-md-1 col-xs-4">
-								<label for="qnt-unidade-medida" class="hidden-md hidden-lg">Quantidade</label>
+								<label for="qnt-unidade-medida" class="">Qtd</label>
 								<input type="number" class="form-control"id="qnt-unidade-medida" placeholder="Qnt" min="1" max="9999"
 									name="qnt-unidade-medida" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);">
 							</div>
 							<div class="form-group col-md-2 col-xs-8">
-								<label for="select-unidade-medida" class="hidden-md hidden-lg">Unidadede medida</label> 
+								<label for="select-unidade-medida" class="">Unidadede medida</label> 
 								<select id="select-unidade-medida" name="select-unidade-medida" data-native-menu="false" class="form-control selectBatata">
 								</select>
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
-								<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
+								<label for="qnt-medida-caseira" class="">Qtd</label>
 								<input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt" min="0.1" max="100"
 									step="0.1" name="qnt-medida-caseira" onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
 							</div>
 							<div class="form-group col-md-2 col-xs-8">
-								<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label> 
+								<label for="select-medida-caseira" class="">Medida Caseira</label> 
 								<select id="select-medida-caseira" name="select-medida-caseira" data-native-menu="false" class="form-control selectBatata">
 								</select>
+							</div>
+							<div class="form-group col-md-12" >
+							<div class="form-group col-md-1 col-xs-4" >
+								<label for="cho" class="">CHO</label>
+								<input type="number" readonly="readonly" class="form-control"id="cho" placeholder="Import">
+							</div>
+							<div class="form-group col-md-1 col-xs-4">
+								<label for="ptn" class="">PTN</label>
+								<input type="number" readonly="readonly" class="form-control"id="ptn" placeholder="Import">
+							</div>
+							<div class="form-group col-md-1 col-xs-4">
+								<label for="lip" class="">LIP</label>
+								<input type="number" readonly="readonly" class="form-control"id="lip" placeholder="Import">
+							</div>
+							<div class="form-group col-md-1 col-xs-4">
+								<label for="kcal" class="">Kcal</label>
+								<input type="number" readonly="readonly" class="form-control"id="kcal" placeholder="Import">
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="valor-unitario" class="">Valor Unitário</label>
+								<input type="number" readonly="readonly" class="form-control"id="valor-unitario" placeholder="Import">
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="custo-real" class="">Custo Real</label>
+								<input type="number" readonly="readonly" class="form-control"id="custo-real" placeholder="Import">
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="fator-de-correcao" class="">Fator de Correção</label>
+								<input type="number" readonly="readonly" class="form-control"id="fator-de-correcao" placeholder="Import">
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="indice-de-coccao" class="">Índice de Cocção</label>
+								<input type="number" readonly="readonly" class="form-control"id="indice-de-coccao" placeholder="Import">
+							</div>
 							</div>
 							<div class="form-group col-md-1 btn-excluir-wrapper"></div>
 						</div>						
 				
 					</div>
 				</div>
-									
+			
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-2 col-md-offset-8">
@@ -212,6 +216,31 @@
 					</div>
 				</div>
 				<div class="row">
+					<div class="col-md-9 col-md-offset-1">
+						<div class="form-group">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12">Textura</label>
+							<textarea rows="10" cols="" class="form-control" name="textura"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9 col-md-offset-1">
+						<div class="form-group">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12">Sabor</label>
+							<textarea rows="10" cols="" class="form-control" name="sabor"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9 col-md-offset-1">
+						<div class="form-group">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12">Apresentação</label>
+							<textarea rows="10" cols="" class="form-control" name="apresentacao"></textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
 					<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 				</div>
 				<div class="row">
@@ -227,11 +256,14 @@
 
 		</article>
 
-		<!--footer>Ficha Técnica Simplificada</footer-->
+		<!--footer>Ficha Técnica Completa</footer-->
 	</div>
 </body>
-<script src="./js/fichaSimplificada/telaFichaSimplificada.js"></script>
+<script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
+
+<!-- isso ainda não tem 
 <script src="./js/fichaSimplificada/addFichaSimplificada.js"></script>
+-->
 
 <script type="text/javascript">
 	function limitText(limitField, limitNum) {
@@ -240,6 +272,5 @@
 		}
 	}
 </script>
-
 
 <jsp:include page="/template/foot.jsp"></jsp:include>

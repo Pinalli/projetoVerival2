@@ -248,18 +248,24 @@ $(document).ready(function() {
 			var match = [ "image/jpeg","image/png", "image/jpg" ];
 			if (!((imagefile == match[0])
 				|| (imagefile == match[1]) || (imagefile == match[2]))) {
+				$("#errorMessage").css("display","block");
 				return false;
 			} else {
+				$("#errorMessage").css("display","none");
+				var idFicha = $('#idFicha').val();
+				if(idFicha == null){
+					idFicha = 0;
+				}
 				form = new FormData()
 				form.append('file',file);
 				form.append('fichaSimplificada', true);
+				form.append('idFicha', idFicha);
 				console.log(form.toString());
 				var reader = new FileReader();
 				reader.onload = imageIsLoaded;
 				reader.readAsDataURL(this.files[0]);
-				if (check_multifile_logo($("#imgFile").prop("files")[0]['name'])) {
 		            $.ajax({
-		                url: "/FichaTP/upload",
+		                url: "upload",
 		                cache: false,
 		                contentType: false,
 		                processData: false,
@@ -270,10 +276,6 @@ $(document).ready(function() {
 		                    
 		                }
 		            });
-		        } else {
-		            $("#imgFile").html('');
-		            alert('We only accept JPG, JPEG, PNG, GIF and BMP files');
-		        }
 			}
 		});
 	});
@@ -286,12 +288,3 @@ $(document).ready(function() {
 	};
 	
 });
-
-function check_multifile_logo(file) {
-    var extension = file.substr((file.lastIndexOf('.') + 1))
-    if (extension === 'jpg' || extension === 'jpeg' || extension === 'png') {
-        return true;
-    } else {
-        return false;
-    }
-}

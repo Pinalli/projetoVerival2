@@ -34,6 +34,7 @@ public class MainServlet extends HttpServlet {
 		comandos.put("login", new LoginCommand());
 		comandos.put("logout", new LogoutCommand());
 		comandos.put("recuperarSenha", new SenhaCommand());
+		comandos.put("about", new AboutCommand());
 
 		// COMANDOS DE USUARIO
 
@@ -74,13 +75,10 @@ public class MainServlet extends HttpServlet {
 		
 		// COMANDOS DA FICHA TECNICA
 
-		//É interessante manter essa ação pra caso integremos ambas as fichas numa página só.
-		comandos.put("telaFicha", new CreateScreenFichaCommand());
-
-		comandos.put("telaFichaSimplificada", new CreateScreenFichaCommand());
-		comandos.put("telaFichaCompleta", new CreateScreenFichaCompCommand());
+		comandos.put("telaFichaSimplificada", new CreateScreenFichaSimplificadaCommand());
+		comandos.put("telaFichaCompleta", new CreateScreenFichaCompletaCommand());
 		comandos.put("listFichaSimplificada", new ListFichaSimplificadaCommand());
-		comandos.put("removerFichaSimplificada", new RemoveFichaSimplificadaCommand());
+		//comandos.put("removerFichaSimplificada", new RemoveFichaSimplificadaCommand());
 
 		/*
 		comandos.put("telaFichaSimplificada", new CreateScreenFichaSimpCommand());

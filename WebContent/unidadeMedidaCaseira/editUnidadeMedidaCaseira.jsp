@@ -43,7 +43,7 @@
                     
                     
                     <div class="text-center">
-			           	<input class="btn btn-warning limparUnidadeMedidaCaseira pull-left" type="reset" value="Limpar">
+			           	<input class="btn btn-warning limpaUnidadeMedidaCaseira pull-left" type="reset" value="Limpar">
 			           	<input class="btn btn-success addUnidadeMedidaCaseira pull-right" type="submit" value="Salvar">
 			        </div>
 			        

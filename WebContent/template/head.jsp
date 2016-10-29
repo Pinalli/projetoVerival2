@@ -140,6 +140,7 @@
                            
         					<ul class="dropdown-menu dropdown-menu-right">
         						<li><a href="main?acao=logout">Logout</a></li>
+        						<li><a href="main?acao=about">Sobre</a></li>
         					</ul>
         				</li>
         

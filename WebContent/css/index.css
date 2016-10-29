@@ -9,6 +9,13 @@
     display: block;
 }
 
+.logosAbout {
+   width:100px;
+   height:100px;
+   margin: 0 auto;
+    
+}
+
 .login {
     width: 300px;
     margin: 0 auto; /* Centraliza no meio da tela */
@@ -31,10 +38,19 @@ h1 {
 h1 span {
     color: #ae0057;
 }
+.panel-about {
+	max-width: 500px;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+ 
+.titulo {   
+    color: #ae0057;
+    font-weight: bold;
+    font-size: 20px;
+}
 
-/* ========================== */
-/* Formulário */
-/* ========================== */
 label, input {
     display: block;
 }
