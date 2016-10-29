@@ -152,7 +152,7 @@
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="kcal" class="">Kcal</label>
-								<input type="number" readonly="readonly" class="form-control"id="kcal" placeholder="Import">>
+								<input type="number" readonly="readonly" class="form-control"id="kcal" placeholder="Import">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label>
