@@ -141,10 +141,10 @@ public class UsuarioDAO {
 
 	public int cadastrarUsuario(Usuario usuario) throws PersistenciaException, SQLException, ParseException {
 		Connection conexao = null;
+		Integer idUsuario = null;
 
 		try {
-			Integer idUsuario = null;
-
+			
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
@@ -180,11 +180,13 @@ public class UsuarioDAO {
 			return idUsuario;
 
 		} catch (ClassNotFoundException | SQLException e) {
-			throw new PersistenciaException(MensagemContantes.MSG_ERR_USUARIO_JA_EXISTENTE.replace("?", usuario.getUsuario()));
+			e.printStackTrace();
+			//throw new PersistenciaException(MensagemContantes.MSG_ERR_USUARIO_JA_EXISTENTE.replace("?", usuario.getUsuario()));
 
 		} finally {
 			conexao.close();
 		}
+		return idUsuario;
 	}
 
 	/**
@@ -302,7 +304,7 @@ public class UsuarioDAO {
 			sql.append("SELECT ");
 			sql.append("U.`ID_USUARIO`,");
 			sql.append("U.`USUARIO`,");
-			sql.append("U.`SEHHA`,");
+			sql.append("U.`SENHA`,");
 			sql.append("U.`CONFIRMAR_SENHA`,");
 			sql.append("U.`PERFIL_ACESSO`,");
 			sql.append("U.`STATUS_USUARIO`,");

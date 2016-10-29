@@ -1,9 +1,13 @@
 package br.ages.crud.command;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
 
@@ -14,7 +18,9 @@ import br.ages.crud.util.MensagemContantes;
 
 public class AddFichaSimplificadaAjaxCommand implements Command {
 
-
+	Logger logger = Logger.getLogger("AddFichaSimplificadaAjaxCommand");
+	Gson gson = new Gson();
+	Map<String,String> msg = new HashMap<String, String>();
 	private String proxima;
 
 	private FichaSimplificadaBO fichaSimplificadaBO;
@@ -26,10 +32,10 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 
 		try {
 			String jsonItens = request.getParameter("itens");
-			//return jsonItens;
-			
-			Gson gson = new Gson();
+
+						
 			FichaItem[] itens = gson.fromJson(jsonItens, FichaItem[].class);
+			
 			List<FichaItem> listaFichaItens = new ArrayList<FichaItem>();
 			for(int i=0; i<itens.length; i++){
 				listaFichaItens.add(itens[i]);
@@ -46,13 +52,25 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 			ficha.setTipoFicha("s");
 			ficha.setItens(listaFichaItens);
 			
-			fichaSimplificadaBO.cadastrarFichaSimplificada(ficha);
-			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", ficha.getNome()));
-			json = ficha.getOrientacoesArmazenamento();
-			
-		} catch (Exception e) {
-			request.setAttribute("msgErro", e.getMessage());
-			proxima = "main?acao=telaFichaSimplificada";
+			if(fichaSimplificadaBO.validarFichaSimplificada(ficha)){
+				fichaSimplificadaBO.cadastrarFichaSimplificada(ficha);
+				
+				msg.put("mensagem", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", ficha.getNome()));
+			    msg.put("dados", "");
+			    msg.put("proxima", "main?acao=listFichaSimplificada");
+			    json = gson.toJson(msg);
+			}else{
+				msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
+			    msg.put("erro", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
+			    msg.put("proxima", "main?acao=telaFichaSimplificada");
+			    json = gson.toJson(msg);
+			}
+			return json;
+		} catch (Exception e) {			
+		    msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
+		    msg.put("erro", e.getMessage());
+		    msg.put("proxima", "main?acao=telaFichaSimplificada");
+			json = gson.toJson(msg);
 		}
 
 		return json;

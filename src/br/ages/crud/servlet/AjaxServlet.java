@@ -46,13 +46,14 @@ public class AjaxServlet extends HttpServlet {
 		comandos.put("buscaUnidadeMedidaCaseiraNomeAjax", new BuscaUnidadeMedidaCaseiraNomeAjaxCommand());
 
 		// COMANDOS DE EMPRESA
+
 		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
 		
 		// COMANDOS DE FICHA TÉCNICA SIMPLIFICADA
 		comandos.put("addFichaTecnicaSimplificadaAjax", new AddFichaSimplificadaAjaxCommand());
 		
 		//COMANDOS DE FICHA TÉCNICA COMPLETA
-		comandos.put("addFichaTecnicaCompletaAajax", new AddFichaCompletaAjaxCommand());
+		comandos.put("addFichaCompletaAjaxCommand", new AddFichaCompletaAjaxCommand());
 	}
 
 	@Override
@@ -63,6 +64,7 @@ public class AjaxServlet extends HttpServlet {
 		String json = "";
 
 		try {
+			logger.debug("acao: "+acao);
 			Command comando = verificarComando(acao);
 			json = comando.execute(request);
 			Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioSessao");
@@ -71,7 +73,9 @@ public class AjaxServlet extends HttpServlet {
 		} catch (NegocioException | SQLException | ParseException | PersistenciaException e) {
 			request.setAttribute("msgErro", e.getMessage());
 		}
-		LogParametrosSession.logParametros(request);
+		//LogParametrosSession.logParametros(request);
+		reponse.setContentType("text/plain; charset=utf-8");
+		reponse.setCharacterEncoding("UTF-8");
 		reponse.getWriter().write(json);
 	}
 

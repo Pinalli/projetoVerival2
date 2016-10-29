@@ -9,8 +9,8 @@ $(document).ready(function() {
 		var rendimento = $('input[name="rendimento"]', form).val();
 		var foto = $('input[name="imgFile"]', form).val();
 		var modoPreparo = $('textarea[name="modoPreparo"]', form).val();
-		var montagem = $('textarea[name="montagem"]', form).val();;
-		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]', form).val();;
+		var montagem = $('textarea[name="montagem"]', form).val();
+		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]', form).val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -34,17 +34,24 @@ $(document).ready(function() {
 			montagem:montagem,
 			orientacoesArmazenamento:orientecoesArmazenamento,
 			itens:JSON.stringify(itens)
-			//itens:itens
 		};
 		
-		$.post( "ajax?acao=addFichaTecnicaSimplificadaAjax", data, function() {
-			console.log( "success" );
-			window.location.href = "main?acao=listFichaSimplificada";
-		}).done(function() {
-			console.log( "done" );
-			
+		$.post( "ajax?acao=addFichaTecnicaSimplificadaAjax", data, function(data) {			
+			var json = jQuery.parseJSON(data);			
+			if(json.erro){
+				showModalErro("Erro ao salvar ficha simplificada", json.mensagem);			
+			}else{
+				window.location.href = json.proxima;
+			}
 		}).fail(function() {
-			console.log( "fail" );
-		})
+			showModalErro("Erro ao salvar ficha simplificada", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
+		});
 	}
+
+	function showModalErro(title, text){
+		$("#modalErro").modal('show');
+		$("#modalErro").find('.modal-title').text(title);
+	  	$("#modalErro").find('#modal-descricao').text(text);
+	}
+	
 });
