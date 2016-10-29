@@ -8,6 +8,7 @@ $(document).ready(function() {
 	 * Aplica o Select2 nos selects
 	 */
 	function setSelect2() {
+		
 		$('.selectBatata').each(function(i, obj) {
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				if (obj.id == 'select-ingredientes') {
@@ -103,6 +104,7 @@ $(document).ready(function() {
 		 * aplicar o select2 novamente.
 		 */
 		$('.table-row:last').addClass('configurado');
+		
 	});
 
 	/**
@@ -141,7 +143,7 @@ $(document).ready(function() {
 		row.find('.select2').remove();
 		row.find('select').removeClass('select2-hidden-accessible');
 		row.hide().appendTo($('#table-rows')).fadeIn(300);
-		
+		row.find('.select2').unbind('change');
 		//Adiciona botão de excluir na linha clonada se ela não contém um
 		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
 		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
@@ -155,9 +157,11 @@ $(document).ready(function() {
 	}
 	
 	function scroll(target){
-		$('html, body').animate({
-		    scrollTop: target.offset().top
-		}, 1000);
+		if(typeof target.offset() !== 'undefined'){
+			$('html, body').animate({
+				scrollTop: target.offset().top
+			}, 1000);
+		}
 	}
 	
 	/**
@@ -183,26 +187,34 @@ $(document).ready(function() {
 					$(this).html(nome);
 				}
 				var selectUni = $('#select-unidade-medida', $(this).closest('.table-row')); 
-				var selectQtn = $('#qnt-unidade-medida', $(this).closest('.table-row').val());
-				
+				var selectQtn = $('#qnt-unidade-medida', $(this).closest('.table-row'));
 				
 				//Atualiza texto do botao
 				select.on('change', function(){
-					//var select = $('#select-ingredientes', $(this).closest('.table-row')); 
-					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
-					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $(this)).text();
+					var qntUnidadeMedidaVal = $('#qnt-unidade-medida', $(this).closest('.table-row')).val();					
+					var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
+					var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
+					var selectIngredientesText = $('option:selected', select).text();
+					
+					var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
 					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
 				});
 				selectUni.on('change', function(){
-					//var selectUni = $('#select-unidade-medida', $(this).closest('.table-row')); 
-					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
-					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $('#select-ingredientes')).text();
+					var qntUnidadeMedidaVal = $('#qnt-unidade-medida', $(this).closest('.table-row')).val();					
+					var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
+					var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
+					var selectIngredientesText = $('option:selected', select).text();
+					
+					var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
 					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
 				});
-				selectQtn.on('change', function(){
-					//var selectQtn = $('#select-qnt-unidade-medida', $(this).closest('.table-row')); 
-					var nome = $('#qnt-unidade-medida', $(this).closest('.table-row')).val() + ' ' + 
-					$('option:selected', $('#select-unidade-medida')).text() + ' ' + 'de ' + $('option:selected', $('#select-ingredientes')).text();
+				selectQtn.on('keyup', function(){
+					var qntUnidadeMedidaVal = $('#qnt-unidade-medida', $(this).closest('.table-row')).val();					
+					var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
+					var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
+					var selectIngredientesText = $('option:selected', select).text();
+						
+					var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
 					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
 				});
 			}

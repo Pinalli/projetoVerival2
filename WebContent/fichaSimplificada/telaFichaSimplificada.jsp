@@ -89,7 +89,7 @@
 			<div id="message"></div>
 			
 
-				<div class="col-xs-6 col-sm-4">
+				<div"class="col-xs-6 col-sm-4">
 					<label for="rendimento"
 						class="col-md-12 col-md-offset-9 form-control-static">Rendimento</label>
 				</div>
@@ -133,7 +133,7 @@
 					</div>
 				</div>
 	
-					<div class="row" id="table-rows">
+				<div class="row" id="table-rows">
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
 					    
 					    <div class="panel panel-info hidden-md hidden-lg">
@@ -172,7 +172,7 @@
 				
 					</div>
 				</div>
-			
+									
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-2 col-md-offset-8">
