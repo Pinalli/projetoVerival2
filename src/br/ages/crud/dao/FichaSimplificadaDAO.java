@@ -6,6 +6,7 @@ import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
 import com.mysql.jdbc.Statement;
+import org.apache.commons.io.FilenameUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,7 +39,9 @@ public class FichaSimplificadaDAO {
 
             statement.setString(1, fichaSimplificada.getNome());
             statement.setString(2, fichaSimplificada.getRendimento());
-            statement.setString(3, fichaSimplificada.getFoto());
+            String logo = fichaSimplificada.getFoto();
+            logo = "ficha-"+this.getProximoIdFicha()+"."+ FilenameUtils.getExtension(logo);
+            statement.setString(3, logo);
             statement.setString(4, fichaSimplificada.getModoPreparo());
             statement.setString(5, fichaSimplificada.getMontagem());
             statement.setString(6, fichaSimplificada.getOrientacoesArmazenamento());
@@ -185,5 +188,34 @@ public class FichaSimplificadaDAO {
             }
         }
         return removidoOK;
+    }
+
+    public int getProximoIdFicha() throws PersistenciaException, SQLException {
+
+        int idRetorno = 0;
+        Connection conexao = null;
+        try {
+            conexao = ConexaoUtil.getConexao();
+            String table = "TB_FICHA";
+            StringBuilder sql = new StringBuilder();
+            sql.append("SHOW TABLE STATUS LIKE '"+table+"'");
+            PreparedStatement statement = conexao.prepareStatement(sql.toString());
+
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                idRetorno = Integer.valueOf(resultset.getString("Auto_increment"));
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new PersistenciaException(e);
+        } finally {
+            try {
+                conexao.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return idRetorno;
     }
 }
