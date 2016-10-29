@@ -86,7 +86,6 @@ public class UsuarioDAO {
 			sql.append("U.`ID_USUARIO`,");
 			sql.append("U.`USUARIO`,");
 			sql.append("U.`SENHA`,");
-			sql.append("U.`CONFIRMAR_SENHA`,");
 			sql.append("U.`PERFIL_ACESSO`,");
 			sql.append("U.`STATUS_USUARIO`,");
 			sql.append("U.`ID_TIPO_USUARIO`,");
@@ -118,7 +117,6 @@ public class UsuarioDAO {
 				dto.setEmail(resultset.getString("EMAIL"));
 				dto.setUsuario(resultset.getString("USUARIO"));
 				dto.setSenha(resultset.getString("SENHA"));
-				dto.setConfirmarSenha(resultset.getString("CONFIRMAR_SENHA"));
 				dto.setEndereco(resultset.getString("ENDERECO"));
 				dto.setTelefone(resultset.getString("TELEFONE"));
 				dto.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
@@ -148,8 +146,8 @@ public class UsuarioDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO TB_USUARIO (USUARIO, SENHA, CONFIRMAR_SENHA, PERFIL_ACESSO, STATUS_USUARIO, ID_TIPO_USUARIO, CPF, ENDERECO, TELEFONE, NOME, EMAIL, DATA_INCLUSAO)");
-			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			sql.append("INSERT INTO TB_USUARIO (USUARIO, SENHA, PERFIL_ACESSO, STATUS_USUARIO, ID_TIPO_USUARIO, CPF, ENDERECO, TELEFONE, NOME, EMAIL, DATA_INCLUSAO)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
@@ -159,16 +157,15 @@ public class UsuarioDAO {
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, usuario.getUsuario());
 			statement.setString(2, usuario.getSenha());
-			statement.setString(3, usuario.getConfirmarSenha());
-			statement.setString(4, String.valueOf(usuario.getPerfilAcesso()));
-			statement.setString(5, String.valueOf(usuario.getStatusUsuario()));
-			statement.setInt(6, usuario.getTipoUsuario().getIdTipoUsuario());
-			statement.setString(7, usuario.getCpf());
-			statement.setString(8, usuario.getEndereco());
-			statement.setString(9, usuario.getTelefone());
-			statement.setString(10, usuario.getNome());
-			statement.setString(11, usuario.getEmail());
-			statement.setDate(12, dataCadastro);
+			statement.setString(3, String.valueOf(usuario.getPerfilAcesso()));
+			statement.setString(4, String.valueOf(usuario.getStatusUsuario()));
+			statement.setInt(5, usuario.getTipoUsuario().getIdTipoUsuario());
+			statement.setString(6, usuario.getCpf());
+			statement.setString(7, usuario.getEndereco());
+			statement.setString(8, usuario.getTelefone());
+			statement.setString(9, usuario.getNome());
+			statement.setString(10, usuario.getEmail());
+			statement.setDate(11, dataCadastro);
 
 			statement.executeUpdate();
 
@@ -237,7 +234,6 @@ public class UsuarioDAO {
 			sql.append("U.`ID_USUARIO`,");
 			sql.append("U.`USUARIO`,");
 			sql.append("U.`SENHA`,");
-			sql.append("U.`CONFIRMAR_SENHA`,");
 			sql.append("U.`PERFIL_ACESSO`,");
 			sql.append("U.`STATUS_USUARIO`,");
 			sql.append("U.`ID_TIPO_USUARIO`,");
@@ -266,7 +262,6 @@ public class UsuarioDAO {
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));
 				usuario.setSenha(resultset.getString("SENHA"));
-				usuario.setConfirmarSenha(resultset.getString("CONFIRMAR_SENHA"));
 				usuario.setEndereco(resultset.getString("ENDERECO"));
 				usuario.setTelefone(resultset.getString("TELEFONE"));
 				usuario.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
@@ -305,7 +300,6 @@ public class UsuarioDAO {
 			sql.append("U.`ID_USUARIO`,");
 			sql.append("U.`USUARIO`,");
 			sql.append("U.`SENHA`,");
-			sql.append("U.`CONFIRMAR_SENHA`,");
 			sql.append("U.`PERFIL_ACESSO`,");
 			sql.append("U.`STATUS_USUARIO`,");
 			sql.append("U.`ID_TIPO_USUARIO`,");
@@ -335,7 +329,6 @@ public class UsuarioDAO {
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));
 				usuario.setSenha(resultset.getString("SENHA"));
-				usuario.setConfirmarSenha(resultset.getString("CONFIRMAR_SENHA"));
 				usuario.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				usuario.setStatusUsuario(StatusUsuario.valueOf(resultset.getString("STATUS_USUARIO")));
 				TipoUsuario tipoUsuario = new TipoUsuario();
@@ -399,7 +392,7 @@ public class UsuarioDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = usuario.getIdUsuario();
 
-			sql.append("UPDATE TB_USUARIO SET SENHA = ?, PERFIL_ACESSO = ?," + "STATUS_USUARIO = ?, ID_TIPO_USUARIO = ?, NOME = ?, EMAIL = ?, CPF = ?, ENDERECO = ?, TELEFONE = ?, CONFIRMAR_SENHA = ? " + "  WHERE ID_USUARIO = " + id + ";");
+			sql.append("UPDATE TB_USUARIO SET SENHA = ?, PERFIL_ACESSO = ?," + "STATUS_USUARIO = ?, ID_TIPO_USUARIO = ?, NOME = ?, EMAIL = ?, CPF = ?, ENDERECO = ?, TELEFONE = ? " + "  WHERE ID_USUARIO = " + id + ";");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
@@ -412,7 +405,6 @@ public class UsuarioDAO {
 			statement.setString(7, usuario.getCpf());
 			statement.setString(8, usuario.getEndereco());
 			statement.setString(9, usuario.getTelefone());
-			statement.setString(10, usuario.getConfirmarSenha());
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
@@ -500,7 +492,6 @@ public class UsuarioDAO {
 			sql.append("U.`ID_USUARIO`,");
 			sql.append("U.`USUARIO`,");
 			sql.append("U.`SENHA`,");
-			sql.append("U.`CONFIRMAR_SENHA`,");
 			sql.append("U.`PERFIL_ACESSO`,");
 			sql.append("U.`STATUS_USUARIO`,");
 			sql.append("U.`ID_TIPO_USUARIO`,");
@@ -527,7 +518,6 @@ public class UsuarioDAO {
 				dto.setEmail(resultset.getString("EMAIL"));
 				dto.setUsuario(resultset.getString("USUARIO"));
 				dto.setSenha(resultset.getString("SENHA"));
-				dto.setSenha(resultset.getString("CONFIRMAR_SENHA"));
 				dto.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				dto.setStatusUsuario(StatusUsuario.valueOf(resultset.getString("STATUS_USUARIO")));
 
@@ -560,7 +550,6 @@ public class UsuarioDAO {
 			sql.append("U.`ID_USUARIO`,");
 			sql.append("U.`USUARIO`,");
 			sql.append("U.`SENHA`,");
-			sql.append("U.`CONFIRMAR_SENHA`,");
 			sql.append("U.`PERFIL_ACESSO`,");
 			sql.append("U.`STATUS_USUARIO`,");
 			sql.append("U.`ID_TIPO_USUARIO`,");
@@ -612,7 +601,6 @@ public class UsuarioDAO {
 			sql.append(" ID_USUARIO,");
 			sql.append(" USUARIO,");
 			sql.append(" SENHA,");
-			sql.append(" CONFIRMAR_SENHA,");
 			sql.append(" PERFIL_ACESSO,");
 			sql.append(" STATUS_USUARIO,");
 			sql.append(" ID_TIPO_USUARIO,");
@@ -639,7 +627,6 @@ public class UsuarioDAO {
 				usuario.setEmail(resultset.getString("EMAIL"));
 				usuario.setUsuario(resultset.getString("USUARIO"));
 				usuario.setSenha(resultset.getString("SENHA"));
-				usuario.setConfirmarSenha(resultset.getString("CONFIRMAR_SENHA"));
 				usuario.setPerfilAcesso(PerfilAcesso.valueOf(resultset.getString("PERFIL_ACESSO")));
 				usuario.setStatusUsuario(StatusUsuario.valueOf(resultset.getString("STATUS_USUARIO")));
 					
