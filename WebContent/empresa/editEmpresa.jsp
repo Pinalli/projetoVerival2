@@ -17,7 +17,7 @@
 <div class="panel panel-success panel-addUser">
 
     <div class="panel-heading text-center">
-		Editar Empresa<b><%=empresa.getNome()%></b>
+		Editar Empresa <b><%=empresa.getNome()%></b>
 	</div>
 
 	<div class="panel-body">
@@ -74,6 +74,16 @@
 
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label class="col-md-3 control-label ages" for="cidade">UF</label>
+				<div class="col-md-6">
+					<input id="uf" name="uf" value="<%= empresa.getUf()%>" type="text" placeholder=""
+						class="form-control input-md" required="">
+
+				</div>
+			</div>
+			
 
 			<!-- Text input-->
 			<div class="form-group">
@@ -105,10 +115,12 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div id="image_preview" style="display:block; margin-left:30%;"><img id="previewing" style="width: 150px; height: 150px;" src="img/img/<%= empresa.getLogo()%>" /></div>
+				<div id="image_preview" style="display:block; margin-left:30%;"><img id="previewing" style="width: 150px; height: 150px;" src="upload/logo/<%= empresa.getLogo()%>" /></div>
 			</div>
-			<h4 id='loading'></h4>
-			<div id="message"></div>
+			<div id="errorMessage" class="alert alert-danger" style="display:none">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Erro! </strong> Imagem deve ser JPG, JPEG ou PNG.
+			</div>
 
 
 			<div class="text-center">

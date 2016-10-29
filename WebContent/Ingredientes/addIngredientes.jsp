@@ -78,7 +78,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages"> Índice de Cocção </span></label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.descricao}" type="value" maxlength="5" required>
+							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.indicecoccao}" type="value" maxlength="5" required>
 						</div>
 					</div>
 					
@@ -98,7 +98,7 @@
 								<%
 									}
 								%>
-							</select>		
+							</select>
 						</div>
 					</div>
 				</div>

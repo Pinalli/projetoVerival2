@@ -44,7 +44,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages">Confirmar senha: <span class="red">*</span></label> 
-							<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="<%=usuario.getConfirmarSenha() %>"" type="password" maxlength="8" required> 
+							<input class="form-control" id="confirmarSenha" name="confirmarSenha" value="<%=usuario.getSenha() %>"" type="password" maxlength="8" required> 
 						</div>
 						
 						<div class="col-sm-12">

@@ -112,8 +112,19 @@ public class FichaSimplificadaBO {
 		}
 	}
 
+<<<<<<< HEAD
 	public Ficha buscaIdFicha(int id) throws PersistenciaException, SQLException {
 			return fichaSimplificadaDAO.buscarIdFicha(id);
 	}
 	
 }
+=======
+	public int getProximoIdFicha() throws NegocioException, SQLException, PersistenciaException {
+		try {
+			return fichaSimplificadaDAO.getProximoIdFicha();
+		} catch (PersistenciaException | SQLException e){
+			throw new NegocioException(e);
+		}
+	}
+}
+>>>>>>> 28892e658cefc7ea8a738b0e00376fc17e5c4dc1

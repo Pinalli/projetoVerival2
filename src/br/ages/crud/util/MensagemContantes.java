@@ -24,6 +24,8 @@ public class MensagemContantes {
 	public static final String MSG_ERR_SENHA_INVALIDA = "A senha do usuario ï¿½ invï¿½lida: Deve ter no mï¿½nimo 3 e no mï¿½ximo 8 caracteres, apenas nï¿½meros e letras!";
 	public static final String MSG_ERR_CPF_INVALIDA = "CPF invalido!";
 	public static final String MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO = "Campo Endereço obrigatorio!";
+	public static final String MSG_ERR_CAMPO_TELEFONE_OBRIGATORIO = "Campo Telefone obrigatorio!";
+	public static final String MSG_ERR_CAMPO_UF_OBRIGATORIO = "Campo UF obrigatorio!";
 	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!<br>Exemplo correto: ages_user@acad.pucrs.br";
 	public static final String MSG_ERR_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo correto: Joï¿½o Cardoso";
 	public static final String MSG_ERR_USUARIO_JA_EXISTENTE = "Usuário ou matrï¿½culajá cadastrados!";
@@ -98,7 +100,7 @@ public class MensagemContantes {
 	public static final String MSG_ERR_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO = "Campo orientação e armazenamento obrigatório!";
 	public static final String MSG_ERR_REMOVE_FICHA_EM_PROJETO = "Esta Ficha já está em algum projeto e não pode ser removido!";
 	
-	
-	
+	//msgs da ficha técnica completa
+	public static final String MSG_SUC_CADASTRO_FICHA_COMPLETA = " Ficha técnica completa ? cadastrada com sucesso!";
 	
 }
