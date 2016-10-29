@@ -20,7 +20,7 @@ public class CreateScreenFichaCompCommand implements Command {
 
 	
 	public String execute(HttpServletRequest request) throws SQLException {
-		proxima = "preview/previewFTcompleta.jsp";
+		proxima = "fichaCompleta/telaFichaCompleta.jsp";
 		
 		return proxima;
 	}
