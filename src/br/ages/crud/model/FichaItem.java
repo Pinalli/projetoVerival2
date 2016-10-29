@@ -12,6 +12,8 @@ public class FichaItem {
 	// Item da Ficha Completa
 	private double perCapita;
 	private double valorUnit;
+	
+	private String operacao;
 
 
 	public FichaItem() {
@@ -89,5 +91,15 @@ public class FichaItem {
 	public void setValorUnit(double valorUnit) {
 		this.valorUnit = valorUnit;
 	}
+
+	public String getOperacao() {
+		return operacao;
+	}
+
+	public void setOperacao(String operacao) {
+		this.operacao = operacao;
+	}
+	
+	
 
 }

@@ -8,6 +8,7 @@ import br.ages.crud.dao.FichaSimplificadaDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Ficha;
+import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.MensagemContantes;
 
 /**
@@ -91,10 +92,10 @@ public class FichaSimplificadaBO {
 	
 	
 	//Editar
-	public void editarFichaSimplificada(Ficha fichaSimplificada) throws NegocioException{
+	public void editarFichaSimplificada(Ficha fichaSimplificada, FichaItem[] itens, FichaItem[] novosItens) throws NegocioException{
 		
 		try{
-			fichaSimplificadaDAO.editarFichaSimplificada(fichaSimplificada);
+			fichaSimplificadaDAO.editarFichaSimplificada(fichaSimplificada, itens, novosItens);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new NegocioException(e);
@@ -111,6 +112,13 @@ public class FichaSimplificadaBO {
 		}
 	}
 
+<<<<<<< HEAD
+	public Ficha buscaIdFicha(int id) throws PersistenciaException, SQLException {
+			return fichaSimplificadaDAO.buscarIdFicha(id);
+	}
+	
+}
+=======
 	public int getProximoIdFicha() throws NegocioException, SQLException, PersistenciaException {
 		try {
 			return fichaSimplificadaDAO.getProximoIdFicha();
@@ -119,3 +127,4 @@ public class FichaSimplificadaBO {
 		}
 	}
 }
+>>>>>>> 28892e658cefc7ea8a738b0e00376fc17e5c4dc1
