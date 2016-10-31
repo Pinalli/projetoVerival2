@@ -1,8 +1,6 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Arrays"%>
-<%@page import="java.util.List"%>
 <%@page import="br.ages.crud.model.Ingrediente"%>
 <%@ page import="br.ages.crud.model.Empresa" %>
+<%@ page import="java.util.*" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!--onkidonki-->
@@ -74,16 +72,57 @@
 
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="col-md-3 control-label ages" for="cidade">UF</label>
 				<div class="col-md-6">
-					<input id="uf" name="uf" value="<%= empresa.getUf()%>" type="text" placeholder=""
-						class="form-control input-md" required="">
+					<select id="uf" name="uf" placeholder="" class="form-control input-md" required="">
+						<%
+							Map<String,String> estados = new HashMap<String,String>();
+							estados.put("AC","Acre");
+							estados.put("AL", "Alagoas");
+							estados.put("AP", "Amapá");
+							estados.put("AM", "Amazonas");
+							estados.put("BA", "Bahia");
+							estados.put("CE", "Ceara");
+							estados.put("DF", "Distrito Federal");
+							estados.put("ES", "Espirito Santo");
+							estados.put("GO", "Goiás");
+							estados.put("MA","Maranhão");
+							estados.put("MS","Mato Grosso do Sul");
+							estados.put("MT","Mato Grosso");
+							estados.put("MG","Minas Gerais");
+							estados.put("PA","Pará");
+							estados.put("PB","Paraíba");
+							estados.put("PR","Paraná");
+							estados.put("PE","Pernambuco");
+							estados.put("PI","Piauí");
+							estados.put("RJ","Rio de Janeiro");
+							estados.put("RN","Rio Grande do Norte");
+							estados.put("RS","Rio Grande do Sul");
+							estados.put("RO","Rondônia");
+							estados.put("RR","Roraima");
+							estados.put("SC","Santa Catarina");
+							estados.put("SP","São Paulo");
+							estados.put("SE","Sergipe");
+							estados.put("TO","Tocantins");
 
+							for (String uf : estados.keySet()){
+
+								if(uf.equals(empresa.getUf())){
+									%>
+										<option value="<%= empresa.getUf() %>" selected> <%= estados.get(empresa.getUf()) %></option>
+									<%
+								} else {
+									%>
+										<option value="<%= uf %>"> <%= estados.get(uf) %></option>
+									<%
+									}
+							}
+						%>
+					</select>
 				</div>
 			</div>
-			
 
 			<!-- Text input-->
 			<div class="form-group">
