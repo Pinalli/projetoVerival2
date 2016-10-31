@@ -19,7 +19,6 @@
             <thead>
                 <tr>
                     <th style="text-align: center;">Nome</th>
-					<th style="text-align: center; width : 300px;">Rendimento</th>
 		 			<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
@@ -32,7 +31,6 @@
 				          
             	<tr>
 	            	<td align="center"><%=ficha.getNome()%></td>
-	            	<td align="center"><%=ficha.getRendimento()%></td>
 	            	<td align="center">
 						<form action="" method="post">
             				<a href="" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>"
