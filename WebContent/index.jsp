@@ -22,7 +22,7 @@
         	<h1 class="welcome">Bem <span>V</span>indo</h1><!-- Título principal -->
             <img style="width: 330px; height: 300px;" class="logoEmpresa" id="logoEmpresa" src="img/faenfinobg.png" alt="FAENFI">
             <img class="logoEmpresa" src="img/agesnobg.png" alt="AGES">
-            <input  type="hidden" id="idEmpresa" value="20" />
+            <input  type="hidden" id="idEmpresa" value="22" />
                 
                 
         
