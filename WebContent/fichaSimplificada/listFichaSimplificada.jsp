@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th style="text-align: center;">Nome</th>
-					<th style="text-align: center;">Rendimento</th>
+					<th style="text-align: center; width : 300px;">Rendimento</th>
 		 			<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
