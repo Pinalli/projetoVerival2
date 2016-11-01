@@ -5,12 +5,12 @@ $(document).ready(function() {
 	});
 	
 	function add(form){
-		var nome = $('input[name="nome"]', form).val();
-		var rendimento = $('input[name="rendimento"]', form).val();
-		var foto = $('input[name="imgFile"]', form).val();
-		var modoPreparo = $('textarea[name="modoPreparo"]', form).val();
-		var montagem = $('textarea[name="montagem"]', form).val();
-		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]', form).val();
+		var nome = $('input[name="nome"]').val();
+		var rendimento = $('input[name="rendimento"]').val();
+		var foto = $('input[name="imgFile"]').val();
+		var modoPreparo = $('textarea[name="modoPreparo"]').val();
+		var montagem = $('textarea[name="montagem"]').val();
+		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -36,8 +36,11 @@ $(document).ready(function() {
 			itens:JSON.stringify(itens)
 		};
 		
+		
+		
 		$.post( "ajax?acao=addFichaTecnicaSimplificadaAjax", data, function(data) {			
-			var json = jQuery.parseJSON(data);			
+			var json = jQuery.parseJSON(data);
+			console.log(json);
 			if(json.erro){
 				showModalErro("Erro ao salvar ficha simplificada", json.mensagem);			
 			}else{
