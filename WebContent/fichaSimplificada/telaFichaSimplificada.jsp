@@ -89,7 +89,7 @@
 			<div id="message"></div>
 			
 
-				<div"class="col-xs-6 col-sm-4">
+				<div class="col-xs-6 col-sm-4">
 					<label for="rendimento"
 						class="col-md-12 col-md-offset-9 form-control-static">Rendimento</label>
 				</div>
