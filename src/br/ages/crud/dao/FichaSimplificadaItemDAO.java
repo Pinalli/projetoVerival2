@@ -21,9 +21,15 @@ public class FichaSimplificadaItemDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT ID_FICHA_ITEM," + " ID_UNIDADE_MEDIDA," + " ID_MEDIDA_CASEIRA," + " ID_INGREDIENTE,"
-					+ " QUANTIDADE_UNIDADE_MEDIDA," + " QUANTIDADE_MEDIDA_CASEIRA," + " ID_FICHA ");
-			sql.append("WHERE ID_FICHA = " + idFichaSimplificada);
+			
+			sql.append("SELECT ID_FICHA_ITEM, "
+					+ "ID_UNIDADE_MEDIDA, "
+					+ "ID_MEDIDA_CASEIRA, "
+					+ "ID_INGREDIENTE, "
+					+ "QUANTIDADE_UNIDADE_MEDIDA, "
+					+ "QUANTIDADE_MEDIDA_CASEIRA, "
+					+ "ID_FICHA "
+					+ "FROM TB_FICHA_ITEM WHERE ID_FICHA = " + idFichaSimplificada);
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultSet = statement.executeQuery();
