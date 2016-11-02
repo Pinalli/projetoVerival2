@@ -74,7 +74,7 @@ $( document ).ready(function() {
 	  	var botao = $(event.relatedTarget);
 	  	var fichaS = botao.data('fichaS');
 		var id = botao.data('id');
-	  	
+		
 	  	$(this).find('.modal-title').text('Excluir Ficha Simplificada');
 	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha simplificada(' + fichaS + ')?');
 	  	
@@ -83,11 +83,11 @@ $( document ).ready(function() {
 	
 	$('#modalEditar').on('show.bs.modal', function (event) {
 	  	var botao = $(event.relatedTarget);
-	  	var fichaS = botao.data('fichaS');
+	  	var fichaS = botao.data('fichas');
 	  	var id = botao.data('id');
 	  	
 	  	$(this).find('.modal-title').text('Editar Ficha Simplificada');
-	  	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha simplificada(' + fichaS + ')?');
+	  	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha simplificada (' + fichaS + ') ?');
 	  	
 	  	$('#formEditar').attr('action', "main?acao=telaFichaSimplificada&id_ficha_simplificada=" + id + "&isEdit=true");
 	});
