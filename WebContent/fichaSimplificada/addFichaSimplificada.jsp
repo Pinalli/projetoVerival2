@@ -10,7 +10,6 @@
 <body>
 
 	<div class="container">
-
 		<article>
 			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaSimplificada">
 				<div class="form-group col-md-4 col-md-offset-4">

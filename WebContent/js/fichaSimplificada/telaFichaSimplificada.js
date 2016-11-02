@@ -3,6 +3,10 @@ $(document).ready(function() {
 	var qntIngredientes = 2;
 		
 	setSelect2();
+	
+	/**
+	 * Magic. Do not touch.
+	 */
 
 	/**
 	 * Aplica o Select2 nos selects
@@ -11,7 +15,13 @@ $(document).ready(function() {
 		$('.selectBatata').each(function(i, obj) {
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				if (obj.id == 'select-ingredientes') {
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
 					$(this).select2({
+						data: data,
 						 ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaIngredienteDescricaoAjax",
 							    method: "GET",
@@ -20,6 +30,7 @@ $(document).ready(function() {
 							    },
 							    processResults: function (data, params) {
 							    	var select2Data = [];
+							    	//select2Data.push({'id':00, 'text':'batata'});
 							    	var json = jQuery.parseJSON(data);
 							    	for(var i=0; i<json.length; i++){
 										var obj = {'id':json[i].id, 'text':json[i].descricao}
@@ -34,8 +45,14 @@ $(document).ready(function() {
 					      
 					});
 				} else if (obj.id == 'select-unidade-medida') {
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
 					$(this).select2({
-						 ajax: {							 
+						data : data, 
+						ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaUnidadeAjax",
 							    method: "GET",
 							    data: function (params) {	
@@ -57,8 +74,14 @@ $(document).ready(function() {
 					      
 					});
 				} else if (obj.id == 'select-medida-caseira') {
-					$(this).select2({
-						 ajax: {							 
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
+					$(this).select2({						
+						data:data,
+						ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
 							    method: "GET",
 							    data: function (params) {
@@ -282,4 +305,7 @@ $(document).ready(function() {
 		$('#previewing').attr('height', '300px');
 	};
 	
+	/**
+	 * Did you touched?
+	 */
 });

@@ -21,7 +21,7 @@ public class FichaSimplificadaItemDAO {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			
+			/*
 			sql.append("SELECT ID_FICHA_ITEM, "
 					+ "ID_UNIDADE_MEDIDA, "
 					+ "ID_MEDIDA_CASEIRA, "
@@ -30,6 +30,26 @@ public class FichaSimplificadaItemDAO {
 					+ "QUANTIDADE_MEDIDA_CASEIRA, "
 					+ "ID_FICHA "
 					+ "FROM TB_FICHA_ITEM WHERE ID_FICHA = " + idFichaSimplificada);
+			*/
+			sql.append("SELECT "
+					+ "TFI.ID_FICHA_ITEM, "
+					+ "TFI.ID_UNIDADE_MEDIDA, "
+					+ "TFI.ID_MEDIDA_CASEIRA, "
+					+ "TFI.ID_INGREDIENTE, "
+					+ "TFI.QUANTIDADE_UNIDADE_MEDIDA, "
+					+ "TFI.QUANTIDADE_MEDIDA_CASEIRA, "
+					+ "TFI.ID_FICHA, "
+					+ "TI.DESCRICAO AS INGREDIENTE, "
+					+ "TUN.UNIDADE_MEDIDA, "
+					+ "TUNC.NOME AS UNIDADE_MEDIDA_CASEIRA "
+					+ "FROM TB_FICHA_ITEM TFI "
+					+ "JOIN TB_INGREDIENTES TI "
+					+ "JOIN TB_UNIDADE_MEDIDA TUN "
+					+ "JOIN TB_UNIDADE_MEDIDA_CASEIRA TUNC "
+					+ "WHERE ID_FICHA = "+idFichaSimplificada
+					+ " AND TI.ID = TFI.ID_INGREDIENTE "
+					+ "AND TUN.ID_UNIDADE_MEDIDA = TFI.ID_UNIDADE_MEDIDA "
+					+ "AND TUNC.ID_UNIDADE_MEDIDA_CASEIRA = TFI.ID_MEDIDA_CASEIRA;");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultSet = statement.executeQuery();
@@ -43,6 +63,9 @@ public class FichaSimplificadaItemDAO {
 				item.setQuantidadeMedidaCaseira(resultSet.getInt("QUANTIDADE_MEDIDA_CASEIRA"));
 				item.setQuantidadeUnidadeMedida(resultSet.getInt("QUANTIDADE_UNIDADE_MEDIDA"));
 				item.setIdFicha(idFichaSimplificada);
+				item.setIngrediente(resultSet.getString("INGREDIENTE"));
+				item.setUnidadeMedida(resultSet.getString("UNIDADE_MEDIDA"));
+				item.setUnidadeMedidaCaseira(resultSet.getString("UNIDADE_MEDIDA_CASEIRA"));
 				itens.add(item);
 			}
 			return itens;

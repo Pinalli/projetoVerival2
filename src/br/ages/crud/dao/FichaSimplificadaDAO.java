@@ -250,8 +250,8 @@ public class FichaSimplificadaDAO {
 				dto.setModoPreparo(resultset.getString("MODO_PREPARO"));
 				dto.setMontagem(resultset.getString("MONTAGEM"));
 				dto.setOrientacoesArmazenamento(resultset.getString("ORIENTACOES_ARMAZENAMENTO"));
-				dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
-			}
+				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
+			}		
 
 			List<FichaItem> itens = itemDAO.listaFichaSimplificadaItem(id);
 			dto.setItens(itens);
