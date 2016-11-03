@@ -67,6 +67,24 @@ public class FichaCompletaBO {
 				msg.append(MensagemContantes.MSG_ERR_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO + "<br/>");
 			}
 			
+			//Textura
+			if(fichaCompleta.getTextura()==null || fichaCompleta.getTextura().equals("")){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERRO_CAMPO_TEXTURA_FICHA_COMPLETA + "<br/>");
+			}
+			
+			//Sabor
+			if(fichaCompleta.getSabor()==null || fichaCompleta.getSabor().equals("")){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERRO_CAMPO_SABOR_FICHA_COMPLETA + "<br/>");
+			}
+			
+			//Apresentação
+			if(fichaCompleta.getApresentacao()==null || fichaCompleta.getApresentacao().equals("")){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERRO_CAMPO_APRESENTACAO_FICHA_COMPLETA + "<br/>");
+			}
+			
 			
 		}catch (Exception e) {
 			e.printStackTrace();

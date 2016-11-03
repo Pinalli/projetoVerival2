@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
-
 import com.google.gson.Gson;
-
 import br.ages.crud.bo.FichaSimplificadaBO;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;

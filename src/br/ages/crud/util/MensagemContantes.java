@@ -102,5 +102,9 @@ public class MensagemContantes {
 	
 	//msgs da ficha técnica completa
 	public static final String MSG_SUC_CADASTRO_FICHA_COMPLETA = " Ficha técnica completa ? cadastrada com sucesso!";
+	public static final String MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS = "Dados da ficha técnica inválido ou inconsistentes";
+	public static final String MSG_ERRO_CAMPO_TEXTURA_FICHA_COMPLETA = "Campo textura obrigatório!";
+	public static final String MSG_ERRO_CAMPO_SABOR_FICHA_COMPLETA = "Campo sabor obrigatório!";
+	public static final String MSG_ERRO_CAMPO_APRESENTACAO_FICHA_COMPLETA = "Campo apresentação obrigatório!";
 	
 }
