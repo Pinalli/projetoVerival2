@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('form[name="addFichaTecnicaSimples"]').submit(function(event){
+	$('form[name="addFichaTecnicaCompleta"]').submit(function(event){
 		event.preventDefault();
 		add($(this));
 	});
@@ -11,6 +11,9 @@ $(document).ready(function() {
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
+		var textura = $('textarea[name="textura"]').val();
+		var sabor = $('textarea[name="sabor"]').val();;
+		var apresentacao = $('textarea[name="apresentacao"]').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -33,20 +36,24 @@ $(document).ready(function() {
 			modoPreparo:modoPreparo,
 			montagem:montagem,
 			orientacoesArmazenamento:orientecoesArmazenamento,
+			textura: textura,
+			sabor:sabor,
+			apresentacao:apresentacao,
 			itens:JSON.stringify(itens)
 		};
 		
 		
-		$.post( "ajax?acao=addFichaSimplificadaAjaxCommand", data, function(data) {			
+		
+		$.post( "ajax?acao=addFichaCompletaAjaxCommand", data, function(data) {			
 			var json = jQuery.parseJSON(data);
 			console.log(json);
 			if(json.erro){
-				showModalErro("Erro ao salvar ficha simplificada", json.mensagem);			
+				showModalErro("Erro ao salvar ficha completa", json.mensagem);			
 			}else{
 				window.location.href = json.proxima;
 			}
 		}).fail(function() {
-			showModalErro("Erro ao salvar ficha simplificada", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
+			showModalErro("Erro ao salvar ficha completa", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
 		});
 	}
 

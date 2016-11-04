@@ -15,7 +15,7 @@
 
 	<div class="container">
 		<article>
-			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaSimplificada">
+			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaCompleta">
 				<input type="hidden" name="id" value="<%=ficha.getIdFicha()%>"/>
 				
 				<div class="form-group col-md-4 col-md-offset-4">
@@ -195,11 +195,11 @@
 
 		</article>
 
-		<!--footer>Ficha Técnica Simplificada</footer-->
+		<!--footer>Ficha Técnica Completa</footer-->
 	</div>
 </body>
-<script src="./js/fichaSimplificada/telaFichaSimplificada.js"></script>
-<script src="./js/fichaSimplificada/editFichaSimplificada.js"></script>
+<script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
+<script src="./js/fichaCompleta/editFichaCompleta.js"></script>
 
 <script type="text/javascript">
 	function limitText(limitField, limitNum) {

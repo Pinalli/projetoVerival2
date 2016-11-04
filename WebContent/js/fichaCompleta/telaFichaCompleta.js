@@ -11,7 +11,13 @@ $(document).ready(function() {
 		$('.selectBatata').each(function(i, obj) {
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				if (obj.id == 'select-ingredientes') {
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
 					$(this).select2({
+						data: data,
 						 ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaIngredienteDescricaoAjax",
 							    method: "GET",
@@ -34,7 +40,13 @@ $(document).ready(function() {
 					      
 					});
 				} else if (obj.id == 'select-unidade-medida') {
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
 					$(this).select2({
+						data : data, 
 						 ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaUnidadeAjax",
 							    method: "GET",
@@ -57,7 +69,13 @@ $(document).ready(function() {
 					      
 					});
 				} else if (obj.id == 'select-medida-caseira') {
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
 					$(this).select2({
+						data:data,
 						 ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
 							    method: "GET",
@@ -134,13 +152,13 @@ $(document).ready(function() {
 		row.find('.item-wrapper').removeClass('hide');
 		var id = 'ingrediente-'+qntIngredientes;
 		$('.show-item-btn', row).attr('id',id);
+		
 		row.find('input[type="number"]').each(function(){
 			$(this).val('')
 		});
 		row.find('.select2').remove();
 		row.find('select').removeClass('select2-hidden-accessible');
 		row.hide().appendTo($('#table-rows')).fadeIn(300);
-		
 		//Adiciona botão de excluir na linha clonada se ela não contém um
 		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
 		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
@@ -154,9 +172,11 @@ $(document).ready(function() {
 	}
 	
 	function scroll(target){
-		$('html, body').animate({
-		    scrollTop: target.offset().top
-		}, 1000);
+		if(typeof target.offset() !== 'undefined'){
+			$('html, body').animate({
+			    scrollTop: target.offset().top
+			}, 1000);
+		}
 	}
 	
 	/**
@@ -173,24 +193,45 @@ $(document).ready(function() {
 						function() {	
 							$(this).toggleClass("hide");
 						});
-				});				
+				});
+				
+				//obtem inputs
+				var selectIngredientes = $('#select-ingredientes', $(this).closest('.table-row'));
+				var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
+				var inputQntUnidadeMedida = $('#qnt-unidade-medida', $(this).closest('.table-row'));
 		
 				//Define texto do botao
-				var select = $('#select-ingredientes', $(this).closest('.table-row')); 
+				//var select = $('#select-ingredientes', $(this).closest('.table-row')); 
 				var nome = $('option:selected', select).text();
 				if(nome.length > 0 && typeof nome !== 'undefined'){
 					$(this).html(nome);
 				}
 				
 				//Atualiza texto do botao
-				select.on('change', function(){
-					var select = $('#select-ingredientes', $(this).closest('.table-row')); 
-					var nome = $('option:selected', select).text();
-					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				selectIngredientes.on('change', function(){
+					updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes);
+				});
+				selectUnidadeMedida.on('change', function(){
+					updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes);
+				});
+				inputQntUnidadeMedida.on('keyup', function(){
+					updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes);
 				});
 			}
 		});
-	}	
+	}
+	
+	/**
+	 * Atualiza texto do botao de resumo
+	 */
+	function updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes){
+		var qntUnidadeMedidaVal = inputQntUnidadeMedida.val();										
+		var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
+		var selectIngredientesText = $('option:selected', selectIngredientes).text();
+			
+		var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
+		$('.show-item-btn', inputQntUnidadeMedida.closest('.table-row')).html(nome);
+	}
 
 	/**
 	 * Altera o layout em resoluções com larguras menores que 990px 
@@ -219,18 +260,24 @@ $(document).ready(function() {
 			var match = [ "image/jpeg","image/png", "image/jpg" ];
 			if (!((imagefile == match[0])
 				|| (imagefile == match[1]) || (imagefile == match[2]))) {
+				$("#errorMessage").css("display","block");
 				return false;
 			} else {
+				$("#errorMessage").css("display","none");
+				var idFicha = $('#idFicha').val();
+				if(idFicha == null){
+					idFicha = 0;
+				}
 				form = new FormData()
 				form.append('file',file);
 				form.append('fichaSimplificada', true);
+				form.append('idFicha', idFicha);
 				console.log(form.toString());
 				var reader = new FileReader();
 				reader.onload = imageIsLoaded;
 				reader.readAsDataURL(this.files[0]);
-				if (check_multifile_logo($("#imgFile").prop("files")[0]['name'])) {
 		            $.ajax({
-		                url: "/FichaTP/upload",
+		                url: "upload",
 		                cache: false,
 		                contentType: false,
 		                processData: false,
@@ -241,10 +288,6 @@ $(document).ready(function() {
 		                    
 		                }
 		            });
-		        } else {
-		            $("#imgFile").html('');
-		            alert('We only accept JPG, JPEG, PNG, GIF and BMP files');
-		        }
 			}
 		});
 	});
