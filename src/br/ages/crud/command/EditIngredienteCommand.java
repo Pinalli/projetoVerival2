@@ -61,6 +61,8 @@ public class EditIngredienteCommand implements Command{
 				ingredienteBO.editaIngrediente(ingrediente);
 				proxima = "main?acao=listIngrediente";
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_EDICAO_INGREDIENTE.replace("?", ingrediente.getDescricao()));				
+		} catch (NumberFormatException e) {
+			request.setAttribute("msgErro", "Múltiplos separadores decimais! Verifique!");		
 		} catch(Exception e){		
 			request.setAttribute("msgErro", e.getMessage());
 		}
