@@ -26,9 +26,9 @@ public class AddIngredienteCommand implements Command {
 		String kcalProteinas = request.getParameter("kcalproteinas");
 		String lipidios = request.getParameter("lipidios");
 		String kcalLipidios = request.getParameter("kcallipidios");
-		String fatorCorrecao = request.getParameter("fatorcorrecao"); 
-		String indiceCoccao = request.getParameter("indicecoccao");
-		String custo = request.getParameter("custo");
+		String fatorCorrecao = request.getParameter("fatorcorrecao").replace(",", ".");
+		String indiceCoccao = request.getParameter("indicecoccao").replace(",", ".");
+		String custo = request.getParameter("custo").replace(",", ".");
 		String unidadeMedida = request.getParameter("unidadeMedida");
 		try {
 			Ingrediente ingrediente = new Ingrediente();
