@@ -47,7 +47,11 @@ public class AddIngredienteCommand implements Command {
 				ingredienteBO.cadastraIngrediente(ingrediente);
 				proxima = "main?acao=listIngrediente";
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_INGREDIENTE.replace("?", ingrediente.getDescricao()));
-		} catch (Exception e) {
+				
+		} catch (NumberFormatException e) {
+			request.setAttribute("msgErro", "Múltiplos separadores decimais! Verifique!");
+			//proxima = "main?acao=listUser";
+		}catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
 			//proxima = "main?acao=listUser";
 		}
