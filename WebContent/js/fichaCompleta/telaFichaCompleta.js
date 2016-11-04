@@ -1,9 +1,36 @@
 $(document).ready(function() {
 	var RESOLUCAO_MINIMA = 990;
+	var RESOLUCAO_MAX = 99000;
 	var qntIngredientes = 2;
 		
 	setSelect2();
 
+
+	$("#mdpreparo").click( function() {
+		$("#modoprep").toggleClass("hide");
+	});
+	$("#mdpreparo1").click( function() {
+		$("#modoprep1").toggleClass("hide");
+	});
+	$("#mdpreparo2").click( function() {
+		$("#modoprep2").toggleClass("hide");
+	});
+	$("#mdpreparo3").click( function() {
+		$("#modoprep3").toggleClass("hide");
+	});
+	$("#mdpreparo4").click( function() {
+		$("#modoprep4").toggleClass("hide");
+	});
+	$("#mdpreparo5").click( function() {
+		$("#modoprep5").toggleClass("hide");
+	});	
+	$("#mdpreparo6").click( function() {
+		$("#modoprep6	").toggleClass("hide");
+	});	
+	$("#mdpreparo7").click( function() {
+		$("#modoprep7").toggleClass("hide");
+	});	
+	
 	/**
 	 * Aplica o Select2 nos selects
 	 */
@@ -195,7 +222,7 @@ $(document).ready(function() {
 	/**
 	 * Altera o layout em resoluções com larguras menores que 990px 
 	 */
-	if($(window).width() >= RESOLUCAO_MINIMA){
+	if($(window).width() <= RESOLUCAO_MAX){
 		document.onreadystatechange = function () {
 			if (document.readyState == "complete") {						
 				showItemListener();
