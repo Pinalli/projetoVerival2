@@ -2,15 +2,13 @@ package br.ages.crud.command;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.omg.CORBA.IdentifierHelper;
-
 import br.ages.crud.bo.FichaCompletaBO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.model.PerfilAcesso;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
 
-public class RemoveFichaCommandCommand implements Command{
+public class RemoveFichaCompletaCommand implements Command{
 	
 	private String proximo;
 
