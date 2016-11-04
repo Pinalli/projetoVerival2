@@ -37,8 +37,8 @@
 						<ul>
 							<li class="item1">Allesandro Medeiros</li>
 							<li class="item2">Felipe Nune</li>
-							<li class="item3">Guilherme PAris</li>
-							<li class="item4">Guilherme Kilp</li>
+							<li class="item3">Guilherme Paris</li>
+							<li class="item4">Guilherme Kilpp</li>
 							<li class="item5">Homero Santos</li>
 							<li class="item6">Iann Müller</li>
 							<li class="item7">João Lerina</li>
