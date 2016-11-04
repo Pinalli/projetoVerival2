@@ -12,7 +12,7 @@ $(document).ready(function() {
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
 		var textura = $('textarea[name="textura"]').val();
-		var sabor = $('textarea[name="sabor"]').val();;
+		var sabor = $('textarea[name="sabor"]').val();
 		var apresentacao = $('textarea[name="apresentacao"]').val();
 		var itens = [];
 		
