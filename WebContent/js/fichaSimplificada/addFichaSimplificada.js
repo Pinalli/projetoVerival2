@@ -56,5 +56,10 @@ $(document).ready(function() {
 		$("#modalErro").find('.modal-title').text(title);
 	  	$("#modalErro").find('#modal-descricao').text(text);
 	}
+	//limpar preview da imagem
+	$("#limparForm").click(function(){
+		$("#image_preview").css("display","none");
+		$("#errorMessage").css("display","none");
+	});
 	
 });
