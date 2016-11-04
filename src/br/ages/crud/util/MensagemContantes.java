@@ -93,18 +93,26 @@ public class MensagemContantes {
 	public static final String MSG_SUC_REMOVE_FICHA_SIMPLIFICADA = "Ficha técnica simplificada ? removida com sucesso!";
 	public static final String MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE = "Ficha técnica simplificada já existente";
 	public static final String MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS = "Dados da ficha técnica inválido ou inconsistentes";
-	public static final String MSG_ERR_CAMPO_NOME_FICHA_OBRIGATORIO = "Campo nome obrigatório!";
-	public static final String MSG_ERR_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO = "Campo rendimento obrigatório!";
-	public static final String MSG_ERR_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO = "Campo modo preparo obrigatório!";
-	public static final String MSG_ERR_CAMPO_MONTAGEM_FICHA_OBRIGATORIO = "Campo montagem obrigatório!";
-	public static final String MSG_ERR_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO = "Campo orientação e armazenamento obrigatório!";
-	public static final String MSG_ERR_REMOVE_FICHA_EM_PROJETO = "Esta Ficha já está em algum projeto e não pode ser removido!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_NOME_FICHA_OBRIGATORIO = "Campo nome obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO = "Campo rendimento obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO = "Campo modo preparo obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_MONTAGEM_FICHA_OBRIGATORIO = "Campo montagem obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO = "Campo orientação e armazenamento obrigatório!";
+	public static final String MSG_ERR_REMOVE_FICHA_SIMPLIFICADA_EM_PROJETO = "Esta Ficha já está em algum projeto e não pode ser removido!";
 	
 	//msgs da ficha técnica completa
 	public static final String MSG_SUC_CADASTRO_FICHA_COMPLETA = " Ficha técnica completa ? cadastrada com sucesso!";
+	public static final String MSG_SUC_REMOVE_FICHA_COMPLETA = "Ficha técnica completa ? removida com sucesso!";
+	public static final String MSG_ERR_FICHA_COMPLETA_JA_EXISTENTE = "Ficha técnica completa já existente";
 	public static final String MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS = "Dados da ficha técnica inválido ou inconsistentes";
-	public static final String MSG_ERRO_CAMPO_TEXTURA_FICHA_COMPLETA = "Campo textura obrigatório!";
-	public static final String MSG_ERRO_CAMPO_SABOR_FICHA_COMPLETA = "Campo sabor obrigatório!";
-	public static final String MSG_ERRO_CAMPO_APRESENTACAO_FICHA_COMPLETA = "Campo apresentação obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_NOME_FICHA_OBRIGATORIO = "Campo nome obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO = "Campo rendimento obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO = "Campo modo preparo obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_MONTAGEM_FICHA_OBRIGATORIO = "Campo montagem obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_ORIENTACAO_ARMAZENAMENTO = "Campo orientação e armazenamento obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_TEXTURA = "Campo textura obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_SABOR = "Campo sabor obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_APRESENTACAO = "Campo apresentação obrigatório!";
+	public static final String MSG_ERR_REMOVE_FICHA_COMPLETA_EM_PROJETO = "Esta Ficha já está em algum projeto e não pode ser removido!";
 	
 }

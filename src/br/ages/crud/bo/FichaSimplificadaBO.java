@@ -40,31 +40,31 @@ public class FichaSimplificadaBO {
             //Nome
             if (fichaSimplificada.getNome() == null || fichaSimplificada.getNome().equals("")) {
                 isValido = false;
-                msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_FICHA_OBRIGATORIO + "<br/>");
+                msg.append(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_NOME_FICHA_OBRIGATORIO + "<br/>");
             }
 
             //Rendimento
             if (fichaSimplificada.getRendimento() == null || fichaSimplificada.getRendimento().equals("")) {
                 isValido = false;
-                msg.append(MensagemContantes.MSG_ERR_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO + "<br/>");
+                msg.append(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO + "<br/>");
             }
 
             //Modo Preparo
             if (fichaSimplificada.getModoPreparo() == null || fichaSimplificada.getModoPreparo().equals("")) {
                 isValido = false;
-                msg.append(MensagemContantes.MSG_ERR_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO + "<br/>");
+                msg.append(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO + "<br/>");
             }
 
             //Montagem
             if (fichaSimplificada.getMontagem() == null || fichaSimplificada.getMontagem().equals("")) {
                 isValido = false;
-                msg.append(MensagemContantes.MSG_ERR_CAMPO_MONTAGEM_FICHA_OBRIGATORIO + "<br/>");
+                msg.append(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_MONTAGEM_FICHA_OBRIGATORIO + "<br/>");
             }
 
             //Orientação e armazenamento
             if (fichaSimplificada.getOrientacoesArmazenamento() == null || fichaSimplificada.getOrientacoesArmazenamento().equals("")) {
                 isValido = false;
-                msg.append(MensagemContantes.MSG_ERR_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO + "<br/>");
+                msg.append(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO + "<br/>");
             }
 
 
@@ -107,7 +107,7 @@ public class FichaSimplificadaBO {
             fichaSimplificadaDAO.removerFichaSimplificada(idFicha);
         } catch (PersistenciaException e) {
             e.printStackTrace();
-            throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_FICHA_EM_PROJETO);
+            throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_FICHA_SIMPLIFICADA_EM_PROJETO);
         }
     }
 

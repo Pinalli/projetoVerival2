@@ -40,49 +40,49 @@ public class FichaCompletaBO {
 			//Nome
 			if(fichaCompleta.getNome()==null || fichaCompleta.getNome().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_FICHA_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_NOME_FICHA_OBRIGATORIO + "<br/>");
 			}
 			
 			//Rendimento
 			if(fichaCompleta.getRendimento()==null || fichaCompleta.getRendimento().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO + "<br/>");
 			}
 			
 			//Modo Preparo
 			if(fichaCompleta.getModoPreparo()==null || fichaCompleta.getModoPreparo().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO + "<br/>");
 			}
 			
 			//Montagem
 			if(fichaCompleta.getMontagem()==null || fichaCompleta.getMontagem().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_MONTAGEM_FICHA_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_MONTAGEM_FICHA_OBRIGATORIO + "<br/>");
 			}
 			
 			//Orientação e armazenamento
 			if(fichaCompleta.getOrientacoesArmazenamento()==null || fichaCompleta.getOrientacoesArmazenamento().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_ORIENTACAO_ARMAZENAMENTO + "<br/>");
 			}
 			
 			//Textura
 			if(fichaCompleta.getTextura()==null || fichaCompleta.getTextura().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERRO_CAMPO_TEXTURA_FICHA_COMPLETA + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_TEXTURA + "<br/>");
 			}
 			
 			//Sabor
 			if(fichaCompleta.getSabor()==null || fichaCompleta.getSabor().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERRO_CAMPO_SABOR_FICHA_COMPLETA + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_SABOR + "<br/>");
 			}
 			
 			//Apresentação
 			if(fichaCompleta.getApresentacao()==null || fichaCompleta.getApresentacao().equals("")){
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERRO_CAMPO_APRESENTACAO_FICHA_COMPLETA + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_APRESENTACAO + "<br/>");
 			}
 			
 			
@@ -125,7 +125,7 @@ public class FichaCompletaBO {
 			fichaCompletaDAO.removerFichaCompleta(idFicha);
 		} catch (PersistenciaException e) {
 			e.printStackTrace();
-			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_FICHA_EM_PROJETO);
+			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_FICHA_COMPLETA_EM_PROJETO);
 		}
 	}
 	
