@@ -21,6 +21,7 @@ import java.util.List;
 public class FichaCompletaDAO {
 
     private List<Ficha> listarFichasCompleta;
+    private FichaCompletaItemDAO itemDAO;
 
 
     public int cadastrarFichaCompleta(Ficha fichaCompleta) throws SQLException, PersistenciaException {
@@ -31,19 +32,33 @@ public class FichaCompletaDAO {
 
             conexao = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
-            sql.append("INSERT INTO TB_FICHA (NOME, RENDIMENTO, FOTO, MODO_PREPARO, MONTAGEM, ORIENTACOES_ARMAZENAMENTO, ID_EMPRESA,TIPO_FICHA)");
-            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            sql.append("INSERT INTO TB_FICHA ("
+            		+ "ID_EMPRESA,"
+            		+ "NOME, "
+            		+ "RENDIMENTO, "
+            		+ "FOTO, "
+            		+ "MODO_PREPARO, "
+            		+ "MONTAGEM, "
+            		+ "ORIENTACOES_ARMAZENAMENTO, "
+            		+ "TIPO_FICHA,"
+            		+ "TEXTURA,"
+            		+ "SABOR,"
+            		+ "APRESENTACAO )");
+            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
-            statement.setString(1, fichaCompleta.getNome());
-            statement.setString(2, fichaCompleta.getRendimento());
-            statement.setString(3, fichaCompleta.getFoto());
-            statement.setString(4, fichaCompleta.getModoPreparo());
-            statement.setString(5, fichaCompleta.getMontagem());
-            statement.setString(6, fichaCompleta.getOrientacoesArmazenamento());
-            statement.setInt(7, fichaCompleta.getIdEmpresa());
+            statement.setInt(1, fichaCompleta.getIdEmpresa());
+            statement.setString(2, fichaCompleta.getNome());
+            statement.setString(3, fichaCompleta.getRendimento());
+            statement.setString(4, fichaCompleta.getFoto());
+            statement.setString(5, fichaCompleta.getModoPreparo());
+            statement.setString(6, fichaCompleta.getMontagem());
+            statement.setString(7, fichaCompleta.getOrientacoesArmazenamento());
             statement.setString(8, fichaCompleta.getTipoFicha());
+            statement.setString(9, fichaCompleta.getTextura());
+    		statement.setString(10,fichaCompleta.getSabor());
+			statement.setString(11,fichaCompleta.getApresentacao());
 
             statement.executeUpdate();
 
@@ -53,31 +68,15 @@ public class FichaCompletaDAO {
             }
 
             fichaCompleta.setIdFicha(idFichaCompleta);
+			List<FichaItem> itens = fichaCompleta.getItens();
 
-            StringBuilder sql2 = new StringBuilder();
-            for (FichaItem fichaItem : fichaCompleta.getItens()) {
-                sql2.append("INSERT INTO TB_FICHA_ITEM (ID_UNIDADE_MEDIDA, ID_MEDIDA_CASEIRA, ID_INGREDIENTE, ID_FICHA, QUANTIDADE_UNIDADE_MEDIDA,QUANTIDADE_MEDIDA_CASEIRA )");
-                sql2.append("VALUES (?, ?, ?, ?, ?, ?)");
+			for (int i = 0; i < itens.size(); i++) {
+				FichaItem item = itens.get(i);
+				item.setIdFicha(idFichaCompleta);
+				itemDAO.cadastrarFichaCompletaDAO(item);
+			}
 
-                PreparedStatement statement2 = conexao.prepareStatement(sql2.toString(), Statement.RETURN_GENERATED_KEYS);
-
-                statement2.setInt(1, fichaItem.getIdUnidadeMedida());
-                statement2.setInt(2, fichaItem.getIdMedidaCaseira());
-                statement2.setInt(3, fichaItem.getIdIngrediente());
-                statement2.setInt(4, idFichaCompleta);
-                statement2.setInt(5, fichaItem.getQuantidadeUnidadeMedida());
-                statement2.setInt(6, fichaItem.getQuantidadeMedidaCaseira());
-
-                statement2.executeUpdate();
-
-                ResultSet resultset2 = statement2.getGeneratedKeys();
-                int idFichaItem = 0;
-                if (resultset2.first()) {
-                    idFichaItem = resultset2.getInt(1);
-                }
-                fichaItem.setIdFicha(idFichaItem);
-            }
-            return idFichaCompleta;
+			return idFichaCompleta;
 
         } catch (ClassNotFoundException | SQLException e) {
         	throw new PersistenciaException(e.getMessage());
@@ -96,7 +95,18 @@ public class FichaCompletaDAO {
             conexao = ConexaoUtil.getConexao();
 
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT ID_FICHA, NOME, RENDIMENTO, FOTO, MODO_PREPARO, MONTAGEM, ORIENTACOES_ARMAZENAMENTO, ID_EMPRESA,TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 's' ");
+            sql.append("SELECT ID_FICHA, "
+            		+ "NOME, "
+            		+ "RENDIMENTO, "
+            		+ "FOTO, "
+            		+ "MODO_PREPARO, "
+            		+ "MONTAGEM, "
+            		+ "ORIENTACOES_ARMAZENAMENTO, "
+            		+ "ID_EMPRESA, "
+            		+ "TIPO_FICHA, "
+            		+ "TEXTURA, "
+            		+ "SABOR, "
+            		+ "APRESENTACAO FROM TB_FICHA WHERE TIPO_FICHA = 'c' ");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
             ResultSet resultset = statement.executeQuery();
@@ -111,6 +121,9 @@ public class FichaCompletaDAO {
                 dto.setMontagem(resultset.getString("MONTAGEM"));
                 dto.setOrientacoesArmazenamento(resultset.getString("ORIENTACOES_ARMAZENAMENTO"));
                 dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
+                dto.setTextura(resultset.getString("TEXTURA"));
+                dto.setSabor(resultset.getString("SABOR"));
+                dto.setApresentacao(resultset.getString("APRESENTACAO"));
 
                 listarFichasCompleta.add(dto);
             }
@@ -130,13 +143,47 @@ public class FichaCompletaDAO {
         try {
             conexao = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
-            int id = fichaCompleta.getIdFicha();
+            int idFichaCompleta = fichaCompleta.getIdFicha();
 
             sql.append(
-                    "UPDATE TB_FICHA_Completa SET NOME = ?, RENDIMENTO = ?, FOTO = ?, MODO_PREPARO = ?, MONTAGEM = ?, ORIENTACOES_ARMAZENAMENTO = ?, TIPO_FICHA = ? WHERE ID_USUARIO = "
-                            + id + ";");
+                    "UPDATE TB_FICHA SET "
+                    + "NOME = ?, "
+                    + "RENDIMENTO = ?, "
+                    + "FOTO = ?, "
+                    + "MODO_PREPARO = ?, "
+                    + "MONTAGEM = ?, "
+                    + "ORIENTACOES_ARMAZENAMENTO = ?, "
+                    + "TEXTURA = ?"
+                    + "SABOR = ?"
+                    + "APRESENTACAO = ?"
+                    + "WHERE ID_USUARIO = "+ idFichaCompleta 
+                    + " AND TIPO_FICHA = 'c'");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
+            statement.setString(1, fichaCompleta.getNome());
+            statement.setString(2, fichaCompleta.getRendimento());
+            statement.setString(3, fichaCompleta.getFoto());
+            statement.setString(4, fichaCompleta.getModoPreparo());
+            statement.setString(5, fichaCompleta.getMontagem());
+            statement.setString(6, fichaCompleta.getOrientacoesArmazenamento());
+            statement.setString(7, fichaCompleta.getTextura());
+            statement.setString(8, fichaCompleta.getSabor());
+            statement.setString(9, fichaCompleta.getApresentacao());
+            
+			List<FichaItem> itens = fichaCompleta.getItens();
+
+			for (int i = 0; i < itens.size(); i++) {
+				FichaItem item = itens.get(i);
+				item.setIdFicha(idFichaCompleta);
+				if (item.getOperacao().equals("i")) {
+					itemDAO.cadastrarFichaCompletaDAO(item);
+				} else {
+					itemDAO.editarFichaCompletaItem(item);
+				}
+			}
+
+			okei = statement.execute();
+            
         } catch (ClassNotFoundException | SQLException e) {
             throw new PersistenciaException(e);
         } finally {
@@ -186,4 +233,84 @@ public class FichaCompletaDAO {
         }
         return removidoOK;
     }
+    
+    public Ficha buscarIdFicha(int id) throws PersistenciaException, SQLException {
+		Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT ID_FICHA,"
+					+ " NOME,"
+					+ " RENDIMENTO,"
+					+ " FOTO, MODO_PREPARO,"
+					+ " MONTAGEM,"
+					+ " ORIENTACOES_ARMAZENAMENTO,"
+					+ " ID_EMPRESA,"
+					+  "TEXTURA"
+					+  "SABOR"
+					+  "APRESENTACAO"
+					+ " TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 'c' AND ID_FICHA = "+id);
+
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultset = statement.executeQuery();
+			Ficha dto = null;
+			if (resultset.next()) {
+				dto = new Ficha();
+				dto.setIdFicha(resultset.getInt("ID_FICHA"));
+				dto.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
+				dto.setNome(resultset.getString("NOME"));
+				dto.setRendimento(resultset.getString("RENDIMENTO"));
+				dto.setFoto(resultset.getString("FOTO"));
+				dto.setModoPreparo(resultset.getString("MODO_PREPARO"));
+				dto.setMontagem(resultset.getString("MONTAGEM"));
+				dto.setOrientacoesArmazenamento(resultset.getString("ORIENTACOES_ARMAZENAMENTO"));
+				dto.setTextura(resultset.getString("TEXTURA"));
+				dto.setSabor(resultset.getString("SABOR"));
+				dto.setApresentacao(resultset.getString("APRESENTACAO"));
+				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
+			}		
+
+			List<FichaItem> itens = itemDAO.listaFichaCompletaItem(id);
+			dto.setItens(itens);
+			
+			return dto;
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+
+		} finally {
+			conexao.close();
+		}
+
+	}
+
+	public int getProximoIdFicha() throws PersistenciaException, SQLException {
+
+			          int idRetorno = 0;
+			          Connection conexao = null;
+			          try {
+			              conexao = ConexaoUtil.getConexao();
+						  String table = "TB_FICHA";
+			              StringBuilder sql = new StringBuilder();
+			              sql.append("SHOW TABLE STATUS LIKE '"+table+"'");
+			              PreparedStatement statement = conexao.prepareStatement(sql.toString());
+						  ResultSet resultset = statement.executeQuery();
+
+			              while (resultset.next()) {
+			                  idRetorno = Integer.valueOf(resultset.getString("AUTO_INCREMENT"));
+			              }
+			          } catch (ClassNotFoundException | SQLException e) {
+			              throw new PersistenciaException(e);
+			          } finally {
+			              try {
+			                  conexao.close();
+			              } catch (Exception e) {
+			                  e.printStackTrace();
+			              }
+			          }
+
+			          return idRetorno;
+			      }
+
 }

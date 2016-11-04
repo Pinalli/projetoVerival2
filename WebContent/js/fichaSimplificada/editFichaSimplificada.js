@@ -37,7 +37,6 @@ $(document).ready(function() {
 		};
 		
 		
-		
 		$.post( "ajax?acao=addFichaSimplificadaAjaxCommand", data, function(data) {			
 			var json = jQuery.parseJSON(data);
 			console.log(json);

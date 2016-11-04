@@ -9,6 +9,11 @@ public class FichaItem {
 	private int idFicha;
 	private int quantidadeUnidadeMedida;
 	private int quantidadeMedidaCaseira;
+	
+	private String ingrediente;
+	private String unidadeMedida;
+	private String unidadeMedidaCaseira;
+	
 	// Item da Ficha Completa
 	private double perCapita;
 	private double valorUnit;
@@ -99,7 +104,28 @@ public class FichaItem {
 	public void setOperacao(String operacao) {
 		this.operacao = operacao;
 	}
-	
-	
 
+	public String getIngrediente() {
+		return ingrediente;
+	}
+
+	public void setIngrediente(String ingrediente) {
+		this.ingrediente = ingrediente;
+	}
+
+	public String getUnidadeMedida() {
+		return unidadeMedida;
+	}
+
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
+
+	public String getUnidadeMedidaCaseira() {
+		return unidadeMedidaCaseira;
+	}
+
+	public void setUnidadeMedidaCaseira(String unidadeMedidaCaseira) {
+		this.unidadeMedidaCaseira = unidadeMedidaCaseira;
+	}
 }

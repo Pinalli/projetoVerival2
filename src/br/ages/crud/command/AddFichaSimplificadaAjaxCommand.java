@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
-
 import com.google.gson.Gson;
-
 import br.ages.crud.bo.FichaSimplificadaBO;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;
@@ -19,8 +15,7 @@ import br.ages.crud.util.MensagemContantes;
 public class AddFichaSimplificadaAjaxCommand implements Command {
 
 	Logger logger = Logger.getLogger("AddFichaSimplificadaAjaxCommand");
-	Gson gson = new Gson();
-	Map<String,String> msg = new HashMap<String, String>();
+	Gson gson = new Gson();	
 	private String proxima;
 
 	private FichaSimplificadaBO fichaSimplificadaBO;
@@ -29,6 +24,7 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 	public String execute(HttpServletRequest request) {
 		fichaSimplificadaBO = new FichaSimplificadaBO();
 		String json = "";
+		Map<String,String> msg = new HashMap<String, String>();
 
 		try {
 			String jsonItens = request.getParameter("itens");
@@ -53,8 +49,7 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 			ficha.setItens(listaFichaItens);
 			
 			if(fichaSimplificadaBO.validarFichaSimplificada(ficha)){
-				fichaSimplificadaBO.cadastrarFichaSimplificada(ficha);
-				
+				fichaSimplificadaBO.cadastrarFichaSimplificada(ficha);				
 				msg.put("mensagem", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", ficha.getNome()));
 			    msg.put("dados", "");
 			    msg.put("proxima", "main?acao=listFichaSimplificada");
@@ -66,13 +61,12 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 			    json = gson.toJson(msg);
 			}
 			return json;
-		} catch (Exception e) {			
+		} catch (Exception e) {
 		    msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
 		    msg.put("erro", e.getMessage());
 		    msg.put("proxima", "main?acao=telaFichaSimplificada");
 			json = gson.toJson(msg);
+			return json;
 		}
-
-		return json;
 	}
 }

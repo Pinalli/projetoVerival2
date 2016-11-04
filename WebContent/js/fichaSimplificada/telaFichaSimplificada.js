@@ -3,16 +3,25 @@ $(document).ready(function() {
 	var qntIngredientes = 2;
 		
 	setSelect2();
+	
+	/**
+	 * Magic. Do not touch.
+	 */
 
 	/**
 	 * Aplica o Select2 nos selects
 	 */
-	function setSelect2() {
-		
+	function setSelect2() {		
 		$('.selectBatata').each(function(i, obj) {
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				if (obj.id == 'select-ingredientes') {
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
 					$(this).select2({
+						data: data,
 						 ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaIngredienteDescricaoAjax",
 							    method: "GET",
@@ -21,6 +30,7 @@ $(document).ready(function() {
 							    },
 							    processResults: function (data, params) {
 							    	var select2Data = [];
+							    	//select2Data.push({'id':00, 'text':'batata'});
 							    	var json = jQuery.parseJSON(data);
 							    	for(var i=0; i<json.length; i++){
 										var obj = {'id':json[i].id, 'text':json[i].descricao}
@@ -35,8 +45,14 @@ $(document).ready(function() {
 					      
 					});
 				} else if (obj.id == 'select-unidade-medida') {
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
 					$(this).select2({
-						 ajax: {							 
+						data : data, 
+						ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaUnidadeAjax",
 							    method: "GET",
 							    data: function (params) {	
@@ -58,8 +74,14 @@ $(document).ready(function() {
 					      
 					});
 				} else if (obj.id == 'select-medida-caseira') {
-					$(this).select2({
-						 ajax: {							 
+					var data = [];
+					//Usado em views de edição, verifica se contem os atributos com os dados cadastrados
+					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
+						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
+					}
+					$(this).select2({						
+						data:data,
+						ajax: {							 
 							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
 							    method: "GET",
 							    data: function (params) {
@@ -179,47 +201,43 @@ $(document).ready(function() {
 							$(this).toggleClass("hide");
 						});
 				});				
-		
+
+				//obtem inputs
+				var selectIngredientes = $('#select-ingredientes', $(this).closest('.table-row'));
+				var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
+				var inputQntUnidadeMedida = $('#qnt-unidade-medida', $(this).closest('.table-row'));
+
 				//Define texto do botao
-				var select = $('#select-ingredientes', $(this).closest('.table-row')); 
-				var nome = $('option:selected', select).text();
+				var nome = $('option:selected', selectIngredientes).text();
 				if(nome.length > 0 && typeof nome !== 'undefined'){
 					$(this).html(nome);
 				}
-				var selectUni = $('#select-unidade-medida', $(this).closest('.table-row')); 
-				var selectQtn = $('#qnt-unidade-medida', $(this).closest('.table-row'));
 				
 				//Atualiza texto do botao
-				select.on('change', function(){
-					var qntUnidadeMedidaVal = $('#qnt-unidade-medida', $(this).closest('.table-row')).val();					
-					var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
-					var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
-					var selectIngredientesText = $('option:selected', select).text();
-					
-					var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
-					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				selectIngredientes.on('change', function(){
+					updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes);
 				});
-				selectUni.on('change', function(){
-					var qntUnidadeMedidaVal = $('#qnt-unidade-medida', $(this).closest('.table-row')).val();					
-					var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
-					var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
-					var selectIngredientesText = $('option:selected', select).text();
-					
-					var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
-					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				selectUnidadeMedida.on('change', function(){
+					updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes);
 				});
-				selectQtn.on('keyup', function(){
-					var qntUnidadeMedidaVal = $('#qnt-unidade-medida', $(this).closest('.table-row')).val();					
-					var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
-					var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
-					var selectIngredientesText = $('option:selected', select).text();
-						
-					var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
-					$('.show-item-btn', $(this).closest('.table-row')).html(nome);
+				inputQntUnidadeMedida.on('keyup', function(){
+					updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes);
 				});
 			}
 		});
-	}	
+	}
+	
+	/**
+	 * Atualiza texto do botao de resumo
+	 */
+	function updateSumaryText(inputQntUnidadeMedida, selectUnidadeMedida, selectIngredientes){
+		var qntUnidadeMedidaVal = inputQntUnidadeMedida.val();										
+		var selectUnidadeMedidaVal = $('option:selected', selectUnidadeMedida).text();
+		var selectIngredientesText = $('option:selected', selectIngredientes).text();
+			
+		var nome = qntUnidadeMedidaVal + ' ' + selectUnidadeMedidaVal + ' de ' + selectIngredientesText;
+		$('.show-item-btn', inputQntUnidadeMedida.closest('.table-row')).html(nome);
+	}
 
 	/**
 	 * Altera o layout em resoluções com larguras menores que 990px 
@@ -287,4 +305,7 @@ $(document).ready(function() {
 		$('#previewing').attr('height', '300px');
 	};
 	
+	/**
+	 * Did you touched?
+	 */
 });

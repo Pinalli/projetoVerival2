@@ -75,10 +75,10 @@ $( document ).ready(function() {
 	  	var fichaS = botao.data('fichaS');
 		var id = botao.data('id');
 		
-	  	$(this).find('.modal-title').text('Excluir Ficha Simplificada');
-	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha simplificada(' + fichaS + ')?');
+	  	$(this).find('.modal-title').text('Excluir Ficha Completa');
+	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha Completa(' + fichaS + ')?');
 	  	
-	  	$('#formExcluir').attr('action', "main?acao=removerFichaSimplificada&id_ficha_simplificada=" + id);
+	  	$('#formExcluir').attr('action', "main?acao=removerFichaCompleta&id_ficha_Completa=" + id);
 	});
 	
 	$('#modalEditar').on('show.bs.modal', function (event) {
@@ -86,10 +86,10 @@ $( document ).ready(function() {
 	  	var fichaS = botao.data('fichas');
 	  	var id = botao.data('id');
 	  	
-	  	$(this).find('.modal-title').text('Editar Ficha Simplificada');
-	  	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha simplificada (' + fichaS + ') ?');
+	  	$(this).find('.modal-title').text('Editar Ficha Completa');
+	  	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha Completa (' + fichaS + ') ?');
 	  	
-	  	$('#formEditar').attr('action', "main?acao=telaFichaSimplificada&id_ficha_simplificada=" + id + "&isEdit=true");
+	  	$('#formEditar').attr('action', "main?acao=telaFichaCompleta&id_ficha_Completa=" + id + "&isEdit=true");
 	});
 		
 	$('#modalErro').on('show.bs.modal', function (event) {

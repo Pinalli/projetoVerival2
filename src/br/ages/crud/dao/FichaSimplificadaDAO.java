@@ -143,16 +143,15 @@ public class FichaSimplificadaDAO {
 			int idFichaSimplificada = fichaSimplificada.getIdFicha();
 
 			sql.append(
-					"UPDATE TB_FICHA_SIMPLIFICADA SET"
+					"UPDATE TB_FICHA SET"
 					+ " NOME = ?,"
 					+ " RENDIMENTO = ?,"
 					+ " FOTO = ?,"
 					+ " MODO_PREPARO = ?,"
 					+ " MONTAGEM = ?,"
 					+ " ORIENTACOES_ARMAZENAMENTO = ?"
-					+ " WHERE ID_FICHA = "
-				    + idFichaSimplificada 
-				    +" AND TIPO_FICHA = 's'");
+					+ " WHERE ID_FICHA = "+ idFichaSimplificada 
+				    + " AND TIPO_FICHA = 's'");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, fichaSimplificada.getNome());
@@ -250,8 +249,8 @@ public class FichaSimplificadaDAO {
 				dto.setModoPreparo(resultset.getString("MODO_PREPARO"));
 				dto.setMontagem(resultset.getString("MONTAGEM"));
 				dto.setOrientacoesArmazenamento(resultset.getString("ORIENTACOES_ARMAZENAMENTO"));
-				dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
-			}
+				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
+			}		
 
 			List<FichaItem> itens = itemDAO.listaFichaSimplificadaItem(id);
 			dto.setItens(itens);
@@ -280,7 +279,7 @@ public class FichaSimplificadaDAO {
 						  ResultSet resultset = statement.executeQuery();
 
 			              while (resultset.next()) {
-			                  idRetorno = Integer.valueOf(resultset.getString("Auto_increment"));
+			                  idRetorno = Integer.valueOf(resultset.getString("AUTO_INCREMENT"));
 			              }
 			          } catch (ClassNotFoundException | SQLException e) {
 			              throw new PersistenciaException(e);

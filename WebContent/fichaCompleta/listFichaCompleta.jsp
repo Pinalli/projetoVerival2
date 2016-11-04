@@ -3,11 +3,11 @@
 <jsp:include page="../template/head.jsp"></jsp:include>
 
 <!-- MODAL / POPUP -->
-<jsp:include page="../template/modalFichaSimplificada.jsp"></jsp:include>
+<jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
  		
 <div class="panel panel-success">
    		
-	<div class="panel-heading text-center">Lista de Fichas Simplificadas</div>
+	<div class="panel-heading text-center">Lista de Fichas Completas</div>
                
        <div class="panel-body">
        
@@ -25,7 +25,7 @@
             </thead>
          <tbody> 
             	<%
-					List<Ficha> listaFicha = (List<Ficha>) request.getAttribute("listaFichaSimplificada");
+					List<Ficha> listaFicha = (List<Ficha>) request.getAttribute("listaFichaCompleta");
 					for (Ficha ficha : listaFicha) {
 				%>
 				          

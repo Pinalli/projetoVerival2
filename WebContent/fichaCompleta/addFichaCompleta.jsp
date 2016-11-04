@@ -1,73 +1,17 @@
+
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 <jsp:include page="/template/msg.jsp"></jsp:include>
-<jsp:include page="/template/modalFichaSimplificada.jsp"></jsp:include>
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
-<style>
-.horizontal-divider {
-	height: 1px;
-	float: left;
-	width: 100%;
-	margin: 25px 0;
-	background: #CCC;
-}
-
-.horizontal-divider-sm {
-	height: 1px;
-	float: left;
-	width: 100%;
-	margin: 5px 0;
-	background: #CCC;
-}
-
-.select2-selection--single {
-	display: block !important;
-	width: 100% !important;
-	height: 34px !important;
-	padding: 6px 12px !important;
-	font-size: 14px !important;
-	line-height: 20px !important;
-	color: #555 !important;
-	background-color: #fbfbfb !important;
-	background-image: none !important;
-	border: 1px solid #ccc !important;
-	border-radius: 4px !important;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
-	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
-		ease-in-out .15s !important;
-	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
-		.15s !important;
-	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
-		!important;
-}
-
-.box-transparent {
-		    background-color:transparent;
-		    color:black;
-		    border: none;
-		    outline:none;
-		    height:30px;
-		    font-weight:bold;
-		    transition:height 1s;
-		    -webkit-transition:height 1s;
-		}
-
-.select2-container--default .select2-selection--single .select2-selection__rendered
-	{
-	line-height: 20px !important;
-}
-</style>
 </head>
 <body>
 
 	<div class="container">
-
 		<article>
-			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaSimplificada">
+			<form name="addFichaTecnicaCompleta" method="post" action="main?acao=addFichaCompleta">
 				<div class="form-group col-md-4 col-md-offset-4">
 					<input type="text" name="nome" id="nome"
 						class="form-control text-center box-transparent" placeholder="Digite o nome da receita"/>
@@ -81,7 +25,7 @@
 				</div>
 			</div>
 				<div class="form-group col-md-12" >
-					<div id="image_preview" style="display:none">
+					<div id="image_preview">
 					<img id="previewing" src="" class="img-responsive img-thumbnail center-block"/>
 					</div>
 				</div>
@@ -133,7 +77,7 @@
 					</div>
 				</div>
 	
-				<div class="row" id="table-rows">
+					<div class="row" id="table-rows">
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
 					    
 					    <div class="panel panel-info hidden-md hidden-lg">
@@ -172,7 +116,7 @@
 				
 					</div>
 				</div>
-									
+			
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-2 col-md-offset-8">
@@ -212,6 +156,30 @@
 					</div>
 				</div>
 				<div class="row">
+					<div class="col-md-9 col-md-offset-1">
+						<div class="form-group">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12">Textura</label>
+							<textarea rows="10" cols="" class="form-control" name="textura"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9 col-md-offset-1">
+						<div class="form-group">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12">Sabor</label>
+							<textarea rows="10" cols="" class="form-control" name="sabor"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9 col-md-offset-1">
+						<div class="form-group">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12">Apresentação</label>
+							<textarea rows="10" cols="" class="form-control" name="apresentacao"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 				</div>
 				<div class="row">
@@ -223,15 +191,16 @@
 								class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
 						</div>
 					</div>
+				</div>
 			</form>
 
 		</article>
 
-		<!--footer>Ficha Técnica Simplificada</footer-->
+		<!--footer>Ficha Técnica Completa</footer-->
 	</div>
 </body>
-<script src="./js/fichaSimplificada/telaFichaSimplificada.js"></script>
-<script src="./js/fichaSimplificada/addFichaSimplificada.js"></script>
+<script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
+<script src="./js/fichaCompleta/addFichaCompleta.js"></script>
 
 <script type="text/javascript">
 	function limitText(limitField, limitNum) {

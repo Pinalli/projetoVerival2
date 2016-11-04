@@ -50,7 +50,7 @@ public class AjaxServlet extends HttpServlet {
 		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
 		
 		// COMANDOS DE FICHA TÉCNICA SIMPLIFICADA
-		comandos.put("addFichaTecnicaSimplificadaAjax", new AddFichaSimplificadaAjaxCommand());
+		comandos.put("addFichaSimplificadaAjaxCommand", new AddFichaSimplificadaAjaxCommand());
 		
 		//COMANDOS DE FICHA TÉCNICA COMPLETA
 		comandos.put("addFichaCompletaAjaxCommand", new AddFichaCompletaAjaxCommand());
