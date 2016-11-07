@@ -1,8 +1,10 @@
 $(document).ready(function() {
-	$('form[name="addFichaTecnicaSimples"]').submit(function(event){
+	$('form[name="editFichaTecnicaSimples"]').submit(function(event){
 		event.preventDefault();
 		add($(this));
 	});
+
+	//console.log("edit");
 	
 	function add(form){
 		var nome = $('input[name="nome"]').val();
@@ -14,18 +16,22 @@ $(document).ready(function() {
 		var itens = [];
 		
 		$(".table-row").each(function(){
+			console.log($("#operacao"));
 			var item = {
-					idFichaItem : null,
-					idFicha : null,
+					idFichaItem : $("#idFichaItem").val(),
+					idFicha : $("#idFicha").val(),
 					idIngrediente : $('select[name="select-ingredientes"]').val(),
 					quantidadeUnidadeMedida : $('input[name="qnt-unidade-medida"]').val(),
 					idUnidadeMedida : $('select[name="select-unidade-medida"]').val(),
 					qntMedidaCaseira : $('input[name="qnt-medida-caseira"]').val(),
 					idMedidaCaseira : $('select[name="select-medida-caseira"]').val(),
+					operacao : $("#operacao").val(),
 			};
 			itens.push(item);
 		});
 		
+		console.log(itens);
+		/*
 		var data = {
 			nome:nome,
 			rendimento:rendimento,
@@ -48,6 +54,7 @@ $(document).ready(function() {
 		}).fail(function() {
 			showModalErro("Erro ao salvar ficha simplificada", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
 		});
+		*/
 	}
 
 	function showModalErro(title, text){

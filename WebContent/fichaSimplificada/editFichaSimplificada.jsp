@@ -15,7 +15,7 @@
 
 	<div class="container">
 		<article>
-			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaSimplificada">
+			<form name="editFichaTecnicaSimples" method="post" action="main?acao=editFichaSimplificada">
 				<input type="hidden" name="id" value="<%=ficha.getIdFicha()%>"/>
 				
 				<div class="form-group col-md-4 col-md-offset-4">
@@ -83,9 +83,6 @@
 					</div>
 				</div>
 	
-	
-		
-	
 				<div class="row" id="table-rows">
 					<% 
 						for(int i = 0; i < ficha.getItens().size(); i++) {
@@ -93,7 +90,10 @@
 					%>
 													
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
-					    
+						<input type="hidden" name="idFicha" id="idFicha" value="<%= item.getIdFicha() %>"/>
+						<input type="hidden" name="idFicha" id="idFichaItem" value="<%= item.getIdFichaItem() %>"/>
+					    <input type="hidden" name="operacao" id="operacao" value />
+					    <input type="hidden" name="ehnovo" id="ehnovo" value="nao"/>
 					    <div class="panel panel-info hidden-md hidden-lg">
 						  <div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 						</div>
@@ -124,7 +124,7 @@
 								<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
 								<input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt" min="0.1" max="100"
 									step="0.1" name="qnt-medida-caseira" onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
-									value="<%= item.getQuantidadeMedidaCaseira()%>">
+									value="<%= item.getQuantidadeMedidaCaseira() %>">
 							</div>
 							<div class="form-group col-md-2 col-xs-8">
 								<label for="select-medida-caseira" class="hidden-md hidden-lg">Medida Caseira</label> 
@@ -198,7 +198,7 @@
 		<!--footer>Ficha Técnica Simplificada</footer-->
 	</div>
 </body>
-<script src="./js/fichaSimplificada/telaFichaSimplificada.js"></script>
+<script src="./js/fichaSimplificada/telaEditFichaSimplificada.js"></script>
 <script src="./js/fichaSimplificada/editFichaSimplificada.js"></script>
 
 <script type="text/javascript">
@@ -208,6 +208,5 @@
 		}
 	}
 </script>
-
 
 <jsp:include page="/template/foot.jsp"></jsp:include>
