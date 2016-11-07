@@ -20,7 +20,7 @@ $(document).ready(function() {
 					idIngrediente : $('select[name="select-ingredientes"]').val(),
 					quantidadeUnidadeMedida : $('input[name="qnt-unidade-medida"]').val(),
 					idUnidadeMedida : $('select[name="select-unidade-medida"]').val(),
-					qntMedidaCaseira : $('input[name="qnt-medida-caseira"]').val(),
+					quantidadeMedidaCaseira : $('input[name="qnt-medida-caseira"]').val(),
 					idMedidaCaseira : $('select[name="select-medida-caseira"]').val(),
 			};
 			itens.push(item);
