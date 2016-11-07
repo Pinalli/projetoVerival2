@@ -190,22 +190,14 @@ public class FichaSimplificadaDAO {
 		try {
 
 			conexao = ConexaoUtil.getConexao();
+					
+			// delete TB_FICHA
 			StringBuilder sql = new StringBuilder();
-
-			// delete TB_FICHA_ITEM
-			sql.append("DELETE FROM TB_FICHA_ITEM WHERE ID_FICHA = ?");
+			sql.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ? AND  TIPO_FICHA = 's' ");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
 			statement.setInt(1, idFicha);
 			statement.execute();
-
-			// delete TB_FICHA
-			StringBuilder sql2 = new StringBuilder();
-			sql2.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ? AND  TIPO_FICHA = 's' ");
-			PreparedStatement statement2 = conexao.prepareStatement(sql2.toString());
-
-			statement2.setInt(1, idFicha);
-			statement2.execute();
 
 			removidoOK = true;
 
