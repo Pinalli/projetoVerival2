@@ -80,6 +80,8 @@ public class MainServlet extends HttpServlet {
 		
 		// COMANDOS DA FICHA TECNICA COMPLETA
 		comandos.put("telaFichaCompleta", new CreateScreenFichaCompletaCommand());
+		comandos.put("listFichaCompleta", new ListFichaCompletaCommand());
+		comandos.put("removerFichaCompleta", new RemoveFichaCompletaCommand());
 	}
 
 	@Override

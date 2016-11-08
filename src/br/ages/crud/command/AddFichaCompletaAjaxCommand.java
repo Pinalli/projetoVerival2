@@ -55,7 +55,7 @@ public class AddFichaCompletaAjaxCommand implements Command {
 				fichaCompletaBO.cadastrarFichaCompleta(ficha);
 				msg.put("mensagem", MensagemContantes.MSG_SUC_CADASTRO_FICHA_COMPLETA.replace("?", ficha.getNome()));
 				msg.put("dados", "");
-				msg.put("proxima", "main?acao=telaFichaCompleta");
+				msg.put("proxima", "main?acao=listFichaCompleta");
 				json = gson.toJson(msg);
 			}else{
 				msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);

@@ -13,7 +13,7 @@ import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.ConexaoUtil;
 
 public class FichaCompletaItemDAO {
-	
+
 	public List<FichaItem> listaFichaCompletaItem(int idFichaCompleta) throws PersistenciaException, SQLException {
 		Connection conexao = null;
 		List<FichaItem> itens = new ArrayList<>();
@@ -141,7 +141,7 @@ public class FichaCompletaItemDAO {
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e.getMessage());
 			// throw new
-			// PersistenciaException(MensagemContantes.MSG_ERR_FICHA_COMPLETA_JA_EXISTENTE.replace("?",
+			// PersistenciaException(MensagemContantes.MSG_ERR_FICHA_Completa_JA_EXISTENTE.replace("?",
 			// fichaCompleta.getNome()));
 		} finally {
 			conexao.close();

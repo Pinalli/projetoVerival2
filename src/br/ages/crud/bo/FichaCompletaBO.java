@@ -129,4 +129,17 @@ public class FichaCompletaBO {
 		}
 	}
 	
+	//Buscar id ficha
+    public Ficha buscaIdFicha(int id) throws PersistenciaException, SQLException {
+        return fichaCompletaDAO.buscarIdFicha(id);
+    }
+
+    public int getProximoIdFicha() throws NegocioException, SQLException, PersistenciaException {
+        try {
+            return fichaCompletaDAO.getProximoIdFicha();
+        } catch (PersistenciaException | SQLException e) {
+            throw new NegocioException(e);
+        }
+    }
+	
 }
