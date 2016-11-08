@@ -17,11 +17,11 @@ $(document).ready(function() {
 			var item = {
 					idFichaItem : null,
 					idFicha : null,
-					idIngrediente : $('select[name="select-ingredientes"]').val(),
-					quantidadeUnidadeMedida : $('input[name="qnt-unidade-medida"]').val(),
-					idUnidadeMedida : $('select[name="select-unidade-medida"]').val(),
-					quantidadeMedidaCaseira : $('input[name="qnt-medida-caseira"]').val(),
-					idMedidaCaseira : $('select[name="select-medida-caseira"]').val(),
+					idIngrediente : $(this).find('select[name="select-ingredientes"]').val(),
+					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
+					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
+					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
+					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
 			};
 			itens.push(item);
 		});
@@ -37,10 +37,10 @@ $(document).ready(function() {
 		};
 		
 		
-		
-		$.post( "ajax?acao=addFichaSimplificadaAjaxCommand", data, function(data) {			
+		var action = $("#addFichaTecnicaSimplesForm").attr('action');
+		$.post(action, data, function(data) {
+		//$.post( "ajax?acao=addFichaSimplificadaAjaxCommand", data, function(data) {
 			var json = jQuery.parseJSON(data);
-			console.log(json);
 			if(json.erro){
 				showModalErro("Erro ao salvar ficha simplificada", json.mensagem);			
 			}else{

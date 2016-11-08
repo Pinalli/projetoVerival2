@@ -3,8 +3,6 @@ $(document).ready(function() {
 		event.preventDefault();
 		add($(this));
 	});
-
-	//console.log("edit");
 	
 	function add(form){
 		var nome = $('input[name="nome"]').val();
@@ -16,22 +14,21 @@ $(document).ready(function() {
 		var itens = [];
 		
 		$(".table-row").each(function(){
-			console.log($("#operacao"));
 			var item = {
-					idFichaItem : $("#idFichaItem").val(),
-					idFicha : $("#idFicha").val(),
-					idIngrediente : $('select[name="select-ingredientes"]').val(),
-					quantidadeUnidadeMedida : $('input[name="qnt-unidade-medida"]').val(),
-					idUnidadeMedida : $('select[name="select-unidade-medida"]').val(),
-					qntMedidaCaseira : $('input[name="qnt-medida-caseira"]').val(),
-					idMedidaCaseira : $('select[name="select-medida-caseira"]').val(),
-					operacao : $("#operacao").val(),
+					idFichaItem : $(this).find("#idFichaItem").val(),
+					idFicha : $(this).find("#idFicha").val(),
+					idIngrediente : $(this).find('select[name="select-ingredientes"]').val(),
+					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
+					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
+					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
+					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
+					operacao : $(this).find("#operacao").val(),
 			};
 			itens.push(item);
 		});
 		
 		console.log(itens);
-		/*
+		
 		var data = {
 			nome:nome,
 			rendimento:rendimento,
@@ -41,7 +38,6 @@ $(document).ready(function() {
 			orientacoesArmazenamento:orientecoesArmazenamento,
 			itens:JSON.stringify(itens)
 		};
-		
 		
 		$.post( "ajax?acao=addFichaSimplificadaAjaxCommand", data, function(data) {			
 			var json = jQuery.parseJSON(data);
@@ -54,7 +50,7 @@ $(document).ready(function() {
 		}).fail(function() {
 			showModalErro("Erro ao salvar ficha simplificada", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
 		});
-		*/
+		
 	}
 
 	function showModalErro(title, text){

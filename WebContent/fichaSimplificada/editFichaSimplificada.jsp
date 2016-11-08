@@ -15,7 +15,7 @@
 
 	<div class="container">
 		<article>
-			<form name="editFichaTecnicaSimples" method="post" action="main?acao=editFichaSimplificada">
+			<form name="editFichaTecnicaSimples" id="editFichaTecnicaSimplesForm" method="post" action="main?acao=editFichaSimplificada">
 				<input type="hidden" name="id" value="<%=ficha.getIdFicha()%>"/>
 				
 				<div class="form-group col-md-4 col-md-offset-4">
@@ -92,8 +92,7 @@
 					<div class="table-row" style="width: 100%; float: left; margin-bottom:5px;">
 						<input type="hidden" name="idFicha" id="idFicha" value="<%= item.getIdFicha() %>"/>
 						<input type="hidden" name="idFicha" id="idFichaItem" value="<%= item.getIdFichaItem() %>"/>
-					    <input type="hidden" name="operacao" id="operacao" value />
-					    <input type="hidden" name="ehnovo" id="ehnovo" value="nao"/>
+					    <input type="hidden" name="operacao" id="operacao" value=""/>
 					    <div class="panel panel-info hidden-md hidden-lg">
 						  <div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 						</div>
@@ -133,7 +132,9 @@
 								name="select-medida-caseira" data-native-menu="false" class="form-control selectBatata" >
 								</select>
 							</div>
-							<div class="form-group col-md-1 btn-excluir-wrapper"></div>
+							<div class="form-group col-md-1 btn-excluir-wrapper">
+								<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>
+							</div>
 						</div>						
 				
 					</div>

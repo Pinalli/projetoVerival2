@@ -11,7 +11,7 @@
 
 	<div class="container">
 		<article>
-			<form name="addFichaTecnicaSimples" method="post" action="main?acao=addFichaSimplificada">
+			<form name="addFichaTecnicaSimples" id="addFichaTecnicaSimplesForm" method="post" action="ajax?acao=addFichaSimplificadaAjaxCommand">
 				<div class="form-group col-md-4 col-md-offset-4">
 					<input type="text" name="nome" id="nome"
 						class="form-control text-center box-transparent" placeholder="Digite o nome da receita"/>

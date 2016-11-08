@@ -137,11 +137,11 @@ $(document).ready(function() {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 			
 				target.fadeOut(300, function(){
-					var inputEhNovo = $("#ehnovo",target);
-					if(inputEhNovo.val() == "sim"){
-						target.remove();						
+					var operacao = $("#operacao",target);
+					if(!operacao.val() || operacao.val() == "u"){
+						operacao.val("d");				
 					}else{
-						inputOperacao.val("d");
+						target.remove();
 					}
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
@@ -151,6 +151,7 @@ $(document).ready(function() {
 			});
 		});
 	}
+	addRemoveListener();
 
 	/**
 	 * Clona ulltima linha
@@ -172,12 +173,6 @@ $(document).ready(function() {
 		row.hide().appendTo($('#table-rows')).fadeIn(300);
 		row.find('.select2').unbind('change');
 		
-		//Adiciona update listener
-		addUpdateListener(row);
-		
-		//Set ehnovo
-		row.find("#ehnovo").val("sim");
-		
 		//Adiciona botão de excluir na linha clonada se ela não contém um
 		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
 		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
@@ -190,20 +185,33 @@ $(document).ready(function() {
 		}
 	}
 	
+	/**
+	 * Update operacao
+	 */
 	function addUpdateListener(row){
-		console.log($("select", row));
 		$("select", row).each(function(){
 			$(this).change(function(){
-				row.find("#operacao").val("u");
+				if(!row.find("#operacao").val()){
+					row.find("#operacao").val("u");
+				}
 			});
 		});
 		$("input", row).each(function(){
-			$(this).change(function(){
-				row.find("#operacao").val("u");
+			$(this).bind("change keyup", function(){
+				if(!row.find("#operacao").val()){
+					row.find("#operacao").val("u");
+				}
 			});
 		});
 	}
 	
+	$(".table-row").each(function(){
+		addUpdateListener($(this));
+	});
+	
+	/**
+	 * Scroll
+	 */
 	function scroll(target){
 		if(typeof target.offset() !== 'undefined'){
 			$('html, body').animate({

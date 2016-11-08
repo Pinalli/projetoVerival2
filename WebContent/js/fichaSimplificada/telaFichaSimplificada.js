@@ -278,7 +278,7 @@ $(document).ready(function() {
 				form.append('file',file);
 				form.append('fichaSimplificada', true);
 				form.append('idFicha', idFicha);
-				console.log(form.toString());
+
 				var reader = new FileReader();
 				reader.onload = imageIsLoaded;
 				reader.readAsDataURL(this.files[0]);
