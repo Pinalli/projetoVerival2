@@ -69,7 +69,8 @@ public class FichaCompletaDAO {
 
             fichaCompleta.setIdFicha(idFichaCompleta);
 			List<FichaItem> itens = fichaCompleta.getItens();
-
+			
+			itemDAO = new FichaCompletaItemDAO();
 			for (int i = 0; i < itens.size(); i++) {
 				FichaItem item = itens.get(i);
 				item.setIdFicha(idFichaCompleta);
