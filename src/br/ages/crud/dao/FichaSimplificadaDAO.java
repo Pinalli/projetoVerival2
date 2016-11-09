@@ -21,11 +21,8 @@ import java.util.List;
 public class FichaSimplificadaDAO {
 
 	private List<Ficha> listarFichasSimplificada;
-	private FichaSimplificadaItemDAO itemDAO;
 
-	public FichaSimplificadaDAO() {
-		itemDAO = new FichaSimplificadaItemDAO();
-	}
+
 
 	public int cadastrarFichaSimplificada(Ficha fichaSimplificada) throws SQLException, PersistenciaException {
 		Connection conexao = null;
@@ -68,13 +65,7 @@ public class FichaSimplificadaDAO {
 			}
 
 			fichaSimplificada.setIdFicha(idFichaSimplificada);
-			List<FichaItem> itens = fichaSimplificada.getItens();
 
-			for (int i = 0; i < itens.size(); i++) {
-				FichaItem item = itens.get(i);
-				item.setIdFicha(idFichaSimplificada);
-				itemDAO.cadastrarFichaSimplificadaDAO(item);
-			}
 
 			return idFichaSimplificada;
 
@@ -161,17 +152,6 @@ public class FichaSimplificadaDAO {
 			statement.setString(5, fichaSimplificada.getMontagem());
 			statement.setString(6, fichaSimplificada.getOrientacoesArmazenamento());
 			
-			List<FichaItem> itens = fichaSimplificada.getItens();
-
-			for (int i = 0; i < itens.size(); i++) {
-				FichaItem item = itens.get(i);
-				item.setIdFicha(idFichaSimplificada);
-				if (item.getOperacao().equals("i")) {
-					itemDAO.cadastrarFichaSimplificadaDAO(item);
-				} else {
-					itemDAO.editarFichaSimplificadaItem(item);
-				}
-			}
 
 			okei = statement.execute();
 
@@ -243,9 +223,6 @@ public class FichaSimplificadaDAO {
 				dto.setOrientacoesArmazenamento(resultset.getString("ORIENTACOES_ARMAZENAMENTO"));
 				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
 			}		
-
-			List<FichaItem> itens = itemDAO.listaFichaSimplificadaItem(id);
-			dto.setItens(itens);
 			
 			return dto;
 
