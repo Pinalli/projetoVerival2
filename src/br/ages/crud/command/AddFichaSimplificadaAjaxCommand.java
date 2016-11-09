@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
+
 import br.ages.crud.bo.FichaSimplificadaBO;
+import br.ages.crud.bo.FichaSimplificadaItemBO;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.MensagemContantes;
@@ -19,10 +24,12 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 	private String proxima;
 
 	private FichaSimplificadaBO fichaSimplificadaBO;
+	private FichaSimplificadaItemBO itemBO;
 
 	@Override
 	public String execute(HttpServletRequest request) {
 		fichaSimplificadaBO = new FichaSimplificadaBO();
+		itemBO = new FichaSimplificadaItemBO();
 		String json = "";
 		Map<String,String> msg = new HashMap<String, String>();
 
@@ -49,7 +56,11 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 			ficha.setItens(listaFichaItens);
 			
 			if(fichaSimplificadaBO.validarFichaSimplificada(ficha)){
-				fichaSimplificadaBO.cadastrarFichaSimplificada(ficha);				
+				int id = fichaSimplificadaBO.cadastrarFichaSimplificada(ficha);
+				for(FichaItem item: listaFichaItens){
+					item.setIdFicha(id);
+					itemBO.cadastrarFichaSimplificada(item);
+				}
 				msg.put("mensagem", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", ficha.getNome()));
 			    msg.put("dados", "");
 			    msg.put("proxima", "main?acao=listFichaSimplificada");

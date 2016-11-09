@@ -22,10 +22,10 @@ public class FichaSimplificadaBO {
         fichaSimplificadaDAO = new FichaSimplificadaDAO();
     }
 
-    public void cadastrarFichaSimplificada(Ficha fichaSimplificada) throws NegocioException, SQLException, ParseException {
+    public int cadastrarFichaSimplificada(Ficha fichaSimplificada) throws NegocioException, SQLException, ParseException {
 
         try {
-            fichaSimplificadaDAO.cadastrarFichaSimplificada(fichaSimplificada);
+          return  fichaSimplificadaDAO.cadastrarFichaSimplificada(fichaSimplificada);
         } catch (PersistenciaException e) {
             e.printStackTrace();
             throw new NegocioException(e);

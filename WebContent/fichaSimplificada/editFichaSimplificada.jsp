@@ -16,7 +16,7 @@
 	<div class="container">
 		<article>
 			<form name="editFichaTecnicaSimples" id="editFichaTecnicaSimplesForm" method="post" action="main?acao=editFichaSimplificada">
-				<input type="hidden" name="id" value="<%=ficha.getIdFicha()%>"/>
+				<input type="hidden" id="idFicha" name="id" value="<%=ficha.getIdFicha()%>"/>
 				
 				<div class="form-group col-md-4 col-md-offset-4">
 					<input type="text" name="nome" id="nome"
