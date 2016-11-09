@@ -1,7 +1,6 @@
 create database ficha_e;
 use ficha_e;
 
-
 /*----------SCRIPT PARA USUARIO----------*/
 CREATE TABLE TB_USUARIO (
   ID_USUARIO int(11) NOT NULL AUTO_INCREMENT,
@@ -70,9 +69,6 @@ CREATE TABLE `TB_INGREDIENTES` (
   KEY `IX_IDS` (`ID_EMPRESA`,`COD`),
   KEY `IX_DATA` (`DATA_INSERCAO`,`COD`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO TB_INGREDIENTES VALUES ('')
-
 
 /*----------UNIDADE DE MEDIDA----------*/
 -- Tabela Unidade Medida Caseira
@@ -152,8 +148,8 @@ CREATE TABLE `TB_FICHA_ITEM` (
     FOREIGN KEY (`ID_INGREDIENTE`) REFERENCES `FICHA_E`.`TB_INGREDIENTES` (`ID`),
     FOREIGN KEY (`ID_FICHA`) REFERENCES `FICHA_E`.`TB_FICHA` (`ID_FICHA`)
 	);
-	
-	 --Exemplos para teste
+
+/*----------EXEMPLOS PARA TESTE----------*/
 INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('1', 'Colher de Sopa', 'cp');
 INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('2', 'Colher de chá', 'cc');
 INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('3', 'Xícara', 'xc');
