@@ -1,12 +1,15 @@
 package br.ages.crud.command;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import br.ages.crud.bo.FichaSimplificadaBO;
+import br.ages.crud.bo.FichaSimplificadaItemBO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.model.Ficha;
+import br.ages.crud.model.FichaItem;
 import br.ages.crud.model.PerfilAcesso;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
@@ -28,10 +31,12 @@ public class CreateScreenFichaSimplificadaCommand implements Command {
 			if (isEdit != null && !"".equals(isEdit)) {
 				
 				FichaSimplificadaBO fichaSimplificadaBO = new FichaSimplificadaBO();
+				FichaSimplificadaItemBO itemBO = new FichaSimplificadaItemBO();
 				
 				int id = Integer.parseInt(request.getParameter("id_ficha_simplificada"));
 				Ficha ficha= fichaSimplificadaBO.buscaIdFicha(id);
-				
+				List<FichaItem> itens= itemBO.listaFichaSimplificadaItem(id);
+				ficha.setItens(itens);
 				
 				request.setAttribute("ficha", ficha);
 				proxima = "fichaSimplificada/editFichaSimplificada.jsp";

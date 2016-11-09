@@ -5,6 +5,7 @@ $(document).ready(function() {
 	});
 	
 	function add(form){
+		var id = $('#idFicha').val();
 		var nome = $('input[name="nome"]').val();
 		var rendimento = $('input[name="rendimento"]').val();
 		var foto = $('input[name="imgFile"]').val();
@@ -16,7 +17,7 @@ $(document).ready(function() {
 		$(".table-row").each(function(){
 			var item = {
 					idFichaItem : $(this).find("#idFichaItem").val(),
-					idFicha : $(this).find("#idFicha").val(),
+					idFicha : id,
 					idIngrediente : $(this).find('select[name="select-ingredientes"]').val(),
 					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
 					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
@@ -39,7 +40,7 @@ $(document).ready(function() {
 			itens:JSON.stringify(itens)
 		};
 		
-		$.post( "ajax?acao=addFichaSimplificadaAjaxCommand", data, function(data) {			
+		$.post( "ajax?acao=editFichaSimplificadaAjaxCommand", data, function(data) {			
 			var json = jQuery.parseJSON(data);
 			console.log(json);
 			if(json.erro){

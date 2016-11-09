@@ -49,7 +49,7 @@ public class FichaSimplificadaItemDAO {
 					+ "WHERE ID_FICHA = "+idFichaSimplificada
 					+ " AND TI.ID = TFI.ID_INGREDIENTE "
 					+ "AND TUN.ID_UNIDADE_MEDIDA = TFI.ID_UNIDADE_MEDIDA "
-					+ "AND TUNC.ID_UNIDADE_MEDIDA_CASEIRA = TFI.ID_MEDIDA_CASEIRA;");
+					+ "AND TUNC.ID_UNIDADE_MEDIDA_CASEIRA = TFI.ID_MEDIDA_CASEIRA");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultSet = statement.executeQuery();

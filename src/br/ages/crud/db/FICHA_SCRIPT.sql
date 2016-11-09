@@ -1,7 +1,6 @@
 create database ficha_e;
 use ficha_e;
 
-
 /*----------SCRIPT PARA USUARIO----------*/
 CREATE TABLE TB_USUARIO (
   ID_USUARIO int(11) NOT NULL AUTO_INCREMENT,
@@ -71,7 +70,6 @@ CREATE TABLE `TB_INGREDIENTES` (
   KEY `IX_DATA` (`DATA_INSERCAO`,`COD`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 /*----------UNIDADE DE MEDIDA----------*/
 -- Tabela Unidade Medida Caseira
 CREATE TABLE `TB_UNIDADE_MEDIDA_CASEIRA` (
@@ -88,7 +86,6 @@ CREATE TABLE `TB_UNIDADE_MEDIDA` (
   `SIGLA_UNIDADE_MEDIDA` VARCHAR(10) NULL ,
   `FATOR_CONVERSAO` DOUBLE NULL  ,
   PRIMARY KEY (`ID_UNIDADE_MEDIDA`) );
-  
   
   /*----------EMPRESA----------*/
   CREATE TABLE TB_EMPRESA (
@@ -151,3 +148,20 @@ CREATE TABLE `TB_FICHA_ITEM` (
     FOREIGN KEY (`ID_INGREDIENTE`) REFERENCES `FICHA_E`.`TB_INGREDIENTES` (`ID`),
     FOREIGN KEY (`ID_FICHA`) REFERENCES `FICHA_E`.`TB_FICHA` (`ID_FICHA`)
 	);
+
+/*----------EXEMPLOS PARA TESTE----------*/
+INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('1', 'Colher de Sopa', 'cp');
+INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('2', 'Colher de chá', 'cc');
+INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('3', 'Xícara', 'xc');
+INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('4', 'Pá de Obra', 'po');
+INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('5', 'Tonel', 'tl');
+
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('1', 'Kilograma', 'Grama', 'kg', '1000');
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('2', 'Grama', 'Kilograma','g', '0.001');
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('3', 'Litro', 'Mililitro', 'l', '1000');
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('4', 'Mililitro', 'Litro', 'ml', '0.001');
+
+INSERT INTO TB_INGREDIENTES VALUES ('1', NULL, '1', 'Batata Baroa Crua', '24', '96', '0.1', '0.4', '1.8', '16.2', '0.73', '1.0', '2.21', 'Kilograma','2016-11-09 20:52:17');
+INSERT INTO TB_INGREDIENTES VALUES ('2', NULL, '2', 'Beterraba Crua', '14', '56', '2', '8', '0.4', '3.6', '0.88', '1.0', '3.55', 'Kilograma','2016-11-09 20:54:13');
+INSERT INTO TB_INGREDIENTES VALUES ('3', NULL, '3', 'Óleo de Girassol', '20', '80', '0.1', '0.4', '13', '117', '0.22', '1.0', '4.24', 'Litro','2016-11-09 20:55:12');
+INSERT INTO TB_INGREDIENTES VALUES ('4', NULL, '4', 'Farinha de Arroz Enriquecida', '363', '1452', '1.3', '5.2', '0.3', '2.7', '1.0', '1.2', '5.22', 'Kilograma', '2016-11-09 20:56:25');
