@@ -4,6 +4,7 @@
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 <jsp:include page="/template/msg.jsp"></jsp:include>
+<jsp:include page="../template/modalFichaSimplificada.jsp"></jsp:include>
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
 </head>
