@@ -292,7 +292,7 @@ $(document).ready(function() {
 			}
 		}
 	}
-	/*
+	
 	$(function() {
 		$("#imgFile").change(function() {
 			var file = this.files[0];
@@ -331,7 +331,7 @@ $(document).ready(function() {
 			}
 		});
 	});
-	*/
+	 
 	function imageIsLoaded(e) {
 		$("#imgFile").css("color", "green");
 		$('#image_preview').css("display", "block");

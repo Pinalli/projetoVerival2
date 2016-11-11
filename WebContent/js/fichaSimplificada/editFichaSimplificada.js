@@ -31,6 +31,7 @@ $(document).ready(function() {
 		console.log(itens);
 		
 		var data = {
+			id:id,
 			nome:nome,
 			rendimento:rendimento,
 			foto:foto,
