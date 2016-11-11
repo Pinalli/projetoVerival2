@@ -60,8 +60,8 @@ public class FichaSimplificadaItemDAO {
 				item.setIdIngrediente(resultSet.getInt("ID_INGREDIENTE"));
 				item.setIdMedidaCaseira(resultSet.getInt("ID_MEDIDA_CASEIRA"));
 				item.setIdUnidadeMedida(resultSet.getInt("ID_UNIDADE_MEDIDA"));
-				item.setQuantidadeMedidaCaseira(resultSet.getInt("QUANTIDADE_MEDIDA_CASEIRA"));
-				item.setQuantidadeUnidadeMedida(resultSet.getInt("QUANTIDADE_UNIDADE_MEDIDA"));
+				item.setQuantidadeMedidaCaseira(resultSet.getDouble("QUANTIDADE_MEDIDA_CASEIRA"));
+				item.setQuantidadeUnidadeMedida(resultSet.getDouble("QUANTIDADE_UNIDADE_MEDIDA"));
 				item.setIdFicha(idFichaSimplificada);
 				item.setIngrediente(resultSet.getString("INGREDIENTE"));
 				item.setUnidadeMedida(resultSet.getString("UNIDADE_MEDIDA"));
@@ -97,8 +97,8 @@ public class FichaSimplificadaItemDAO {
 			statement.setInt(2, item.getIdMedidaCaseira());
 			statement.setInt(3, item.getIdIngrediente());
 			statement.setInt(4, item.getIdFicha());
-			statement.setInt(5, item.getQuantidadeUnidadeMedida());
-			statement.setInt(6, item.getQuantidadeMedidaCaseira());
+			statement.setDouble(5, item.getQuantidadeUnidadeMedida());
+			statement.setDouble(6, item.getQuantidadeMedidaCaseira());
 
 			statement.executeUpdate();
 
@@ -133,8 +133,8 @@ public class FichaSimplificadaItemDAO {
 			statement.setInt(1, item.getIdUnidadeMedida());
 			statement.setInt(2, item.getIdMedidaCaseira());
 			statement.setInt(3, item.getIdIngrediente());
-			statement.setInt(4, item.getQuantidadeUnidadeMedida());
-			statement.setInt(5, item.getQuantidadeMedidaCaseira());
+			statement.setDouble(4, item.getQuantidadeUnidadeMedida());
+			statement.setDouble(5, item.getQuantidadeMedidaCaseira());
 			statement.setInt(6, item.getIdFichaItem());
 
 			return statement.execute();

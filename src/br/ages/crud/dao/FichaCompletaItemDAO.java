@@ -97,8 +97,8 @@ public class FichaCompletaItemDAO {
 			statement.setInt(2, item.getIdMedidaCaseira());
 			statement.setInt(3, item.getIdIngrediente());
 			statement.setInt(4, item.getIdFicha());
-			statement.setInt(5, item.getQuantidadeUnidadeMedida());
-			statement.setInt(6, item.getQuantidadeMedidaCaseira());
+			statement.setDouble(5, item.getQuantidadeUnidadeMedida());
+			statement.setDouble(6, item.getQuantidadeMedidaCaseira());
 
 			statement.executeUpdate();
 
@@ -133,8 +133,8 @@ public class FichaCompletaItemDAO {
 			statement.setInt(1, item.getIdUnidadeMedida());
 			statement.setInt(2, item.getIdMedidaCaseira());
 			statement.setInt(3, item.getIdIngrediente());
-			statement.setInt(4, item.getQuantidadeUnidadeMedida());
-			statement.setInt(5, item.getQuantidadeMedidaCaseira());
+			statement.setDouble(4, item.getQuantidadeUnidadeMedida());
+			statement.setDouble(5, item.getQuantidadeMedidaCaseira());
 			statement.setInt(6, item.getIdFichaItem());
 
 			return statement.execute();

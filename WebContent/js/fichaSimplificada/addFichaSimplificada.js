@@ -42,7 +42,7 @@ $(document).ready(function() {
 		//$.post( "ajax?acao=addFichaSimplificadaAjaxCommand", data, function(data) {
 			var json = jQuery.parseJSON(data);
 			if(json.erro){
-				showModalErro("Erro ao salvar ficha simplificada", json.mensagem);			
+				showModalErro("Erro ao salvar ficha simplificada", json.mensagem);
 			}else{
 				window.location.href = json.proxima;
 			}

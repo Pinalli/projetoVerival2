@@ -7,8 +7,8 @@ public class FichaItem {
 	private int idMedidaCaseira;
 	private int idIngrediente;
 	private int idFicha;
-	private int quantidadeUnidadeMedida;
-	private int quantidadeMedidaCaseira;
+	private double quantidadeUnidadeMedida;
+	private double quantidadeMedidaCaseira;
 	
 	private String ingrediente;
 	private String unidadeMedida;
@@ -65,21 +65,6 @@ public class FichaItem {
 		this.idFicha = idFicha;
 	}
 
-	public int getQuantidadeUnidadeMedida() {
-		return quantidadeUnidadeMedida;
-	}
-
-	public void setQuantidadeUnidadeMedida(int quantidadeUnidadeMedida) {
-		this.quantidadeUnidadeMedida = quantidadeUnidadeMedida;
-	}
-
-	public int getQuantidadeMedidaCaseira() {
-		return quantidadeMedidaCaseira;
-	}
-
-	public void setQuantidadeMedidaCaseira(int quantidadeMedidaCaseira) {
-		this.quantidadeMedidaCaseira = quantidadeMedidaCaseira;
-	}
 
 	public double getPerCapita() {
 		return perCapita;
@@ -127,5 +112,21 @@ public class FichaItem {
 
 	public void setUnidadeMedidaCaseira(String unidadeMedidaCaseira) {
 		this.unidadeMedidaCaseira = unidadeMedidaCaseira;
+	}
+
+	public double getQuantidadeUnidadeMedida() {
+		return quantidadeUnidadeMedida;
+	}
+
+	public void setQuantidadeUnidadeMedida(double quantidadeUnidadeMedida) {
+		this.quantidadeUnidadeMedida = quantidadeUnidadeMedida;
+	}
+
+	public double getQuantidadeMedidaCaseira() {
+		return quantidadeMedidaCaseira;
+	}
+
+	public void setQuantidadeMedidaCaseira(double quantidadeMedidaCaseira) {
+		this.quantidadeMedidaCaseira = quantidadeMedidaCaseira;
 	}
 }
