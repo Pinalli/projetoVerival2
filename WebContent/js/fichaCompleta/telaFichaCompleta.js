@@ -123,6 +123,7 @@ $(document).ready(function() {
 		addRemoveListener();
 		setSelect2();
 		showItemListener();
+		updateIngredienteListener();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -264,27 +265,32 @@ $(document).ready(function() {
 	/**
 	 * Atualiza campos referntes ao ingrediente
 	 */
-	$("#select-ingredientes").change(function(){
-		var id = $(this).val();
-		var ingrediente = getIngredienteById(id);
-	});
+	function updateIngredienteListener(){
+		$(".table-row").not(".configurado").each(function(){
+			var row = $(this);
+			row.find("#select-ingredientes").change(function(){
+				var id = $(this).val();
+				var ingrediente = getIngredienteById(row, id);
+			});
+		});		
+	}
+	updateIngredienteListener();
 	
 	/**
 	 * Atualiza campos referntes ao ingrediente
 	 * @param ingrediente
 	 * @returns
 	 */
-	function updateIngrediente(ingrediente){	
-		console.log(ingrediente);
+	function updateIngrediente(row, ingrediente){
 		var kcal = ingrediente.kcalCarboidratos + ingrediente.kcalLipidios + ingrediente.kcalProteinas;  
-		$("#cho").val(ingrediente.carboidratos);
-		$("#ptn").val(ingrediente.proteinas);
-		$("#lip").val(ingrediente.lipidios);
-		$("#kcal").val(kcal);
-		$("#valor-unitario").val(ingrediente.custo);
-		$("#custo-real").val(ingrediente.custo);
-		$("#fator-de-correcao").val(ingrediente.fatorCorrecao);
-		$("#indice-de-coccao").val(ingrediente.indiceCoccao);
+		row.find("#cho").val(ingrediente.carboidratos);
+		row.find("#ptn").val(ingrediente.proteinas);
+		row.find("#lip").val(ingrediente.lipidios);
+		row.find("#kcal").val(kcal);
+		row.find("#valor-unitario").val(ingrediente.custo);
+		row.find("#custo-real").val(ingrediente.custo);
+		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
+		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
 	}
 	
 	/**
@@ -292,7 +298,7 @@ $(document).ready(function() {
 	 * @param id
 	 * @returns json
 	 */
-	function getIngredienteById(id){
+	function getIngredienteById(row, id){
 		$.ajax({
 			   url: 'ajax?acao=buscaIngredienteIdAjax',
 			   data: {id: id},
@@ -301,7 +307,7 @@ $(document).ready(function() {
 			   },
 			   success: function(data) {
 			      json = jQuery.parseJSON(data);
-			      updateIngrediente(json)
+			      updateIngrediente(row, json)
 			   },
 			   type: 'GET'
 		});
