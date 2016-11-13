@@ -153,17 +153,18 @@
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
 			<div class="panel panel-info">
-				<div class="panel-heading row text-center" id="mdpreparo7">Informações
-					do prato</div>
+				<div class="panel-heading row text-center trigger-display" data-target="informacoes-content">
+					Informações do prato
+				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="form-group hide" id="modoprep7">
+				<div class="form-group hide" id="informacoes-content">
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading" id="mdpreparo">Modo de Preparo</div>
+							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de Preparo</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="modoprep">
+							<div class="form-group hide" id="modo-preparo-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
 									name="modoPreparo"></textarea>
@@ -172,10 +173,10 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading" id="mdpreparo1">Montagem</div>
+							<div class="panel-heading trigger-display" data-target="montagem-content">Montagem</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="modoprep1">
+							<div class="form-group hide" id="montagem-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
 									name="montagem"></textarea>
@@ -184,11 +185,11 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading" id="mdpreparo2">Orientações e
+							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">Orientações e
 								armazenamento</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="modoprep2">
+							<div class="form-group hide" id="orientacoes-armazenamento-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
 									name="orientacaoArmazenamento"></textarea>
@@ -200,17 +201,16 @@
 			<div class="row"></div>
 
 			<div class="panel panel-info">
-				<div class="panel-heading row text-center" id="mdpreparo6">Avaliação
-					sensorial</div>
+				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">Avaliação sensorial</div>
 			</div>
 			<div class="col-md-12">
-				<div class="form-group hide" id="modoprep6">
+				<div class="form-group hide" id="avaliacao-sensorial-content">
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading" id="mdpreparo3">Textura</div>
+							<div class="panel-heading trigger-display" data-target="textura-content">Textura</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="modoprep3">
+							<div class="form-group hide" id="textura-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
 									name="textura"></textarea>
@@ -219,10 +219,10 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading" id="mdpreparo4">Sabor</div>
+							<div class="panel-heading trigger-display" data-target="sabor-content">Sabor</div>
 						</div>
 						<div class="col-md-12">
-							<div class="form-group hide" id="modoprep4">
+							<div class="form-group hide" id="sabor-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
 									name="sabor"></textarea>
@@ -231,10 +231,10 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading" id="mdpreparo5">Apresentação</div>
+							<div class="panel-heading trigger-display" data-target="apresentacao-content">Apresentação</div>
 						</div>
 						<div class="col-md-12">
-							<div class="form-group hide" id="modoprep5">
+							<div class="form-group hide" id="apresentacao-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
 									name="apresentacao"></textarea>

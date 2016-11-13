@@ -5,32 +5,14 @@ $(document).ready(function() {
 		
 	setSelect2();
 
+	/**
+	 * Hide/display divs
+	 */
+	$(".trigger-display").click(function(){
+		var id = $(this).attr("data-target");
+		$("#"+id).toggleClass("hide");
+	});
 
-	$("#mdpreparo").click( function() {
-		$("#modoprep").toggleClass("hide");
-	});
-	$("#mdpreparo1").click( function() {
-		$("#modoprep1").toggleClass("hide");
-	});
-	$("#mdpreparo2").click( function() {
-		$("#modoprep2").toggleClass("hide");
-	});
-	$("#mdpreparo3").click( function() {
-		$("#modoprep3").toggleClass("hide");
-	});
-	$("#mdpreparo4").click( function() {
-		$("#modoprep4").toggleClass("hide");
-	});
-	$("#mdpreparo5").click( function() {
-		$("#modoprep5").toggleClass("hide");
-	});	
-	$("#mdpreparo6").click( function() {
-		$("#modoprep6	").toggleClass("hide");
-	});	
-	$("#mdpreparo7").click( function() {
-		$("#modoprep7").toggleClass("hide");
-	});	
-	
 	/**
 	 * Aplica o Select2 nos selects
 	 */
