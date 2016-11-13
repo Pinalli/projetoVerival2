@@ -29,8 +29,9 @@ public class FichaCompletaItemDAO {
 					+ "QUANTIDADE_UNIDADE_MEDIDA, "
 					+ "QUANTIDADE_MEDIDA_CASEIRA, "
 					+ "ID_FICHA "
-					+ "FROM TB_FICHA_ITEM WHERE ID_FICHA = " + idFichaCompleta);
+					+ "FROM TB_FICHA_ITEM WHERE ID_FICHA = " + idFichaSimplificada);
 			*/
+			System.out.println("as");
 			sql.append("SELECT "
 					+ "TFI.ID_FICHA_ITEM, "
 					+ "TFI.ID_UNIDADE_MEDIDA, "
@@ -49,19 +50,20 @@ public class FichaCompletaItemDAO {
 					+ "WHERE ID_FICHA = "+idFichaCompleta
 					+ " AND TI.ID = TFI.ID_INGREDIENTE "
 					+ "AND TUN.ID_UNIDADE_MEDIDA = TFI.ID_UNIDADE_MEDIDA "
-					+ "AND TUNC.ID_UNIDADE_MEDIDA_CASEIRA = TFI.ID_MEDIDA_CASEIRA;");
+					+ "AND TUNC.ID_UNIDADE_MEDIDA_CASEIRA = TFI.ID_MEDIDA_CASEIRA");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultSet = statement.executeQuery();
-
+			
 			while (resultSet.next()) {
+				
 				FichaItem item = new FichaItem();
 				item.setIdFichaItem(resultSet.getInt("ID_FICHA_ITEM"));
 				item.setIdIngrediente(resultSet.getInt("ID_INGREDIENTE"));
 				item.setIdMedidaCaseira(resultSet.getInt("ID_MEDIDA_CASEIRA"));
 				item.setIdUnidadeMedida(resultSet.getInt("ID_UNIDADE_MEDIDA"));
-				item.setQuantidadeMedidaCaseira(resultSet.getInt("QUANTIDADE_MEDIDA_CASEIRA"));
-				item.setQuantidadeUnidadeMedida(resultSet.getInt("QUANTIDADE_UNIDADE_MEDIDA"));
+				item.setQuantidadeMedidaCaseira(resultSet.getDouble("QUANTIDADE_MEDIDA_CASEIRA"));
+				item.setQuantidadeUnidadeMedida(resultSet.getDouble("QUANTIDADE_UNIDADE_MEDIDA"));
 				item.setIdFicha(idFichaCompleta);
 				item.setIngrediente(resultSet.getString("INGREDIENTE"));
 				item.setUnidadeMedida(resultSet.getString("UNIDADE_MEDIDA"));
@@ -73,8 +75,8 @@ public class FichaCompletaItemDAO {
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e.getMessage());
 			// throw new
-			// PersistenciaException(MensagemContantes.MSG_ERR_FICHA_Completa_JA_EXISTENTE.replace("?",
-			// fichaCompleta.getNome()));
+			// PersistenciaException(MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE.replace("?",
+			// fichaSimplificada.getNome()));
 		} finally {
 			conexao.close();
 		}

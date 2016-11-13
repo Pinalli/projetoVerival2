@@ -248,11 +248,11 @@ public class FichaCompletaDAO {
 					+ " MONTAGEM,"
 					+ " ORIENTACOES_ARMAZENAMENTO,"
 					+ " ID_EMPRESA,"
-					+  "TEXTURA"
-					+  "SABOR"
-					+  "APRESENTACAO"
+					+  "TEXTURA,"
+					+  "SABOR,"
+					+  "APRESENTACAO,"
 					+ " TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 'c' AND ID_FICHA = "+id);
-
+			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
 			Ficha dto = null;
@@ -271,7 +271,7 @@ public class FichaCompletaDAO {
 				dto.setApresentacao(resultset.getString("APRESENTACAO"));
 				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
 			}		
-
+			
 			List<FichaItem> itens = itemDAO.listaFichaCompletaItem(id);
 			dto.setItens(itens);
 			
