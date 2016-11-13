@@ -211,7 +211,7 @@ $(document).ready(function() {
 	 */				
 	function showItemListener() {
 		$('.show-item-btn').each(function() {
-				       
+		       
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				//Add listener
 				$(this).click(function(e) {
@@ -220,16 +220,15 @@ $(document).ready(function() {
 						function() {	
 							$(this).toggleClass("hide");
 						});
-				});
-				
+				});				
+
 				//obtem inputs
 				var selectIngredientes = $('#select-ingredientes', $(this).closest('.table-row'));
 				var selectUnidadeMedida = $('#select-unidade-medida', $(this).closest('.table-row'));
 				var inputQntUnidadeMedida = $('#qnt-unidade-medida', $(this).closest('.table-row'));
-		
+
 				//Define texto do botao
-				//var select = $('#select-ingredientes', $(this).closest('.table-row')); 
-				var nome = $('option:selected', select).text();
+				var nome = $('option:selected', selectIngredientes).text();
 				if(nome.length > 0 && typeof nome !== 'undefined'){
 					$(this).html(nome);
 				}
