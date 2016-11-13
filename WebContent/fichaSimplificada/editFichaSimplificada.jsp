@@ -20,32 +20,32 @@
 				
 				<div class="form-group col-md-4 col-md-offset-4">
 					<input type="text" name="nome" id="nome"
-						class="form-control text-center box-transparent" value="<%=ficha.getNome()%>" placeholder="Digite o nome da receita"/>
+						class="form-control text-center box-transparent"
+						placeholder="Digite o nome da receita" />
 				</div>
-				
-					<!-- File Button -->
-			<div class="form-group col-md-12 col-md-offset-2	">
-				<label class="col-md-3 control-label ages" for="Foto"></label>
-				<div class="col-md-6">
-					<input id="imgFile" name="imgFile" class="input-file" type="file">
-				</div>
-			</div>
-				<div class="form-group col-md-12" >
-					<div id="image_preview">
-					<img id="previewing" src="" class="img-responsive img-thumbnail center-block"/>
+
+				<!-- File Button -->
+				<div class="form-group col-md-12">
+					<!--label class="col-md-3 control-label ages" for="Foto"></label-->
+					<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
+						<input id="imgFile" name="imgFile" class="input-file" type="file">
 					</div>
 				</div>
-			<h4 id='loading'></h4>
-			<div id="message"></div>
-			
-
-				<div class="col-xs-6 col-sm-4">
-					<label for="rendimento"
-						class="col-md-12 col-md-offset-9 form-control-static">Rendimento</label>
+				<div class="form-group col-md-12">
+					<div id="image_preview">
+						<img id="previewing" src=""
+							class="img-responsive img-thumbnail center-block" />
+					</div>
 				</div>
-				<div class="col-xs-6 col-sm-4">
+				<h4 id='loading'></h4>
+				<div id="message"></div>
+
+
+				<div class="col-md-4 col-md-offset-4">
+					<label for="rendimento"
+						class="col-xs-12 col-sm-12 form-control-static text-center">Rendimento</label>
 					<input type="text" name="rendimento" id="rendimento"
-						class="form-control text-center box-transparent" value="<%=ficha.getRendimento()%>"
+						class="form-control text-center box-transparent"
 						placeholder="Rendimento" />
 				</div>
 
