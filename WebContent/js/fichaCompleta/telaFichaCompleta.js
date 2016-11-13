@@ -46,7 +46,7 @@ $(document).ready(function() {
 					$(this).select2({
 						data: data,
 						 ajax: {							 
-							    url: "/FichaTP/ajax?acao=buscaIngredienteDescricaoAjax",
+							    url: "ajax?acao=buscaIngredienteDescricaoAjax",
 							    method: "GET",
 							    data: function (params) {							    	
 							        return {'descricao':params.term, 'limit':10};
@@ -75,7 +75,7 @@ $(document).ready(function() {
 					$(this).select2({
 						data : data, 
 						 ajax: {							 
-							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaUnidadeAjax",
+							    url: "ajax?acao=buscaUnidadeMedidaUnidadeAjax",
 							    method: "GET",
 							    data: function (params) {	
 							        return {'unidade':params.term, 'limit':10};
@@ -104,7 +104,7 @@ $(document).ready(function() {
 					$(this).select2({
 						data:data,
 						 ajax: {							 
-							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
+							    url: "ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
 							    method: "GET",
 							    data: function (params) {
 							        return {'nome':params.term, 'limit':10};
@@ -277,6 +277,52 @@ $(document).ready(function() {
 				$('.table-row:last').addClass('configurado');
 			}
 		}
+	}
+	
+	/**
+	 * Atualiza campos referntes ao ingrediente
+	 */
+	$("#select-ingredientes").change(function(){
+		var id = $(this).val();
+		var ingrediente = getIngredienteById(id);
+	});
+	
+	/**
+	 * Atualiza campos referntes ao ingrediente
+	 * @param ingrediente
+	 * @returns
+	 */
+	function updateIngrediente(ingrediente){	
+		console.log(ingrediente);
+		var kcal = ingrediente.kcalCarboidratos + ingrediente.kcalLipidios + ingrediente.kcalProteinas;  
+		$("#cho").val(ingrediente.carboidratos);
+		$("#ptn").val(ingrediente.proteinas);
+		$("#lip").val(ingrediente.lipidios);
+		$("#kcal").val(kcal);
+		$("#valor-unitario").val(ingrediente.custo);
+		$("#custo-real").val(ingrediente.custo);
+		$("#fator-de-correcao").val(ingrediente.fatorCorrecao);
+		$("#indice-de-coccao").val(ingrediente.indiceCoccao);
+	}
+	
+	/**
+	 * Busca ingrediente pelo ID
+	 * @param id
+	 * @returns json
+	 */
+	function getIngredienteById(id){
+		$.ajax({
+			   url: 'ajax?acao=buscaIngredienteIdAjax',
+			   data: {id: id},
+			   error: function() {
+			      console.log('Error on getIngredienteById.');
+			   },
+			   success: function(data) {
+			      json = jQuery.parseJSON(data);
+			      updateIngrediente(json)
+			   },
+			   type: 'GET'
+		});
 	}
 	
 	$(function() {

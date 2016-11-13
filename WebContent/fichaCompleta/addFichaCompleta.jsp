@@ -3,14 +3,15 @@
 
 <jsp:include page="../template/head.jsp"></jsp:include>
 <jsp:include page="/template/msg.jsp"></jsp:include>
+<jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
+
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
 
 </head>
 <body>
 	<article>
-		<form name="addFichaTecnicaSimples" method="post"
-			action="main?acao=addFichaSimplificada">
+		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm" method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
 			<div class="form-group col-md-4 col-md-offset-4">
 				<input type="text" name="nome" id="nome"
 					class="form-control text-center box-transparent"
@@ -93,45 +94,44 @@
 						</div>
 						<!--div class="form-group col-md-12"-->
 							<div class="form-group col-md-1 col-xs-4">
-								<label for="cho" class="">CHO</label> <input type="number"
-									 class="form-control" id="cho"
-									placeholder="CHO">
+								<label for="cho" class="">CHO</label> 
+								<input type="number" class="form-control" id="cho" placeholder="CHO" readonly>
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="ptn" class="">PTN</label> <input type="number"
 									class="form-control" id="ptn"
-									placeholder="PTN">
+									placeholder="PTN" readonly>
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="lip" class="">LIP</label> <input type="number"
 									 class="form-control" id="lip"
-									placeholder="LIP">
+									placeholder="LIP"  readonly>
 							</div>
 							<div class="form-group col-md-1 col-xs-4">
 								<label for="kcal" class="">Kcal</label> <input type="number"
 									class="form-control" id="kcal"
-									placeholder="Kcal">
+									placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label> <input
 									type="number" class="form-control"
-									id="valor-unitario" placeholder="Valor unitário">
+									id="valor-unitario" placeholder="Valor unitário"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="custo-real" class="">Custo Real</label> <input
 									type="number" class="form-control"
-									id="custo-real" placeholder="Custo real">
+									id="custo-real" placeholder="Custo real" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de
 									Correção</label> <input type="number"
 									class="form-control" id="fator-de-correcao"
-									placeholder="Fator de correção">
+									placeholder="Fator de correção" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="indice-de-coccao" class="">Índice de Cocção</label>
 								<input type="number" class="form-control"
-									id="indice-de-coccao" placeholder="Índice de Cocção">
+									id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 							</div>
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
@@ -178,7 +178,7 @@
 							<div class="form-group hide" id="modoprep1">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea>
+									name="montagem"></textarea>
 							</div>
 						</div>
 					</div>
@@ -191,7 +191,7 @@
 							<div class="form-group hide" id="modoprep2">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea>
+									name="orientacaoArmazenamento"></textarea>
 							</div>
 						</div>
 					</div>
@@ -213,7 +213,7 @@
 							<div class="form-group hide" id="modoprep3">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea>
+									name="textura"></textarea>
 							</div>
 						</div>
 					</div>
@@ -225,7 +225,7 @@
 							<div class="form-group hide" id="modoprep4">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea>
+									name="sabor"></textarea>
 							</div>
 						</div>
 					</div>
@@ -237,7 +237,7 @@
 							<div class="form-group hide" id="modoprep5">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea>
+									name="apresentacao"></textarea>
 							</div>
 						</div>
 					</div>
@@ -264,10 +264,7 @@
 
 </body>
 <script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
-
-<!-- isso ainda não tem 
-<script src="./js/fichaSimplificada/addFichaSimplificada.js"></script>
--->
+<script src="./js/fichaCompleta/addFichaCompleta.js"></script>
 
 <script type="text/javascript">
 	function limitText(limitField, limitNum) {

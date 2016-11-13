@@ -18,6 +18,7 @@ import br.ages.crud.command.AddFichaCompletaAjaxCommand;
 import br.ages.crud.command.AddFichaSimplificadaAjaxCommand;
 import br.ages.crud.command.BuscaEmpresaLogoAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteDescricaoAjaxCommand;
+import br.ages.crud.command.BuscaIngredienteIdAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaUnidadeAjaxCommand;
 import br.ages.crud.command.Command;
@@ -38,6 +39,7 @@ public class AjaxServlet extends HttpServlet {
 	public void init() throws ServletException {
 		// COMANDOS DE INGREDIENTE
 		comandos.put("buscaIngredienteDescricaoAjax", new BuscaIngredienteDescricaoAjaxCommand());
+		comandos.put("buscaIngredienteIdAjax", new BuscaIngredienteIdAjaxCommand());
 
 		// COMANDOS DE UNIDADE DE MEDIDA
 		comandos.put("buscaUnidadeMedidaUnidadeAjax", new BuscaUnidadeMedidaUnidadeAjaxCommand());

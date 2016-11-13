@@ -20,11 +20,13 @@ $(document).ready(function() {
 			var item = {
 					idFichaItem : null,
 					idFicha : null,
-					idIngrediente : $('select[name="select-ingredientes"]').val(),
-					quantidadeUnidadeMedida : $('input[name="qnt-unidade-medida"]').val(),
-					idUnidadeMedida : $('select[name="select-unidade-medida"]').val(),
-					qntMedidaCaseira : $('input[name="qnt-medida-caseira"]').val(),
-					idMedidaCaseira : $('select[name="select-medida-caseira"]').val(),
+					idIngrediente : $(this).find('select[name="select-ingredientes"]').val(),
+					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
+					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
+					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
+					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
+					perCapita: $(this).find('#custo-real').val(),
+					valorUnit: $(this).find('#valor-unitario').val(),
 			};
 			itens.push(item);
 		});
@@ -42,9 +44,8 @@ $(document).ready(function() {
 			itens:JSON.stringify(itens)
 		};
 		
-		
-		
-		$.post( "ajax?acao=addFichaCompletaAjaxCommand", data, function(data) {			
+		var action = form.attr("action");
+		$.post(action, data, function(data) {			
 			var json = jQuery.parseJSON(data);
 			console.log(json);
 			if(json.erro){
