@@ -215,7 +215,7 @@ public class FichaCompletaDAO {
             
             //delete TB_FICHA
             StringBuilder sql2 = new StringBuilder();
-            sql2.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ? AND  TIPO_FICHA = 's' ");
+            sql2.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ?");
             PreparedStatement statement2 = conexao.prepareStatement(sql2.toString());
 
             statement2.setInt(1, idFicha);

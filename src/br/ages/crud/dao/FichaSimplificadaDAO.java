@@ -173,7 +173,7 @@ public class FichaSimplificadaDAO {
 					
 			// delete TB_FICHA
 			StringBuilder sql = new StringBuilder();
-			sql.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ? AND  TIPO_FICHA = 's' ");
+			sql.append("DELETE FROM TB_FICHA WHERE ID_FICHA = ?");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 
 			statement.setInt(1, idFicha);
