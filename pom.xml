@@ -35,7 +35,7 @@
 				<sgbd.user>ficha</sgbd.user>
 				<sgbd.password>ficha123_e#BD</sgbd.password>
 				<upload.path>/home/ages/uploadProjetos</upload.path>
-				<log.path>/home/ages/</log.path>
+				<log.path>/home/ficha/</log.path>
 			</properties>
 		</profile>
 		<!-- Profile de producao -->
