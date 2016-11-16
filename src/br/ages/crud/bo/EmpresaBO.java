@@ -51,11 +51,15 @@ public class EmpresaBO {
 			// Nome
 			if (empresa.getTelefone() == null || "".equals(empresa.getTelefone())) {
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_TELEFONE_OBRIGATORIO + "<br/>");
 			}
 			if (empresa.getCidade() == null || "".equals(empresa.getCidade())) {
 				isValido = false;
-				msg.append(MensagemContantes.MSG_ERR_CAMPO_NOME_OBRIGATORIO + "<br/>");
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_CIDADE_OBRIGATORIO + "<br/>");
+			}
+			if (empresa.getUf() == null || "".equals(empresa.getUf())) {
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_CAMPO_UF_OBRIGATORIO + "<br/>");
 			}
 			
 			if (empresa.getNome() == null || "".equals(empresa.getNome())) {
@@ -147,7 +151,15 @@ public class EmpresaBO {
 		}
 	}
 	
-	
+	public String buscaLogoEmpresaId(int idEmpresa) throws NegocioException {
+		try {
+			Empresa empresa = empresaDAO.buscaEmpresaId(idEmpresa);
+			return empresa.getLogo();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+	}
 
 	public void setEmpresaDAO(EmpresaDAO empresaDAO) {
 		this.empresaDAO = empresaDAO;
@@ -168,6 +180,18 @@ public class EmpresaBO {
 			e.printStackTrace();
 			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_EMPRESA_EM_PROJETO);
 		}
+	}
+	
+	public int getLastIdEmpresa() throws NegocioException {
+		int idRetornado = 0;
+		try {
+			idRetornado= empresaDAO.getProximoIdEmpresa();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+		return idRetornado;
+		
 	}
 	
 }

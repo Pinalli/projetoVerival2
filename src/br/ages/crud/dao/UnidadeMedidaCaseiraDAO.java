@@ -39,10 +39,10 @@ public class UnidadeMedidaCaseiraDAO {
 			conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ");
-			sql.append("u.`ID_UNIDADE_MEDIDA_CASEIRA`,");
-			sql.append("u.`nome`,");
-			sql.append("u.`sigla`");
-			sql.append("FROM TB_UNIDADE_MEDIDA_CASEIRA u"); 
+			sql.append("U.`ID_UNIDADE_MEDIDA_CASEIRA`,");
+			sql.append("U.`NOME`,");
+			sql.append("U.`SIGLA`");
+			sql.append("FROM TB_UNIDADE_MEDIDA_CASEIRA U"); 
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
@@ -127,6 +127,80 @@ public class UnidadeMedidaCaseiraDAO {
 		}
 		return removidoOK;
 	}
+	
+	/**
+	 * Busca unidades de medida caseiras
+	 * 
+	 * @return ArrayList<UnidadeMedida>
+	 * @throws PersistenciaException
+	 * @throws SQLException
+	 */
+	public ArrayList<UnidadeMedidaCaseira> buscaUnidadesMedidaCaseira(int offset, int limit) throws PersistenciaException, SQLException {
+		Connection conexao = null;
+		ArrayList<UnidadeMedidaCaseira> listaUnidadeMedidaCaseira = new ArrayList<UnidadeMedidaCaseira>(); 
+		try {
+			conexao = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT ");
+			sql.append("U.`ID_UNIDADE_MEDIDA_CASEIRA`,");
+			sql.append("U.`NOME`,");
+			sql.append("U.`SIGLA`");
+			sql.append(" FROM TB_UNIDADE_MEDIDA_CASEIRA U");
+			sql.append(" LIMIT "+offset+", "+limit);
+			
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultset = statement.executeQuery();
+			while (resultset.next()) {
+				UnidadeMedidaCaseira dto = new UnidadeMedidaCaseira();
+				dto.setIdUnidadeMedidaCaseira(resultset.getInt("ID_UNIDADE_MEDIDA_CASEIRA"));
+				dto.setNome(resultset.getString("NOME"));
+				dto.setSigla(resultset.getString("SIGLA"));
+				listaUnidadeMedidaCaseira.add(dto);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			conexao.close();
+		}
+		return listaUnidadeMedidaCaseira;
+	}
+	
+	/**
+	 * Busca unidades de medida caseiras pelo nome
+	 * 
+	 * @return ArrayList<UnidadeMedida>
+	 * @throws PersistenciaException
+	 * @throws SQLException
+	 */
+	public ArrayList<UnidadeMedidaCaseira> buscaUnidadesMedidaCaseiraNome(String nome, int limit) throws PersistenciaException, SQLException {
+		Connection conexao = null;
+		ArrayList<UnidadeMedidaCaseira> listaUnidadeMedidaCaseira = new ArrayList<UnidadeMedidaCaseira>(); 
+		try {
+			conexao = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			if(limit == 0){
+				sql.append("SELECT * FROM TB_UNIDADE_MEDIDA_CASEIRA WHERE NOME LIKE '%"+nome+"%' ");
+			}else{
+				sql.append("SELECT * FROM TB_UNIDADE_MEDIDA_CASEIRA WHERE NOME LIKE '%"+nome+"%' LIMIT "+limit);
+			}
+			
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultset = statement.executeQuery();
+			while (resultset.next()) {
+				UnidadeMedidaCaseira dto = new UnidadeMedidaCaseira();
+				dto.setIdUnidadeMedidaCaseira(resultset.getInt("ID_UNIDADE_MEDIDA_CASEIRA"));
+				dto.setNome(resultset.getString("NOME"));
+				dto.setSigla(resultset.getString("SIGLA"));
+				listaUnidadeMedidaCaseira.add(dto);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			conexao.close();
+		}
+		return listaUnidadeMedidaCaseira;
+	}
+	
 	/**
 	 * Busca unidade de medida por ID_UNIDADE_MEDIDA
 	 * 
@@ -142,10 +216,10 @@ public class UnidadeMedidaCaseiraDAO {
 			conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ");
-			sql.append("u.`ID_UNIDADE_MEDIDA_CASEIRA`,");
-			sql.append("u.`NOME`,");
-			sql.append("u.`SIGLA`");
-			sql.append(" FROM TB_UNIDADE_MEDIDA_CASEIRA u "); 
+			sql.append("U.`ID_UNIDADE_MEDIDA_CASEIRA`,");
+			sql.append("U.`NOME`,");
+			sql.append("U.`SIGLA`");
+			sql.append(" FROM TB_UNIDADE_MEDIDA_CASEIRA U "); 
 			sql.append("WHERE ID_UNIDADE_MEDIDA_CASEIRA = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idUnidadeMedidaCaseira);
@@ -181,7 +255,7 @@ public class UnidadeMedidaCaseiraDAO {
 			StringBuilder sql = new StringBuilder();
 			int id = unidadeMedidaCaseira.getIdUnidadeMedidaCaseira();
 
-			sql.append("UPDATE TB_UNIDADE_MEDIDA_CASEIRA set NOME = ?," + " SIGLA = ?" + " WHERE ID_UNIDADE_MEDIDA_CASEIRA = " + id + ";");
+			sql.append("UPDATE TB_UNIDADE_MEDIDA_CASEIRA SET NOME = ?," + " SIGLA = ?" + " WHERE ID_UNIDADE_MEDIDA_CASEIRA = " + id + ";");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setString(1, unidadeMedidaCaseira.getNome());
 			statement.setString(2, unidadeMedidaCaseira.getSigla());

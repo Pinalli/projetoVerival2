@@ -2,6 +2,7 @@ package br.ages.crud.bo;
 
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ages.crud.dao.UnidadeMedidaDAO;
@@ -120,6 +121,23 @@ public class UnidadeMedidaBO {
 			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_UNIDADE_MEDIDA_EM_PROJETO);
 		}
 	}
+	
+	/**
+	 * Buscca as Unidades de Medida a partir da classe de DAO
+	 * 
+	 * @return List<UnidadeMedida>
+	 * @throws NegocioException
+	 */	
+	public ArrayList<UnidadeMedida> buscaUnidadesMedida(int offset, int limit) throws NegocioException {
+		ArrayList<UnidadeMedida> listUnidadeMedida = null;
+		try {
+			listUnidadeMedida = unidadeMedidaDAO.buscaUnidadesMedida(offset, limit);
+		} catch (PersistenciaException | SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+		return listUnidadeMedida;
+	}
 
 	/**
 	 * Busca unidade de medida a partir da classe de DAO
@@ -136,6 +154,23 @@ public class UnidadeMedidaBO {
 			e.printStackTrace();
 			throw new NegocioException(e);
 		}
+	}
+	
+	/**
+	 * Buscca as Unidades de Medida conforme o nome a partir da classe de DAO
+	 * 
+	 * @return List<UnidadeMedida>
+	 * @throws NegocioException
+	 */	
+	public ArrayList<UnidadeMedida> buscaUnidadesMedidaUnidade(String unidade, int limit) throws NegocioException {
+		ArrayList<UnidadeMedida> listUnidadeMedida = null;
+		try {
+			listUnidadeMedida = unidadeMedidaDAO.buscaUnidadesMedidaUnidade(unidade, limit);
+		} catch (PersistenciaException | SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+		return listUnidadeMedida;
 	}
 
 	/**

@@ -1,19 +1,15 @@
 package br.ages.crud.bo;
 
 import java.sql.SQLException;
-import java.text.Normalizer;
 import java.text.ParseException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import br.ages.crud.dao.IngredienteDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Ingrediente;
-import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
-import br.ages.crud.validator.SenhaValidator;
 
 /**
  * Gerencia os comportamentos de negocio do Ingrediente Associa os parametros da
@@ -74,6 +70,16 @@ public class IngredienteBO {
 
 	}
 
+	public ArrayList<Ingrediente> buscaIngredientes(int offset, int limit) throws NegocioException {
+		try {
+			ArrayList<Ingrediente> ingredientes = ingredienteDAO.buscaIngredientes(offset, limit);
+			return ingredientes;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+	}
+	
 	public Ingrediente buscaIngredienteId(int idIngrediente) throws NegocioException {
 		try {
 			Ingrediente ingrediente = ingredienteDAO.buscaIngredienteId(idIngrediente);
@@ -85,11 +91,10 @@ public class IngredienteBO {
 		}
 	}
 	
-	public Ingrediente buscaIngredienteDescricao(String descricao) throws NegocioException {
+	public ArrayList<Ingrediente> buscaIngredienteDescricao(String descricao, int limit) throws NegocioException {
 		try {
-			Ingrediente ingrediente = ingredienteDAO.buscaIngredienteDescricao(descricao);
-
-			return ingrediente;
+			ArrayList<Ingrediente> ingredientes = ingredienteDAO.buscaIngredienteDescricao(descricao, limit);
+			return ingredientes;
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new NegocioException(e);

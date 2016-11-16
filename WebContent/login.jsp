@@ -26,11 +26,7 @@
     <body>
 		<div class="container">
     		
-    		<br>
-    		<div class="text-center">
-    			<img class="logo" src="" alt="FICHA TECNICA DE PREPARO">
-    		</div>
-    		<br>
+    		
    		
    		<!-- MODAL / POPUP -->
    		<jsp:include page="./template/modalSenha.jsp"></jsp:include>

@@ -1,3 +1,15 @@
+$(document).ready(function(){
+    var idEmpresa = $("#idEmpresa").val();
+    var result = null;
+    $.get("ajax?acao=buscaEmpresaLogoAjax&idEmpresa="+idEmpresa, function(data){
+        result = jQuery.parseJSON(data);
+    }).done(function(){
+        if(result != null){
+             $("#logoEmpresa").attr("src","upload/logo/"+result);
+        }
+    });
+});
+
 //Função para validar senha
 function validaSenha(){
     var senha = document.getElementById("senha"); //Guarda um objeto do elemento input password
@@ -20,8 +32,3 @@ function validaSenha(){
         }
     };
 }
-
-//Espera toda página carregar pra rodar o código
-window.onload = function(){
-   // validaSenha(); //Chama a função de validar senh
-};

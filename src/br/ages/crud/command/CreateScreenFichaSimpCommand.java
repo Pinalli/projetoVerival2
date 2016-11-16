@@ -1,8 +1,12 @@
 package br.ages.crud.command;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import br.ages.crud.bo.FichaSimplificadaBO;
-import br.ages.crud.model.FichaSimplificada;
+import br.ages.crud.model.Ficha;
+import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.MensagemContantes;
 
 public class CreateScreenFichaSimpCommand implements Command {
@@ -22,27 +26,41 @@ public class CreateScreenFichaSimpCommand implements Command {
 		String modoPreparo = request.getParameter("modoPreparo");
 		String montagem = request.getParameter("montagem");
 		String orientacoesArmazenamento = request.getParameter("orientacoesArmazenamento");
+	List<FichaItem> itensTela =  new ArrayList<>();
+		
+		
 		try{
-			FichaSimplificada fichaSimplificada = new FichaSimplificada();
+			Ficha fichaSimplificada = new Ficha();
 			fichaSimplificada.setNome(nome);
 			fichaSimplificada.setRendimento(rendimento);
 			fichaSimplificada.setModoPreparo(modoPreparo);
 			fichaSimplificada.setOrientacoesArmazenamento(orientacoesArmazenamento);
+			fichaSimplificada.setMontagem(montagem);
 			
-			  /**A implementar...
-			  boolean isValido = fichaTecnicaSimplificadaBO.validarFichaTecnicaSimplificada(fichaSimplificada)
+				
+			for (FichaItem fichaItemTela : itensTela) {
+			
+				FichaItem item = new FichaItem();
+				
+				item.setIdFichaItem(fichaItemTela.getIdFichaItem());
+				item.setIdUnidadeMedida(fichaItemTela.getIdUnidadeMedida());
+				item.setIdMedidaCaseira(fichaItemTela.getIdMedidaCaseira());
+				item.setIdFicha(fichaItemTela.getIdFicha());
+				item.setQuantidadeUnidadeMedida(fichaItemTela.getQuantidadeUnidadeMedida());
+				item.setQuantidadeMedidaCaseira(fichaItemTela.getQuantidadeMedidaCaseira());
+				
+			}
+			
+			
+			  boolean isValido = fichaSimplificadaBO.validarFichaSimplificada(fichaSimplificada);
 			  if(isValido == false){
-			  	request.setAttribute("msgErro", MensagemContantes.MSG_ERR_FICHA_TECNICA_SIMPLIFICADA_DADOS_INVALIDOS)
+			  	request.setAttribute("msgErro", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
 			  }else{ // cadastro ficha tecnica simplificada
-			  	fichaSimplificadaBO.cadastrarFichaTecnicaSimplificada(fichaSimplificada);
+			  	fichaSimplificadaBO.cadastrarFichaSimplificada(fichaSimplificada);
 			  	proxima = "main?acao=listFichaSimplificada";
-				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_TECNICA_SIMPLIFICADA.replace("?", fichaSimplificada.getNome()));
-			  }*/
+				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", fichaSimplificada.getNome()));
+			  }
 			
-			fichaSimplificadaBO.cadastrarFichaSimplificada(fichaSimplificada);
-			proxima = "main?acao=listFichaSimplificada";
-			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", fichaSimplificada.getNome()));
-
 		}catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
 			proxima = "main?acao=telaFichaTecnicaSimplificada";

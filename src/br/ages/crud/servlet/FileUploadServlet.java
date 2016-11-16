@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -12,13 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
-
-import br.ages.crud.model.Empresa;
 import br.ages.crud.util.Constantes;
+import br.ages.crud.bo.EmpresaBO;
+import br.ages.crud.bo.FichaSimplificadaBO;
 
 /**
+ * Grava a imagem no savePath.
+ * É necessário passar o input com o name "file"
  * Servlet implementation class FileUploadServlet
+ * Para a empresa é necessário gravar em um outro path.
+ * @author Luis Santana
  */
 @WebServlet("/upload")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024
@@ -36,22 +42,47 @@ public class FileUploadServlet extends HttpServlet {
 
 		try {
 			logger.debug("Iniciando o Upload");
-			String appPath = "logoEmpresas";
-			String savePath = SAVE_DIR + File.separator + appPath;
+			int idFicha = 0;
+			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
+			boolean fichaSimplificada = Boolean.valueOf(request.getParameter("fichaSimplificada"));
+			String appPath = "";
+			String savePath = SAVE_DIR+File.separator+"upload"+File.separator;
+			if(fichaSimplificada){
+				idFicha = Integer.valueOf(request.getParameter("idFicha"));
+				if(idFicha == 0){
+					idFicha = new FichaSimplificadaBO().getProximoIdFicha();
+				}
+				appPath = "fichas"+File.separator+"ficha-"+idFicha;
+				savePath += appPath;
+			}
+			if (empresa){
+				appPath = "logo";
+				savePath += appPath;
+			}
 			File fileSaveDir = new File(savePath);
 
 			if (!fileSaveDir.exists())
 				fileSaveDir.mkdir();
-
+			String fileName;
 			Part part = request.getPart("file");
-			String fileName = extractFileName(part);
+			
+			fileName = extractFileName(part); //NAO TERMINEI PQ ALISSA ME EXPULSOU DA AGES :(
+			if(fichaSimplificada){
+				//gravar foto ficha-id/foto-ficha-id.extensao
+				fileName = "foto-ficha-"+idFicha+"."+FilenameUtils.getExtension(fileName);
+			}
+
+			if(empresa){
+				int idEmpresa = Integer.valueOf(request.getParameter("idEmpresa"));
+				if(idEmpresa == 0){
+					idEmpresa = new EmpresaBO().getLastIdEmpresa();
+				}
+				//gravar nome logo-empresa-1.jpg
+				fileName = "logo-empresa-"+idEmpresa+"."+FilenameUtils.getExtension(fileName);			
+			} 
 			part.write(new File(savePath + File.separator + fileName).toString());
 
 			request.setAttribute("msgSucesso", "Upload feito com sucesso!");
-
-			// request.setAttribute("acao", "listaProjetos");
-		//	getServletContext().getRequestDispatcher("/main?acao=listEmpresa").forward(request, response);
-
 			logger.info("Executado o Upload em: " + savePath + " - " + fileName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

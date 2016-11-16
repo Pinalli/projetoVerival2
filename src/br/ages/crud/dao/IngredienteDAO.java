@@ -44,26 +44,26 @@ public class IngredienteDAO {
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT * ");
-			sql.append("FROM "+ this.table +" i");
+			sql.append("FROM "+ this.table +" I");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
 			while (resultset.next()) {
 				Ingrediente dto = new Ingrediente();
-				dto.setId(resultset.getInt("i.ID"));
-				dto.setCodigo(resultset.getInt("i.COD"));
-				dto.setDescricao(resultset.getString("i.DESCRICAO"));
-				dto.setCarboidratos(resultset.getDouble("i.CARBOIDRATOS"));
-				dto.setKcalCarboidratos(resultset.getDouble("i.KCAL_CARBOIDRATOS"));
-				dto.setProteinas(resultset.getDouble("i.PROTEINAS"));
-				dto.setKcalProteinas(resultset.getDouble("i.KCAL_PROTEINAS"));
-				dto.setLipidios(resultset.getDouble("i.LIPIDIOS"));
-				dto.setKcalLipidios(resultset.getDouble("i.KCAL_LIPIDIOS"));
-				dto.setFatorCorrecao(resultset.getDouble("i.FATOR_CORRECAO"));
-				dto.setIndiceCoccao(resultset.getDouble("i.INDICE_COCCAO"));
-				dto.setCusto(resultset.getDouble("i.CUSTO"));
-				dto.setUnidadeMedida(resultset.getString("i.UNIDADE_MEDIDA"));
-				dto.setDataAlteracao(resultset.getDate("i.DATA_INSERCAO"));
+				dto.setId(resultset.getInt("I.ID"));
+				dto.setCodigo(resultset.getInt("I.COD"));
+				dto.setDescricao(resultset.getString("I.DESCRICAO"));
+				dto.setCarboidratos(resultset.getDouble("I.CARBOIDRATOS"));
+				dto.setKcalCarboidratos(resultset.getDouble("I.KCAL_CARBOIDRATOS"));
+				dto.setProteinas(resultset.getDouble("I.PROTEINAS"));
+				dto.setKcalProteinas(resultset.getDouble("I.KCAL_PROTEINAS"));
+				dto.setLipidios(resultset.getDouble("I.LIPIDIOS"));
+				dto.setKcalLipidios(resultset.getDouble("I.KCAL_LIPIDIOS"));
+				dto.setFatorCorrecao(resultset.getDouble("I.FATOR_CORRECAO"));
+				dto.setIndiceCoccao(resultset.getDouble("I.INDICE_COCCAO"));
+				dto.setCusto(resultset.getDouble("I.CUSTO"));
+				dto.setUnidadeMedida(resultset.getString("I.UNIDADE_MEDIDA"));
+				dto.setDataAlteracao(resultset.getDate("I.DATA_INSERCAO"));
 				listarIngredientes.add(dto);
 			}
 
@@ -132,46 +132,42 @@ public class IngredienteDAO {
 
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(
-					MensagemContantes.MSG_ERR_INGREDIENTE_JA_EXISTENTE.replace("?", ingrediente.getDescricao()));
+					MensagemContantes.MSG_ERR_CODIGO_JA_USADO);
 
 		} finally {
 			conexao.close();
 		}
 	}
 
-	public Ingrediente buscaIngredienteDescricao(String descricao) throws PersistenciaException {
-
-		Ingrediente ingrediente = new Ingrediente();
+	public ArrayList<Ingrediente> buscaIngredientes(int offset, int limit) throws PersistenciaException {
+		ArrayList<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
 		Connection conexao = null;
 		try {
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
-			// sql.append("SELECT * FROM TB_INGREDIENTE WHERE DESCRICAO = ?");
-			sql.append("SELECT ");
-			sql.append("i.*");
-			sql.append("FROM "+ this.table +" i");
-			sql.append("WHERE i.descricao = ?;");
+			sql.append("SELECT * FROM TB_INGREDIENTES LIMIT "+offset+", "+limit+" ");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
-			statement.setString(1, descricao);
 
 			ResultSet resultset = statement.executeQuery();
 
 			while (resultset.next()) {
-				ingrediente.setId(resultset.getInt("i.ID"));
-				ingrediente.setCodigo(resultset.getInt("i.COD"));
-				ingrediente.setDescricao(resultset.getString("i.DESCRICAO"));
-				ingrediente.setCarboidratos(resultset.getDouble("i.CARBOIDRATOS"));
-				ingrediente.setKcalCarboidratos(resultset.getDouble("i.KCAL_CARBOIDRATOS"));
-				ingrediente.setProteinas(resultset.getDouble("i.PROTEINAS"));
-				ingrediente.setKcalProteinas(resultset.getDouble("i.KCAL_PROTEINAS"));
-				ingrediente.setLipidios(resultset.getDouble("i.LIPIDIOS"));
-				ingrediente.setKcalLipidios(resultset.getDouble("i.KCAL_LIPIDIOS"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("i.FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("i.INDICE_COCCAO"));
-				ingrediente.setCusto(resultset.getDouble("i.CUSTO"));
-				ingrediente.setUnidadeMedida(resultset.getString("i.UNIDADE_MEDIDA"));
-				ingrediente.setDataAlteracao(resultset.getDate("i.DATA_INSERCAO"));		
+				Ingrediente ingrediente = new Ingrediente();
+				ingrediente.setId(resultset.getInt("ID"));
+				ingrediente.setCodigo(resultset.getInt("COD"));
+				ingrediente.setDescricao(resultset.getString("DESCRICAO"));
+				ingrediente.setCarboidratos(resultset.getDouble("CARBOIDRATOS"));
+				ingrediente.setKcalCarboidratos(resultset.getDouble("KCAL_CARBOIDRATOS"));
+				ingrediente.setProteinas(resultset.getDouble("PROTEINAS"));
+				ingrediente.setKcalProteinas(resultset.getDouble("KCAL_PROTEINAS"));
+				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
+				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
+				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
+				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
+				ingrediente.setCusto(resultset.getDouble("CUSTO"));
+				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
+				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));	
+				ingredientes.add(ingrediente);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
@@ -183,7 +179,50 @@ public class IngredienteDAO {
 			}
 		}
 
-		return ingrediente;
+		return ingredientes;
+	}
+	
+	public ArrayList<Ingrediente> buscaIngredienteDescricao(String descricao, int limit) throws PersistenciaException {
+		ArrayList<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
+		Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT * FROM TB_INGREDIENTES WHERE DESCRICAO LIKE '%"+descricao+"%' LIMIT "+limit);
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+
+			ResultSet resultset = statement.executeQuery();
+
+			while (resultset.next()) {
+				Ingrediente ingrediente = new Ingrediente();
+				ingrediente.setId(resultset.getInt("ID"));
+				ingrediente.setCodigo(resultset.getInt("COD"));
+				ingrediente.setDescricao(resultset.getString("DESCRICAO"));
+				ingrediente.setCarboidratos(resultset.getDouble("CARBOIDRATOS"));
+				ingrediente.setKcalCarboidratos(resultset.getDouble("KCAL_CARBOIDRATOS"));
+				ingrediente.setProteinas(resultset.getDouble("PROTEINAS"));
+				ingrediente.setKcalProteinas(resultset.getDouble("KCAL_PROTEINAS"));
+				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
+				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
+				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
+				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
+				ingrediente.setCusto(resultset.getDouble("CUSTO"));
+				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
+				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));	
+				ingredientes.add(ingrediente);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return ingredientes;
 	}
 
 	public Ingrediente buscaIngredienteId(int idIngrediente) throws PersistenciaException, SQLException {

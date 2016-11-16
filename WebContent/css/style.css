@@ -11,6 +11,9 @@ body{
 	width: 45px;
 }
 
+.panel-body{
+	background-color: #e0defe;
+}
 .panel-login {
 	max-width: 300px; 
 	float: none;
@@ -59,11 +62,11 @@ body{
 	width: 100%;
 }
 
-.addUser, .addIngrediente, .addUnidadeMedida, .addUnidadeMedidaCaseira {
+.addUser, .addIngrediente, .addUnidadeMedida, .addUnidadeMedidaCaseira, .addEmpresa{
 	width: 78%;
 }
 
-.limparUser, .limpaIngrediente, .limpaUnidadeMedida, .limpaUnidadeMedidaCaseira{
+.limparUser, .limpaIngrediente, .limpaUnidadeMedida, .limpaUnidadeMedidaCaseira, .limpaEmpresa{
 	width: 20%;
 }
 
@@ -96,4 +99,116 @@ body{
 	font-size: 18px;
 	padding: 0px;
 	margin: 0 0 4px 240px;
+}
+
+/* ========================== */
+/* Para o About 			  */
+/* ========================== */
+
+.logosAbout {
+   width:100px;
+   height:100px;
+   margin: 0 auto;
+}
+.panel-about {
+	max-width: 500px;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+ 
+.titulo {   
+    color: #ae0057;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.pagination>.active>a, 
+.pagination>.active>a:focus, 
+.pagination>.active>a:hover, 
+.pagination>.active>span, 
+.pagination>.active>span:focus, 
+.pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: green;
+    border-color: green;
+}
+
+a{
+	color: green;
+}
+
+.btn-exclude {
+  color: #fff;
+  background-color: #CC0000;
+  border-color: #990000;
+}
+
+.btn-exclude.focus {
+  color: #fff;
+  background-color: #990000;
+  border-color: #660000;
+}
+.btn-exclude:hover {
+  color: #fff;
+  background-color: #990000;
+  border-color: #660000;
+}
+
+/*Estilo de alguns elementos das views de fichas técnicas*/
+
+.horizontal-divider {
+	height: 1px;
+	float: left;
+	width: 100%;
+	margin: 25px 0;
+	background: #CCC;
+}
+
+.horizontal-divider-sm {
+	height: 1px;
+	float: left;
+	width: 100%;
+	margin: 5px 0;
+	background: #CCC;
+}
+
+.select2-selection--single {
+	display: block !important;
+	width: 100% !important;
+	height: 34px !important;
+	padding: 6px 12px !important;
+	font-size: 14px !important;
+	line-height: 20px !important;
+	color: #555 !important;
+	background-color: #fbfbfb !important;
+	background-image: none !important;
+	border: 1px solid #ccc !important;
+	border-radius: 4px !important;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s !important;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s !important;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+		!important;
+}
+
+.box-transparent {
+		    background-color:transparent;
+		    color:black;
+		    border: none;
+		    outline:none;
+		    height:30px;
+		    font-weight:bold;
+		    transition:height 1s;
+		    -webkit-transition:height 1s;
+		}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered
+	{
+	line-height: 20px !important;
 }

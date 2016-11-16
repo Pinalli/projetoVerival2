@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
+<%@page import="br.ages.crud.model.UnidadeMedida"%>
 <%@page import="br.ages.crud.model.Ingrediente"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!--onkidonki-->
@@ -77,7 +78,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages"> Índice de Cocção </span></label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.descricao}" type="value" maxlength="5" required>
+							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.indicecoccao}" type="value" maxlength="5" required>
 						</div>
 					</div>
 					
@@ -88,13 +89,18 @@
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages"> Unidade de Medida</span></label> 
-							<select class="form-control input-sm" id=""unidadeMedida"" name="unidadeMedida">
-								<option value="Kg"> Kg</option>
-								<option value="Grama"> grama</option>
-								<option value="Litro"> litro</option>
+							<select class="form-control input-sm" id="unidadeMedida" name="unidadeMedida">
+								<%
+									List<UnidadeMedida> listaUnidadesMedida = (List<UnidadeMedida>) request.getAttribute("listaUnidadesMedida");
+									for (UnidadeMedida unidadeMedida : listaUnidadesMedida) {
+								%>
+									<option value="<%=unidadeMedida.getUnidadeMedida()%>"><%=unidadeMedida.getUnidadeMedida()%></option>
+								<%
+									}
+								%>
 							</select>
 						</div>
-					</div>					
+					</div>
 				</div>
 				
 				<div class="text-center">

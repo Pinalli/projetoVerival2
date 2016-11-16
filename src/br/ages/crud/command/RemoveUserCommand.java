@@ -25,9 +25,12 @@ public class RemoveUserCommand implements Command {
 			if( !usuario.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
 			
 			Integer idUsuario = Integer.parseInt(request.getParameter("id_usuario"));
-			usuarioBO.removerUsuario(idUsuario);
-			if( usuario.getIdUsuario() == idUsuario ) throw new NegocioException(MensagemContantes.MSG_INF_DENY_SELF);
-			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_USUARIO.replace("?", idUsuario.toString()).concat("<br/>"));
+			
+			if( usuario.getIdUsuario() == idUsuario )
+				throw new NegocioException(MensagemContantes.MSG_INF_DENY_SELF);
+			else 
+				usuarioBO.removerUsuario(idUsuario);
+				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_USUARIO.replace("?", idUsuario.toString()).concat("<br/>"));
 			
 		} catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());

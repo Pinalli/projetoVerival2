@@ -66,7 +66,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img class="logoNavBar" src="./img/logo-ftp.png" alt=""></a>
+      <a class="navbar-brand" href="index.jsp"><img class="logoNavBar" src="./img/logo-ftp.png" alt=""></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -112,14 +112,24 @@
             <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
           </ul>
         </li>
-        
-        <li class="dropdown">
+
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a  href="main?acao=telaFichaSimplificada">Cadastrar Ficha Técnica Simplificada</a></li>
+                  <li><a  href="main?acao=listFichaSimplificada">Listar Fichas Técnicas Simplificadas</a></li>
+                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Técnica Completa</a></li>
+				  <li><a  href="main?acao=listFichaCompleta">Listar Fichas Técnicas Completas</a></li>
+              </ul>
+          </li>
+
+        <!--li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preview FTs<span class="caret"></span></a>
           <ul class="dropdown-menu">
 	        <li><a  href="main?acao=telaFichaCompleta">Completa</a></li>
 			<li><a  href="main?acao=telaFichaSimplificada">Simplificada</a></li>            
           </ul>
-        </li>
+        </li-->
         
         <li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -130,6 +140,7 @@
                            
         					<ul class="dropdown-menu dropdown-menu-right">
         						<li><a href="main?acao=logout">Logout</a></li>
+        						<li><a href="main?acao=about">Sobre</a></li>
         					</ul>
         				</li>
         

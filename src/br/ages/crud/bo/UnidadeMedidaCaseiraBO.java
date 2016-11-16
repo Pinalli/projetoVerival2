@@ -1,22 +1,15 @@
 package br.ages.crud.bo;
 
 import java.sql.SQLException;
-import java.text.Normalizer;
 import java.text.ParseException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import br.ages.crud.dao.UnidadeMedidaCaseiraDAO;
-import br.ages.crud.dao.UnidadeMedidaDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.TipoUsuario;
-import br.ages.crud.model.UnidadeMedida;
 import br.ages.crud.model.UnidadeMedidaCaseira;
-import br.ages.crud.model.Usuario;
 import br.ages.crud.util.MensagemContantes;
-import br.ages.crud.validator.SenhaValidator;
 
 /**
  * Gerencia os comportamentos de negocio da Unidade de Medida Caseira Associa os parametros da
@@ -119,6 +112,23 @@ public class UnidadeMedidaCaseiraBO {
 			throw new NegocioException(MensagemContantes.MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA_EM_PROJETO);
 		}
 	}
+	
+	/**
+	 * Busca as Unidades de Medida Caseira a partir da classe de DAO
+	 * 
+	 * @return ArrayList<UnidadeMedidaCaseira>
+	 * @throws NegocioException
+	 */	
+	public ArrayList<UnidadeMedidaCaseira> buscaUnidadesMedidaCaseira(int offset, int limit) throws NegocioException {
+		ArrayList<UnidadeMedidaCaseira> listUnidadeMedidaCaseira = null;
+		try {
+			listUnidadeMedidaCaseira = unidadeMedidaCaseiraDAO.buscaUnidadesMedidaCaseira(offset, limit);
+		} catch (PersistenciaException | SQLException e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+		return listUnidadeMedidaCaseira;
+	}
 
 	/**
 	 * Busca unidade de medida caseira a partir da classe de DAO
@@ -129,6 +139,22 @@ public class UnidadeMedidaCaseiraBO {
 	public UnidadeMedidaCaseira buscaUnidadeMedidaCaseiraId(int idUnidadeMedidaCaseira) throws NegocioException {
 		try {
 			UnidadeMedidaCaseira unidadeMedidaCaseira = unidadeMedidaCaseiraDAO.buscaUnidadeMedidaCaseiraId(idUnidadeMedidaCaseira);
+			return unidadeMedidaCaseira;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new NegocioException(e);
+		}
+	}
+	
+	/**
+	 * Busca unidade de medida caseira pelo nome a partir da classe de DAO
+	 * @param idUnidadeMedidaCaseira
+	 * @return UnidadeDeMedidaCaseira
+	 * @throws NegocioException
+	 */
+	public ArrayList<UnidadeMedidaCaseira> buscaUnidadeMedidaCaseiraNome(String nome, int limit) throws NegocioException {
+		try {
+			ArrayList<UnidadeMedidaCaseira> unidadeMedidaCaseira = unidadeMedidaCaseiraDAO.buscaUnidadesMedidaCaseiraNome(nome, limit);
 			return unidadeMedidaCaseira;
 		} catch (Exception e) {
 			e.printStackTrace();
