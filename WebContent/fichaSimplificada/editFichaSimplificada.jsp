@@ -19,7 +19,7 @@
 				<input type="hidden" id="idFicha" name="id" value="<%=ficha.getIdFicha()%>"/>
 				
 				<div class="form-group col-md-4 col-md-offset-4">
-					<input type="text" name="nome" id="nome"
+					<input type="text" name="nome" id="nome" value="<%= ficha.getNome()%>"
 						class="form-control text-center box-transparent"
 						placeholder="Digite o nome da receita" />
 				</div>
@@ -45,6 +45,7 @@
 					<label for="rendimento"
 						class="col-xs-12 col-sm-12 form-control-static text-center">Rendimento</label>
 					<input type="text" name="rendimento" id="rendimento"
+					    value="<%=ficha.getRendimento() %>"
 						class="form-control text-center box-transparent"
 						placeholder="Rendimento" />
 				</div>
