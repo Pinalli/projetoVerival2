@@ -268,9 +268,13 @@ $(document).ready(function() {
 	function updateIngredienteListener(){
 		$(".table-row").not(".configurado").each(function(){
 			var row = $(this);
-			row.find("#select-ingredientes").change(function(){
+			var select = row.find("#select-ingredientes");
+			if(select.val()){
+				getIngredienteById(row, select.val());
+			}
+			select.change(function(){
 				var id = $(this).val();
-				var ingrediente = getIngredienteById(row, id);
+				getIngredienteById(row, id);
 			});
 		});		
 	}
