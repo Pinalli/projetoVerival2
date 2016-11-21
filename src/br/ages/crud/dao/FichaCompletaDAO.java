@@ -240,6 +240,7 @@ public class FichaCompletaDAO {
 		Connection conexao = null;
 		try {
 			conexao = ConexaoUtil.getConexao();
+			itemDAO = new FichaCompletaItemDAO();
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ID_FICHA,"
