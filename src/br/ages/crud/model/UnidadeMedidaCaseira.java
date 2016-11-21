@@ -1,7 +1,7 @@
 package br.ages.crud.model;
 
 /**
- * @author Homero Oliveira
+ * @author iannmuller
  */
 
 public class UnidadeMedidaCaseira {

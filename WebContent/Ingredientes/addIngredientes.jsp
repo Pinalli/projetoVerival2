@@ -67,10 +67,6 @@
 						</div>					
 					</div>
 					
-					
-					
-					
-					
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages"> Fator de Correção </span></label> 
@@ -87,6 +83,7 @@
 							<label class="form-label ages"> Valor de Custo   </span></label> 
 							<input class="form-control" id="custo" name="custo" value="${param.custo}" type="value" maxlength="5" required>
 						</div>
+						
 						<div class="col-sm-6">
 							<label class="form-label ages"> Unidade de Medida</span></label> 
 							<select class="form-control input-sm" id="unidadeMedida" name="unidadeMedida">

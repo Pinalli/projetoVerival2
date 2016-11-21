@@ -10,7 +10,11 @@ import br.ages.crud.model.PerfilAcesso;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.model.Empresa;
 import br.ages.crud.util.MensagemContantes;
-
+/**
+ * 
+ * @author iann muller
+ *
+ */
 public class CreateScreenEmpresaCommand implements Command {
 
 	private String proxima;

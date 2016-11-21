@@ -8,12 +8,8 @@ import br.ages.crud.model.Ingrediente;
 import br.ages.crud.util.MensagemContantes;
 import org.apache.log4j.Logger;
 public class AddIngredienteCommand implements Command {
-
-
 	private String proxima;
-
 	private IngredienteBO ingredienteBO;
-	
 	@Override
 	public String execute(HttpServletRequest request) {
 		ingredienteBO = new IngredienteBO();
@@ -44,18 +40,15 @@ public class AddIngredienteCommand implements Command {
 			ingrediente.setIndiceCoccao(Double.valueOf(indiceCoccao));
 			ingrediente.setCusto(Double.valueOf(custo));
 			ingrediente.setUnidadeMedida(unidadeMedida);	
-				ingredienteBO.cadastraIngrediente(ingrediente);
-				proxima = "main?acao=listIngrediente";
-				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_INGREDIENTE.replace("?", ingrediente.getDescricao()));
+			ingredienteBO.cadastraIngrediente(ingrediente);
+			proxima = "main?acao=listIngrediente";
+			request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_INGREDIENTE.replace("?", ingrediente.getDescricao()));
 				
 		} catch (NumberFormatException e) {
 			request.setAttribute("msgErro", "Múltiplos separadores decimais! Verifique!");
-			//proxima = "main?acao=listUser";
 		}catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
-			//proxima = "main?acao=listUser";
 		}
-
 		return proxima;
 	}
 }
