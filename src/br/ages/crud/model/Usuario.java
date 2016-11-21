@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Entity Usuario - Data Transfer Objeto
  * 
- * @author 3- Victor Diehl, Daniele de Souza.
+ * 
+ * @author iann muller
  *
  */
 public class Usuario implements Serializable, Comparable<Usuario> {

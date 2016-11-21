@@ -7,7 +7,11 @@ import br.ages.crud.util.MensagemContantes;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.text.ParseException;
-
+/**
+ * 
+ * @author iann muller
+ *
+ */
 public class AddUnidadeMedidaCaseiraCommand implements Command {
 	private String proxima;
 	private UnidadeMedidaCaseiraBO unidadeMedidaCaseiraBO;
