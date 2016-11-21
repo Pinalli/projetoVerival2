@@ -15,8 +15,8 @@
 </head>
 <body>
 	<article>
-		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm" method="post" action="ajax?acao=editFichaCompletaAjaxCommand">
-			<input type="hidden" name="id" value="<%=ficha.getIdFicha()%>"/>
+		<form name="editFichaTecnicaCompleta" id="editFichaTecnicaCompletaForm" method="post" action="ajax?acao=editFichaCompletaAjaxCommand">
+			<input type="hidden" name="idFicha" id="idFicha" value="<%=ficha.getIdFicha()%>"/>
 			<div class="form-group col-md-4 col-md-offset-4">
 				<input type="text" name="nome" id="nome"
 					class="form-control text-center box-transparent"
@@ -60,7 +60,7 @@
 						FichaItem item = ficha.getItens().get(i);
 					%>
 				<div class="table-row" style="width: 100%; float: left; margin-bottom: 5px;">
-
+					<input type="hidden" name="idFichaItem" id="idFichaItem" value="<%= item.getIdFichaItem() %>>"/>
 					<div class="panel panel-info">
 						<div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 					</div>
