@@ -4,6 +4,8 @@ $(document).ready(function() {
 		add($(this));
 	});
 	
+	[{"idFichaItem":"1>","idUnidadeMedida":"1","idMedidaCaseira":"1","idIngrediente":"1","quantidadeUnidadeMedida":"1.0","quantidadeMedidaCaseira":"1.0","ingrediente":"","unidadeMedida":"","unidadeMedidaCaseira":"","idFicha":"1","perCapita":"2.21","valorUnit":"2.21","operacao":"u"},{"idFichaItem":"2>","idUnidadeMedida":"1","idMedidaCaseira":"1","idIngrediente":"2","quantidadeUnidadeMedida":"1.0","quantidadeMedidaCaseira":"1.0","ingrediente":"","unidadeMedida":"","unidadeMedidaCaseira":"","idFicha":"1","perCapita":"3.55","valorUnit":"3.55","operacao":"u"}]
+	
 	function add(form){
 		var idFicha = $("#idFicha").val();
 		var nome = $('input[name="nome"]').val();
@@ -19,15 +21,16 @@ $(document).ready(function() {
 		
 		$(".table-row").each(function(){
 			var item = {
-					idFicha : idFicha,
 					idFichaItem : $(this).find("#idFichaItem").val(),
+					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
+					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
 					idIngrediente : $(this).find('select[name="select-ingredientes"]').val(),
 					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
-					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
-					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
-					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
+					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),					
+					idFicha : idFicha,					
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
+					operacao: "u"
 			};
 			itens.push(item);
 		});
