@@ -154,10 +154,10 @@ public class FichaCompletaDAO {
                     + "MODO_PREPARO = ?, "
                     + "MONTAGEM = ?, "
                     + "ORIENTACOES_ARMAZENAMENTO = ?, "
-                    + "TEXTURA = ?"
-                    + "SABOR = ?"
+                    + "TEXTURA = ?,"
+                    + "SABOR = ?,"
                     + "APRESENTACAO = ?"
-                    + "WHERE ID_USUARIO = "+ idFichaCompleta 
+                    + " WHERE ID_FICHA = "+ idFichaCompleta 
                     + " AND TIPO_FICHA = 'c'");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
