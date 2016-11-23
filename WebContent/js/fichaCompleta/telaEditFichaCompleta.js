@@ -1,22 +1,17 @@
 $(document).ready(function() {
 	var RESOLUCAO_MINIMA = 990;
-	var RESOLUCAO_MAX = 99000;
 	var qntIngredientes = 2;
 		
 	setSelect2();
-
+	
 	/**
-	 * Hide/display divs
+	 * Magic. Do not touch.
 	 */
-	$(".trigger-display").click(function(){
-		var id = $(this).attr("data-target");
-		$("#"+id).toggleClass("hide");
-	});
 
 	/**
 	 * Aplica o Select2 nos selects
 	 */
-	function setSelect2() {
+	function setSelect2() {		
 		$('.selectBatata').each(function(i, obj) {
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				if (obj.id == 'select-ingredientes') {
@@ -27,14 +22,15 @@ $(document).ready(function() {
 					}
 					$(this).select2({
 						data: data,
-						 ajax: {							 
-							    url: "ajax?acao=buscaIngredienteDescricaoAjax",
+						 ajax: {
+							    url: "/FichaTP/ajax?acao=buscaIngredienteDescricaoAjax",
 							    method: "GET",
 							    data: function (params) {							    	
 							        return {'descricao':params.term, 'limit':10};
 							    },
 							    processResults: function (data, params) {
 							    	var select2Data = [];
+							    	//select2Data.push({'id':00, 'text':'batata'});
 							    	var json = jQuery.parseJSON(data);
 							    	for(var i=0; i<json.length; i++){
 										var obj = {'id':json[i].id, 'text':json[i].descricao}
@@ -56,8 +52,8 @@ $(document).ready(function() {
 					}
 					$(this).select2({
 						data : data, 
-						 ajax: {							 
-							    url: "ajax?acao=buscaUnidadeMedidaUnidadeAjax",
+						ajax: {							 
+							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaUnidadeAjax",
 							    method: "GET",
 							    data: function (params) {	
 							        return {'unidade':params.term, 'limit':10};
@@ -83,10 +79,10 @@ $(document).ready(function() {
 					if(obj.hasAttribute('data-selected-id') && obj.hasAttribute('data-selected-text')){
 						data = [{'id':$(this).attr('data-selected-id'), 'text':$(this).attr('data-selected-text')}];
 					}
-					$(this).select2({
+					$(this).select2({						
 						data:data,
-						 ajax: {							 
-							    url: "ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
+						ajax: {							 
+							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
 							    method: "GET",
 							    data: function (params) {
 							        return {'nome':params.term, 'limit':10};
@@ -123,7 +119,6 @@ $(document).ready(function() {
 		addRemoveListener();
 		setSelect2();
 		showItemListener();
-		updateIngredienteListener();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -142,7 +137,12 @@ $(document).ready(function() {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 			
 				target.fadeOut(300, function(){
-					target.remove();
+					var operacao = $("#operacao",target);
+					if(!operacao.val() || operacao.val() == "u"){
+						operacao.val("d");				
+					}else{
+						target.remove();
+					}
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
 					}
@@ -151,6 +151,7 @@ $(document).ready(function() {
 			});
 		});
 	}
+	addRemoveListener();
 
 	/**
 	 * Clona ulltima linha
@@ -160,6 +161,7 @@ $(document).ready(function() {
 		var row = $('.table-row').last().clone();
 		row.removeClass('configurado');
 		row.find('.item-wrapper').removeClass('hide');
+		row.find('#operacao').val("c");
 		var id = 'ingrediente-'+qntIngredientes;
 		$('.show-item-btn', row).attr('id',id);
 		
@@ -169,6 +171,8 @@ $(document).ready(function() {
 		row.find('.select2').remove();
 		row.find('select').removeClass('select2-hidden-accessible');
 		row.hide().appendTo($('#table-rows')).fadeIn(300);
+		row.find('.select2').unbind('change');
+		
 		//Adiciona botão de excluir na linha clonada se ela não contém um
 		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
 		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
@@ -181,10 +185,37 @@ $(document).ready(function() {
 		}
 	}
 	
+	/**
+	 * Update operacao
+	 */
+	function addUpdateListener(row){
+		$("select", row).each(function(){
+			$(this).change(function(){
+				if(!row.find("#operacao").val()){
+					row.find("#operacao").val("u");
+				}
+			});
+		});
+		$("input", row).each(function(){
+			$(this).bind("change keyup", function(){
+				if(!row.find("#operacao").val()){
+					row.find("#operacao").val("u");
+				}
+			});
+		});
+	}
+	
+	$(".table-row").each(function(){
+		addUpdateListener($(this));
+	});
+	
+	/**
+	 * Scroll
+	 */
 	function scroll(target){
 		if(typeof target.offset() !== 'undefined'){
 			$('html, body').animate({
-			    scrollTop: target.offset().top
+				scrollTop: target.offset().top
 			}, 1000);
 		}
 	}
@@ -194,7 +225,7 @@ $(document).ready(function() {
 	 */				
 	function showItemListener() {
 		$('.show-item-btn').each(function() {
-		       
+				       
 			if(!$(this).closest('.table-row').hasClass('configurado')){
 				//Add listener
 				$(this).click(function(e) {
@@ -245,7 +276,7 @@ $(document).ready(function() {
 	/**
 	 * Altera o layout em resoluções com larguras menores que 990px 
 	 */
-	if($(window).width() <= RESOLUCAO_MAX){
+	if($(window).width() <= RESOLUCAO_MINIMA){
 		document.onreadystatechange = function () {
 			if (document.readyState == "complete") {						
 				showItemListener();
@@ -260,61 +291,6 @@ $(document).ready(function() {
 				$('.table-row:last').addClass('configurado');
 			}
 		}
-	}
-	
-	/**
-	 * Atualiza campos referntes ao ingrediente
-	 */
-	function updateIngredienteListener(){
-		$(".table-row").not(".configurado").each(function(){
-			var row = $(this);
-			var select = row.find("#select-ingredientes");
-			if(select.val()){
-				getIngredienteById(row, select.val());
-			}
-			select.change(function(){
-				var id = $(this).val();
-				getIngredienteById(row, id);
-			});
-		});		
-	}
-	updateIngredienteListener();
-	
-	/**
-	 * Atualiza campos referntes ao ingrediente
-	 * @param ingrediente
-	 * @returns
-	 */
-	function updateIngrediente(row, ingrediente){
-		var kcal = ingrediente.kcalCarboidratos + ingrediente.kcalLipidios + ingrediente.kcalProteinas;  
-		row.find("#cho").val(ingrediente.carboidratos);
-		row.find("#ptn").val(ingrediente.proteinas);
-		row.find("#lip").val(ingrediente.lipidios);
-		row.find("#kcal").val(kcal);
-		row.find("#valor-unitario").val(ingrediente.custo);
-		row.find("#custo-real").val(ingrediente.custo);
-		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
-		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
-	}
-	
-	/**
-	 * Busca ingrediente pelo ID
-	 * @param id
-	 * @returns json
-	 */
-	function getIngredienteById(row, id){
-		$.ajax({
-			   url: 'ajax?acao=buscaIngredienteIdAjax',
-			   data: {id: id},
-			   error: function() {
-			      console.log('Error on getIngredienteById.');
-			   },
-			   success: function(data) {
-			      json = jQuery.parseJSON(data);
-			      updateIngrediente(row, json)
-			   },
-			   type: 'GET'
-		});
 	}
 	
 	$(function() {
@@ -355,6 +331,7 @@ $(document).ready(function() {
 			}
 		});
 	});
+	 
 	function imageIsLoaded(e) {
 		$("#imgFile").css("color", "green");
 		$('#image_preview').css("display", "block");
@@ -363,13 +340,7 @@ $(document).ready(function() {
 		$('#previewing').attr('height', '300px');
 	};
 	
+	/**
+	 * Did you touched?
+	 */
 });
-
-function check_multifile_logo(file) {
-    var extension = file.substr((file.lastIndexOf('.') + 1))
-    if (extension === 'jpg' || extension === 'jpeg' || extension === 'png') {
-        return true;
-    } else {
-        return false;
-    }
-}

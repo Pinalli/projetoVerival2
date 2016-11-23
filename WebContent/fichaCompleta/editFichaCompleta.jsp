@@ -61,6 +61,8 @@
 					%>
 				<div class="table-row" style="width: 100%; float: left; margin-bottom: 5px;">
 					<input type="hidden" name="idFichaItem" id="idFichaItem" value="<%= item.getIdFichaItem() %>"/>
+					<input type="hidden" name="idFicha" id="idFicha" value="<%= item.getIdFicha() %>"/>
+					<input type="hidden" name="operacao" id="operacao" value=""/>
 					<div class="panel panel-info">
 						<div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 					</div>

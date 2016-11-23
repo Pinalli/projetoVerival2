@@ -31,6 +31,8 @@ $(document).ready(function() {
 			itens.push(item);
 		});
 		
+		console.log(itens);
+		
 		var data = {
 			nome:nome,
 			rendimento:rendimento,
