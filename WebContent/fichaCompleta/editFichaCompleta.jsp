@@ -33,7 +33,7 @@
 				</div>
 				<div class="form-group col-md-12">
 					<div id="image_preview">
-						<img id="previewing" src=""
+						<img id="previewing" src="<%= ficha.getFoto() %>>"
 							class="img-responsive img-thumbnail center-block" />
 					</div>
 				</div>
@@ -165,7 +165,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-2 col-md-offset-8">
-						<a class="btn btn-success pull-right" id="add-row-btn">Adicionar</a>
+						<a class="btn btn-success pull-right" id="add-row-btn">Novo item</a>
 					</div>
 				</div>
 			</div>
