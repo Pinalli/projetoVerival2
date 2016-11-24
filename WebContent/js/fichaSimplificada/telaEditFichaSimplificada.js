@@ -139,7 +139,11 @@ $(document).ready(function() {
 				target.fadeOut(300, function(){
 					var operacao = $("#operacao",target);
 					if(!operacao.val() || operacao.val() == "u"){
-						operacao.val("d");				
+						operacao.val("d");
+					}else if(operacao.val() == "c"){
+						if($(".table-row").length > 1){
+							target.remove();
+						}
 					}else{
 						target.remove();
 					}
@@ -174,7 +178,7 @@ $(document).ready(function() {
 		row.find('.select2').unbind('change');
 		
 		//Adiciona botão de excluir na linha clonada se ela não contém um
-		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
+		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:22px;padding-right:23px;">Excluir</button>');
 		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
 		if (len == 0) {
 			$('.btn-excluir-wrapper').last().append(btn);

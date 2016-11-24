@@ -30,7 +30,7 @@ $(document).ready(function() {
 					idFicha : idFicha,					
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
-					operacao: "u"
+					operacao: $(this).find('#operacao').val(),
 			};
 			itens.push(item);
 		});

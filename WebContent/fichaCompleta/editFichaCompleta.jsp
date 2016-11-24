@@ -55,14 +55,16 @@
 
 
 			<div class="row" id="table-rows">
+					
 					<%
-						for(int i = 0; i < ficha.getItens().size(); i++) {
-						FichaItem item = ficha.getItens().get(i);
+						if(ficha.getItens().size() > 0){
+							for(int i = 0; i < ficha.getItens().size(); i++) {
+							FichaItem item = ficha.getItens().get(i);
 					%>
 				<div class="table-row" style="width: 100%; float: left; margin-bottom: 5px;">
 					<input type="hidden" name="idFichaItem" id="idFichaItem" value="<%= item.getIdFichaItem() %>"/>
 					<input type="hidden" name="idFicha" id="idFicha" value="<%= item.getIdFicha() %>"/>
-					<input type="hidden" name="operacao" id="operacao" value=""/>
+					<input type="hidden" name="operacao" id="operacao" value="u"/>
 					<div class="panel panel-info">
 						<div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 					</div>
@@ -154,7 +156,111 @@
 							</div>
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="btn-excluir-wrapper"></div>
+						<div class="btn-excluir-wrapper">
+							<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>
+						</div>
+						</div>
+					</div>
+
+				</div>
+				<% }
+							}else{ %>
+				<div class="table-row" style="width: 100%; float: left; margin-bottom: 5px;">
+					<input type="hidden" name="idFichaItem" id="idFichaItem" value=""/>
+					<input type="hidden" name="idFicha" id="idFicha" value="<%= ficha.getIdFicha() %>"/>
+					<input type="hidden" name="operacao" id="operacao" value="c"/>
+					<div class="panel panel-info">
+						<div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
+					</div>
+
+					<div class="col-md-12 item-wrapper">
+						<div
+							class="form-group col-md-2 col-sm-12 col-xs-12 col-md-offset-1">
+							<label for="select-ingredientes" class="">Ingrediente</label> <select
+								id="select-ingredientes" name="select-ingredientes"
+								data-live-search="true" class="form-control selectBatata" data-selected-id=""  data-selected-text="">
+							</select>
+						</div>
+
+						<div class="form-group col-md-1 col-xs-4">
+							<label for="qnt-unidade-medida" class="">Qtd</label> <input
+								type="number" class="form-control" id="qnt-unidade-medida"
+								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
+								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
+								value="">
+						</div>
+						<div class="form-group col-md-2 col-xs-8">
+							<label for="select-unidade-medida" class="">Unidadede
+								medida</label> <select id="select-unidade-medida"
+								name="select-unidade-medida" data-native-menu="false"
+								class="form-control selectBatata"
+								data-selected-id=""
+								data-selected-text="">
+							</select>
+						</div>
+						<div class="form-group col-md-1 col-xs-4">
+							<label for="qnt-medida-caseira" class="">Qtd</label> <input
+								type="number" class="form-control" id="qnt-medida-caseira"
+								placeholder="Qnt" min="0.1" max="100" step="0.1"
+								name="qnt-medida-caseira" onKeyDown="limitText(this,4);"
+								onKeyUp="limitText(this,4);"
+								value="">
+						</div>
+						<div class="form-group col-md-2 col-xs-8">
+							<label for="select-medida-caseira" class="">Medida
+								Caseira</label> <select id="select-medida-caseira"
+								name="select-medida-caseira" data-native-menu="false"
+								class="form-control selectBatata"
+								data-selected-id="" 
+								data-selected-text="">
+							</select>
+						</div>
+						<!--div class="form-group col-md-12"-->
+							<div class="form-group col-md-1 col-xs-4">
+								<label for="cho" class="">CHO</label> 
+								<input type="number" class="form-control" id="cho" placeholder="CHO" readonly>
+							</div>
+							<div class="form-group col-md-1 col-xs-4">
+								<label for="ptn" class="">PTN</label> <input type="number"
+									class="form-control" id="ptn"
+									placeholder="PTN" readonly>
+							</div>
+							<div class="form-group col-md-1 col-xs-4">
+								<label for="lip" class="">LIP</label> <input type="number"
+									 class="form-control" id="lip"
+									placeholder="LIP"  readonly>
+							</div>
+							<div class="form-group col-md-1 col-xs-4">
+								<label for="kcal" class="">Kcal</label> <input type="number"
+									class="form-control" id="kcal"
+									placeholder="Kcal"  readonly>
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="valor-unitario" class="">Valor Unitário</label> <input
+									type="number" class="form-control"
+									id="valor-unitario" placeholder="Valor unitário"  readonly>
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="custo-real" class="">Custo Real</label> <input
+									type="number" class="form-control"
+									id="custo-real" placeholder="Custo real" readonly>
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="fator-de-correcao" class="">Fator de
+									Correção</label> <input type="number"
+									class="form-control" id="fator-de-correcao"
+									placeholder="Fator de correção" readonly>
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="indice-de-coccao" class="">Índice de Cocção</label>
+								<input type="number" class="form-control"
+									id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
+							</div>
+						<!--/div-->
+						<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="btn-excluir-wrapper">
+							<button class="btn btn-danger delete-row pull-right" style="padding-left:22px;padding-right:23px;">Excluir</button>
+						</div>
 						</div>
 					</div>
 
