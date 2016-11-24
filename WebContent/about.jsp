@@ -9,8 +9,7 @@
 	<div class="container">
 		<div class="panel panel-success panel-about">
 
-			<div class="panel-heading text-center">About Ficha Técnica de
-				Preparo</div>
+			<div class="panel-heading text-center"> Sobre o projeto</div>
 			<div class="panel-body">
 				<div class="panel-heading text-center titulo">História</div>
 				O projeto da Ficha Técnica de Preparo (codinome FTP) teve início na
