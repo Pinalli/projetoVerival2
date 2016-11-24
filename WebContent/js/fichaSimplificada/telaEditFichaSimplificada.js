@@ -23,7 +23,7 @@ $(document).ready(function() {
 					$(this).select2({
 						data: data,
 						 ajax: {
-							    url: "/FichaTP/ajax?acao=buscaIngredienteDescricaoAjax",
+							    url: "ajax?acao=buscaIngredienteDescricaoAjax",
 							    method: "GET",
 							    data: function (params) {							    	
 							        return {'descricao':params.term, 'limit':10};
@@ -53,7 +53,7 @@ $(document).ready(function() {
 					$(this).select2({
 						data : data, 
 						ajax: {							 
-							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaUnidadeAjax",
+							    url: "ajax?acao=buscaUnidadeMedidaUnidadeAjax",
 							    method: "GET",
 							    data: function (params) {	
 							        return {'unidade':params.term, 'limit':10};
@@ -82,7 +82,7 @@ $(document).ready(function() {
 					$(this).select2({						
 						data:data,
 						ajax: {							 
-							    url: "/FichaTP/ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
+							    url: "ajax?acao=buscaUnidadeMedidaCaseiraNomeAjax",
 							    method: "GET",
 							    data: function (params) {
 							        return {'nome':params.term, 'limit':10};
