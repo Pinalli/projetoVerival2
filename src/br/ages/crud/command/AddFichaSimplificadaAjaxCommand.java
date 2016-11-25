@@ -61,19 +61,19 @@ public class AddFichaSimplificadaAjaxCommand implements Command {
 					item.setIdFicha(id);
 					itemBO.cadastrarFichaSimplificada(item);
 				}
-				msg.put("mensagem", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", ficha.getNome()));
+				msg.put("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA.replace("?", ficha.getNome()));
 			    msg.put("dados", "");
 			    msg.put("proxima", "main?acao=listFichaSimplificada");
 			    json = gson.toJson(msg);
 			}else{
-				msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
+				msg.put("msgErro", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
 			    msg.put("erro", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
 			    msg.put("proxima", "main?acao=telaFichaSimplificada");
 			    json = gson.toJson(msg);
 			}
 			return json;
 		} catch (Exception e) {
-		    msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
+		    msg.put("msgErro", MensagemContantes.MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS);
 		    msg.put("erro", e.getMessage());
 		    msg.put("proxima", "main?acao=telaFichaSimplificada");
 			json = gson.toJson(msg);

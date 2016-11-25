@@ -61,19 +61,19 @@ public class AddFichaCompletaAjaxCommand implements Command {
 			if(fichaCompletaBO.validarFichaCompleta(ficha)){
 				int id = fichaCompletaBO.cadastrarFichaCompleta(ficha);
 				
-				msg.put("mensagem", MensagemContantes.MSG_SUC_CADASTRO_FICHA_COMPLETA.replace("?", ficha.getNome()));
+				msg.put("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_COMPLETA.replace("?", ficha.getNome()));
 			    msg.put("dados", "");
 			    msg.put("proxima", "main?acao=listFichaCompleta");
 			    json = gson.toJson(msg);
 			}else{
-				msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
+				msg.put("msgErro", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
 			    msg.put("erro", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
 			    msg.put("proxima", "main?acao=telaFichaCompleta");
 			    json = gson.toJson(msg);
 			}
 			return json;
 		} catch (Exception e) {
-		    msg.put("mensagem", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
+		    msg.put("msgErro", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
 		    msg.put("erro", e.getMessage());
 		    msg.put("proxima", "main?acao=telaFichaCompleta");
 			json = gson.toJson(msg);
