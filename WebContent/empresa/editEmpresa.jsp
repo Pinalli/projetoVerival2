@@ -154,7 +154,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div id="image_preview" style="display:block; margin-left:30%;"><img id="previewing" style="width: 150px; height: 150px;" src="upload/logo/<%= empresa.getLogo()%>" /></div>
+				<div id="image_preview" style="display:block; margin-left:30%;">
+					<img id="previewing" style="width: 150px; height: 150px;" src="upload/logo/<%= empresa.getLogo()%>" />
+				</div>
 			</div>
 			<div id="errorMessage" class="alert alert-danger" style="display:none">
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
