@@ -166,7 +166,7 @@
 				<% }
 							}else{ %>
 				<div class="table-row" style="width: 100%; float: left; margin-bottom: 5px;">
-					<input type="hidden" name="idFichaItem" id="idFichaItem" value=""/>
+					<input type="hidden" name="idFichaItem" id="idFichaItem" value="0"/>
 					<input type="hidden" name="idFicha" id="idFicha" value="<%= ficha.getIdFicha() %>"/>
 					<input type="hidden" name="operacao" id="operacao" value="c"/>
 					<div class="panel panel-info">
