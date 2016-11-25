@@ -23,7 +23,7 @@
 				<sgbd.user>root</sgbd.user>
 				<sgbd.password>senha</sgbd.password>
 				<upload.path>H:\\Workspace</upload.path>
-				<log.path>c:\\cawt\\</log.path>
+				<log.path>/tmp/</log.path>
 			</properties>
 		</profile>
 		<!-- Profile de homologacao -->
