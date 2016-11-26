@@ -44,7 +44,7 @@
 							<li class="item8"><a href="http://www.tools.ages.pucrs.br/u/lucas.soares">Lucas Soares</a></li>
 							<li class="item9"><a href="http://www.tools.ages.pucrs.br/u/lucas.ribeiro">Lucas Ribeiro</a></li>
 							<li class="item10"><a href="http://www.tools.ages.pucrs.br/u/luis.santana">Luis Santana</a></li>
-							<li class="item11"><a href="http://www.tools.ages.pucrs.br/u/ricardo.silva">Ricardo Silva</a></li>
+							<li class="item11"><a href="http://www.tools.ages.pucrs.br/u/ricardo.silva">Ricardo Borges</a></li>
 							<li class="item12"><a href="http://www.tools.ages.pucrs.br/u/rodrigo.baldi">Rodrigo Baldi</a></li>
 							<li class="item14">Cássio Trindade</li>
 							<li class="item15">Professora Alessandra Dutra</li>
