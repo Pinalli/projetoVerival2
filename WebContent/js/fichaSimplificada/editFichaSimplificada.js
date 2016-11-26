@@ -28,7 +28,7 @@ $(document).ready(function() {
 			itens.push(item);
 		});
 		
-		console.log(itens);
+		itens = removeIncompleteItens(itens);
 		
 		var data = {
 			id:id,
@@ -43,7 +43,6 @@ $(document).ready(function() {
 		
 		$.post( "ajax?acao=editFichaSimplificadaAjaxCommand", data, function(data) {			
 			var json = jQuery.parseJSON(data);
-			console.log(json);
 			if(json.erro){
 				showModalErro("Erro ao salvar ficha simplificada", json.msgErro);			
 			}else{
@@ -51,8 +50,46 @@ $(document).ready(function() {
 			}
 		}).fail(function() {
 			showModalErro("Erro ao salvar ficha simplificada", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
-		});
-		
+		});		
+	}
+	
+	/**
+	 * Remove itens incompletos
+	 * @param itens
+	 * @returns
+	 */
+	function removeIncompleteItens(itens){
+		for(var i=0; i<itens.length; i++){
+			if(itens[i].idIngrediente === '' &&
+				itens[i].idUnidadeMedida  === '' &&
+				itens[i].idMedidaCaseira === ''){
+				itens.splice(i,1);
+			}
+		}
+		return itens;
+	}
+	
+	function validateFicha(data){
+		if(data.nome == ''){
+			showModalErro("Dados da ficha incompletos", "Informe o nome");
+			return false;
+		}else if(data.rendimento == ''){
+			showModalErro("Dados da ficha incompletos", "Informe o rendimento");
+			return false;
+		}else if(data.foto == ''){
+			showModalErro("Dados da ficha incompletos", "Informe a foto");
+			return false;
+		}else if(data.modoPreparo == ''){
+			showModalErro("Dados da ficha incompletos", "Informe o modo de preparo");
+			return false;
+		}else if(data.montagem == ''){
+			showModalErro("Dados da ficha incompletos", "Informe a montagem");
+			return false;
+		}else if(data.orientacoesArmazenamento == ''){
+			showModalErro("Dados da ficha incompletos", "Informe as orientações de armazenamento");
+			return false;
+		}
+		return true;
 	}
 
 	function showModalErro(title, text){

@@ -35,6 +35,8 @@ $(document).ready(function() {
 			itens.push(item);
 		});
 		
+		itens = removeIncompleteItens(itens);
+		
 		var data = {
 			id:idFicha,
 			nome:nome,
@@ -62,6 +64,22 @@ $(document).ready(function() {
 		});
 	}
 
+	/**
+	 * Remove itens incompletos
+	 * @param itens
+	 * @returns
+	 */
+	function removeIncompleteItens(itens){
+		for(var i=0; i<itens.length; i++){
+			if(itens[i].idIngrediente === '' &&
+				itens[i].idUnidadeMedida  === '' &&
+				itens[i].idMedidaCaseira === ''){
+				itens.splice(i,1);
+			}
+		}
+		return itens;
+	}
+	
 	function showModalErro(title, text){
 		$("#modalErro").modal('show');
 		$("#modalErro").find('.modal-title').text(title);
