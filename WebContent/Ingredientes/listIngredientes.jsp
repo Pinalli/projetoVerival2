@@ -66,20 +66,22 @@
 
 $(document).ready(function(){
 	$('#listaIngredientes').dataTable({
-	    "language": {
-            "lengthMenu": "Mostrando _MENU_ registros por página",
+		"language": {
+            "lengthMenu": "_MENU_ Registros",
             "zeroRecords": "Sem registros - sorry",
             "info": "Mostrando _PAGE_ de _PAGES_ páginas",
             "infoEmpty": "Nenhum registros encontrados!",
             "infoFiltered": "(Filtrado _MAX_ do total deregistros)",
-            "search":"Busca",
+            "search":"",
+            "searchPlaceholder": "Buscar",
            	"paginate": {
                 "first":      "Primeiro",
                 "last":       "Último",
                 "next":       "Próximo",
                 "previous":   "Anterior"
 	        },
-        }
+        },
+        "dom": '<"pull-right"f>rtip'
 	});
 });;
 </script>
