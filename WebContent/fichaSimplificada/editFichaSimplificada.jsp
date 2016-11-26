@@ -16,7 +16,7 @@
 
 	<div class="container">
 		<article>
-			<form name="editFichaTecnicaSimples" id="editFichaTecnicaSimplesForm" method="post" action="main?acao=editFichaSimplificada">
+			<form name="editFichaTecnicaSimples" id="editFichaTecnicaSimplesForm" method="post" action="ajax?acao=editFichaSimplificadaAjaxCommand">
 				<input type="hidden" id="idFicha" name="id" value="<%=ficha.getIdFicha()%>"/>
 				
 				<div class="form-group col-md-4 col-md-offset-4">
@@ -29,7 +29,7 @@
 				<div class="form-group col-md-12">
 					<!--label class="col-md-3 control-label ages" for="Foto"></label-->
 					<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
-						<input id="imgFile" name="imgFile" class="input-file" type="file">
+						<input id="imgFile" name="imgFile" class="input-file" type="file" value="<%= ficha.getFoto()%>"/>
 					</div>
 				</div>
 				<div class="form-group col-md-12">

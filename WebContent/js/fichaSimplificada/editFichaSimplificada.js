@@ -8,7 +8,7 @@ $(document).ready(function() {
 		var id = $('#idFicha').val();
 		var nome = $('input[name="nome"]').val();
 		var rendimento = $('input[name="rendimento"]').val();
-		var foto = $('input[name="imgFile"]').val();
+		var foto = $('input[name="imgFile"]').attr('value');
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
@@ -41,16 +41,21 @@ $(document).ready(function() {
 			itens:JSON.stringify(itens)
 		};
 		
-		$.post( "ajax?acao=editFichaSimplificadaAjaxCommand", data, function(data) {			
-			var json = jQuery.parseJSON(data);
-			if(json.erro){
-				showModalErro("Erro ao salvar ficha simplificada", json.msgErro);			
-			}else{
-				window.location.href = json.proxima;
-			}
-		}).fail(function() {
-			showModalErro("Erro ao salvar ficha simplificada", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
-		});		
+		//Valida
+		if(validateFicha(data) && validateItens(itens)){
+			//save
+			var action = $("#editFichaTecnicaSimplesForm").attr('action');
+			$.post(action, data, function(data) {			
+				var json = jQuery.parseJSON(data);
+				if(json.erro){
+					showModalErro("Erro ao salvar ficha simplificada", json.msgErro);			
+				}else{
+					window.location.href = json.proxima;
+				}
+			}).fail(function() {
+				showModalErro("Erro ao salvar ficha simplificada", "N\u00e3o foi possivel salvar a ficha t\u00e9cnica, tente novamente por favor.");
+			});
+		}
 	}
 	
 	/**
@@ -69,29 +74,62 @@ $(document).ready(function() {
 		return itens;
 	}
 	
+	/**
+	 * Valida dados da ficha
+	 * @param data
+	 * @returns
+	 */
 	function validateFicha(data){
-		if(data.nome == ''){
+		if(data.nome == '' || data.nome === null){
 			showModalErro("Dados da ficha incompletos", "Informe o nome");
 			return false;
-		}else if(data.rendimento == ''){
+		}else if(data.rendimento == '' || data.rendimento === null){
 			showModalErro("Dados da ficha incompletos", "Informe o rendimento");
 			return false;
-		}else if(data.foto == ''){
+		}else if(data.foto == '' || data.foto === null){
 			showModalErro("Dados da ficha incompletos", "Informe a foto");
 			return false;
-		}else if(data.modoPreparo == ''){
+		}else if(data.modoPreparo == '' || data.modoPreparo === null){
 			showModalErro("Dados da ficha incompletos", "Informe o modo de preparo");
 			return false;
-		}else if(data.montagem == ''){
+		}else if(data.montagem == '' || data.montagem === null){
 			showModalErro("Dados da ficha incompletos", "Informe a montagem");
 			return false;
-		}else if(data.orientacoesArmazenamento == ''){
-			showModalErro("Dados da ficha incompletos", "Informe as orientações de armazenamento");
+		}else if(data.orientacoesArmazenamento == '' || data.orientacoesArmazenamento === null){
+			showModalErro("Dados da ficha incompletos", "Informe as orientacoes de armazenamento");
 			return false;
 		}
 		return true;
 	}
-
+	
+	/**
+	 * Valida itens
+	 * @param itens
+	 * @returns
+	 */
+	function validateItens(itens){
+		for(var i=0; i<itens.length; i++){
+			item = itens[i];
+			if(item.idIngrediente == '' || item.idIngrediente === null){
+				showModalErro("Dados dos itens incompletos", "Infome o ingrediente");
+				return false;
+			}else if(item.quantidadeUnidadeMedida == '' || item.quantidadeUnidadeMedida === null){
+				showModalErro("Dados dos itens incompletos", "Infome a quantidade da unidade de medida");
+				return false;
+			}else if(item.idUnidadeMedida == '' || item.idUnidadeMedida === null){
+				showModalErro("Dados dos itens incompletos", "Infome a unidade de medida");
+				return false;
+			}else if(item.quantidadeMedidaCaseira == '' || item.quantidadeMedidaCaseira === null){
+				showModalErro("Dados dos itens incompletos", "Infome a quantidade de medida caseira");
+				return false;
+			}else if(item.idMedidaCaseira == '' || item.idMedidaCaseira === null){
+				showModalErro("Dados dos itens incompletos", "Infome a medida caseira");
+				return false;
+			}			
+		}
+		return true;
+	}
+	
 	function showModalErro(title, text){
 		$("#modalErro").modal('show');
 		$("#modalErro").find('.modal-title').text(title);

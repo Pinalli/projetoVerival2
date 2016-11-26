@@ -28,7 +28,7 @@
 				<div class="form-group col-md-12">
 					<!--label class="col-md-3 control-label ages" for="Foto"></label-->
 					<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
-						<input id="imgFile" name="imgFile" class="input-file" type="file">
+						<input id="imgFile" name="imgFile" class="input-file" type="file" value="<%= ficha.getFoto() %>">
 					</div>
 				</div>
 				<div class="form-group col-md-12">
@@ -157,7 +157,7 @@
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="btn-excluir-wrapper">
-							<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>
+							<button class="btn btn-danger delete-row pull-right" style="padding-left:22px;padding-right:23px;">Excluir</button>
 						</div>
 						</div>
 					</div>
