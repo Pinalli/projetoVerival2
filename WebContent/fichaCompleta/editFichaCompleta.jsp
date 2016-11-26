@@ -75,7 +75,7 @@
 							<label for="select-ingredientes" class="">Ingrediente</label> <select
 								id="select-ingredientes" name="select-ingredientes"
 								data-live-search="true" class="form-control selectBatata"
-								data-selected-id="<%= item.getIdFichaItem() %>" 
+								data-selected-id="<%= item.getIdIngrediente() %>" 
 								data-selected-text="<%= item.getIngrediente() %>">
 							</select>
 						</div>
