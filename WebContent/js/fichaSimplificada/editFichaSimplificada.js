@@ -45,7 +45,7 @@ $(document).ready(function() {
 			var json = jQuery.parseJSON(data);
 			console.log(json);
 			if(json.erro){
-				showModalErro("Erro ao salvar ficha simplificada", json.mensagem);			
+				showModalErro("Erro ao salvar ficha simplificada", json.msgErro);			
 			}else{
 				window.location.href = json.proxima;
 			}

@@ -52,9 +52,8 @@ $(document).ready(function() {
 		var action = form.attr("action");
 		$.post(action, data, function(data) {			
 			var json = jQuery.parseJSON(data);
-			console.log(json);
 			if(json.erro){
-				showModalErro("Erro ao salvar ficha completa", json.mensagem);			
+				showModalErro("Erro ao salvar ficha completa", json.msgErro);			
 			}else{
 				window.location.href = json.proxima;
 			}
