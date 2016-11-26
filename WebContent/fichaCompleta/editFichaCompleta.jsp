@@ -280,7 +280,7 @@
 			</div>
 			<div class="panel panel-info">
 				<div class="panel-heading row text-center trigger-display" data-target="informacoes-content">
-					Informações do prato
+					Informações de preparação
 				</div>
 			</div>
 			<div class="col-md-12">
