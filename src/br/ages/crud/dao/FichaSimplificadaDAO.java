@@ -46,7 +46,7 @@ public class FichaSimplificadaDAO {
             statement.setString(1, fichaSimplificada.getNome());
             statement.setString(2, fichaSimplificada.getRendimento());
             String logo = fichaSimplificada.getFoto();
-            logo = "ficha-" + this.getProximoIdFicha() + "." + FilenameUtils.getExtension(logo);
+            logo = "foto-ficha-" + this.getProximoIdFicha() + "." + FilenameUtils.getExtension(logo);
             statement.setString(3, logo);
             statement.setString(4, fichaSimplificada.getModoPreparo());
             statement.setString(5, fichaSimplificada.getMontagem());
@@ -145,7 +145,7 @@ public class FichaSimplificadaDAO {
             statement.setString(1, fichaSimplificada.getNome());
             statement.setString(2, fichaSimplificada.getRendimento());
             String logo = fichaSimplificada.getFoto();
-            logo = "logo-empresa-" + idFichaSimplificada + "." + FilenameUtils.getExtension(logo);
+            logo = "foto-ficha-" + idFichaSimplificada + "." + FilenameUtils.getExtension(logo);
             statement.setString(3, logo);
             statement.setString(4, fichaSimplificada.getModoPreparo());
             statement.setString(5, fichaSimplificada.getMontagem());
