@@ -38,7 +38,7 @@
 				<label class="col-md-3 control-label ages" for="telefone">Telefone</label>
 				<div class="col-md-6">
 					<input id="telefone" name="telefone" value="${param.telefone}" type="text"
-						placeholder="5199017442" class="form-control input-md" required="">
+						placeholder="(00)12345-6789" class="form-control input-md" required="">
 
 				</div>
 			</div>

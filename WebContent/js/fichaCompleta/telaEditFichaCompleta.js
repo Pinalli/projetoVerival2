@@ -9,6 +9,14 @@ $(document).ready(function() {
 	 */
 
 	/**
+ 	 * Hide/display divs 	
+ 	 */
+ 	$(".trigger-display").click(function(){
+ 		var id = $(this).attr("data-target");
+ 		$("#"+id).toggleClass("hide");
+ 	});
+ 	
+	/**
 	 * Aplica o Select2 nos selects
 	 */
 	function setSelect2() {		
@@ -119,6 +127,7 @@ $(document).ready(function() {
 		addRemoveListener();
 		setSelect2();
 		showItemListener();
+		updateIngredienteListener();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -297,6 +306,62 @@ $(document).ready(function() {
 		}
 	}
 	
+	/**
+ 	 * Atualiza campos referntes ao ingrediente
+ 	 */
+ 	function updateIngredienteListener(){
+ 		$(".table-row").not(".configurado").each(function(){
+ 			var row = $(this);
+ 			var select = row.find("#select-ingredientes");
+ 			if(select.val()){
+ 				getIngredienteById(row, select.val());
+ 			}
+ 			select.change(function(){
+ 				var id = $(this).val();
+ 				getIngredienteById(row, id);
+ 			});
+ 		});		
+ 	}
+ 	updateIngredienteListener();
+ 	
+ 	/**
+ 	 * Atualiza campos referntes ao ingrediente
+ 	 * @param ingrediente
+ 	 * @returns
+ 	 */
+ 	function updateIngrediente(row, ingrediente){
+ 		var kcal = ingrediente.kcalCarboidratos + ingrediente.kcalLipidios + ingrediente.kcalProteinas;  
+ 		row.find("#cho").val(ingrediente.carboidratos);
+ 		row.find("#ptn").val(ingrediente.proteinas);
+ 		row.find("#lip").val(ingrediente.lipidios);
+ 		row.find("#kcal").val(kcal);
+ 		row.find("#valor-unitario").val(ingrediente.custo);
+ 		row.find("#custo-real").val(ingrediente.custo);
+ 		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
+ 		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
+ 	}
+ 	
+ 	/**
+ 	 * Busca ingrediente pelo ID
+ 	 * @param id
+	
+ 	 * @returns json
+ 	 */
+ 	function getIngredienteById(row, id){
+ 		$.ajax({
+ 			   url: 'ajax?acao=buscaIngredienteIdAjax',
+ 			   data: {id: id},
+ 			   error: function() {
+ 			      console.log('Error on getIngredienteById.');
+ 			   },
+ 			   success: function(data) {
+ 			      json = jQuery.parseJSON(data);
+ 			      updateIngrediente(row, json)
+ 			   },
+ 			   type: 'GET'
+ 		});
+ 	}
+	
 	$(function() {
 		$("#imgFile").change(function() {
 			var file = this.files[0];
@@ -343,6 +408,15 @@ $(document).ready(function() {
 		$('#previewing').attr('width', '300px');
 		$('#previewing').attr('height', '300px');
 	};
+	
+	 function check_multifile_logo(file) {
+	     var extension = file.substr((file.lastIndexOf('.') + 1))
+	     if (extension === 'jpg' || extension === 'jpeg' || extension === 'png') {
+	         return true;
+	     } else {
+	         return false;
+	     }
+	 }
 	
 	/**
 	 * Did you touched?

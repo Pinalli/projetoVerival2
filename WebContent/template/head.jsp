@@ -80,6 +80,14 @@
             <li><a href="main?acao=telaUser">Cadastrar</a></li>            
           </ul>
         </li>
+         
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="main?acao=listEmpresa">Listar</a></li>
+            <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
+          </ul>
+        </li>
         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredientes <span class="caret"></span></a>
@@ -104,15 +112,7 @@
             <li><a href="main?acao=telaUnidadeMedidaCaseira">Cadastrar</a></li>            
           </ul>
         </li>
-        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="main?acao=listEmpresa">Listar</a></li>
-            <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
-          </ul>
-        </li>
-
+       
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">

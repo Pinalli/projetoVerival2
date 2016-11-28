@@ -150,5 +150,67 @@ public class FichaCompletaItemDAO {
 		}
 
 	}
+	
+	public boolean removerFichaTecnicaItem(Integer idFichaItem) throws PersistenciaException{
+		boolean removidoOK = false;
+		Connection conexao = null;
+
+		try {
+
+			conexao = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+
+			// delete TB_FICHA_ITEM
+			sql.append("DELETE FROM TB_FICHA_ITEM WHERE ID_FICHA_ITEM = ?");
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+
+			statement.setInt(1, idFichaItem);
+			statement.execute();
+
+
+			removidoOK = true;
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return removidoOK;
+	}
+	
+	
+	public boolean removerTodosFichaTecnicaItem(Integer idFicha) throws PersistenciaException{
+		boolean removidoOK = false;
+		Connection conexao = null;
+
+		try {
+
+			conexao = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+
+			// delete TB_FICHA_ITEM
+			sql.append("DELETE FROM TB_FICHA_ITEM WHERE ID_FICHA = ?");
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+
+			statement.setInt(1, idFicha);
+			statement.execute();
+
+			removidoOK = true;
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return removidoOK;
+	}
 
 }

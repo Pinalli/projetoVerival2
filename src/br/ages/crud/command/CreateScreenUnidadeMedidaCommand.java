@@ -9,7 +9,11 @@ import br.ages.crud.bo.UnidadeMedidaBO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.model.UnidadeMedida;
 import br.ages.crud.util.MensagemContantes;
-
+/**
+ * 
+ * @author iann muller
+ *
+ */
 public class CreateScreenUnidadeMedidaCommand implements Command {
 
 	private String proxima;

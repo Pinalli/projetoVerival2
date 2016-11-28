@@ -145,7 +145,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-2 col-md-offset-8">
-						<a class="btn btn-success pull-right" id="add-row-btn">Adicionar</a>
+						<a class="btn btn-success pull-right" id="add-row-btn">Novo Item</a>
 					</div>
 				</div>
 			</div>
@@ -154,7 +154,7 @@
 			</div>
 			<div class="panel panel-info">
 				<div class="panel-heading row text-center trigger-display" data-target="informacoes-content">
-					Informações do prato
+					Informações de preparação
 				</div>
 			</div>
 			<div class="col-md-12">

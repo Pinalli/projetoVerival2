@@ -218,7 +218,7 @@
 			</div>
 			<div class="panel panel-info">
 				<div class="panel-heading row text-center" id="mdpreparo7">Informações
-					do prato</div>
+					de preparação</div>
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="modoprep7">

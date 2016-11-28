@@ -31,6 +31,8 @@ $(document).ready(function() {
 			itens.push(item);
 		});
 		
+		console.log(itens);
+		
 		var data = {
 			nome:nome,
 			rendimento:rendimento,
@@ -49,7 +51,7 @@ $(document).ready(function() {
 			var json = jQuery.parseJSON(data);
 			console.log(json);
 			if(json.erro){
-				showModalErro("Erro ao salvar ficha completa", json.mensagem);			
+				showModalErro("Erro ao salvar ficha completa", json.msgErro);			
 			}else{
 				window.location.href = json.proxima;
 			}

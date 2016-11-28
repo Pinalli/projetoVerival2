@@ -1,10 +1,11 @@
 package br.ages.crud.servlet;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ResourceBundle;
+import br.ages.crud.bo.EmpresaBO;
+import br.ages.crud.bo.FichaSimplificadaBO;
+import br.ages.crud.util.Constantes;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.log4j.Logger;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -12,12 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
-import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
-import br.ages.crud.util.Constantes;
-import br.ages.crud.bo.EmpresaBO;
-import br.ages.crud.bo.FichaSimplificadaBO;
+import java.io.File;
+import java.io.IOException;
+import java.util.ResourceBundle;
 
 /**
  * Grava a imagem no savePath.
@@ -45,6 +43,7 @@ public class FileUploadServlet extends HttpServlet {
 			int idFicha = 0;
 			boolean empresa = Boolean.valueOf(request.getParameter("empresa"));
 			boolean fichaSimplificada = Boolean.valueOf(request.getParameter("fichaSimplificada"));
+			this.criaPastas();
 			String appPath = "";
 			String savePath = SAVE_DIR+File.separator+"upload"+File.separator;
 			if(fichaSimplificada){
@@ -99,6 +98,21 @@ public class FileUploadServlet extends HttpServlet {
 			}
 		}
 		return "";
+	}
+
+	private void criaPastas(){
+		File pastaTmp = new File(SAVE_DIR+File.separator+"upload"+File.separator);
+		if(!pastaTmp.exists()){
+			pastaTmp.mkdir();
+		}
+		pastaTmp = new File(SAVE_DIR+File.separator+"upload"+File.separator+"fichas"+File.separator);
+		if(!pastaTmp.exists()){
+			pastaTmp.mkdir();
+		}
+		pastaTmp = new File(SAVE_DIR+File.separator+"upload"+File.separator+"logo"+File.separator);
+		if(!pastaTmp.exists()){
+			pastaTmp.mkdir();
+		}
 	}
 
 }

@@ -22,6 +22,7 @@ import br.ages.crud.command.BuscaIngredienteIdAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaUnidadeAjaxCommand;
 import br.ages.crud.command.Command;
+import br.ages.crud.command.EditFichaCompletaAjaxCommand;
 import br.ages.crud.command.EditFichaSimplificadaAjaxCommand;
 //import br.ages.crud.command.AddEmpresaCommand;
 import br.ages.crud.exception.NegocioException;
@@ -57,6 +58,7 @@ public class AjaxServlet extends HttpServlet {
 		
 		//COMANDOS DE FICHA TÉCNICA COMPLETA
 		comandos.put("addFichaCompletaAjaxCommand", new AddFichaCompletaAjaxCommand());
+		comandos.put("editFichaCompletaAjaxCommand", new EditFichaCompletaAjaxCommand());
 	}
 
 	@Override

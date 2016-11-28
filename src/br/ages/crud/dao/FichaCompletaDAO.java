@@ -154,10 +154,10 @@ public class FichaCompletaDAO {
                     + "MODO_PREPARO = ?, "
                     + "MONTAGEM = ?, "
                     + "ORIENTACOES_ARMAZENAMENTO = ?, "
-                    + "TEXTURA = ?"
-                    + "SABOR = ?"
+                    + "TEXTURA = ?,"
+                    + "SABOR = ?,"
                     + "APRESENTACAO = ?"
-                    + "WHERE ID_USUARIO = "+ idFichaCompleta 
+                    + " WHERE ID_FICHA = "+ idFichaCompleta 
                     + " AND TIPO_FICHA = 'c'");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -173,6 +173,7 @@ public class FichaCompletaDAO {
             
 			List<FichaItem> itens = fichaCompleta.getItens();
 
+			FichaCompletaItemDAO itemDAO = new FichaCompletaItemDAO();
 			for (int i = 0; i < itens.size(); i++) {
 				FichaItem item = itens.get(i);
 				item.setIdFicha(idFichaCompleta);
@@ -239,6 +240,7 @@ public class FichaCompletaDAO {
 		Connection conexao = null;
 		try {
 			conexao = ConexaoUtil.getConexao();
+			itemDAO = new FichaCompletaItemDAO();
 
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT ID_FICHA,"

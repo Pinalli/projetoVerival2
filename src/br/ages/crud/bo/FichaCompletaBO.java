@@ -22,10 +22,10 @@ public class FichaCompletaBO {
 		fichaCompletaDAO = new FichaCompletaDAO();
 	}
 	
-	public void cadastrarFichaCompleta(Ficha fichaCompleta)throws NegocioException, SQLException, ParseException {
+	public int cadastrarFichaCompleta(Ficha fichaCompleta)throws NegocioException, SQLException, ParseException {
 		
 		try{
-			fichaCompletaDAO.cadastrarFichaCompleta(fichaCompleta);
+			return fichaCompletaDAO.cadastrarFichaCompleta(fichaCompleta);
 		} catch(PersistenciaException e){
 			e.printStackTrace();
 			throw new NegocioException(e);

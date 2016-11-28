@@ -133,7 +133,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-2 col-md-offset-8">
-							<a class="btn btn-success pull-right" id="add-row-btn">Adicionar</a>
+							<a class="btn btn-success pull-right" id="add-row-btn">Novo Item</a>
 						</div>
 					</div>
 				</div>

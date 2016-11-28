@@ -33,14 +33,14 @@
 	            	<td align="center"><%=ficha.getNome()%></td>
 	            	<td align="center">
 						<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>"
+            				<a href="" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichas="<%=ficha.getNome()%>"
             				data-target="#modalEditar" title="Editar"> <i class="glyphicon glyphicon-pencil"></i></a>
             			</form>
             		</td>	
             		
             		<td align="center">
             			<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%=ficha.getIdFicha() %>" data-fichaS="<%=ficha.getNome()%>"
+            				<a href="" data-toggle="modal" data-id="<%=ficha.getIdFicha() %>" data-fichas="<%=ficha.getNome()%>"
             				data-target="#modalExcluir" title="Deletar"> <i class="glyphicon glyphicon-trash"></i></a>
             			</form>
             		</td>
@@ -55,25 +55,27 @@
 		</div>
     </div>
 </div>
+
 <jsp:include page="../template/foot.jsp"></jsp:include>
 <script>
-
 $(document).ready(function(){
 	$('#listaFicha').dataTable({
 	    "language": {
-            "lengthMenu": "Mostrando _MENU_ registros por página",
+            "lengthMenu": "_MENU_ Registros",
             "zeroRecords": "Sem registros - sorry",
             "info": "Mostrando _PAGE_ de _PAGES_ páginas",
             "infoEmpty": "Nenhum registros encontrados!",
             "infoFiltered": "(Filtrado _MAX_ do total deregistros)",
-            "search":"Busca",
+            "search":"",
+            "searchPlaceholder": "Buscar",
            	"paginate": {
                 "first":      "Primeiro",
                 "last":       "Último",
                 "next":       "Próximo",
                 "previous":   "Anterior"
 	        },
-        }
+        },
+        "dom": '<"pull-right"f>rtip'
 	});
 });;
 </script>

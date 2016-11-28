@@ -14,7 +14,11 @@ import br.ages.crud.model.UnidadeMedida;
 import br.ages.crud.model.Usuario;
 import br.ages.crud.model.Ingrediente;
 import br.ages.crud.util.MensagemContantes;
-
+/**
+ * 
+ * @author iann muller
+ *
+ */
 public class CreateScreenIngredientesCommand implements Command {
 
 	private String proxima;

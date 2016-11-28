@@ -53,7 +53,7 @@
 					</div>
 					
 					<label class="form-label ages">CPF: <span class="red">*</span></label> 
-					<input class="form-control" id="cpf" name="cpf" value="${param.cpf}" type="text" placeholder="Ex: 000.000.000-20" required>
+					<input class="form-control" id="cpf" name="cpf" value="${param.cpf}" type="text" placeholder="Ex: 000.000.000-00" required>
 					
 					<label class="form-label ages">E-mail: <span class="red">*</span></label> 
 					<input class="form-control" id="email" name="email" value="${param.email}" type="text" maxlength="120" required>
