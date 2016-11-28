@@ -33,7 +33,7 @@
 				</div>
 				<div class="form-group col-md-12">
 					<div id="image_preview">
-						<img id="previewing" src="upload/fichas/ficha-<%= ficha.getIdFicha() %>/foto-<%= ficha.getFoto()%>"
+						<img id="previewing" style="width: 150px; height: 150px;" src="upload/fichas/ficha-<%= ficha.getIdFicha() %>/<%= ficha.getFoto()%>"
 							class="img-responsive img-thumbnail center-block" />
 					</div>
 				</div>

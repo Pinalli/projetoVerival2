@@ -4,8 +4,8 @@ import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.ConexaoUtil;
-import br.ages.crud.util.MensagemContantes;
 import com.mysql.jdbc.Statement;
+import org.apache.commons.io.FilenameUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,7 +51,9 @@ public class FichaCompletaDAO {
             statement.setInt(1, fichaCompleta.getIdEmpresa());
             statement.setString(2, fichaCompleta.getNome());
             statement.setString(3, fichaCompleta.getRendimento());
-            statement.setString(4, fichaCompleta.getFoto());
+            String logo = fichaCompleta.getFoto();
+            logo = "foto-ficha-" + this.getProximoIdFicha() + "." + FilenameUtils.getExtension(logo);
+            statement.setString(4, logo);
             statement.setString(5, fichaCompleta.getModoPreparo());
             statement.setString(6, fichaCompleta.getMontagem());
             statement.setString(7, fichaCompleta.getOrientacoesArmazenamento());
@@ -163,7 +165,9 @@ public class FichaCompletaDAO {
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
             statement.setString(1, fichaCompleta.getNome());
             statement.setString(2, fichaCompleta.getRendimento());
-            statement.setString(3, fichaCompleta.getFoto());
+            String logo = fichaCompleta.getFoto();
+            logo = "foto-ficha-" + idFichaCompleta + "." + FilenameUtils.getExtension(logo);
+            statement.setString(3, logo);
             statement.setString(4, fichaCompleta.getModoPreparo());
             statement.setString(5, fichaCompleta.getMontagem());
             statement.setString(6, fichaCompleta.getOrientacoesArmazenamento());
