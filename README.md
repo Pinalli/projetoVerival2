@@ -1,6 +1,6 @@
 # fluxoAges
-Sistema de Ficha TÈcnica de Preparo - FAENFI 
+Sistema de Ficha T√©cnica de Preparo - FAENFI 
 
-Vers„o de ProduÁ„o Atual
+Vers√£o de Produ√ß√£o Atual.
 
 
