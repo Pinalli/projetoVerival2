@@ -29,7 +29,7 @@ public class AddIngredienteCommand implements Command {
 		String fibrasAlimentares = request.getParameter("fibrasalimentares");
 		String kcalFibrasAlimentares = request.getParameter("kcalfibrasalimentares");
 		String sodio = request.getParameter("sodio");
-		String kcalSodio = request.getParameter("kcalSodio");
+		String kcalSodio = request.getParameter("kcalSodio");	
 		String fatorCorrecao = request.getParameter("fatorcorrecao").replace(",", ".");
 		String indiceCoccao = request.getParameter("indicecoccao").replace(",", ".");
 		String custo = request.getParameter("custo").replace(",", ".");

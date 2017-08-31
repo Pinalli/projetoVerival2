@@ -17,6 +17,14 @@ public class Ingrediente {
 	private double kcalProteinas;
 	private double lipidios;
 	private double kcalLipidios;
+	private double gorduraSaturada;
+	private double kcalGorduraSaturada;
+	private double gorduraTrans;
+	private double kcalGorduraTrans;
+	private double fibrasAlimentares;
+	private double kcalFibrasAlimentares;
+	private double sodio;
+	private double kcalSodio;	
 	private double fatorCorrecao;
 	private double indiceCoccao;
 	private double custo;
@@ -30,7 +38,9 @@ public class Ingrediente {
 
 
 	public Ingrediente(int id, int codigo, String descricao, double carboidratos, double kcalCarboidratos,
-			double proteinas, double kcalProteinas, double lipidios, double kcalLipidios, double fatorCorrecao,
+			double proteinas, double kcalProteinas, double lipidios, double kcalLipidios, double gorduraSaturada,
+			double kcalGorduraSaturada, double gorduraTrans, double kcalGorduraTrans, double fibrasAlimentares,
+			double kcalFibrasAlimentares, double sodio, double kcalSodio, double fatorCorrecao,
 			double indiceCoccao, double custo, String unidadeMedida) {
 		this.id = id;
 		this.codigo = codigo;
@@ -41,6 +51,14 @@ public class Ingrediente {
 		this.kcalProteinas = kcalProteinas;
 		this.lipidios = lipidios;
 		this.kcalLipidios = kcalLipidios;
+		this.gorduraSaturada = gorduraSaturada;
+		this.kcalGorduraSaturada = kcalGorduraSaturada;
+		this.gorduraTrans = gorduraTrans;
+		this.kcalGorduraTrans = kcalGorduraTrans;
+		this.fibrasAlimentares = fibrasAlimentares;
+		this.kcalFibrasAlimentares = kcalFibrasAlimentares;
+		this.sodio = sodio;
+		this.kcalSodio = kcalSodio;
 		this.fatorCorrecao = fatorCorrecao;
 		this.indiceCoccao = indiceCoccao;
 		this.custo = custo;
@@ -127,6 +145,70 @@ public class Ingrediente {
 	public void setKcalLipidios(double kcalLipidios) {
 		this.kcalLipidios = kcalLipidios;
 	}
+	
+	public double getGorduraSaturada() {
+		return gorduraSaturada;
+	}
+
+	public void setGorduraSaturada(double gorduraSaturada) {
+		this.gorduraSaturada = gorduraSaturada;
+	}
+
+	public double getKcalGorduraSaturada() {
+		return kcalGorduraSaturada;
+	}
+
+	public void setKcalGorduraSaturada(double kcalGorduraSaturada) {
+		this.kcalGorduraSaturada = kcalGorduraSaturada;
+	}
+
+	public double getGorduraTrans() {
+		return gorduraTrans;
+	}
+
+	public void setGorduraTrans(double gorduraTrans) {
+		this.gorduraTrans = gorduraTrans;
+	}
+
+	public double getKcalGorduraTrans() {
+		return kcalGorduraTrans;
+	}
+
+	public void setKcalGorduraTrans(double kcalGorduraTrans) {
+		this.kcalGorduraTrans = kcalGorduraTrans;
+	}
+
+	public double getFibrasAlimentares() {
+		return fibrasAlimentares;
+	}
+
+	public void setFibrasAlimentares(double fibrasAlimentares) {
+		this.fibrasAlimentares = fibrasAlimentares;
+	}
+
+	public double getKcalFibrasAlimentares() {
+		return kcalFibrasAlimentares;
+	}
+
+	public void setKcalFibrasAlimentares(double kcalFibrasAlimentares) {
+		this.kcalFibrasAlimentares = kcalFibrasAlimentares;
+	}
+
+	public double getSodio() {
+		return sodio;
+	}
+
+	public void setSodio(double sodio) {
+		this.sodio = sodio;
+	}
+
+	public double getKcalSodio() {
+		return kcalSodio;
+	}
+
+	public void setKcalSodio(double kcalSodio) {
+		this.kcalSodio = kcalSodio;
+	}
 
 	public double getFatorCorrecao() {
 		return fatorCorrecao;
@@ -173,7 +255,10 @@ public class Ingrediente {
 		return "Ingrediente [id=" + id + ", codigo=" + codigo + ", id_empresa=" + id_empresa + ", descricao="
 				+ descricao + ", carboidratos=" + carboidratos + ", kcalCarboidratos=" + kcalCarboidratos
 				+ ", proteinas=" + proteinas + ", kcalProteinas=" + kcalProteinas + ", lipidios=" + lipidios
-				+ ", kcalLipidios=" + kcalLipidios + ", fatorCorrecao=" + fatorCorrecao + ", indiceCoccao="
+				+ ", kcalLipidios=" + kcalLipidios + ", gorduraSaturada=" + gorduraSaturada + ", kcalgorduraSaturada="
+				+ kcalGorduraSaturada + ", gorduraTrans=" + gorduraTrans + ", kcalGorduraTrans=" + kcalGorduraTrans 
+				+ ", fibrasAlimentares=" + fibrasAlimentares + ", kcalFibrasAlimentares=" + kcalFibrasAlimentares 
+				+ ", sodio=" + sodio + "fatorCorrecao=" + fatorCorrecao + ", indiceCoccao="
 				+ indiceCoccao + ", custo=" + custo + ", unidadeMedida=" + unidadeMedida + ", dataAlteracao="
 				+ dataAlteracao + "]";
 	}
