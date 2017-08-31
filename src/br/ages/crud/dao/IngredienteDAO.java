@@ -310,8 +310,8 @@ public class IngredienteDAO {
             sql.append(" KCAL_PROTEINAS = ?,");
             sql.append(" LIPIDIOS = ?,");
             sql.append(" KCAL_LIPIDIOS = ?,");
-            sql.append(" GORDURA_SATURADAS = ?,");
-            sql.append(" KCAL_GORDURA_SATURADAS = ?,");
+            sql.append(" GORDURA_Saturada = ?,");
+            sql.append(" KCAL_GORDURA_Saturada = ?,");
             sql.append(" GORDURA_TRANS = ?,");
             sql.append(" KCAL_GORDURA_TRANS = ?,");
             sql.append(" FIBRAS_ALIMENTARES = ?,");
@@ -335,12 +335,12 @@ public class IngredienteDAO {
 			statement.setDouble(6, ingrediente.getKcalProteinas());
 			statement.setDouble(7, ingrediente.getLipidios());
 			statement.setDouble(8, ingrediente.getKcalLipidios());
-			statement.setDouble(9, ingrediente.getGorduraSaturadas());
-			statement.setDouble(10, ingrediente.getKcalGorduraSaturadas());
+			statement.setDouble(9, ingrediente.getGorduraSaturada());
+			statement.setDouble(10, ingrediente.getKcalGorduraSaturada());
 			statement.setDouble(11, ingrediente.getGorduraTrans());
 			statement.setDouble(12, ingrediente.getKcalGorduraTrans());
 			statement.setDouble(13, ingrediente.getFibrasAlimentares());
-			statement.setDouble(14, ingrediente.getKcalFibrasAliementares());
+			statement.setDouble(14, ingrediente.getKcalFibrasAlimentares());
 			statement.setDouble(15, ingrediente.getSodio());
 			statement.setDouble(16, ingrediente.getKcalSodio());
 			statement.setDouble(17, ingrediente.getFatorCorrecao());
