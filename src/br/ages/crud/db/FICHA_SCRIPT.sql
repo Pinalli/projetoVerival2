@@ -59,6 +59,14 @@ CREATE TABLE `TB_INGREDIENTES` (
   `KCAL_PROTEINAS` decimal(10,2) DEFAULT NULL,
   `LIPIDIOS` decimal(10,2) DEFAULT NULL,
   `KCAL_LIPIDIOS` decimal(10,2) DEFAULT NULL,
+  `GORDURA_SATURADA` decimal(10,2) DEFAULT NULL,
+  `KCAL_GORDURA_SATURADA` decimal(10,2) DEFAULT NULL,
+  `GORDURA_TRANS` decimal(10,2) DEFAULT NULL,
+  `KCAL_GORDURA_TRANS` decimal(10,2) DEFAULT NULL,
+  `FIBRAS_ALIMENTARES` decimal(10,2) DEFAULT NULL,
+  `KCAL_FIBRAS_ALIMENTARES` decimal(10,2) DEFAULT NULL,
+  `SODIO` decimal(10,2) DEFAULT NULL,
+  `KCAL_SODIO` decimal(10,2) DEFAULT NULL, 
   `FATOR_CORRECAO` decimal(10,2) DEFAULT NULL,
   `INDICE_COCCAO` decimal(10,2) DEFAULT NULL,
   `CUSTO` decimal(10,2) DEFAULT NULL,
@@ -161,23 +169,23 @@ INSERT INTO TB_UNIDADE_MEDIDA VALUES('2', 'Grama', 'Kilograma','g', '0.001');
 INSERT INTO TB_UNIDADE_MEDIDA VALUES('3', 'Litro', 'Mililitro', 'l', '1000');
 INSERT INTO TB_UNIDADE_MEDIDA VALUES('4', 'Mililitro', 'Litro', 'ml', '0.001');
 
-INSERT INTO TB_INGREDIENTES VALUES ('1', NULL, '1', 'Batata Baroa Crua', '24', '96', '0.1', '0.4', '1.8', '16.2', '0.73', '1.0', '2.21', 'Kilograma','2016-11-09 20:52:17');
-INSERT INTO TB_INGREDIENTES VALUES ('2', NULL, '2', 'Beterraba Crua', '14', '56', '2', '8', '0.4', '3.6', '0.88', '1.0', '3.55', 'Kilograma','2016-11-09 20:54:13');
-INSERT INTO TB_INGREDIENTES VALUES ('3', NULL, '3', 'Óleo de Girassol', '20', '80', '0.1', '0.4', '13', '117', '0.22', '1.0', '4.24', 'Litro','2016-11-09 20:55:12');
-INSERT INTO TB_INGREDIENTES VALUES ('4', NULL, '4', 'Farinha de Arroz Enriquecida', '85.5', '342', '1.3', '5.2', '0.3', '2.7', '1.0', '1.2', '5.22', 'Kilograma', '2016-11-09 20:56:25');
-INSERT INTO TB_INGREDIENTES VALUES ('5', NULL, '5', 'Arroz Integral Cru', '77.5', '310', '7.3', '29.2', '7.3', '65.7', '0.8', '1.8', '5.21', 'Kilograma','2016-11-09 20:19:17');
-INSERT INTO TB_INGREDIENTES VALUES ('6', NULL, '6', 'Aveia Flocos Crua', '66.6', '266.4', '13.9', '55.6', '8.5', '76.5', '1.1', '1.5', '3.18', 'Kilograma','2016-11-09 20:21:19');
-INSERT INTO TB_INGREDIENTES VALUES ('7', NULL, '7', 'Biscoito Doce Maizena', '75.2', '300.8', '8.1', '32.4', '12', '108', '1.0', '1.6', '4.22', 'Kilograma','2016-11-09 20:49:29');
-INSERT INTO TB_INGREDIENTES VALUES ('8', NULL, '8', 'Canjica Branca Crua', '78.1', '312.4', '7.2', '28.8', '1', '9', '1.0', '1.3', '3.78', 'Kilograma','2016-11-09 20:51:22');
-INSERT INTO TB_INGREDIENTES VALUES ('9', NULL, '9', 'Pão Aveia Forma', '59.6', '238.4', '12.4', '49.6', '5.7', '51.3', '1.0', '1.6', '4.41', 'Kilograma','2016-11-09 20:53:42');
-INSERT INTO TB_INGREDIENTES VALUES ('10', NULL, '10', 'Pão de Soja', '56.5', '226', '11.3', '45.2', '3.6', '32.4', '1.0', '1.6', '3.89', 'Kilograma','2016-11-09 20:55:12');
-INSERT INTO TB_INGREDIENTES VALUES ('11', NULL, '11', 'Acelga Crua', '4.6', '18.4', '1.4', '5.6', '0.1', '0.9', '0.9', '1.1', '1.23', 'Kilograma','2016-11-09 20:57:23');
-INSERT INTO TB_INGREDIENTES VALUES ('12', NULL, '12', 'Agrião Cru', '2.3', '2.7', '10.8', '0.2', '1.8', '0.9', '0.9', '1.1', '1.12', 'Kilograma','2016-11-09 20:58:33');
-INSERT INTO TB_INGREDIENTES VALUES ('13', NULL, '13', 'Aipo Cru', '4.3', '17.2', '0.8', '3.2', '0.1', '0.9', '0.9', '1.1', '0.82', 'Kilograma','2016-11-09 20:59:43');
-INSERT INTO TB_INGREDIENTES VALUES ('14', NULL, '14', 'Alho-poró Cru', '6.9', '27.6', '1.4', '5.6', '0.1', '0.9', '0.9', '1.1', '0.62', 'Kilograma','2016-11-09 21:01:43');
-INSERT INTO TB_INGREDIENTES VALUES ('15', NULL, '15', 'Brócolis Cru', '4.0', '16.0', '1.4', '3.6', '14.4', '0.3', '2.7', '1.1', '0.72', 'Kilograma','2016-11-09 21:02:37');
-INSERT INTO TB_INGREDIENTES VALUES ('16', NULL, '16', 'Laranja da Terra Suco', '9.6', '38.4', '0.7', '2.8', '0.1', '0.9', '1.0', '1.0', '2.62', 'Litro','2016-11-09 21:04:27');
-INSERT INTO TB_INGREDIENTES VALUES ('17', NULL, '17', 'Laranja Lima Suco', '9.2', '36.8', '0.7', '2.8', '0.1', '0.9', '1.0', '1.0', '2.42', 'Litro','2016-11-09 21:07:17');
-INSERT INTO TB_INGREDIENTES VALUES ('18', NULL, '18', 'Limão Cravo Suco', '5.2', '20.8', '0.3', '1.2', '0.1', '0.9', '1.0', '1.0', '1.82', 'Litro','2016-11-09 21:08:21');
-INSERT INTO TB_INGREDIENTES VALUES ('19', NULL, '19', 'Azeite de Dendê', '0.0', '0.0', '0.0', '0.0', '100.0', '900.0', '1.0', '0.4', '3.82', 'Litro','2016-11-09 21:10:51');
-INSERT INTO TB_INGREDIENTES VALUES ('20', NULL, '20', 'Óleo de Canola', '0.0', '0.0', '0.0', '0.0', '100.0', '900.0', '1.0', '0.4', '3.82', 'Litro','2016-11-09 21:11:51');
+INSERT INTO TB_INGREDIENTES VALUES ('1', NULL, '1', 'Batata Baroa Crua', '24', '96', '0.1', '0.4', '1.8', '16.2', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.73', '1.0', '2.21', 'Kilograma','2016-11-09 20:52:17');
+INSERT INTO TB_INGREDIENTES VALUES ('2', NULL, '2', 'Beterraba Crua', '14', '56', '2', '8', '0.4', '3.6', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.88', '1.0', '3.55', 'Kilograma','2016-11-09 20:54:13');
+INSERT INTO TB_INGREDIENTES VALUES ('3', NULL, '3', 'Óleo de Girassol', '20', '80', '0.1', '0.4', '13', '117', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.22', '1.0', '4.24', 'Litro','2016-11-09 20:55:12');
+INSERT INTO TB_INGREDIENTES VALUES ('4', NULL, '4', 'Farinha de Arroz Enriquecida', '85.5', '342', '1.3', '5.2', '0.3', '2.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.2', '5.22', 'Kilograma', '2016-11-09 20:56:25');
+INSERT INTO TB_INGREDIENTES VALUES ('5', NULL, '5', 'Arroz Integral Cru', '77.5', '310', '7.3', '29.2', '7.3', '65.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.8', '1.8', '5.21', 'Kilograma','2016-11-09 20:19:17');
+INSERT INTO TB_INGREDIENTES VALUES ('6', NULL, '6', 'Aveia Flocos Crua', '66.6', '266.4', '13.9', '55.6', '8.5', '76.5', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.1', '1.5', '3.18', 'Kilograma','2016-11-09 20:21:19');
+INSERT INTO TB_INGREDIENTES VALUES ('7', NULL, '7', 'Biscoito Doce Maizena', '75.2', '300.8', '8.1', '32.4', '12', '108','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.6', '4.22', 'Kilograma','2016-11-09 20:49:29');
+INSERT INTO TB_INGREDIENTES VALUES ('8', NULL, '8', 'Canjica Branca Crua', '78.1', '312.4', '7.2', '28.8', '1', '9', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.3', '3.78', 'Kilograma','2016-11-09 20:51:22');
+INSERT INTO TB_INGREDIENTES VALUES ('9', NULL, '9', 'Pão Aveia Forma', '59.6', '238.4', '12.4', '49.6', '5.7', '51.3','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.6', '4.41', 'Kilograma','2016-11-09 20:53:42');
+INSERT INTO TB_INGREDIENTES VALUES ('10', NULL, '10', 'Pão de Soja', '56.5', '226', '11.3', '45.2', '3.6', '32.4','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.6', '3.89', 'Kilograma','2016-11-09 20:55:12');
+INSERT INTO TB_INGREDIENTES VALUES ('11', NULL, '11', 'Acelga Crua', '4.6', '18.4', '1.4', '5.6', '0.1', '0.9','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.9', '1.1', '1.23', 'Kilograma','2016-11-09 20:57:23');
+INSERT INTO TB_INGREDIENTES VALUES ('12', NULL, '12', 'Agrião Cru', '2.3', '2.7', '10.8', '0.2', '1.8', '0.9','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.9', '1.1', '1.12', 'Kilograma','2016-11-09 20:58:33');
+INSERT INTO TB_INGREDIENTES VALUES ('13', NULL, '13', 'Aipo Cru', '4.3', '17.2', '0.8', '3.2', '0.1', '0.9','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.9', '1.1', '0.82', 'Kilograma','2016-11-09 20:59:43');
+INSERT INTO TB_INGREDIENTES VALUES ('14', NULL, '14', 'Alho-poró Cru', '6.9', '27.6', '1.4', '5.6', '0.1', '0.9','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '0.9', '1.1', '0.62', 'Kilograma','2016-11-09 21:01:43');
+INSERT INTO TB_INGREDIENTES VALUES ('15', NULL, '15', 'Brócolis Cru', '4.0', '16.0', '1.4', '3.6', '14.4', '0.3','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.7', '1.1', '0.72', 'Kilograma','2016-11-09 21:02:37');
+INSERT INTO TB_INGREDIENTES VALUES ('16', NULL, '16', 'Laranja da Terra Suco', '9.6', '38.4', '0.7', '2.8', '0.1', '0.9','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.0', '2.62', 'Litro','2016-11-09 21:04:27');
+INSERT INTO TB_INGREDIENTES VALUES ('17', NULL, '17', 'Laranja Lima Suco', '9.2', '36.8', '0.7', '2.8', '0.1', '0.9','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.0', '2.42', 'Litro','2016-11-09 21:07:17');
+INSERT INTO TB_INGREDIENTES VALUES ('18', NULL, '18', 'Limão Cravo Suco', '5.2', '20.8', '0.3', '1.2', '0.1', '0.9','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '1.0', '1.82', 'Litro','2016-11-09 21:08:21');
+INSERT INTO TB_INGREDIENTES VALUES ('19', NULL, '19', 'Azeite de Dendê', '0.0', '0.0', '0.0', '0.0', '100.0', '900.0','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '0.4', '3.82', 'Litro','2016-11-09 21:10:51');
+INSERT INTO TB_INGREDIENTES VALUES ('20', NULL, '20', 'Óleo de Canola', '0.0', '0.0', '0.0', '0.0', '100.0', '900.0','2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '2.3', '5.7', '1.0', '0.4', '3.82', 'Litro','2016-11-09 21:11:51');
