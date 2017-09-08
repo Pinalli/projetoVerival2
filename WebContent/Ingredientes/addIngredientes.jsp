@@ -75,7 +75,7 @@
 					</div>
 					
 					<div class="row">
-						<div class="col-sm-8">
+						<div class="col-sm-4">
 						    <label class="form-label ages">Gordura Trans</span></label> 
 							<input class="form-control" id="goduratrans" name="gorduratrans" value="${param.gorduratrans}" type="number" step="any"  maxlength="5" required>
 						</div>
@@ -89,7 +89,7 @@
 					</div>
 					
 					<div class="row">
-						<div class="col-sm-8">
+						<div class="col-sm-4">
 						    <label class="form-label ages">Sodio</span></label> 
 							<input class="form-control" id="sodio" name="sodio" value="${param.sodio}" type="number" step="any"  maxlength="5" required>
 						</div>

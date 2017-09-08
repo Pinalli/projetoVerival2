@@ -68,7 +68,33 @@
 					</div>
 					
 					
+					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Gordura Saturada</span></label> 
+							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="<%=ingrediente.getGorduraSaturada()%>" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
 					
+					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Gordura Trans</span></label> 
+							<input class="form-control" id="goduratrans" name="gorduratrans" value="<%=ingrediente.getGorduraTrans()%>" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Fibras Alimentares</span></label> 
+							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="<%=ingrediente.getFibrasAlimentares()%>" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Sodio</span></label> 
+							<input class="form-control" id="sodio" name="sodio" value="<%=ingrediente.getSodio()%>" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
 					
 					
 					<div class="row">
