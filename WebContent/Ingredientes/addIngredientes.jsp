@@ -68,6 +68,34 @@
 					</div>
 					
 					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Gordura Saturada</span></label> 
+							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="${param.gordurasaturada}" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-8">
+						    <label class="form-label ages">Gordura Trans</span></label> 
+							<input class="form-control" id="goduratrans" name="gorduratrans" value="${param.gorduratrans}" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Fibras Alimentares</span></label> 
+							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="${param.fibrasalimentares}" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-8">
+						    <label class="form-label ages">Sodio</span></label> 
+							<input class="form-control" id="sodio" name="sodio" value="${param.sodio}" type="number" step="any"  maxlength="5" required>
+						</div>
+					</div>
+					
+					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages"> Fator de Correção </span></label> 
 							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="${param.fatorcorrecao}" type="value" maxlength="5" required> 
