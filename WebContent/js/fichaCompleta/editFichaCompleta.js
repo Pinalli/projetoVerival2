@@ -166,5 +166,5 @@ $(document).ready(function() {
 		$("#modalErro").find('.modal-title').text(title);
 	  	$("#modalErro").find('#modal-descricao').text(text);
 	}
-	
+}
 });
