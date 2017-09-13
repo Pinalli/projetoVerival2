@@ -17,7 +17,18 @@ public class Ficha {
 	private String textura;
 	private String sabor;
 	private String apresentacao;
-
+	
+	
+	
+	
+	private String tempoPreparo;
+	private String utensilios;
+	private String temperatura;
+	
+	
+	
+	
+	
 	private List<FichaItem> itens;
 
 	public Ficha() {
@@ -120,7 +131,45 @@ public class Ficha {
 	public void setApresentacao(String apresentacao) {
 		this.apresentacao = apresentacao;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	public String getTempoPreparo() {
+		return tempoPreparo;
+	}
+	
+	public void setTempoPreparo(String tempoPreparo) {
+		this.tempoPreparo = tempoPreparo;
+	}
+	
+	public String getUtensilios() {
+		return utensilios;
+	}
+	
+	public void setUtensilios(String utensilios) {
+		this.utensilios = utensilios;
+	}
+	
+	public String getTemperatura() {
+		return temperatura;
+	}
+	
+	public void setTemperatura(String temperatura) {
+		this.temperatura = temperatura;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public List<FichaItem> getItens() {
 		return itens;
 	}
