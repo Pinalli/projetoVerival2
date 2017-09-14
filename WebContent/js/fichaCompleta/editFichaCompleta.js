@@ -130,6 +130,7 @@ $(document).ready(function() {
 		}else if(data.temperatura == '' || data.temperatura === null){
 			showModalErro("Dados da ficha incompletos", "Informe a temperatura");
 			return false;
+		}
 		return true;
 	}
 	
@@ -166,5 +167,4 @@ $(document).ready(function() {
 		$("#modalErro").find('.modal-title').text(title);
 	  	$("#modalErro").find('#modal-descricao').text(text);
 	}
-}
 });
