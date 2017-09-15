@@ -159,6 +159,18 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="informacoes-content">
+				<div class="row">
+						<div class="panel panel-info">
+							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">Utensílios e equipamentos</div>
+						</div>
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-group hide" id="utensilios-equipamentos-content">
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<textarea rows="10" cols="" class="form-control"
+									name="utensiliosEquipamentos"></textarea>
+							</div>
+						</div>
+					</div>
 					<div class="row">
 						<div class="panel panel-info">
 							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de Preparo</div>
@@ -167,7 +179,11 @@
 							<div class="form-group hide" id="modo-preparo-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea>
+									name="modoPreparo"></textarea><br>
+									<label class="text-center">Tempo de Preparo
+									<input class="form-control text-left col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="tempoPreparo" name="tempoPreparo" 
+									value="" type="text" maxlength="15">
+								</label>
 							</div>
 						</div>
 					</div>
@@ -237,7 +253,11 @@
 							<div class="form-group hide" id="apresentacao-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="apresentacao"></textarea>
+									name="apresentacao"></textarea><br>
+								<label class="text-center">Temperatura
+									<input class="text-center col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="temperatura" name="temperatura" 
+									value="" type="text" maxlength="15">
+								</label>
 							</div>
 						</div>
 					</div>

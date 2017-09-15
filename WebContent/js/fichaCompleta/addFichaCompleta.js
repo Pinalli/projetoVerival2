@@ -8,12 +8,15 @@ $(document).ready(function() {
 		var nome = $('input[name="nome"]').val();
 		var rendimento = $('input[name="rendimento"]').val();
 		var foto = $('input[name="imgFile"]').val();
+		var utensiliosEquipamentos = $('textarea[name="utensiliosEquipamentos"]').val();
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
+		var tempoPreparo = $('textarea[name="tempoPreparo"]').val();
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
 		var textura = $('textarea[name="textura"]').val();
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
+		var temperatura = $('textarea[name="temperatura"]').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -37,12 +40,15 @@ $(document).ready(function() {
 			nome:nome,
 			rendimento:rendimento,
 			foto:foto,
+			utensiliosEquipamentos:utensiliosEquipamentos,
 			modoPreparo:modoPreparo,
+			tempoPreparo:tempoPreparo,
 			montagem:montagem,
 			orientacoesArmazenamento:orientecoesArmazenamento,
-			textura: textura,
+			textura:textura,
 			sabor:sabor,
 			apresentacao:apresentacao,
+			temperatura:temperatura,
 			itens:JSON.stringify(itens)
 		};
 		
