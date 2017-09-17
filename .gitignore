@@ -4,6 +4,7 @@
 /WebContent/lixo.html
 .jsdtscope
 /target/
+/target/*
 .settings/
 /pom.xml
 /.tern-project
