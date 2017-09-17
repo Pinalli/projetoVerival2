@@ -9,3 +9,6 @@
 /.tern-project
 /FichaTP.iml
 .idea/
+.classpath
+FichaTecnicaPreparo.iml
+.DS_Store
