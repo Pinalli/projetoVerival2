@@ -130,7 +130,7 @@
 							</select>
 						</div>
 
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
 								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
@@ -143,7 +143,7 @@
 								class="form-control selectBatata">
 							</select>
 						</div>
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
 								placeholder="Qnt" min="0.1" max="100" step="0.1"
@@ -158,22 +158,22 @@
 							</select>
 						</div>
 						<div class="form-group col-md-12">
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="cho" class="">CHO</label> <input type="number"
 									readonly="readonly" class="form-control" id="cho"
 									placeholder="Import">
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="ptn" class="">PTN</label> <input type="number"
 									readonly="readonly" class="form-control" id="ptn"
 									placeholder="Import">
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="lip" class="">LIP</label> <input type="number"
 									readonly="readonly" class="form-control" id="lip"
 									placeholder="Import">
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="kcal" class="">Kcal</label> <input type="number"
 									readonly="readonly" class="form-control" id="kcal"
 									placeholder="Import">

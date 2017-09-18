@@ -80,7 +80,7 @@
 							</select>
 						</div>
 
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
 								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
@@ -96,7 +96,7 @@
 								data-selected-text="<%= item.getUnidadeMedida() %>">
 							</select>
 						</div>
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
 								placeholder="Qnt" min="0.1" max="100" step="0.1"
@@ -118,17 +118,17 @@
 								<label for="cho" class="">CHO</label> 
 								<input type="number" class="form-control" id="cho" placeholder="CHO" readonly>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="ptn" class="">PTN</label> <input type="number"
 									class="form-control" id="ptn"
 									placeholder="PTN" readonly>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="lip" class="">LIP</label> <input type="number"
 									 class="form-control" id="lip"
 									placeholder="LIP"  readonly>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="kcal" class="">Kcal</label> <input type="number"
 									class="form-control" id="kcal"
 									placeholder="Kcal"  readonly>
@@ -182,7 +182,7 @@
 							</select>
 						</div>
 
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
 								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
@@ -198,7 +198,7 @@
 								data-selected-text="">
 							</select>
 						</div>
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
 								placeholder="Qnt" min="0.1" max="100" step="0.1"
@@ -220,17 +220,17 @@
 								<label for="cho" class="">CHO</label> 
 								<input type="number" class="form-control" id="cho" placeholder="CHO" readonly>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="ptn" class="">PTN</label> <input type="number"
 									class="form-control" id="ptn"
 									placeholder="PTN" readonly>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="lip" class="">LIP</label> <input type="number"
 									 class="form-control" id="lip"
 									placeholder="LIP"  readonly>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="kcal" class="">Kcal</label> <input type="number"
 									class="form-control" id="kcal"
 									placeholder="Kcal"  readonly>

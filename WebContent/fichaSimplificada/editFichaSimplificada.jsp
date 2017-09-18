@@ -60,7 +60,7 @@
 								<b>Ingrediente</b>
 							</p>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-2">
 							<p class="text-center">
 								<b>Qtd</b>
 							</p>
@@ -70,7 +70,7 @@
 								<b>Unidade de Medida</b>
 							</p>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-2">
 							<p class="text-center">
 								<b>Qtd</b>
 							</p>
@@ -108,7 +108,7 @@
 								</select>
 							</div>
 							
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="qnt-unidade-medida" class="hidden-md hidden-lg">Quantidade</label>
 								<input type="number" class="form-control"id="qnt-unidade-medida" placeholder="Qnt" min="1" max="9999"
 									name="qnt-unidade-medida" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);"
@@ -121,7 +121,7 @@
 								data-selected-text="<%= item.getUnidadeMedida() %>">
 								</select>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
 								<input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt" min="0.1" max="100"
 									step="0.1" name="qnt-medida-caseira" onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
@@ -159,7 +159,7 @@
 								</select>
 							</div>
 							
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="qnt-unidade-medida" class="hidden-md hidden-lg">Quantidade</label>
 								<input type="number" class="form-control"id="qnt-unidade-medida" placeholder="Qnt" min="1" max="9999"
 									name="qnt-unidade-medida" onKeyDown="limitText(this,4);"onKeyUp="limitText(this,4);"
@@ -172,7 +172,7 @@
 								data-selected-text="">
 								</select>
 							</div>
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="qnt-medida-caseira" class="hidden-md hidden-lg">Quantidade</label>
 								<input type="number" class="form-control" id="qnt-medida-caseira" placeholder="Qnt" min="0.1" max="100"
 									step="0.1" name="qnt-medida-caseira" onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
