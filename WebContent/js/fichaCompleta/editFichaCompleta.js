@@ -3,7 +3,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		add($(this));
 	});
-	
+
 	function add(form){
 		var idFicha = $("#idFicha").val();
 		var nome = $('input[name="nome"]').val();
@@ -35,9 +35,9 @@ $(document).ready(function() {
 			};
 			itens.push(item);
 		});
-		
+
 		itens = removeIncompleteItens(itens);
-		
+
 		var data = {
 			id:idFicha,
 			nome:nome,
@@ -54,7 +54,7 @@ $(document).ready(function() {
 			temperatura:temperatura,
 			itens:JSON.stringify(itens)
 		};
-		
+
 		//Valida
 		if(validateFicha(data) && validateItens(itens)){
 			//save
@@ -80,14 +80,14 @@ $(document).ready(function() {
 	function removeIncompleteItens(itens){
 		for(var i=0; i<itens.length; i++){
 			if(itens[i].idIngrediente === '' &&
-				itens[i].idUnidadeMedida  === '' &&
-				itens[i].idMedidaCaseira === ''){
+					itens[i].idUnidadeMedida  === '' &&
+					itens[i].idMedidaCaseira === ''){
 				itens.splice(i,1);
 			}
 		}
 		return itens;
 	}
-	
+
 	/**
 	 * Valida dados da ficha
 	 * @param data
@@ -100,17 +100,17 @@ $(document).ready(function() {
 		}else if(data.rendimento == '' || data.rendimento === null){
 			showModalErro("Dados da ficha incompletos", "Informe o rendimento");
 			return false;
+		}else if(data.tempoPreparo == '' || data.tempoPreparo === null) {
+			showModalErro("Dados da ficha impletos", "Informe o tempo de preparo");
+			return false;
 		}else if(data.foto == '' || data.foto === null){
 			showModalErro("Dados da ficha incompletos", "Informe a foto");
 			return false;
-		}else if(data.utensiliosEquipamentos == '' || data.utensiliosEquipamentos == null){
-			showModalErro("Dados de ficha incompletos", "Informe os utensílios e equipamentos");
+		}else if(data.utensiliosEquipamentos == '' || data.utensiliosEquipamentos === null) {
+			showModalErro("Dados da ficha incompletos", "Informe os utensilios e equipamentos utilizados");
 			return false;
 		}else if(data.modoPreparo == '' || data.modoPreparo === null){
 			showModalErro("Dados da ficha incompletos", "Informe o modo de preparo");
-			return false;
-		}else if(data.tempoPreparo == '' || data.tempoPreparo === null){
-			showModalErro("Dados da ficha incompletos", "Informe o tempo de preparo");
 			return false;
 		}else if(data.montagem == '' || data.montagem === null){
 			showModalErro("Dados da ficha incompletos", "Informe a montagem");
@@ -133,7 +133,7 @@ $(document).ready(function() {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Valida itens
 	 * @param itens
@@ -161,10 +161,10 @@ $(document).ready(function() {
 		}
 		return true;
 	}
-	
+
 	function showModalErro(title, text){
 		$("#modalErro").modal('show');
 		$("#modalErro").find('.modal-title').text(title);
-	  	$("#modalErro").find('#modal-descricao').text(text);
+		$("#modalErro").find('#modal-descricao').text(text);
 	}
 });

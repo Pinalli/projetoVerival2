@@ -78,7 +78,6 @@
 								data-live-search="true" class="form-control selectBatata"
 								data-selected-id="<%= item.getIdIngrediente() %>" 
 								data-selected-text="<%= item.getIngrediente() %>">
-								</script>
 							</select>
 						</div>
 
@@ -290,22 +289,22 @@
 				<div class="form-group hide" id="informacoes-content">
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">Utensílios e equipamentos</div>
+							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">Utensílios e Equipamentos</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="utensilios-equipamentos-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-								name="utensiliosEquipamentos"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="utensiliosEquipamentos"><%=ficha.getUtensiliosEquipamentos()%></textarea>
 							</div>
 						</div>
 					</div>
+					<div class="row">
 						<div class="panel panel-info">
 							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de Preparo</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="modo-preparo-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<label class="text-center col-md-12 col-sm-12 col-xs-12">	</label>
 								<textarea rows="10" cols="" class="form-control"
 									name="modoPreparo"><%=ficha.getModoPreparo()%></textarea><br>
 									<label class="text-center">Tempo de Preparo
@@ -381,11 +380,17 @@
 							<div class="form-group hide" id="apresentacao-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="apresentacao"><%=ficha.getApresentacao()%></textarea><br><label class="text-center">Temperatura
-									<input class="text-center col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="temperatura" name="temperatura" 
-									value="" type="text" maxlength="15">
-								</label>
+									name="apresentacao"><%=ficha.getApresentacao()%></textarea>
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel-heading trigger-display" data-target="temperatura-content">Temperatura</div>
+						</div>
+						<div class="form-control hide" id="temperatura-content">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+							<textarea rows="10" cols="" class="form-control" name="temperatura"><%=ficha.getTemperatura()%></textarea>
 						</div>
 					</div>
 				</div>
@@ -403,6 +408,7 @@
 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
 					</div>
 				</div>
+			</div>
 		</form>
 
 	</article>

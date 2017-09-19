@@ -7,6 +7,7 @@ $(document).ready(function() {
 	function add(form){
 		var nome = $('input[name="nome"]').val();
 		var rendimento = $('input[name="rendimento"]').val();
+		var tempoPreparo = $('input[name="tempoPreparo"]').val();
 		var foto = $('input[name="imgFile"]').val();
 		var utensiliosEquipamentos = $('textarea[name="utensiliosEquipamentos"]').val();
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
@@ -39,10 +40,10 @@ $(document).ready(function() {
 		var data = {
 			nome:nome,
 			rendimento:rendimento,
+			tempoPreparo:tempoPreparo,
 			foto:foto,
 			utensiliosEquipamentos:utensiliosEquipamentos,
 			modoPreparo:modoPreparo,
-			tempoPreparo:tempoPreparo,
 			montagem:montagem,
 			orientacoesArmazenamento:orientecoesArmazenamento,
 			textura:textura,

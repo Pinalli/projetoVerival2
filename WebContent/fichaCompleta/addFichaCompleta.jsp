@@ -42,6 +42,14 @@
 						class="form-control text-center box-transparent"
 						placeholder="Rendimento" />
 				</div>
+				<div class="col-md-4 col-md-offset-4">
+					<label for="tempoDePreparo"
+						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de Preparo</label>
+					
+					<input type="text" name="tempoDePreparo" id="tempoDePreparo"
+						class="form-control text-center box-transparent"
+						placeholder="Tempo de Preparo" />
+				</div>
 
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
@@ -160,7 +168,7 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="informacoes-content">
-				<div class="row">
+                    <div class="row">
 						<div class="panel panel-info">
 							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">Utensílios e equipamentos</div>
 						</div>
@@ -254,12 +262,18 @@
 							<div class="form-group hide" id="apresentacao-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="apresentacao"></textarea><br>
-								<label class="text-center">Temperatura
-									<input class="text-center col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="temperatura" name="temperatura" 
-									value="" type="text" maxlength="15">
-								</label>
+									name="apresentacao"></textarea>
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="panel panel-info">
+							<div class="panel-heading trigger-display" data-target="temperatura-content">Temperatura</div>
+						</div>
+					<div class="col-md-12">
+						<div class="form-group hide" id="temperatura-content">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+							<textarea rows="10" cols="" class="form-control" name="temperatura"></textarea>
 						</div>
 					</div>
 				</div>
