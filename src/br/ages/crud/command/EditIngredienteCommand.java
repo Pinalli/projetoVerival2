@@ -33,9 +33,9 @@ public class EditIngredienteCommand implements Command{
 		String kcalProteinas = request.getParameter("kcalproteinas");
 		String lipidios = request.getParameter("lipidios");
 		String kcalLipidios = request.getParameter("kcallipidios");
-		String gorduraSaturada = request.getParameter("gorduraSaturada");
-		String gorduraTrans = request.getParameter("gorduraTrans");
-		String fibrasAlimentares = request.getParameter("fibrasAlimentares");
+		String gorduraSaturada = request.getParameter("gordurasaturada");
+		String gorduraTrans = request.getParameter("gorduratrans");
+		String fibrasAlimentares = request.getParameter("fibrasalimentares");
 		String sodio = request.getParameter("sodio");
 		String fatorCorrecao = request.getParameter("fatorcorrecao").replace(",", ".");
 		String indiceCoccao = request.getParameter("indicecoccao").replace(",", ".");
