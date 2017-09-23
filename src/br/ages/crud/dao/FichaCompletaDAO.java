@@ -164,6 +164,13 @@ public class FichaCompletaDAO {
                 e.setCarboidratos(resultset.getDouble("carboidratos"));
                 e.setKcalCarboidratos(resultset.getDouble("kcal_carboidratos"));
                 e.setProteinas(resultset.getDouble("proteinas"));
+                e.setKcalProteinas(resultset.getDouble("kcal_proteinas"));
+                e.setLipidios(resultset.getDouble("lipidios"));
+                e.setKcalLipidios(resultset.getDouble("kcal_lipidios"));
+                e.setGorduraSaturada(resultset.getDouble("gordura_saturada"));
+                e.setGorduraTrans(resultset.getDouble("gordura_trans"));
+                e.setFibrasAlimentares(resultset.getDouble("fibras_alimentares"));
+                e.setSodio(resultset.getDouble("sodio"));
 
                 dadosRotulo.add(e);
             }
