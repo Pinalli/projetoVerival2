@@ -294,7 +294,7 @@
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="utensilios-equipamentos-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control" name="utensiliosEquipamentos"><%=ficha.getUtensiliosEquipamentos()%></textarea>
+								<textarea rows="10" cols="" class="form-control" name="utensiliosEquipamentos"><%=ficha.getUtensilios()%></textarea>
 							</div>
 						</div>
 					</div>

@@ -49,7 +49,7 @@ public class FichaCompletaDAO {
             		
             		
             		+ "TEMPO_PREPARO, "
-            		+ "UTENSILIOS, "
+            		+ "UTENSILIOS_EQUIPAMENTOS, "
             		+ "TEMPERATURA )");
             
             sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -134,7 +134,7 @@ public class FichaCompletaDAO {
             		
             		
             		+ "TEMPO_PREPARO, "
-            		+ "UTENSILIOS, "
+            		+ "UTENSILIOS_EQUIPAMENTOS, "
             		+ "TEMPERATURA, "
             		
             		
@@ -202,7 +202,7 @@ public class FichaCompletaDAO {
                     
                     
                     + "TEMPO_PREPARO = ?,"
-                    + "UTENSILIOS = ?,"
+                    + "UTENSILIOS_EQUIPAMENTOS = ?,"
                     + "TEMPERATURA = ?"
                     
                     
@@ -320,7 +320,7 @@ public class FichaCompletaDAO {
 					
 					
 					+ "TEMPO_PREPARO,"
-					+ "UTENSILIOS,"
+					+ "UTENSILIOS_EQUIPAMENTOS,"
 					+ "TEMPERATURA,"
 					
 					
