@@ -3,6 +3,7 @@ package br.ages.crud.dao;
 import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;
+import br.ages.crud.model.Ingrediente;
 import br.ages.crud.util.ConexaoUtil;
 import com.mysql.jdbc.Statement;
 import org.apache.commons.io.FilenameUtils;
@@ -21,6 +22,7 @@ import java.util.List;
 public class FichaCompletaDAO {
 
     private List<Ficha> listarFichasCompleta;
+    private List<Ingrediente> dadosRotulo;
     private FichaCompletaItemDAO itemDAO;
 
 
@@ -138,6 +140,40 @@ public class FichaCompletaDAO {
             conexao.close();
         }
         return listarFichasCompleta;
+    }
+
+    public List<Ingrediente> buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException {
+        Connection conn = null;
+        dadosRotulo = new ArrayList<>();
+        try {
+
+            conn = ConexaoUtil.getConexao();
+            StringBuilder sql = new StringBuilder();
+            sql.append("select descricao, carboidratos, kcal_carboidratos, proteinas, kcal_proteinas, " +
+                    "lipidios, kcal_lipidios, gordura_saturada, gordura_trans, fibras_alimentares, sodio " +
+                    "from ((tb_ficha inner join tb_ficha_item on tb_ficha_item.id_ficha = tb_ficha.id_ficha) " +
+                    "inner join tb_ingredientes on tb_ingredientes.id = tb_ficha_item.id_ingrediente) " +
+                    "where tb_ficha.id_ficha=" + id
+            );
+            PreparedStatement statement = conn.prepareStatement(sql.toString());
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                Ingrediente e = new Ingrediente();
+                e.setDescricao(resultset.getString("descricao"));
+                e.setCarboidratos(resultset.getDouble("carboidratos"));
+                e.setKcalCarboidratos(resultset.getDouble("kcal_carboidratos"));
+                e.setProteinas(resultset.getDouble("proteinas"));
+
+                dadosRotulo.add(e);
+            }
+
+        } catch (ClassCastException | SQLException e){
+            throw new PersistenciaException(e);
+        } finally {
+            conn.close();
+        }
+        return dadosRotulo;
     }
 
     public boolean editarFichaCompleta(Ficha fichaCompleta) throws PersistenciaException {
