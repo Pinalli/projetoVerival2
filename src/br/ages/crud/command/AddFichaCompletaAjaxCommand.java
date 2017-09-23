@@ -53,7 +53,10 @@ public class AddFichaCompletaAjaxCommand implements Command {
 			ficha.setOrientacoesArmazenamento(request.getParameter("orientacoesArmazenamento"));
 			ficha.setTextura(request.getParameter("textura"));
 			ficha.setSabor(request.getParameter("sabor"));
-			ficha.setApresentacao(request.getParameter("apresentacao"));			
+			ficha.setApresentacao(request.getParameter("apresentacao"));
+			ficha.setTempoPreparo(request.getParameter("tempoPreparo"));
+			ficha.setUtensilios(request.getParameter("utensilios"));
+			ficha.setTemperatura(request.getParameter("temperatura"));
 			ficha.setIdEmpresa(1);
 			ficha.setTipoFicha("c");
 			ficha.setItens(listaFichaItens);
