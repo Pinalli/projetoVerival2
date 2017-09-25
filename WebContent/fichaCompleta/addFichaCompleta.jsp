@@ -68,7 +68,7 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
-								onInput="multiplica(cho)"
+								onInput="multiplica('cho'), multiplica('ptn'), multiplica('lip'), multiplica('kcal')"
 								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
 								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
 						</div>
@@ -96,23 +96,23 @@
 						<!--div class="form-group col-md-12"-->
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="cho" class="">CHO</label> 
-								<input type="number" class="form-control" id="cho" placeholder="CHO" readonly>
-								<input type="hidden" class="form-control" id="choHidden" placeholder="CHO" readonly>
+								<input type="hidden" class="form-control" id="cho" placeholder="CHO" readonly>
+								<input type="number" class="form-control" id="choShow" placeholder="CHO" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="ptn" class="">PTN</label> <input type="number"
-									class="form-control" id="ptn"
-									placeholder="PTN" readonly>
+								<label for="ptn" class="">PTN</label> 
+								<input type="hidden" class="form-control" id="ptn"	placeholder="PTN" readonly>
+								<input type="number" class="form-control" id="ptnShow" placeholder="PTN" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="lip" class="">LIP</label> <input type="number"
-									 class="form-control" id="lip"
-									placeholder="LIP"  readonly>
+								<label for="lip" class="">LIP</label> 
+								<input type="hidden" class="form-control" id="lip" placeholder="LIP"  readonly>
+								<input type="number" class="form-control" id="lipShow" placeholder="LIP"  readonly>								
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="kcal" class="">Kcal</label> <input type="number"
-									class="form-control" id="kcal"
-									placeholder="Kcal"  readonly>
+								<label for="kcal" class="">Kcal</label> 
+								<input type="hidden" class="form-control" id="kcal" placeholder="Kcal"  readonly>
+								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label> <input

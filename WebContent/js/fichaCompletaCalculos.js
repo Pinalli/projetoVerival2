@@ -1,21 +1,35 @@
 function multiplica(tipo){
 	switch (tipo) {
 	case "cho":
-		$("#cho").val($("#choHidden").val()*$("#qnt-unidade-medida").val());
-		if ($('#cho').val().length > 5){
-		       $('#cho').val($('#cho').val().substr(0, 5));       
+		if($("#qnt-unidade-medida").val()!=0){
+			$("#choShow").val($("#cho").val()*$("#qnt-unidade-medida").val());
+		}
+		if ($('#choShow').val().length > 5){
+		       $('#choShow').val($('#choShow').val().substr(0, 5));       
 		    }
 		break;
-	case "Carboidrato":
-		$("#kcalcarboidratos").val($("#carboidratos").val()*4);
-		if ($('#kcalcarboidratos').val().length > 5){
-		       $('#kcalcarboidratos').val($('#kcalcarboidratos').val().substr(0, 5));       
+	case "ptn":
+		if($("#qnt-unidade-medida").val()!=0){
+			$("#ptnShow").val($("#ptn").val()*$("#qnt-unidade-medida").val());
+		}
+		if ($('#ptnShow').val().length > 5){
+		       $('#ptnShow').val($('#ptnShow').val().substr(0, 5));       
 		    }
 		break;
-	case "Lipidios":
-		$("#kcallipidios").val($("#lipidios").val()*9);
-		if ($('#kcallipidios').val().length > 5){
-		       $('#kcallipidios').val($('#kcallipidios').val().substr(0, 5));       
+	case "lip":
+		if($("#qnt-unidade-medida").val()!=0){
+			$("#lipShow").val($("#lip").val()*$("#qnt-unidade-medida").val());
+		}
+		if ($('#lipShow').val().length > 5){
+		       $('#lipShow').val($('#lipShow').val().substr(0, 5));       
+		    }
+		break;
+	case "kcal":
+		if($("#qnt-unidade-medida").val()!=0){
+			$("#kcalShow").val($("#kcal").val()*$("#qnt-unidade-medida").val());
+		}
+		if ($('#kcalShow').val().length > 5){
+		       $('#kcalShow').val($('#kcalShow').val().substr(0, 5));       
 		    }
 		break;
 	default:
