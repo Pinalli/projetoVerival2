@@ -7,7 +7,7 @@
 
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
-
+<script type="text/javascript" src="js/fichaCompletaCalculos.js"></script>
 </head>
 <body>
 	<article>
@@ -68,6 +68,7 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
+								onInput="multiplica(cho)"
 								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
 								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
 						</div>
@@ -96,6 +97,7 @@
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="cho" class="">CHO</label> 
 								<input type="number" class="form-control" id="cho" placeholder="CHO" readonly>
+								<input type="hidden" class="form-control" id="choHidden" placeholder="CHO" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="ptn" class="">PTN</label> <input type="number"
