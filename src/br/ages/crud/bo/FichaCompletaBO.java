@@ -83,6 +83,8 @@ public class FichaCompletaBO {
 			if(fichaCompleta.getApresentacao()==null || fichaCompleta.getApresentacao().equals("")){
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_APRESENTACAO + "<br/>");
+				
+				
 			}
 			
 			//Tempo de Preparo
@@ -102,6 +104,7 @@ public class FichaCompletaBO {
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_TEMPERATURA + "<br/>");
 			}
+			
 			
 			
 		}catch (Exception e) {

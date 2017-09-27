@@ -286,9 +286,16 @@
 				<div class="col-md-9 col-md-offset-1">
 					<div class="form-group">
 						<input type="reset" value="Limpar"
-							class="btn btn-warning pull-left col-md-2 col-sm-2 col-xs-5" />
-						<input type="submit" value="Salvar"
+							class="btn btn-warning pull-left col-md-2 col-sm-2 col-xs-5" />			
+						  <input type="submit" value="Salvar"
 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
+							
+							
+						<!-- 	<input class="btn btn-success addFichaCompleta pull-right col-md-9 col-sm-9 col-xs-5"" 
+							type="submit" value="Salvar">
+					     -->
+					     
+					     
 					</div>
 				</div>
 		</form>
