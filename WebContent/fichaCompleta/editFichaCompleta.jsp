@@ -245,10 +245,10 @@
 								<input type="number" class="form-control"
 									id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 							</div>
-							<input type="number" class="hidden" id="gordura-trans">
-							<input type="number" class="hidden" id="gordura-saturada">
-							<input type="number" class="hidden" id="fibra-alimentar">
-							<input type="number" class="hidden" id="sodio">
+							<input type="text" class="hidden" id="gordura-trans" name="gordura-trans">
+							<input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada">
+							<input type="text" class="hidden" id="fibra-alimentar" name="fibra-alimentar">
+							<input type="text" class="hidden" id="sodio" name="sodio">
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="btn-excluir-wrapper">
@@ -351,10 +351,10 @@
 								<input type="number" class="form-control"
 									id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 							</div>
-							<input type="number" class="hidden" id="gordura-trans">
-							<input type="number" class="hidden" id="gordura-saturada">
-							<input type="number" class="hidden" id="fibra-alimentar">
-							<input type="number" class="hidden" id="sodio">
+							<input type="text" class="hidden" id="gordura-trans" name="gordura-trans">
+							<input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada">
+							<input type="text" class="hidden" id="fibra-alimentar" name="fibra-alimentar">
+							<input type="text" class="hidden" id="sodio" name="sodio">
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="btn-excluir-wrapper">
