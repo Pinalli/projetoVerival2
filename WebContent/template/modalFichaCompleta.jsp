@@ -39,7 +39,7 @@
        
         
         
-           <div class="container" style="text-align: center;width:500px;">
+           <div class="container" style="text-align: center;width:600px;">
        		<div class="row">
             <div class="col-sm-2">Porção g ou ml</div>
             <div class="col-sm-2">
