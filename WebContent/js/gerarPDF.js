@@ -1,5 +1,5 @@
 		var cache_width = $('#renderPDF').width(); //Criado um cache do CSS
-        var cache_height = $('#renderPDF').heigth();
+       
 		var a4 = [595.28, 841.89]; // Widht e Height de uma folha a4
 
         function gerarPDF() {
@@ -16,7 +16,7 @@
                     doc.save('Rotulo.pdf');
                     //Retorna ao CSS normal
                     $('#renderPDF').width(cache_width);
-                    $('#renderPDF').heigth();
+                   
                 }
             });
         }
