@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.google.gson.Gson;
 
 import br.ages.crud.bo.FichaCompletaBO;
-import br.ages.crud.model.Ingrediente;
+import br.ages.crud.model.FichaIngrediente;
 
 public class BuscaDadosRotuloAjaxCommand implements Command {
 
@@ -21,7 +21,7 @@ public class BuscaDadosRotuloAjaxCommand implements Command {
 		String json = "";
 		int id = Integer.parseInt(request.getParameter("id"));
 		try {			
-			List<Ingrediente> ingredientes = fichaCompletaBO.buscarDadosRotulo(id);			
+			List<FichaIngrediente> ingredientes = fichaCompletaBO.buscarDadosRotulo(id);			
 			Gson gson = new Gson();
 			json = gson.toJson(ingredientes);
 			request.setAttribute("json", json);			
