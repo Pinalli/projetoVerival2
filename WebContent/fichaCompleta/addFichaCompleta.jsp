@@ -11,7 +11,8 @@
 </head>
 <body>
 	<article>
-		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm" method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
+		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm"
+			method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
 			<div class="form-group col-md-4 col-md-offset-4">
 				<input type="text" name="nome" id="nome"
 					class="form-control text-center box-transparent"
@@ -19,20 +20,20 @@
 			</div>
 
 			<!-- File Button -->
-				<div class="form-group col-md-12">
-					<!--label class="col-md-3 control-label ages" for="Foto"></label-->
-					<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
-						<input id="imgFile" name="imgFile" class="input-file" type="file">
-					</div>
+			<div class="form-group col-md-12">
+				<!--label class="col-md-3 control-label ages" for="Foto"></label-->
+				<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
+					<input id="imgFile" name="imgFile" class="input-file" type="file">
 				</div>
-				<div class="form-group col-md-12">
-					<div id="image_preview">
-						<img id="previewing" src=""
-							class="img-responsive img-thumbnail center-block" />
-					</div>
+			</div>
+			<div class="form-group col-md-12">
+				<div id="image_preview">
+					<img id="previewing" src=""
+						class="img-responsive img-thumbnail center-block" />
 				</div>
-				<h4 id='loading'></h4>
-				<div id="message"></div>
+			</div>
+			<h4 id='loading'></h4>
+			<div id="message"></div>
 
 
 				<div class="col-md-4 col-md-offset-4">
@@ -144,7 +145,7 @@
 							</div>
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="btn-excluir-wrapper"></div>
+							<div class="btn-excluir-wrapper"></div>
 						</div>
 					</div>
 
@@ -170,7 +171,9 @@
 				<div class="form-group hide" id="informacoes-content">
                     <div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">Utensílios e equipamentos</div>
+							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">
+                                Utensílios e equipamentos
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="utensilios-equipamentos-content">
@@ -182,36 +185,36 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de Preparo</div>
+							<div class="panel-heading trigger-display" data-target="modo-preparo-content">
+                                Modo de Preparo
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="modo-preparo-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea><br>
-									<label class="text-center">Tempo de Preparo
-									<input class="form-control text-left col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="tempoPreparo" name="tempoPreparo" 
-									value="" type="text" maxlength="15">
-								</label>
+									name="modoPreparo"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="montagem-content">Montagem</div>
+							<div class="panel-heading trigger-display" data-target="montagem-content">
+                                Montagem
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="montagem-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="montagem"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="montagem"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">Orientações e
-								armazenamento</div>
+							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">
+                                Orientações de armazenamento
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="orientacoes-armazenamento-content">
@@ -226,37 +229,43 @@
 			<div class="row"></div>
 
 			<div class="panel panel-info">
-				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">Avaliação sensorial</div>
+				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">
+                    Avaliação sensorial
+                </div>
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="avaliacao-sensorial-content">
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="textura-content">Textura</div>
+							<div class="panel-heading trigger-display" data-target="textura-content">
+                                Textura
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="textura-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="textura"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="textura"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="sabor-content">Sabor</div>
+							<div class="panel-heading trigger-display" data-target="sabor-content">
+                                Sabor
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="sabor-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="sabor"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="sabor"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="apresentacao-content">Apresentação</div>
+							<div class="panel-heading trigger-display" data-target="apresentacao-content">
+                                Apresentação
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="apresentacao-content">
@@ -268,17 +277,19 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="temperatura-content">Temperatura</div>
+							<div class="panel-heading trigger-display" data-target="temperatura-content">
+                                Temperatura
+                            </div>
 						</div>
-					<div class="col-md-12">
-						<div class="form-group hide" id="temperatura-content">
-							<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-							<textarea rows="10" cols="" class="form-control" name="temperatura"></textarea>
+						<div class="col-md-12">
+							<div class="form-group hide" id="temperatura-content">
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<textarea rows="10" cols="" class="form-control" name="temperatura"></textarea>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
@@ -286,18 +297,12 @@
 				<div class="col-md-9 col-md-offset-1">
 					<div class="form-group">
 						<input type="reset" value="Limpar"
-							class="btn btn-warning pull-left col-md-2 col-sm-2 col-xs-5" />			
-						  <input type="submit" value="Salvar"
+							class="btn btn-warning pull-left col-md-2 col-sm-2 col-xs-5" />
+						<input type="submit" value="Salvar"
 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
-							
-							
-						<!-- 	<input class="btn btn-success addFichaCompleta pull-right col-md-9 col-sm-9 col-xs-5"" 
-							type="submit" value="Salvar">
-					     -->
-					     
-					     
 					</div>
 				</div>
+			</div>
 		</form>
 
 	</article>

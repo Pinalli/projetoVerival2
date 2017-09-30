@@ -23,7 +23,7 @@ public class Ficha {
 	
 	private String tempoPreparo;
 	private String utensilios;
-	private String temperatura;
+	private Double temperatura;
 	
 	
 	
@@ -154,11 +154,11 @@ public class Ficha {
 		this.utensilios = utensilios;
 	}
 	
-	public String getTemperatura() {
+	public Double getTemperatura() {
 		return temperatura;
 	}
 	
-	public void setTemperatura(String temperatura) {
+	public void setTemperatura(Double temperatura) {
 		this.temperatura = temperatura;
 	}
 	

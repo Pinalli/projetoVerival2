@@ -48,8 +48,8 @@ public class FichaCompletaDAO {
             		
             		
             		
-            		+ "TEMPO_PREPARO, "
-            		+ "UTENSILIOS_EQUIPAMENTOS, "
+            		+ "TEMPO_DE_PREPARO, "
+            		+ "UTENSILIOS_E_EQUIPAMENTOS, "
             		+ "TEMPERATURA )");
             
             sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -78,7 +78,7 @@ public class FichaCompletaDAO {
 			
 			statement.setString(12,fichaCompleta.getTempoPreparo());
 			statement.setString(13,fichaCompleta.getUtensilios());
-			statement.setString(14,fichaCompleta.getTemperatura());
+			statement.setDouble(14,fichaCompleta.getTemperatura());
 
 			
 			
@@ -133,8 +133,8 @@ public class FichaCompletaDAO {
             		
             		
             		
-            		+ "TEMPO_PREPARO, "
-            		+ "UTENSILIOS_EQUIPAMENTOS, "
+            		+ "TEMPO_DE_PREPARO, "
+            		+ "UTENSILIOS_E_EQUIPAMENTOS, "
             		+ "TEMPERATURA, "
             		
             		
@@ -160,9 +160,9 @@ public class FichaCompletaDAO {
                 
                 
                 
-                dto.setTempoPreparo(resultset.getString("TEMPO_PREPARO"));
-                dto.setUtensilios(resultset.getString("UTENSILIOS"));
-                dto.setTemperatura(resultset.getString("TEMPERATURA"));
+                dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
+                dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
+                dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
                 
                 
                 
@@ -201,8 +201,8 @@ public class FichaCompletaDAO {
                     
                     
                     
-                    + "TEMPO_PREPARO = ?,"
-                    + "UTENSILIOS_EQUIPAMENTOS = ?,"
+                    + "TEMPO_DE_PREPARO = ?,"
+                    + "UTENSILIOS_E_EQUIPAMENTOS = ?,"
                     + "TEMPERATURA = ?"
                     
                     
@@ -228,7 +228,7 @@ public class FichaCompletaDAO {
             
             statement.setString(10, fichaCompleta.getTempoPreparo());
             statement.setString(11, fichaCompleta.getUtensilios());
-            statement.setString(12, fichaCompleta.getTemperatura());
+            statement.setDouble(12, fichaCompleta.getTemperatura());
             
             
             
@@ -349,7 +349,7 @@ public class FichaCompletaDAO {
 				
 				dto.setTempoPreparo(resultset.getString("TEMPO_PREPARO"));
 				dto.setUtensilios(resultset.getString("UTENSILIOS"));
-				dto.setTemperatura(resultset.getString("TEMPERATURA"));
+				dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
 				
 				
 				

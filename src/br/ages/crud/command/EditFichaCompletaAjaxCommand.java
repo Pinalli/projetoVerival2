@@ -54,7 +54,7 @@ public class EditFichaCompletaAjaxCommand implements Command {
 			ficha.setApresentacao(request.getParameter("apresentacao"));
 			ficha.setTempoPreparo(request.getParameter("tempoPreparo"));
 			ficha.setUtensilios(request.getParameter("utensilios"));
-			ficha.setTemperatura(request.getParameter("temperatura"));
+			ficha.setTemperatura(Double.parseDouble(request.getParameter("temperatura")));
 			ficha.setIdEmpresa(1);
 			ficha.setTipoFicha("c");
 			ficha.setItens(listaFichaItens);
