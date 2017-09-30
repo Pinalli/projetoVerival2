@@ -1,9 +1,7 @@
 package br.ages.crud.dao;
 
 import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.Ficha;
-import br.ages.crud.model.FichaItem;
-import br.ages.crud.model.Ingrediente;
+import br.ages.crud.model.*;
 import br.ages.crud.util.ConexaoUtil;
 import com.mysql.jdbc.Statement;
 import org.apache.commons.io.FilenameUtils;
@@ -22,7 +20,7 @@ import java.util.List;
 public class FichaCompletaDAO {
 
     private List<Ficha> listarFichasCompleta;
-    private List<Ingrediente> dadosRotulo;
+    private List<FichaIngrediente> dadosRotulo;
     private FichaCompletaItemDAO itemDAO;
 
 
@@ -142,37 +140,61 @@ public class FichaCompletaDAO {
         return listarFichasCompleta;
     }
 
-    public List<Ingrediente> buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException {
+    public List<FichaIngrediente> buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException {
         Connection conn = null;
         dadosRotulo = new ArrayList<>();
         try {
 
             conn = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
-            sql.append("select descricao, carboidratos, kcal_carboidratos, proteinas, kcal_proteinas, " +
-                    "lipidios, kcal_lipidios, gordura_saturada, gordura_trans, fibras_alimentares, sodio " +
-                    "from ((tb_ficha inner join tb_ficha_item on tb_ficha_item.id_ficha = tb_ficha.id_ficha) " +
-                    "inner join tb_ingredientes on tb_ingredientes.id = tb_ficha_item.id_ingrediente) " +
-                    "where tb_ficha.id_ficha=" + id
+            sql.append(
+                    "select descricao, um.unidade_medida, fator_conversao, quantidade_unidade_medida, umc.nome, " +
+                            "quantidade_medida_caseira,\n" +
+                    "carboidratos, kcal_carboidratos, proteinas, kcal_proteinas,\n" +
+                    "lipidios, kcal_lipidios, gordura_saturada, gordura_trans, fibras_alimentares, sodio\n" +
+                    "from \n" +
+                    "tb_ficha f inner join tb_ficha_item fi on f.id_ficha = fi.id_ficha\n" +
+                    "inner join tb_unidade_medida um\n" +
+                    "on fi.id_unidade_medida = um.id_unidade_medida\n" +
+                    "inner join tb_unidade_medida_caseira umc\n" +
+                    "on fi.id_medida_caseira = umc.id_unidade_medida_caseira\n" +
+                    "inner join tb_ingredientes i\n" +
+                    "on fi.id_ingrediente = i.id\n" +
+                    "where f.id_ficha =" + id
             );
             PreparedStatement statement = conn.prepareStatement(sql.toString());
             ResultSet resultset = statement.executeQuery();
 
             while (resultset.next()) {
-                Ingrediente e = new Ingrediente();
-                e.setDescricao(resultset.getString("descricao"));
-                e.setCarboidratos(resultset.getDouble("carboidratos"));
-                e.setKcalCarboidratos(resultset.getDouble("kcal_carboidratos"));
-                e.setProteinas(resultset.getDouble("proteinas"));
-                e.setKcalProteinas(resultset.getDouble("kcal_proteinas"));
-                e.setLipidios(resultset.getDouble("lipidios"));
-                e.setKcalLipidios(resultset.getDouble("kcal_lipidios"));
-                e.setGorduraSaturada(resultset.getDouble("gordura_saturada"));
-                e.setGorduraTrans(resultset.getDouble("gordura_trans"));
-                e.setFibrasAlimentares(resultset.getDouble("fibras_alimentares"));
-                e.setSodio(resultset.getDouble("sodio"));
+                FichaIngrediente fi = new FichaIngrediente();
 
-                dadosRotulo.add(e);
+                Ingrediente i = new Ingrediente();
+                UnidadeMedida um = new UnidadeMedida();
+                UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
+
+                um.setUnidadeMedida(resultset.getString("um.unidade_medida"));
+                um.setFatorConversao(resultset.getDouble("fator_conversao"));
+                umc.setNome(resultset.getString("umc.nome"));
+
+                i.setDescricao(resultset.getString("descricao"));
+                i.setCarboidratos(resultset.getDouble("carboidratos"));
+                i.setKcalCarboidratos(resultset.getDouble("kcal_carboidratos"));
+                i.setProteinas(resultset.getDouble("proteinas"));
+                i.setKcalProteinas(resultset.getDouble("kcal_proteinas"));
+                i.setLipidios(resultset.getDouble("lipidios"));
+                i.setKcalLipidios(resultset.getDouble("kcal_lipidios"));
+                i.setGorduraSaturada(resultset.getDouble("gordura_saturada"));
+                i.setGorduraTrans(resultset.getDouble("gordura_trans"));
+                i.setFibrasAlimentares(resultset.getDouble("fibras_alimentares"));
+                i.setSodio(resultset.getDouble("sodio"));
+
+                fi.setQuantidadeMedida(resultset.getDouble("quantidade_unidade_medida"));
+                fi.setQuantidadeMedidaCaseira(resultset.getDouble("quantidade_medida_caseira"));
+                fi.setUnidadeMedida(um);
+                fi.setUnidadeMedidaCaseira(umc);
+                fi.setIngrediente(i);
+
+                dadosRotulo.add(fi);
             }
 
         } catch (ClassCastException | SQLException e){

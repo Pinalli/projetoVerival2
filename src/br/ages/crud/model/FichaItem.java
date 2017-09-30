@@ -7,6 +7,7 @@ public class FichaItem {
 	private int idMedidaCaseira;
 	private int idIngrediente;
 	private int idFicha;
+
 	private double quantidadeUnidadeMedida;
 	private double quantidadeMedidaCaseira;
 	
