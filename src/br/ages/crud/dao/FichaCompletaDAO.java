@@ -319,8 +319,8 @@ public class FichaCompletaDAO {
 					
 					
 					
-					+ "TEMPO_PREPARO,"
-					+ "UTENSILIOS_EQUIPAMENTOS,"
+					+ "TEMPO_DE_PREPARO,"
+					+ "UTENSILIOS_E_EQUIPAMENTOS,"
 					+ "TEMPERATURA,"
 					
 					
@@ -347,8 +347,8 @@ public class FichaCompletaDAO {
 				
 				
 				
-				dto.setTempoPreparo(resultset.getString("TEMPO_PREPARO"));
-				dto.setUtensilios(resultset.getString("UTENSILIOS"));
+				dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
+				dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
 				dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
 				
 				
