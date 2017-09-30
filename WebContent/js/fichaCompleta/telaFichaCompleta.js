@@ -2,7 +2,7 @@ $(document).ready(function() {
 	var RESOLUCAO_MINIMA = 990;
 	var RESOLUCAO_MAX = 99000;
 	var qntIngredientes = 2;
-		
+	
 	setSelect2();
 
 	/**
@@ -124,6 +124,7 @@ $(document).ready(function() {
 		setSelect2();
 		showItemListener();
 		updateIngredienteListener();
+		updateQuantidades();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -311,11 +312,64 @@ $(document).ready(function() {
 			   },
 			   success: function(data) {
 			      json = jQuery.parseJSON(data);
-			      updateIngrediente(row, json)
+			      updateIngrediente(row, json);
 			   },
 			   type: 'GET'
 		});
 	}
+	
+		function updateQuantidades(){
+			$(".table-row").not(".configurado").each(function(){
+				var row = $(this);
+				var select = row.find("#select-ingredientes");
+				if(select.val()){
+					multiplica(row, select.val());
+				}
+				select.change(function(){
+					var id = $(this).val();
+					multiplica(row, id);
+				});
+			});
+		}
+		updateQuantidades();
+	
+	function multiplica(row, id){
+		row.find("#qnt-unidade-medida").change(function() {
+			row.find("#choShow").val(row.find("#cho").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#choShow").val().length > 5){
+				row.find("#choShow").val(row.find("#choShow").val().substr(0, 7));       
+			    }
+			row.find("#ptnShow").val(row.find("#ptn").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#ptnShow").val().length > 5){
+				row.find("#ptnShow").val(row.find("#ptnShow").val().substr(0, 7));       
+			    }
+			row.find("#lipShow").val(row.find("#lip").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#lipShow").val().length > 5){
+				row.find("#lipShow").val(row.find("#lipShow").val().substr(0, 7));       
+			    }
+			row.find("#kcalShow").val(row.find("#kcal").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#kcalShow").val().length > 5){
+				row.find("#kcalShow").val(row.find("#kcalShow").val().substr(0, 7));       
+			    }
+			row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#valor-unitarioShow").val().length > 5){
+				row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
+			    }
+			row.find("#custo-realShow").val(row.find("#custo-real").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#custo-realShow").val().length > 5){
+				row.find("#custo-realShow").val(row.find("#custo-realShow").val().substr(0, 7));       
+			    }
+			row.find("#fator-de-correcaoShow").val(row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#fator-de-correcaoShow").val().length > 5){
+				row.find("#fator-de-correcaoShow").val(row.find("#fator-de-correcaoShow").val().substr(0, 7));       
+			    }
+			row.find("#indice-de-coccaoShow").val(row.find("#indice-de-coccao").val()*row.find("#qnt-unidade-medida").val());
+			if (row.find("#indice-de-coccaoShow").val().length > 5){
+				row.find("#indice-de-coccaoShow").val(row.find("#indice-de-coccaoShow").val().substr(0, 7));       
+			    }
+		});
+	}
+
 	
 	$(function() {
 		$("#imgFile").change(function() {

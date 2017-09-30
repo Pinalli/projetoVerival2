@@ -12,6 +12,7 @@
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
 <script type="text/javascript" src="js/fichaCompletaCalculos.js"></script>
+<script type="text/javascript">	window.onload = multiplica('cho'), multiplica('ptn'), multiplica('lip'), multiplica('kcal')	</script>
 </head>
 <body>
 	<article>
@@ -77,13 +78,13 @@
 								data-live-search="true" class="form-control selectBatata"
 								data-selected-id="<%= item.getIdIngrediente() %>" 
 								data-selected-text="<%= item.getIngrediente() %>">
+								</script>
 							</select>
 						</div>
 
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
-								onclick="multiplica('cho'), multiplica('ptn'), multiplica('lip'), multiplica('kcal')"
 								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
 								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
 								value="<%= item.getQuantidadeUnidadeMedida()%>">
@@ -115,7 +116,7 @@
 							</select>
 						</div>
 						<!--div class="form-group col-md-12"-->
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="cho" class="">CHO</label> 
 								<input type="hidden" class="form-control" id="cho" placeholder="CHO" readonly>
 								<input type="number" class="form-control" id="choShow" placeholder="CHO" readonly>
@@ -136,25 +137,24 @@
 								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="valor-unitario" class="">Valor Unitário</label> <input
-									type="number" class="form-control"
-									id="valor-unitario" placeholder="Valor unitário"  readonly>
+								<label for="valor-unitario" class="">Valor Unitário</label> 
+								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
+								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="custo-real" class="">Custo Real</label> <input
-									type="number" class="form-control"
-									id="custo-real" placeholder="Custo real" readonly>
+								<label for="custo-real" class="">Custo Real</label>
+								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly>
+								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="fator-de-correcao" class="">Fator de
-									Correção</label> <input type="number"
-									class="form-control" id="fator-de-correcao"
-									placeholder="Fator de correção" readonly>
+								<label for="fator-de-correcao" class="">Fator de Correção</label>
+								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
+								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="indice-de-coccao" class="">Índice de Cocção</label>
-								<input type="number" class="form-control"
-									id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
+								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
+								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
@@ -219,7 +219,7 @@
 							</select>
 						</div>
 						<!--div class="form-group col-md-12"-->
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="cho" class="">CHO</label> 
 								<input type="hidden" class="form-control" id="cho" placeholder="CHO" readonly>
 								<input type="number" class="form-control" id="choShow" placeholder="CHO" readonly>
@@ -240,25 +240,24 @@
 								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="valor-unitario" class="">Valor Unitário</label> <input
-									type="number" class="form-control"
-									id="valor-unitario" placeholder="Valor unitário"  readonly>
+								<label for="valor-unitario" class="">Valor Unitário</label> 
+								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
+								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="custo-real" class="">Custo Real</label> <input
-									type="number" class="form-control"
-									id="custo-real" placeholder="Custo real" readonly>
+								<label for="custo-real" class="">Custo Real</label>
+								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly>
+								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="fator-de-correcao" class="">Fator de
-									Correção</label> <input type="number"
-									class="form-control" id="fator-de-correcao"
-									placeholder="Fator de correção" readonly>
+								<label for="fator-de-correcao" class="">Fator de Correção</label>
+								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
+								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="indice-de-coccao" class="">Índice de Cocção</label>
-								<input type="number" class="form-control"
-									id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
+								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
+								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
