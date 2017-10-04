@@ -386,38 +386,39 @@ $(document).ready(function() {
 
 function multiplica(row, id){
 	row.find("#qnt-unidade-medida").change(function() {
-		row.find("#choShow").val(row.find("#cho").val()*row.find("#qnt-unidade-medida").val());
-		if (row.find("#choShow").val().length > 5){
-			row.find("#choShow").val(row.find("#choShow").val().substr(0, 7));       
-		    }
-		row.find("#ptnShow").val(row.find("#ptn").val()*row.find("#qnt-unidade-medida").val());
-		if (row.find("#ptnShow").val().length > 5){
-			row.find("#ptnShow").val(row.find("#ptnShow").val().substr(0, 7));       
-		    }
-		row.find("#lipShow").val(row.find("#lip").val()*row.find("#qnt-unidade-medida").val());
-		if (row.find("#lipShow").val().length > 5){
-			row.find("#lipShow").val(row.find("#lipShow").val().substr(0, 7));       
-		    }
-		row.find("#kcalShow").val(row.find("#kcal").val()*row.find("#qnt-unidade-medida").val());
-		if (row.find("#kcalShow").val().length > 5){
-			row.find("#kcalShow").val(row.find("#kcalShow").val().substr(0, 7));       
-		    }
-		row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val()*row.find("#qnt-unidade-medida").val());
+		var x, y;
+		x = row.find("#cho").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#choShow").val(y);
+		x = row.find("#ptn").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#ptnShow").val(y);
+		x = row.find("#lip").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#lipShow").val(y);
+		x = row.find("#kcal").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#kcalShow").val(y);
+		row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val());
 		if (row.find("#valor-unitarioShow").val().length > 5){
 			row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
 		    }
-		row.find("#custo-realShow").val(row.find("#custo-real").val()*row.find("#qnt-unidade-medida").val());
-		if (row.find("#custo-realShow").val().length > 5){
-			row.find("#custo-realShow").val(row.find("#custo-realShow").val().substr(0, 7));       
-		    }
-		row.find("#fator-de-correcaoShow").val(row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val());
-		if (row.find("#fator-de-correcaoShow").val().length > 5){
-			row.find("#fator-de-correcaoShow").val(row.find("#fator-de-correcaoShow").val().substr(0, 7));       
-		    }
-		row.find("#indice-de-coccaoShow").val(row.find("#indice-de-coccao").val()*row.find("#qnt-unidade-medida").val());
-		if (row.find("#indice-de-coccaoShow").val().length > 5){
-			row.find("#indice-de-coccaoShow").val(row.find("#indice-de-coccaoShow").val().substr(0, 7));       
-		    }
+		x = row.find("#custo-real").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#custo-realShow").val(y);
+		x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#fator-de-correcaoShow").val(y);
+		x = row.find("#indice-de-coccao").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#indice-de-coccaoShow").val(y);
 	});
 }
 	
@@ -481,3 +482,4 @@ function multiplica(row, id){
 	 * Did you touched?
 	 */
 });
+
