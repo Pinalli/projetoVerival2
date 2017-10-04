@@ -1,6 +1,6 @@
 		var cache_width = $('#renderPDF').width(); //Criado um cache do CSS
        
-		var a4 = [595.28, 841.89]; // Widht e Height de uma folha a4
+		var a4 = [595.28, 841.89]; // Width e Height de uma folha a4
 
         function gerarPDF() {
             // Setar o width da div no formato a4
@@ -13,13 +13,14 @@
                     var doc = new jsPDF({ unit: 'px', format: 'a4' });
 
                     doc.addImage(img, 'JPEG', 20, 20);
-                    doc.save('Rotulo.pdf');
+                    doc.save('ftp.pdf');
                     //Retorna ao CSS normal
                     $('#renderPDF').width(cache_width);
                    
                 }
             });
         }
+        
         var representante = {
             "ingrediente":
             [
