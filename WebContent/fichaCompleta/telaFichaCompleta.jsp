@@ -140,11 +140,10 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
-								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
-								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+								placeholder="Qnt" min="0.001" max="9999" name="qnt-unidade-medida">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
-							<label for="select-unidade-medida" class="">Unidadede
+							<label for="select-unidade-medida" class="">Unidade de
 								medida</label> <select id="select-unidade-medida"
 								name="select-unidade-medida" data-native-menu="false"
 								class="form-control selectBatata">
@@ -154,8 +153,7 @@
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
 								placeholder="Qnt" min="0.1" max="100" step="0.1"
-								name="qnt-medida-caseira" onKeyDown="limitText(this,4);"
-								onKeyUp="limitText(this,4);">
+								name="qnt-medida-caseira">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
@@ -338,6 +336,7 @@
 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
 					</div>
 				</div>
+			</div>
 		</form>
 
 	</article>
@@ -347,16 +346,5 @@
 </body>
 <script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
 
-<!-- isso ainda não tem 
-<script src="./js/fichaSimplificada/addFichaSimplificada.js"></script>
--->
-
-<script type="text/javascript">
-	function limitText(limitField, limitNum) {
-		if (limitField.value.length > limitNum) {
-			limitField.value = limitField.value.substring(0, limitNum);
-		}
-	}
-</script>
 
 <jsp:include page="/template/foot.jsp"></jsp:include>

@@ -92,8 +92,7 @@
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
 								placeholder="Qnt" min="0.1" max="100" step="0.1"
-								name="qnt-medida-caseira" onKeyDown="limitText(this,4);"
-								onKeyUp="limitText(this,4);">
+								name="qnt-medida-caseira">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
@@ -313,12 +312,5 @@
 <script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
 <script src="./js/fichaCompleta/addFichaCompleta.js"></script>
 
-<script type="text/javascript">
-	function limitText(limitField, limitNum) {
-		if (limitField.value.length > limitNum) {
-			limitField.value = limitField.value.substring(0, limitNum);
-		}
-	}
-</script>
 
 <jsp:include page="/template/foot.jsp"></jsp:include>
