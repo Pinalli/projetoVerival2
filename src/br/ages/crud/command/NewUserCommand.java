@@ -33,16 +33,26 @@ public class NewUserCommand implements Command {
 	public String execute(HttpServletRequest request) throws SQLException, NegocioException, ParseException, PersistenciaException {
 		usuarioBO = new UsuarioBO();
 		
-		String nome = request.getParameter("nome");
-		String email = request.getParameter("email");
-		String cpf = request.getParameter("cpf");
-		String endereco = request.getParameter("endereco");
-		String telefone = request.getParameter("telefone");
-		String usuario = request.getParameter("usuario");
-		String senha = request.getParameter("senha");
-		String confirmarSenha = request.getParameter("confirmarSenha");
-		String tipoUsuario = request.getParameter("tipoUsuario");
+//		String nome = request.getParameter("nome");
+//		String email = request.getParameter("email");
+//		String cpf = request.getParameter("cpf");
+//		String endereco = request.getParameter("endereco");
+//		String telefone = request.getParameter("telefone");
+//		String usuario = request.getParameter("usuario");
+//		String senha = request.getParameter("senha");
+//		String confirmarSenha = request.getParameter("confirmarSenha");
+//		String tipoUsuario = request.getParameter("tipoUsuario");
 				
+		String nome = "mock";
+		String email = "mock";
+		String cpf = "mock";
+		String endereco = "mock";
+		String telefone = "mock";
+		String usuario = "mock";
+		String senha = "mock";
+		String confirmarSenha = "mock";
+		String tipoUsuario = "Nutricionista";
+		
 		try {
 			Usuario user = new Usuario();
 			cpf = cpf.replace(".", "").replace("-", "");
@@ -69,9 +79,7 @@ public class NewUserCommand implements Command {
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_USUARIO.replace("?", user.getNome()));
 				proxima = "login.jsp";
 			} else {
-				// TODO set specific field error messages
-				request.setAttribute("msgErro", MensagemContantes.MSG_ERR_USUARIO_DADOS_INVALIDOS);
-				proxima = "newUser.jsp";
+				throw new NegocioException(MensagemContantes.MSG_ERR_USUARIO_DADOS_INVALIDOS);
 			}
 		} catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
