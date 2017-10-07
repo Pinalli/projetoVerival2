@@ -48,7 +48,7 @@ public class CreateScreenUserCommand implements Command {
 				proxima = "user/editUser.jsp";
 				
 			} else { // Adiciona um novo usuário
-				proxima = "user/addUser.jsp";		
+				proxima = "user/newUser.jsp";		
 			}
 
 		} catch (Exception e) {
