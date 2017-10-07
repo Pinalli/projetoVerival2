@@ -54,7 +54,6 @@
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
 
-
 			<div class="row" id="table-rows">
 					
 					<%
@@ -66,7 +65,7 @@
 					<input type="hidden" name="idFichaItem" id="idFichaItem" value="<%= item.getIdFichaItem() %>"/>
 					<input type="hidden" name="idFicha" id="idFicha" value="<%= item.getIdFicha() %>"/>
 					<input type="hidden" name="operacao" id="operacao" value="u"/>
-					<div class="panel panel-info">
+					<div class="panel panel-info" style="margin-top:20px">
 						<div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 					</div>
 
@@ -385,12 +384,14 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="panel panel-info">
 							<div class="panel-heading trigger-display" data-target="temperatura-content">Temperatura</div>
 						</div>
-						<div class="form-control hide" id="temperatura-content">
-							<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-							<textarea rows="10" cols="" class="form-control" name="temperatura"><%=ficha.getTemperatura()%></textarea>
+						<div class="col-md-12">
+							<div class="form-group hide" id="temperatura-content">
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<textarea rows="10" cols="" class="form-control" name="temperatura"><%=ficha.getTemperatura()%></textarea>
+							</div>
 						</div>
 					</div>
 				</div>
