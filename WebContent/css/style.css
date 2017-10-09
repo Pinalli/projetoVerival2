@@ -11,6 +11,10 @@ body{
 	width: 45px;
 }
 
+.panel-heading2 {
+	background-color:#82a046;
+}
+
 .panel-body{
 	background-color: #e0defe;
 }
