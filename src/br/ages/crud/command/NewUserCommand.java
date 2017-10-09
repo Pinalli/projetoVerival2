@@ -44,8 +44,8 @@ public class NewUserCommand implements Command {
 //		String tipoUsuario = request.getParameter("tipoUsuario");
 				
 		String nome = "mock";
-		String email = "mock";
-		String cpf = "mock";
+		String email = "mock@mock.com";
+		String cpf = "84613491053";
 		String endereco = "mock";
 		String telefone = "mock";
 		String usuario = "mock";
