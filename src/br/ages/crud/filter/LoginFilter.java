@@ -75,7 +75,8 @@ public class LoginFilter implements Filter {
 			if(uri != null && uri.endsWith("main") 
 					&& (acao != null 
 					&& acao.equals("login")
-					|| (acao.equals("recuperarSenha")))){
+					|| (acao.equals("recuperarSenha"))
+					|| (acao.equals("newUser")))){
 				retorno = true;
 			}
 		}
