@@ -128,6 +128,7 @@ $(document).ready(function() {
 		setSelect2();
 		showItemListener();
 		updateIngredienteListener();
+		updateQuantidades();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -361,6 +362,65 @@ $(document).ready(function() {
  			   type: 'GET'
  		});
  	}
+ 	
+ 	/**
+ 	 * Atualiza campos referntes ao ingredientes de acordo com a quantidade
+ 	 * @param ingrediente
+ 	 * @returns
+ 	 */
+ 	
+ 	function updateQuantidades(){
+		$(".table-row").not(".configurado").each(function(){
+			var row = $(this);
+			var select = row.find("#select-ingredientes");
+			if(select.val()){
+				multiplica(row, select.val());
+			}
+			select.change(function(){
+				var id = $(this).val();
+				multiplica(row, id);
+			});
+		});
+	}
+	updateQuantidades();
+
+function multiplica(row, id){
+	row.find("#qnt-unidade-medida").change(function() {
+		var x, y;
+		x = row.find("#cho").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#choShow").val(y);
+		x = row.find("#ptn").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#ptnShow").val(y);
+		x = row.find("#lip").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#lipShow").val(y);
+		x = row.find("#kcal").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#kcalShow").val(y);
+		row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val());
+		if (row.find("#valor-unitarioShow").val().length > 5){
+			row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
+		    }
+		x = row.find("#custo-real").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#custo-realShow").val(y);
+		x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#fator-de-correcaoShow").val(y);
+		x = row.find("#indice-de-coccao").val()*row.find("#qnt-unidade-medida").val();
+		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+		else y =x;
+		row.find("#indice-de-coccaoShow").val(y);
+	});
+}
 	
 	$(function() {
 		$("#imgFile").change(function() {
@@ -422,3 +482,4 @@ $(document).ready(function() {
 	 * Did you touched?
 	 */
 });
+
