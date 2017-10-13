@@ -17,10 +17,6 @@ $(document).ready(function() {
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
 		var temperatura = $('textarea[name="temperatura"]').val();
-		var qntUnidadeMedida = $('#qnt-unidade-medida-rotulo').val();
-		var unidadeMedidaId = $('#select-unidade-medida-rotulo').val();
-		var qntUnidadeMedidaCaseira = $('#qnt-unidade-medida-caseira-rotulo').val();
-		var unidadeMedidaCaseiraId = $('#select-medida-caseira-rotulo').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -53,11 +49,7 @@ $(document).ready(function() {
 			sabor:sabor,
 			apresentacao:apresentacao,
 			temperatura:temperatura,
-			itens:JSON.stringify(itens),
-			qntUnidadeMedida:qntUnidadeMedida,
-			unidadeMedidaId:unidadeMedidaId,
-			qntUnidadeMedidaCaseira:qntUnidadeMedidaCaseira,
-			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId
+			itens:JSON.stringify(itens)
 		};
 		
 		var action = form.attr("action");

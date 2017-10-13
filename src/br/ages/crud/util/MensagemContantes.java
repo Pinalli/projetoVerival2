@@ -39,7 +39,6 @@ public class MensagemContantes {
 	public static final String MSG_INF_DENY = "Acesso negado! Você precisa logar primeiro.";
 	public static final String MSG_INF_DENY_SELF = "Você não pode remover a si mesmo.";
 	public static final String MSG_INF_SEM_PERISSAO = "Acesso negado! Você NÃO tem permissão para acessar essa funcionalidade.";
-	public static final String MSG_INF_PROBLEMA_ROTUDO = "Não foi possível gerar o Rótulo.";
 	
 
 	//msgs de unidades de medidas

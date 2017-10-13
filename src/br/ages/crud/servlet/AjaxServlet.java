@@ -16,11 +16,10 @@ import org.apache.log4j.Logger;
 
 import br.ages.crud.command.AddFichaCompletaAjaxCommand;
 import br.ages.crud.command.AddFichaSimplificadaAjaxCommand;
-import br.ages.crud.command.BuscaDadosRotuloAjaxCommand;
+import br.ages.crud.command.BuscaEmpresaLogoAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteDescricaoAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteIdAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
-import br.ages.crud.command.BuscaUnidadeMedidaPorIdAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaUnidadeAjaxCommand;
 import br.ages.crud.command.Command;
 import br.ages.crud.command.EditFichaCompletaAjaxCommand;
@@ -45,13 +44,13 @@ public class AjaxServlet extends HttpServlet {
 
 		// COMANDOS DE UNIDADE DE MEDIDA
 		comandos.put("buscaUnidadeMedidaUnidadeAjax", new BuscaUnidadeMedidaUnidadeAjaxCommand());
-		comandos.put("buscaUnidadeMedidaPorIdAjax", new BuscaUnidadeMedidaPorIdAjaxCommand());
 
 		// COMANDOS DE UNIDADE DE MEDIDA CASEIRA
 		comandos.put("buscaUnidadeMedidaCaseiraNomeAjax", new BuscaUnidadeMedidaCaseiraNomeAjaxCommand());
 
 		// COMANDOS DE EMPRESA
-//		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
+
+		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
 		
 		// COMANDOS DE FICHA TÉCNICA SIMPLIFICADA
 		comandos.put("addFichaSimplificadaAjaxCommand", new AddFichaSimplificadaAjaxCommand());
@@ -60,7 +59,6 @@ public class AjaxServlet extends HttpServlet {
 		//COMANDOS DE FICHA TÉCNICA COMPLETA
 		comandos.put("addFichaCompletaAjaxCommand", new AddFichaCompletaAjaxCommand());
 		comandos.put("editFichaCompletaAjaxCommand", new EditFichaCompletaAjaxCommand());
-		comandos.put("buscaDadosRotulo", new BuscaDadosRotuloAjaxCommand());
 	}
 
 	@Override
