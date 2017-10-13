@@ -164,51 +164,41 @@
 	</div>
 	
 <script>
-$( document ).ready(function() {
-	$('#modalExcluir').on('show.bs.modal', function (event) {
-	  	var botao = $(event.relatedTarget);
-	  	var fichaS = botao.data('fichaS');
-		var id = botao.data('id');
-		
-	  	$(this).find('.modal-title').text('Excluir Ficha Completa');
-	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha Completa(' + fichaS + ')?');
-	  	
-	  	$('#formExcluir').attr('action', "main?acao=removerFichaCompleta&id_ficha_Completa=" + id);
-	});
+$(document).on('show.bs.modal','#modalExcluir', function (event) {
+  	var botao = $(event.relatedTarget);
+  	var fichaS = botao.data('fichaS');
+	var id = botao.data('id');
 	
-	$('#modalEditar').on('show.bs.modal', function (event) {
-	  	var botao = $(event.relatedTarget);
-	  	var fichaS = botao.data('fichas');
-	  	var id = botao.data('id');
-	  	
-	  	$(this).find('.modal-title').text('Editar Ficha Completa');
-	  	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha Completa (' + fichaS + ') ?');
-	  	
-	  	$('#formEditar').attr('action', "main?acao=telaFichaCompleta&id_ficha_Completa=" + id + "&isEdit=true");
-	});
-	$('#modalVisualizar').on('show.bs.modal', function (event) {
-	  	var botao = $(event.relatedTarget);
-	  	var fichaS = botao.data('fichas');
-	  	var id = botao.data('id');
-	  
-	  	
-	  	$(this).find('.modal-title').text('Exportar para PDF');
-	 	$(this).find('#modal-descricao').text('');
-	 	$(this).find('#nome-receita').text(fichaS);
+  	$(this).find('.modal-title').text('Excluir Ficha Completa');
+  	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha Completa(' + fichaS + ')?');
+  	
+  	$('#formExcluir').attr('action', "main?acao=removerFichaCompleta&id_ficha_Completa=" + id);
+});
 
-	 	       
-	 	 
-	 	
-	  		
-	  	
-	});
-	
+$(document).on('show.bs.modal','#modalEditar', function (event) {
+  	var botao = $(event.relatedTarget);
+  	var fichaS = botao.data('fichas');
+  	var id = botao.data('id');
+  	
+  	$(this).find('.modal-title').text('Editar Ficha Completa');
+  	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha Completa (' + fichaS + ') ?');
+  	
+  	$('#formEditar').attr('action', "main?acao=telaFichaCompleta&id_ficha_Completa=" + id + "&isEdit=true");
+});
 
-		
-	$('#modalErro').on('show.bs.modal', function (event) {
-	  	var botao = $(event.relatedTarget);
-	  	var fichaS = botao.data('fichaS');
-	  	var id = botao.data('id');
-	});
+$(document).on('show.bs.modal','#modalVisualizar', function (event) {
+	var botao = $(event.relatedTarget);
+  	var fichaS = botao.data('fichas');
+  	var id = botao.data('id');
+  	
+  	$(this).find('.modal-title').text('Exportar para PDF');
+ 	$(this).find('#modal-descricao').text('');
+ 	$(this).find('#nome-receita').text(fichaS);
+});
+
+$(document).on('show.bs.modal','#modalErro', function (event) {
+	var botao = $(event.relatedTarget);
+  	var fichaS = botao.data('fichaS');
+  	var id = botao.data('id');
 });
 </script>
