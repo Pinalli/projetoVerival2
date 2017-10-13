@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	var RESOLUCAO_MINIMA = 990;
 	var qntIngredientes = 2;
-		
+
+	var qntMedidaTotal = 0;
+	
 	var valorEnergetico = 0;
 	var carboidratos = 0;
 	var proteinas = 0;
@@ -158,6 +160,7 @@ $(document).ready(function() {
 				var $kcalElem = target.find("#kcal");
 				var $choElem = target.find("#cho");
 				var $ptnElem = target.find("#ptn");
+				var $lipElem = row.find("#lip");
 				var $gordSaturada = target.find("#gordura-saturada");
 				var $fibraAlim = target.find("#fibra-alimentar");
 				var $sodio = target.find("#sodio");
@@ -165,6 +168,7 @@ $(document).ready(function() {
 				valorEnergetico -= $kcalElem.val();
 				carboidratos -= $choElem.val();
 				proteinas -= $ptnElem.val();
+				gordTotal -= $lipElem.val();
 				gordSaturada -= $gordSaturada.val();
 				fibraAlim -= $fibraAlim.val();
 				sodio -= $sodio.val();
@@ -362,11 +366,13 @@ $(document).ready(function() {
 		var $kcalElem = row.find("#kcal");
 		var $choElem = row.find("#cho");
 		var $ptnElem = row.find("#ptn");
+		var $lipElem = row.find("#lip");
 		var $gordSaturada = row.find("#gordura-saturada");
 		var $fibraAlim = row.find("#fibra-alimentar");
 		var $sodio = row.find("#sodio");
-
-		console.log($gordSaturada.val());
+		
+		var rowQntUniMedida = row.find('#qnt-unidade-medida');
+		var rowUuniMedida = row.find('#select-unidade-medida');
 		
 		valorEnergetico -= $kcalElem.val();
 		valorEnergetico += kcal;
@@ -377,7 +383,8 @@ $(document).ready(function() {
 		proteinas -= $ptnElem.val();
 		proteinas += ingrediente.proteinas;
 		
-		gordTotal = 0;
+		gordTotal -= $lipElem.val();
+		gordTotal += ingrediente.lipidios;
 		
 		gordSaturada -= $gordSaturada.val();
 		gordSaturada += ingrediente.gorduraSaturada;
@@ -422,6 +429,11 @@ $(document).ready(function() {
 		$('#proteinasQP').html(parseFloat(proteinas.toFixed(3)) + ' g');
 		var proteinasVD = (proteinas*100)/75;
 		$('#proteinasVD').html(parseFloat(proteinasVD.toFixed(3)) + '%');
+		
+//		Gorduras totais - Necessidades diárias: 55g
+		$('#gordTotalQP').html(parseFloat(gordTotal.toFixed(3)) + ' g');
+		var gordTotalVD = (gordTotal*100)/55;
+		$('#gordTotalVD').html(parseFloat(gordTotalVD.toFixed(3)) + '%');
 		
 //		Necessidades diárias: 22g
 		$('#gordSaturadaQP').html(parseFloat(gordSaturada.toFixed(3)) + ' g');
@@ -525,26 +537,48 @@ $(document).ready(function() {
 	function carregaRotulo() {
 		var idFicha = $('#idFicha').val();
 		
-		gerarRotulo(idFicha).done(function(result) {
-			
-			var resultAsJson = $.parseJSON(result);
-			var infoRotulo = calculoRotulo(resultAsJson);
-			
-			valorEnergetico = infoRotulo.valorEnergeticoOri;
-			carboidratos = infoRotulo.carboidratosOri;
-			proteinas = infoRotulo.proteinasOri;
-			gordTotal = infoRotulo.gorduraTotalOri;
-			gordSaturada = infoRotulo.gorduraSaturadaOri;
-			gordTrans = infoRotulo.gorduraTransOri;
-			fibraAlim = infoRotulo.fibraAlimentarOri;
-			sodio = infoRotulo.sodioOri;
-			
-			updateRotulo();
-			
-		}).fail(function() {
-			console.log("ERROR");
-		    // An error occurred
-		});
+		var qntMedida = $('#qnt-unidade-medida-rotulo').val();
+		var unidadeMedida = $('#select-unidade-medida-rotulo').text();
+		
+		if(qntMedida != null && unidadeMedida != null) {
+			gerarRotulo(idFicha).done(function(result) {
+				var resultAsJson = $.parseJSON(result);
+				var infoRotulo = calculoRotulo(resultAsJson);
+				
+				var rotQntUniMedida = $('#qnt-unidade-medida-rotulo').val();
+				var rotUniMedida = $('#select-unidade-medida-rotulo').val();
+				
+				console.log('+++ 0 +++');
+				console.log(rotUniMedida);
+				console.log('+++ 0 +++');
+				
+				getUnidadeMedida(rotUniMedida).done(function(resultUM) {
+					var uniMedidaAsJson = $.parseJSON(resultUM);
+					
+					console.log('+++ 1 +++');
+					console.log(uniMedidaAsJson);
+					console.log('+++ 1 +++');
+					
+					valorEnergetico = infoRotulo.valorEnergeticoOri;
+					carboidratos = infoRotulo.carboidratosOri;
+					proteinas = infoRotulo.proteinasOri;
+					gordTotal = infoRotulo.gorduraTotalOri;
+					gordSaturada = infoRotulo.gorduraSaturadaOri;
+					gordTrans = infoRotulo.gorduraTransOri;
+					fibraAlim = infoRotulo.fibraAlimentarOri;
+					sodio = infoRotulo.sodioOri;
+					
+					updateRotulo();
+				}).fail(function() {
+					console.log("ERROR");
+				    // An error occurred
+				});
+				
+			}).fail(function() {
+				console.log("ERROR");
+			    // An error occurred
+			});
+		}
 	}
 	 
 });

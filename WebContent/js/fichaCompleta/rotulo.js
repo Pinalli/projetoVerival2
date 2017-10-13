@@ -5,15 +5,23 @@ function gerarRotulo(id) {
 		data: {id: id},
 		error: function() {
 			console.log('Error on buscaDadosRotulo.');
-		},
-		success: function(data) {
-			
 		}
 	});
-		
 }
 
-function calculoRotulo(ingredientes) {
+function getUnidadeMedida(id) {
+	return $.ajax({
+		url: "ajax?acao=buscaUnidadeMedidaPorIdAjax",
+	    method: "GET",
+	    data: {id: id},
+		error: function() {
+			console.log('Error on getUnidadeMedida.');
+		}
+	});
+}
+
+function calculoRotulo(fichaIngredientes) {
+	var qntMedidaTotal = 0
 	
 	var valorEnergetico = 0;
 	var carboidratos = 0;
@@ -24,18 +32,27 @@ function calculoRotulo(ingredientes) {
 	var fibraAlim = 0;
 	var sodio = 0;
 	
-	for (i = 0; i < ingredientes.length; i++) { 
-		var kcal = ingredientes[i].kcalCarboidratos + ingredientes[i].kcalLipidios + ingredientes[i].kcalProteinas;
+	for (i = 0; i < fichaIngredientes.length; i++) {
+		var unidadeMedida = conversaoDeMedida(fichaIngredientes[i]);
+		var taxaConversao = unidadeMedida.qntMedida * unidadeMedida.fatorConversao;
+		
+		qntMedidaTotal += unidadeMedida.fatorConversao * fichaIngredientes[i].quantidadeMedida; 
+		
+		var kcal = fichaIngredientes[i].ingrediente.kcalCarboidratos + fichaIngredientes[i].ingrediente.kcalLipidios + fichaIngredientes[i].ingrediente.kcalProteinas;
 
-		valorEnergetico += kcal;
-		carboidratos += ingredientes[i].carboidratos;
-		proteinas += ingredientes[i].proteinas;
-		gordTotal += ingredientes[i].lipidios;
-		gordSaturada += ingredientes[i].gorduraSaturada;
-		gordTrans += ingredientes[i].gorduraTrans;
-		fibraAlim += ingredientes[i].fibrasAlimentares;
-		sodio += ingredientes[i].sodio;
+		valorEnergetico += taxaConversao * kcal;
+		carboidratos += taxaConversao * fichaIngredientes[i].ingrediente.carboidratos;
+		proteinas += taxaConversao * fichaIngredientes[i].ingrediente.proteinas;
+		gordTotal += taxaConversao * fichaIngredientes[i].ingrediente.lipidios;
+		gordSaturada += taxaConversao * fichaIngredientes[i].ingrediente.gorduraSaturada;
+		gordTrans += taxaConversao * fichaIngredientes[i].ingrediente.gorduraTrans;
+		fibraAlim += taxaConversao * fichaIngredientes[i].ingrediente.fibrasAlimentares;
+		sodio += taxaConversao * fichaIngredientes[i].ingrediente.sodio;
 	}
+	
+	console.log("++++");
+	console.log(qntMedidaTotal);
+	console.log("++++");
 	
 //	Valor Energético - Necessidades diárias: 2.000 kcalorias
 	var veKj = valorEnergetico * 4.1868;
@@ -106,4 +123,20 @@ function calculoRotulo(ingredientes) {
 	};
 	
 	return infoRotulo;
+}
+
+function conversaoDeMedida(fichaIngrediente) {
+	var conversaoDeMedida = {
+			'unidadeMedida' : 'Grama',
+			'fatorConversao' : 1,
+			'qntMedida' : fichaIngrediente.quantidadeMedida
+	};
+	
+	var um = fichaIngrediente.unidadeMedida;
+	
+	if(um.unidadeMedida != 'Grama') {
+		conversaoDeMedida.fatorConversao = um.fatorConversao;
+	}
+	
+	return conversaoDeMedida;
 }
