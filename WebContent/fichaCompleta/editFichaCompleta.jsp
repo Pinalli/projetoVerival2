@@ -61,26 +61,33 @@
 								<label for="qnt-unidade-medida-rotulo" class="">Porção</label> 
 								<input type="number" class="form-control" id="qnt-unidade-medida-rotulo"
 									placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida-rotulo"
-									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
+									value="<%= ficha.getQntMedida()%>">
 							</div>
 							<div class="col-sm-4">
 								<label for="select-unidade-medida" class="">Unidadede medida</label> 
 								<select id="select-unidade-medida-rotulo"
 									name="select-unidade-medida-rotulo" data-native-menu="false"
-									class="form-control selectBatata">
+									class="form-control selectBatata" 
+									data-selected-id="<%= ficha.getMedida().getIdUnidadeMedida() %>" 
+									data-selected-text="<%= ficha.getMedida().getUnidadeMedida() %>" >
 								</select>
+							</select>
 							</div>
 							<div class="col-sm-2">
 								<label for="qnt-unidade-medida-caseira-rotulo" class="">Porção</label>
 								<input type="number" class="form-control" id="qnt-unidade-medida-caseira-rotulo"
 									placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida-caseira-rotulo"
-									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
+									value="<%= ficha.getQntMedidaCaseira()%>">
 							</div>
 							<div class="col-sm-4">
 								<label for="select-medida-caseira-rotulo" class="">Medida Caseira</label> 
 								<select id="select-medida-caseira-rotulo"
 									name="select-medida-caseira-rotulo" data-native-menu="false"
-									class="form-control selectBatata">
+									class="form-control selectBatata"
+									data-selected-id="<%= ficha.getMedidaCaseira().getIdUnidadeMedidaCaseira() %>" 
+									data-selected-text="<%= ficha.getMedidaCaseira().getNome() %>" >
 								</select>
 							</div>
 						</div>
