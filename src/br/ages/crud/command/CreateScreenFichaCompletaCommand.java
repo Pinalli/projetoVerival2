@@ -41,6 +41,7 @@ public class CreateScreenFichaCompletaCommand implements Command {
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			request.setAttribute("msgErro", e.getMessage());
 		}
 

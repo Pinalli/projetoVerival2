@@ -8,6 +8,8 @@ import br.ages.crud.dao.FichaCompletaDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
 import br.ages.crud.model.Ficha;
+import br.ages.crud.model.FichaIngrediente;
+import br.ages.crud.model.Ingrediente;
 import br.ages.crud.util.MensagemContantes;
 
 /**
@@ -141,5 +143,14 @@ public class FichaCompletaBO {
             throw new NegocioException(e);
         }
     }
+
+	public List<FichaIngrediente> buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException, NegocioException {
+		try {
+			 return fichaCompletaDAO.buscarDadosRotulo(id);
+		} catch (PersistenciaException e){
+			e.printStackTrace();
+			throw new NegocioException(MensagemContantes.MSG_INF_PROBLEMA_ROTUDO);
+		}
+	}
 	
 }

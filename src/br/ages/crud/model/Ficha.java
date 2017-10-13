@@ -17,6 +17,10 @@ public class Ficha {
 	private String textura;
 	private String sabor;
 	private String apresentacao;
+	private Double qntMedida;
+	private UnidadeMedida medida;
+	private Double qntMedidaCaseira;
+	private UnidadeMedidaCaseira medidaCaseira;
 
 	private List<FichaItem> itens;
 
@@ -129,4 +133,36 @@ public class Ficha {
 		this.itens = itens;
 	}
 
+	public Double getQntMedida() {
+		return qntMedida;
+	}
+
+	public void setQntMedida(Double qntMedida) {
+		this.qntMedida = qntMedida;
+	}
+
+	public UnidadeMedida getMedida() {
+		return medida;
+	}
+
+	public void setMedida(UnidadeMedida medida) {
+		this.medida = medida;
+	}
+
+	public Double getQntMedidaCaseira() {
+		return qntMedidaCaseira;
+	}
+
+	public void setQntMedidaCaseira(Double qntMedidaCaseira) {
+		this.qntMedidaCaseira = qntMedidaCaseira;
+	}
+
+	public UnidadeMedidaCaseira getMedidaCaseira() {
+		return medidaCaseira;
+	}
+
+	public void setMedidaCaseira(UnidadeMedidaCaseira medidaCaseira) {
+		this.medidaCaseira = medidaCaseira;
+	}
+	
 }
