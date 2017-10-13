@@ -86,24 +86,30 @@
                 "<br>" + Sodio;
             aryRepresentantes.push(strHTML);*/
         }
-        function preencheDados(){
+        function preencheDados(id){
             /*var aryUF = ["SP","SC","RJ"];
             for (var i=0; i < aryUF.length; i++){
               $('#div'+aryUF[i]).html(aryRepresentantes[i]);
             }*/ 
-            $('#valorEnergeticoQP').html(VE);
-            $('#valorEnergeticoVD').html(VEVd);
-            $('#carboidratosQP').html(Carb);
-            $('#carboidratosVD').html(CarbVd);
-            $('#proteinasQP').html(Prot);
-            $('#proteinasVD').html(ProtVD);
-            $('#gordTotalQP').html(GordTotal);
-            $('#gordTotalVD').html(GordTotalVd);
-            $('#gordSaturadaQP').html(GordSat);
-            $('#gordSaturadaVD').html(GordSatVd)
-            $('#gordTransQP').html(GordTrans);
-            $('#fibraAlimQP').html(Fibra);
-            $('#fibraAlimVD').html(FibraVd);
-            $('#sodioQP').html(Sodio);
-            $('#sodioVD').html(SodioVd);
+        	
+        	gerarRotulo(id).done(function(result) {
+				var resultAsJson = $.parseJSON(result);
+				var infoRotulo = calculoRotulo(resultAsJson);
+				
+	            $('#valorEnergeticoQP').html(infoRotulo.valorEnergeticoQP);
+	            $('#valorEnergeticoVD').html(infoRotulo.valorEnergeticoVD);
+	            $('#carboidratosQP').html(infoRotulo.carboidratosQP);
+	            $('#carboidratosVD').html(infoRotulo.carboidratosVD);
+	            $('#proteinasQP').html(infoRotulo.proteinasQP);
+	            $('#proteinasVD').html(infoRotulo.proteinasVD);
+	            $('#gordTotalQP').html(infoRotulo.gorduraTotalQP);
+	            $('#gordTotalVD').html(infoRotulo.gorduraTotalVD);
+	            $('#gordSaturadaQP').html(infoRotulo.gorduraSaturadaQP);
+	            $('#gordSaturadaVD').html(infoRotulo.gorduraSaturadaVD)
+	            $('#gordTransQP').html(infoRotulo.gorduraTransQP);
+	            $('#fibraAlimQP').html(infoRotulo.fibraAlimentarQP);
+	            $('#fibraAlimVD').html(infoRotulo.fibraAlimentarVD);
+	            $('#sodioQP').html(infoRotulo.sodioQP);
+	            $('#sodioVD').html(infoRotulo.sodioVD);
+        	});
         }
