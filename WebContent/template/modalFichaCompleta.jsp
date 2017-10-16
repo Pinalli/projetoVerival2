@@ -33,14 +33,14 @@
 				<div class="tab-content">
 				    <div role="tabpanel" class="tab-pane fade active" id="ftp">
 				    
-				    	...
+				    	
 				    
 				    </div>
-    				<div role="tabpanel" class="tab-pane fade" id="rtl">
-						<div>
-							<input type="number" id="height" value="">
-							<input type="number" id="weigth" value="">
-							<table class="table table-striped table-bordered"id="renderPDF">
+    				<div role="tabpanel" class="tab-pane fade" id="rtl" align="center" style="width:85%" >
+						
+						
+  							
+  							<table class="table table-striped table-bordered"id="renderPDF">
 								<thead>
 									
 									<tr>
@@ -119,12 +119,21 @@
 									
 								</tfoot>
 							</table>
+						<form action="" method="post" id="formVisualizar">
+				<!--<input id="insert" onclick="return IsEmpty();" type="submit" value="Add Question"/>-->
+						<div class="container-fluid">
+							<input type="text" id="height" value="" placeholder="Altura do rótulo"/>
+							<input type="text" id="width" value="" placeholder="Largura do rótulo"/>
 						</div>
 					</div>
   				</div>
+			
+			
+			
+							
 			</div>
 			<div class="modal-footer">
-				<form action="" method="post" id="formVisualizar">
+				
 					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
 					<button onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
 				</form>

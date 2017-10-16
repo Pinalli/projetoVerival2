@@ -1,24 +1,24 @@
 		var a4 = [595.28, 841.89]; // Width e Height de uma folha a4
         
 		function gerarPDF() {
-        	var cache_width = $('#renderPDF').width(); //Criado um cache do CSS
-    		var cache_height = $('#renderPDF').height(); //Criado um cache do CSS
-    		/*var height = $('#height');
-    		var width = $('#width');*/
+        	var cache_width = $('#renderPDF').width() + 2; //Criado um cache do CSS
+    		var cache_height = $('#renderPDF').height() + 2; //Criado um cache do CSS
+    		
     		
     		console.log(cache_width);
     		console.log(cache_height);
-    		    var height = $( "#height" ).val();
-    		    var width = $( "#width" ).val();
+    		
+    		    var height = $("#height" ).val();
+    		    var width = $("#width" ).val();
     		
     		
     		
     		console.log(width);
     		console.log(height);
    		
-            // Setar o width da div no formato a4
-            $("#renderPDF").width(height).css('max-width', 'none');
-            $("#renderPDF").height(width).css('max-height', 'none');
+            // Setar o tamanho da div pelo input fornecido pelo usuário
+            $("#renderPDF").width(width).css('max-width','none');
+            $("#renderPDF").height(height).css('max-height','none');
             
            
    	
@@ -28,8 +28,8 @@
                     var img = canvas.toDataURL("image/png", 1.0);
                     var doc = new jsPDF({ unit: 'px', format: 'a4' });
 
-                    doc.addImage(img, 'JPEG', 20, 20);
-                    doc.save('ftp.pdf');
+                    doc.addImage(img, 'JPEG', 50, 50);
+                    doc.save('FTP.pdf');
                     //Retorna ao CSS normal
                     $('#renderPDF').width(cache_width);
                     $('#renderPDF').height(cache_height);
