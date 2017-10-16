@@ -4,7 +4,12 @@
 
 <!-- MODAL / POPUP -->
 <jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
- 		
+<script src="./js/fichaCompleta/rotulo.js"></script>
+
+<script src="./js/gerarPDF.js"></script>
+<script src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
+<script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+
 <div class="panel panel-success">
    		
 	<div class="panel-heading text-center">Lista de Fichas Completas</div>
@@ -19,6 +24,7 @@
             <thead>
                 <tr>
                     <th style="text-align: center;">Nome</th>
+                    <th style="text-align: center;"></th>
 		 			<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
@@ -34,7 +40,7 @@
 	            	
 	            	<td align="center">
 						<form action="" method="post">
-            				<a href="" onclick="preencheDados();" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>"
+            				<a href=""  data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>"
             				data-target="#modalVisualizar" title="Visualizar"><i class="glyphicon glyphicon-download-alt"></i></a>
             			</form>
             		</td>	
@@ -64,12 +70,8 @@
 </div>
 <jsp:include page="../template/foot.jsp"></jsp:include>
 
-<script src="jquery-3.2.1.min.js"></script>
-<script src="./js/gerarPDF.js"></script>
-<script src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
-    <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+	
+	
 <script>
 $(document).ready(function(){
 	$('#listaFicha').dataTable({

@@ -37,16 +37,31 @@
 				    
 				    </div>
     				<div role="tabpanel" class="tab-pane fade" id="rtl">
-						<div id="renderPDF" style="width:595px;margin:50px auto;">
-							<table class="table table-striped table-bordered">
+						<div>
+							<input type="number" id="height" value="">
+							<input type="number" id="weigth" value="">
+							<table class="table table-striped table-bordered"id="renderPDF">
 								<thead>
+									
 									<tr>
-										<th colspan="3" class="text-center" style="background:#f9f9f9"><h3 id="nome-receita" style="margin:0"></h3></th>
+										<th colspan="2" class="text-center" style="background:#f9f9f9"><h3 id="nome-receita" style="margin:0"></h3></th>
+										<th rowspan="3">
+											<img src="./img/faenfi.png" width="100%">
+										</th>		
 									</tr>
+									
 									<tr>
-										<th colspan="3" class="text-center">
+										<th colspan="2" class="text-center">
 											INFORMAÇÃO NUTRICIONAL<br />
 											<h5 style="margin:0;margin-top:3px;padding:0;">Porção de 100 g ou mL (1 unidade)</h5>
+										</th>
+										
+									</tr>
+									<tr>
+									<th id="date" colspan="2" class="text-center">
+										
+										
+										
 										</th>
 									</tr>
 									<tr>
@@ -57,8 +72,8 @@
 								<tbody>
 									<tr>
 										<td width="40%">Valor Energético</td>
-										<td width="40%" id="valorEnergeticoQP" style="min-width: 150px;"></td>
-										<td width="20%" id="valorEnergeticoVD" style="min-width: 150px;"></td>
+										<td width="40%" id="valorEnergeticoQP" ></td>
+										<td width="20%" id="valorEnergeticoVD" ></td>
 									</tr>
 									<tr>
 										<td>Carboidratos</td>
@@ -99,7 +114,9 @@
 								<tfoot>
 									<tr style="background-color: #f9f9f9;">
 									<td colspan="3">(*) % Valores Diários com base em uma dieta de 2.000 kcal ou 8400 KJ. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.</td>
+									
 									</tr>
+									
 								</tfoot>
 							</table>
 						</div>
@@ -162,6 +179,7 @@
 		    </div>
 	  	</div>
 	</div>
+	   
 	
 <script>
 $( document ).ready(function() {
@@ -184,27 +202,33 @@ $( document ).ready(function() {
 	  	$(this).find('.modal-title').text('Editar Ficha Completa');
 	  	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha Completa (' + fichaS + ') ?');
 	  	
-	  	$('#formEditar').attr('action', "main?acao=telaFichaCompleta&id_ficha_Completa=" + id + "&isEdit=true");
-	});
-	$('#modalVisualizar').on('show.bs.modal', function (event) {
-	  	var botao = $(event.relatedTarget);
-	  	var fichaS = botao.data('fichas');
-	  	var id = botao.data('id');
-	  
 	  	
-	  	$(this).find('.modal-title').text('Exportar para PDF');
-	 	$(this).find('#modal-descricao').text('');
-	 	$(this).find('#nome-receita').text(fichaS);
-
-	 	       
-	 	 
-	 	
-	  		
-	  	
+	  	$('#formEditar').attr('action', 'main?acao=telaFichaCompleta&id_ficha_Completa=' + id + '&isEdit=true');
 	});
 	
-
+	$('#modalVisualizar').on('show.bs.modal', function (event) {
+ 	  	var botao = $(event.relatedTarget);
+ 	  	var fichaS = botao.data('fichas');
+ 	  	var id = botao.data('id');
+ 	  	var d = new Date();
+ 	  	
+ 	  	preencheDados();
+ 	  	
+ 	  	var d = new Date();
+ 	  	var month= d.getUTCMonth() + 1;
+		var dataBrasil = d.getDate() + "/" + month +  "/" + d.getFullYear()+" "+(d.getUTCHours()-3)+":"+d.getUTCMinutes();
+		document.getElementById("date").innerHTML = dataBrasil;
 		
+		
+	  	
+ 	  	$(this).find('.modal-title').text('Exportar para PDF');
+ 	 	$(this).find('#modal-descricao').text('');
+ 	 	$(this).find('#nome-receita').text(fichaS);
+	 	
+ 	 		
+	  	
+ 	});
+	
 	$('#modalErro').on('show.bs.modal', function (event) {
 	  	var botao = $(event.relatedTarget);
 	  	var fichaS = botao.data('fichaS');

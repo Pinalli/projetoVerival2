@@ -1,11 +1,27 @@
-		var cache_width = $('#renderPDF').width(); //Criado um cache do CSS
-       
 		var a4 = [595.28, 841.89]; // Width e Height de uma folha a4
-
-        function gerarPDF() {
+        
+		function gerarPDF() {
+        	var cache_width = $('#renderPDF').width(); //Criado um cache do CSS
+    		var cache_height = $('#renderPDF').height(); //Criado um cache do CSS
+    		/*var height = $('#height');
+    		var width = $('#width');*/
+    		
+    		console.log(cache_width);
+    		console.log(cache_height);
+    		    var height = $( "#height" ).val();
+    		    var width = $( "#width" ).val();
+    		
+    		
+    		
+    		console.log(width);
+    		console.log(height);
+   		
             // Setar o width da div no formato a4
-            $("#renderPDF").width((a4[0] * 1.33333) - 80).css('max-width', 'none');
-
+            $("#renderPDF").width(height).css('max-width', 'none');
+            $("#renderPDF").height(width).css('max-height', 'none');
+            
+           
+   	
             // Aqui ele cria a imagem e cria o pdf
             html2canvas($('#renderPDF'), {
                 onrendered: function (canvas) {
@@ -16,7 +32,8 @@
                     doc.save('ftp.pdf');
                     //Retorna ao CSS normal
                     $('#renderPDF').width(cache_width);
-                   
+                    $('#renderPDF').height(cache_height);
+                   console.log("Error");
                 }
             });
         }
