@@ -13,7 +13,6 @@
 <script type="text/javascript" src="js/user.js"></script>
 <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
 </head>
-<body background="/img/background-cadastro.jpg" bgproperties="fixed">
 	<div class="panel panel-success panel-addUser">
 	
 		<div class="panel-heading text-center" id="cadastro-head">
@@ -90,6 +89,5 @@
 				</form>
 		</div>
 	</div>
-</body>
 
 <jsp:include page="/template/foot.jsp"></jsp:include>
