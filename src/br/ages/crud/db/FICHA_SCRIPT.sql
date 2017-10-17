@@ -157,17 +157,31 @@ CREATE TABLE `TB_FICHA_ITEM` (
 	);
 
 /*----------EXEMPLOS PARA TESTE----------*/
-INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('1', 'Colher de Sopa', 'cp');
-INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('2', 'Colher de ch', 'cc');
-INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('3', 'Xcara', 'xc');
-INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('4', 'P de Obra', 'po');
-INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('5', 'Tonel', 'tl');
+INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('1', 'Teste', 'TE');
 
 INSERT INTO TB_UNIDADE_MEDIDA VALUES('1', 'Kilograma', 'Grama', 'kg', '1000');
-INSERT INTO TB_UNIDADE_MEDIDA VALUES('2', 'Grama', 'Kilograma','g', '0.001');
-INSERT INTO TB_UNIDADE_MEDIDA VALUES('3', 'Litro', 'Mililitro', 'l', '1000');
-INSERT INTO TB_UNIDADE_MEDIDA VALUES('4', 'Mililitro', 'Litro', 'ml', '0.001');
-
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('2', 'Grama', 'Grama','g', '01');
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('3', 'Litro', 'Grama', 'l', '1000');
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('4', 'Mililitro', 'Grama', 'ml', '1');
+INSERT INTO TB_UNIDADE_MEDIDA VALUES('6', 'Miligrama', 'Grama', 'mg', '0.001');
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('7', 'Escumadeira', null, 'ESC', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('8', 'Fatia', null, 'FT', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('9', 'Induastrial', null,'INDUSTR', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('10', 'Pedaço', null, 'PED', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('11', 'Prato fundo', null, 'PT F', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('12', 'Prato raso', null, 'PT R', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('13', 'Prato de sobremesa', null, 'PT SOB', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('14', 'Unidade', null, 'UND', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('15', 'Xicara', null, 'X', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('16', 'Grande Quantidade', null, 'GQ', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('17', 'Media Quantidade', null, 'MQ', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('18', 'Pequena Quantidade', null, 'PQ', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('19', 'Concha', null, 'CO', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('20', 'Colher de arroz', null, 'COL A', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('21', 'Colher de cafe', null, 'COL CAF', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('22', 'Colher de cha', null, 'COL CH', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('23', 'Colher de sopa', null, 'COL S', null);
+INSERT INTO TB_UNIDADE_MEDIDA VALUES ('24', 'Colher de sobremesa', null, 'COL SOB', null);
 
 
 /*----------TACO----------*/
