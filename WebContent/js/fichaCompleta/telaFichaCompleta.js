@@ -377,6 +377,11 @@ $(document).ready(function() {
 		$('#proteinasQP').html(parseFloat(proteinas.toFixed(3)) + ' g');
 		var proteinasVD = (proteinas*100)/75;
 		$('#proteinasVD').html(parseFloat(proteinasVD.toFixed(3)) + '%');
+
+//		Gorduras totais - Necessidades diárias: 55g
+		$('#gordTotalQP').html(parseFloat(gordTotal.toFixed(3)) + ' g');
+		var gordTotalVD = (gordTotal*100)/55;
+		$('#gordTotalVD').html(parseFloat(gordTotalVD.toFixed(3)) + '%');
 		
 //		Necessidades diárias: 22g
 		$('#gordSaturadaQP').html(parseFloat(gordSaturada.toFixed(3)) + ' g');
