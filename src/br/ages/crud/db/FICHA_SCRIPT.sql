@@ -60,7 +60,7 @@ CREATE TABLE `TB_INGREDIENTES` (
   `LIPIDIOS` decimal(10,2) DEFAULT NULL,
   `KCAL_LIPIDIOS` decimal(10,2) DEFAULT NULL,
   `GORDURA_SATURADA` decimal(10,2) DEFAULT NULL,
-  `GORDURA_TRANS` decimal(10,2) DEFAULT NULL,
+  
   `FIBRAS_ALIMENTARES` decimal(10,2) DEFAULT NULL,
   `SODIO` decimal(10,2) DEFAULT NULL,
   `FATOR_CORRECAO` decimal(10,2) DEFAULT NULL,
@@ -131,6 +131,7 @@ CREATE TABLE `TB_FICHA` (
   `TEMPERATURA` DECIMAL(5,2) NULL,  
   `TIPO_FICHA` CHAR(1) NOT NULL,
   -- Tabela Ficha (aspectos exclusivos da completa): serao omitidos da simplificada
+  `GORDURA_TRANS` decimal(10,2) DEFAULT NULL,
   `TEXTURA` TEXT(1024) NULL,
   `SABOR` TEXT(1024) NULL,
   `APRESENTACAO` TEXT(1024) NULL,
@@ -191,7 +192,8 @@ INSERT INTO TB_UNIDADE_MEDIDA_CASEIRA VALUES ('18', 'Colher de sobremesa', 'COL 
 
 
 /*----------TACO----------*/
-
+--refazer inserts. US013 remoção da coluna gordura_trans da tb_ingredientes. Movida para TB_Ficha
+/*
 INSERT INTO TB_INGREDIENTES
 (ID, ID_EMPRESA, COD, DESCRICAO, CARBOIDRATOS, KCAL_CARBOIDRATOS, 
  PROTEINAS, KCAL_PROTEINAS, LIPIDIOS, KCAL_LIPIDIOS, GORDURA_SATURADA, 
@@ -792,3 +794,4 @@ VALUES
 (0, NULL, 595, 'Pinhão, cozido', 0.439, 0.01756, 0.03, 0.0012, 0.007, 0.00063, 0, 0, 0, 0.156, 'Gramas', STR_TO_DATE('2017-09-09', '%Y-%m-%d')),
 (0, NULL, 596, 'Pupunha, cozida', 0.296, 0.01184, 0.025, 0.001, 0.128, 0.01152, 0, 0, 0, 0.043, 'Gramas', STR_TO_DATE('2017-09-09', '%Y-%m-%d')),
 (0, NULL, 597, 'Noz, crua', 0.184, 0.00736, 0.14, 0.0056, 0.594, 0.05346, 0, 0, 0, 0.072, 'Gramas', STR_TO_DATE('2017-09-09', '%Y-%m-%d'))
+*/
