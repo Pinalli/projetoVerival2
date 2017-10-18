@@ -75,12 +75,7 @@
 						</div>
 					</div>
 					
-					<div class="row">
-						<div class="col-sm-4">
-						    <label class="form-label ages">Gordura Trans</span></label> 
-							<input class="form-control" id="goduratrans" name="gorduratrans" value="<%=ingrediente.getGorduraTrans()%>" type="number" step="any"  maxlength="5" required>
-						</div>
-					</div>
+				
 					
 					<div class="row">
 						<div class="col-sm-4">

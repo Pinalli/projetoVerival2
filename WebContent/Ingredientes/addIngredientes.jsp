@@ -67,12 +67,7 @@
 						</div>					
 					</div>
 					
-					<div class="row">
-						<div class="col-sm-4">
-						    <label class="form-label ages">Gordura Saturada</span></label> 
-							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="${param.gordurasaturada}" type="number" step="any"  maxlength="5" required>
-						</div>
-					</div>
+					
 					
 					<div class="row">
 						<div class="col-sm-4">
