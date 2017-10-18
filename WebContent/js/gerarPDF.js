@@ -10,15 +10,15 @@
     		
     		    var height = $("#height" ).val();
     		    var width = $("#width" ).val();
-    		
+    		    var a4 = [width, 840];
     		
     		
     		console.log(width);
     		console.log(height);
    		
             // Setar o tamanho da div pelo input fornecido pelo usuário
-            $("#renderPDF").width(width).css('max-width','none');
-            $("#renderPDF").height(height).css('max-height','none');
+            $("#renderPDF").width(a4).css('max-width','none');
+            //$("#renderPDF").height(height).css('max-height','none');
             
            
    	
