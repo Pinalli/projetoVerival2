@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+
+body{
+	background: url(../img/bg2.jpg) no-repeat center center fixed; 
+  background-size: cover;
+}
+p{
+	color:#fff;
+}
+
+.login-form {
+   background: repeat scroll 0 0 rgba(0, 0, 0, 0.9);
+   position: absolute;
+   width: 30%;
+   height: 70%;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   margin: auto;
+   padding: 15px;
+   border-radius: 7px;
+   border-bottom: 7px solid #82a046;
+}
+
+.login-form-header {
+  text-align: center;
+}
+
+.login-form-header .title {
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.login-form-header img {
+  width: auto;
+  height: 150px;
+  margin: 5px 0 15px 0;
+}
+
+
+.form-footer {
+	padding: 15px 40px;
+}
+
+.form-footer a {
+  color: #fff;
+}
+
+.bt-login{
+	background-color: #82a046;
+    color: #ffffff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    transition: background-color 300ms linear 0s;
+}
+.form-signin .form-control{
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus{
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 30px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+i{margin-right: 4%;color:#555555}
+a{text-decoration: none;color:#555555;}
+
+@media (min-width: 320px) and (max-width: 350px) {
+     .login-form{
+     	width: 280px !important;
+     }
+}
+
+@media (min-width: 350px) and (max-width: 500px) {
+     .login-form{
+     	width: 300px !important;
+     }
+     
+}
+
+@media (min-width: 320px) and (max-width: 1023px) {
+     body{
+		background: url(../img/bg2.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+		background-color: #fff;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1360px) {
+     body{
+		background: url(././img/bg2.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+		background-color: #fff;
+	}
+}
+
+@media (min-width: 1361px) and (max-width: 1960px) {
+     body{
+		background: url(../img/bg2.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+		background-color: #fff;
+	}
+}
+
+.has-error{color:#ff0000 !important;}
+.has-success{color:#78b310 !important;}
+.has-error input{border:1px solid red !important;}
+.has-success input{border:1px solid #78b310 !important;}
+
+.message_success{background-color: #78b310; color:#fff;padding: 5px;}
+.message_error{background-color: #e74c3c; color:#fff;padding: 5px;}
