@@ -33,13 +33,14 @@
 					<li role="presentation"><a href="#rtl" aria-controls="rtl"
 						role="tab" data-toggle="tab">Rótulo Nutricional</a></li>
 				</ul>
+			
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane fade active" id="ftp"></div>
-					<div role="tabpanel" class="tab-pane fade" id="rtl">
+					<div role="tabpanel" class="tab-pane fade" id="rtl"style="width:85%;margin:0 auto;margin-top:30px">
 
 
-
-						<table class="table table-striped table-bordered" id="renderPDF">
+					<div class="container-fluid"id="renderPDF">
+						<table class="table table-striped table-bordered">
 							<thead>
 
 								<tr>
@@ -117,18 +118,19 @@
 
 							</tfoot>
 						</table>
-					
+					</div>
 					<form action="" method="post" id="formVisualizar">
 
 						<div class="container-fluid">
-							<input type="text" id="height" value=""placeholder="Altura do rótulo" />
-							<input type="text" id="width" value="" placeholder="Largura do rótulo" />
+							<input type="text" id="size" value=""placeholder="Tamanho do rótulo" />
+							
 						</div>
+					
 				</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-
+					
 				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
 				<button onclick="gerarPDF()" class="btn btn-success">Gerar
 					PDF</button>
@@ -220,8 +222,8 @@ $('#modalVisualizar').on('show.bs.modal', function (event) {
 	  	
 	  	var d = new Date();
 	  	var month= d.getUTCMonth() + 1;
-	var dataBrasil = d.getDate() + "/" + month +  "/" + d.getFullYear()+" "+(d.getUTCHours()-3)+":"+d.getUTCMinutes();
-	document.getElementById("date").innerHTML = dataBrasil;
+		var dataBrasil = d.getDate() + "/" + month +  "/" + d.getFullYear()+" "+(d.getUTCHours()-3)+":"+d.getUTCMinutes();
+		document.getElementById("date").innerHTML = dataBrasil;
 	
 	
   	
