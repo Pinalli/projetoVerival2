@@ -1,3 +1,5 @@
+
+
 package br.ages.crud.dao;
 
 import java.sql.Connection;
@@ -26,7 +28,6 @@ import br.ages.crud.util.ConexaoUtil;
 
 public class FichaCompletaDAO {
 
-<<<<<<< Updated upstream
     private List<Ficha> listarFichasCompleta;
     private List<FichaIngrediente> dadosRotulo;
     private FichaCompletaItemDAO itemDAO;
@@ -87,50 +88,6 @@ public class FichaCompletaDAO {
             }
 
             fichaCompleta.setIdFicha(idFichaCompleta);
-=======
-	private List<Ficha> listarFichasCompleta;
-	private FichaTecnica fichaTecnica;
-	private FichaCompletaItemDAO itemDAO;
-
-	public int cadastrarFichaCompleta(Ficha fichaCompleta) throws SQLException, PersistenciaException {
-		Connection conexao = null;
-
-		try {
-			Integer idFichaCompleta = null;
-
-			conexao = ConexaoUtil.getConexao();
-			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO TB_FICHA (" + "ID_EMPRESA," + "NOME, " + "RENDIMENTO, " + "FOTO, "
-					+ "MODO_PREPARO, " + "MONTAGEM, " + "ORIENTACOES_ARMAZENAMENTO, " + "GLUTEN," + "TEXTURA,"
-					+ "SABOR," + "APRESENTACAO, " + "CATEGORIA, )");
-			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
-
-			statement.setInt(1, fichaCompleta.getIdEmpresa());
-			statement.setString(2, fichaCompleta.getNome());
-			statement.setString(3, fichaCompleta.getRendimento());
-			String logo = fichaCompleta.getFoto();
-			logo = "foto-ficha-" + this.getProximoIdFicha() + "." + FilenameUtils.getExtension(logo);
-			statement.setString(4, logo);
-			statement.setString(5, fichaCompleta.getModoPreparo());
-			statement.setString(6, fichaCompleta.getMontagem());
-			statement.setString(7, fichaCompleta.getOrientacoesArmazenamento());
-			statement.setBoolean(8, fichaCompleta.getGluten());
-			statement.setString(9, fichaCompleta.getTextura());
-			statement.setString(10, fichaCompleta.getSabor());
-			statement.setString(11, fichaCompleta.getApresentacao());
-			//statement.setString(12,fichaCompleta.getCategoria());
-
-			statement.executeUpdate();
-
-			ResultSet resultset = statement.getGeneratedKeys();
-			if (resultset.first()) {
-				idFichaCompleta = resultset.getInt(1);
-			}
-
-			fichaCompleta.setIdFicha(idFichaCompleta);
->>>>>>> Stashed changes
 			List<FichaItem> itens = fichaCompleta.getItens();
 			
 			itemDAO = new FichaCompletaItemDAO();
