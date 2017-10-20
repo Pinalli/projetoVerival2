@@ -122,7 +122,7 @@
 					<form action="" method="post" id="formVisualizar">
 
 						<div class="container-fluid">
-							<input type="text" id="size" value=""placeholder="Tamanho do rótulo" />
+							<input type="text" id="size" value=""placeholder="Tamanho do rótulo"/>
 							
 						</div>
 					

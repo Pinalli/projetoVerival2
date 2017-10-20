@@ -4,8 +4,6 @@
         	var cache_width = $('#renderPDF'); //Criado um cache do CSS
     		var cache_height = $('#renderPDF'); //Criado um cache do CSS
     		
-    		var divisao = cache_height / cache_width;
-    		 
     		
     		
     		console.log(cache_width);
@@ -19,8 +17,8 @@
     		
    		
             // Setar o tamanho da div pelo input fornecido pelo usuário
-            $("#renderPDF").width(595).css('max-width','none');
-            $("#renderPDF").height(840).css('max-height','none');
+            $("#renderPDF").width(size).css('max-width','none');
+            $("#renderPDF").height(size).css('max-height','none');
             
            
    	
