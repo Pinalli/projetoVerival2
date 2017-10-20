@@ -19,7 +19,7 @@
             // Setar o tamanho da div pelo input fornecido pelo usuário
             $("#renderPDF").width(size).css('max-width','none');
             $("#renderPDF").height(size).css('max-height','none');
-            
+            $
            
    	
             // Aqui ele cria a imagem e cria o pdf

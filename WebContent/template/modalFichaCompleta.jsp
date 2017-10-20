@@ -119,23 +119,25 @@
 							</tfoot>
 						</table>
 					</div>
-					<form action="" method="post" id="formVisualizar">
+					<div class="container-fluid">
+					<form action="" method="post" id="formVisualizar" class="row">
 
-						<div class="container-fluid">
+						<div class="col-md-6">
 							<input type="text" id="size" value=""placeholder="Tamanho do rótulo"/>
 							
 						</div>
-					
+					<div class="col-md-6 text-right">
+						<button onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+					</div>
+					</form>
+					</div>
 				</div>
 				</div>
+				
+				
+				
 			</div>
-			<div class="modal-footer">
-					
-				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-				<button onclick="gerarPDF()" class="btn btn-success">Gerar
-					PDF</button>
-				</form>
-			</div>
+			
 		</div>
 	</div>
 </div>
@@ -180,7 +182,7 @@
 	      	</div>
 	      	
 	      	<div class="modal-footer">
-	      		<button onclick="gerarPDF()" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	      		<button class="btn btn-default" data-dismiss="modal">Fechar</button>
 		      	</div>
 		      	
 		    </div>
