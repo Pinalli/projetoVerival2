@@ -73,11 +73,6 @@ public class MainServlet extends HttpServlet {
 		comandos.put("removerEmpresa", new RemoveEmpresaCommand());
 
 		
-		// COMANDOS DA FICHA TECNICA SIMPLIFICADA
-		comandos.put("telaFichaSimplificada", new CreateScreenFichaSimplificadaCommand());
-		comandos.put("listFichaSimplificada", new ListFichaSimplificadaCommand());
-		comandos.put("removerFichaSimplificada", new RemoveFichaSimplificadaCommand());
-		
 		// COMANDOS DA FICHA TECNICA COMPLETA
 		comandos.put("telaFichaCompleta", new CreateScreenFichaCompletaCommand());
 		comandos.put("listFichaCompleta", new ListFichaCompletaCommand());
