@@ -40,6 +40,7 @@
 
 
 					<div class="container-fluid"id="renderPDF">
+					
 						<table class="table table-striped table-bordered">
 							<thead>
 
@@ -124,10 +125,12 @@
 
 						<div class="col-md-6">
 							<input type="text" id="size" value=""placeholder="Tamanho do rótulo"/>
-							
+					
 						</div>
+					
 					<div class="col-md-6 text-right">
 						<button onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
+					
 					</div>
 					</form>
 					</div>
