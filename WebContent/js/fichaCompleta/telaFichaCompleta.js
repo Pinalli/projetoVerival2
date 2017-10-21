@@ -380,14 +380,14 @@ $(document).ready(function() {
 			var row = $(this);
 			var select = row.find("#select-ingredientes");
 			if(select.val()){
-				somaValor(row, select.val());
+				$("#valorTotalFichaHidden").val($("#valorTotalFicha").val()+somaValor(row, id));
 			}
 			select.change(function(){
 				var id = $(this).val();
 				$("#valorTotalFichaHidden").val($("#valorTotalFicha").val()+somaValor(row, id));
 			});
 		});
-		$("#valorTotalFicha").val($("#valorTotalHidden").val());
+		$("#valorTotalFicha").val($("#valorTotalFichaHidden").val());
 	}
 	updateValorTotal()
 	
