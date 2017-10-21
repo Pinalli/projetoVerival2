@@ -42,16 +42,6 @@ public class NewUserCommand implements Command {
 		String senha = request.getParameter("senha");
 		String confirmarSenha = request.getParameter("confirmarSenha");
 		String tipoUsuario = request.getParameter("tipoUsuario");
-				
-//		String nome = "mock";
-//		String email = "mock@mock.com";
-//		String cpf = "84613491053";
-//		String endereco = "mock";
-//		String telefone = "mock";
-//		String usuario = "mock";
-//		String senha = "mock";
-//		String confirmarSenha = "mock";
-//		String tipoUsuario = "Nutricionista";
 		
 		try {
 			Usuario user = new Usuario();
@@ -75,7 +65,6 @@ public class NewUserCommand implements Command {
 			
 			if (isValido) {
 				usuarioBO.cadastraUsuario(user);
-				//TODO check if the "user already exists" exception is being thrown
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_USUARIO.replace("?", user.getNome()));
 				proxima = "login.jsp";
 			} else {
