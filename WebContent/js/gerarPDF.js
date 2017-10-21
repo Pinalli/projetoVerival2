@@ -9,17 +9,19 @@
     		console.log(cache_width);
     		console.log(cache_height);
     		
-    		    var size = $("#size").val();
-   		
-            // Setar o tamanho da div pelo input fornecido pelo usuário
+    		var size = $("#size").val();
+
+    		// Setar o tamanho da div pelo input fornecido pelo usuário
     		if(!isNaN(parseFloat(size)) && isFinite(size)){
-    		    if(size>=300 && size <=600){
-            $("#renderPDF").width(size).css('max-width','none');
-            $("#renderPDF").height(size).css('max-height','none');
+    			if(size>=14.5 && size<=19.5){
+    				size = size*37.795275591;
+    				$("#renderPDF").width(size).css('max-width','none');
+    				$("#renderPDF").height(size).css('max-height','none');
 
-		    }}
+    			}
+    		}
 
-   	
+
             // Aqui ele cria a imagem e cria o pdf
             html2canvas($('#renderPDF'), {
                 onrendered: function (canvas) {

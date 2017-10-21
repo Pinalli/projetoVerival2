@@ -123,12 +123,12 @@
 					<div class="container-fluid">
 					<form action="" method="post" id="formVisualizar" class="row">
 
-						<div class="col-md-6">
-							<input type="text" id="size" value=""placeholder="Tamanho do rótulo"/>
-					
+						<div class="col-md-8">
+							Tamanho para impressão customizada (entre 14.5cm e 19.5cm):
+							<input type="text" id="size" value="" placeholder="Insira o valor"/>
 						</div>
 					
-					<div class="col-md-6 text-right">
+					<div class="col-md-4 text-right">
 						<button onclick="gerarPDF()" class="btn btn-success">Gerar PDF</button>
 					
 					</div>
@@ -216,28 +216,35 @@ $(document).on('show.bs.modal','#modalEditar', function (event) {
   	$('#formEditar').attr('action', "main?acao=telaFichaCompleta&id_ficha_Completa=" + id + "&isEdit=true");
 });
 
+function pad(num, size) {
+	var s = num+"";
+	while (s.length < size) s = "0" + s;
+	return s;
+}
+
 $('#modalVisualizar').on('show.bs.modal', function (event) {
-	  	var botao = $(event.relatedTarget);
-	  	var fichaS = botao.data('fichas');
-	  	var id = botao.data('id');
-	  	var d = new Date();
+	var botao = $(event.relatedTarget);
+	var fichaS = botao.data('fichas');
+	var id = botao.data('id');
+
 	  	
-	  	//preencheDados();
-	  	carregaRotuloPDF(id);
-	  	var d = new Date();
-	  	var month= d.getUTCMonth() + 1;
-		var dataBrasil = d.getDate() + "/" + month +  "/" + d.getFullYear()+" "+(d.getUTCHours()-3)+":"+d.getUTCMinutes();
-		document.getElementById("date").innerHTML = dataBrasil;
+	//preencheDados();
+	carregaRotuloPDF(id);
+	  	
+	var d = new Date();
+	var date = d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()+'   '+ pad(d.getHours(),2)+":"+pad(d.getMinutes(),2);
+	document.getElementById("date").innerHTML = date;
 	
 	
   	
-	  	$(this).find('.modal-title').text('Exportar para PDF');
-	 	$(this).find('#modal-descricao').text('');
-	 	$(this).find('#nome-receita').text(fichaS);
+	$(this).find('.modal-title').text('Exportar para PDF');
+	$(this).find('#modal-descricao').text('');
+	$(this).find('#nome-receita').text(fichaS);
  	
 	 		
   	
-	});
+});
+
 
 $(document).on('show.bs.modal','#modalErro', function (event) {
 	var botao = $(event.relatedTarget);
