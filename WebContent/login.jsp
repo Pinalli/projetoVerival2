@@ -57,9 +57,10 @@
 			             	<input class="btn btn-success login pull-center" type="submit" value="Entrar">
 			         	</div>
 			         </form>
+			         <br>
 			         <form method="post" action="main?acao=newUser">
 			         	<div class="text-center">
-			             	<input class="btn btn-success login pull-center" type="submit" value="Entrar">
+			             	<input class="btn btn-success login pull-center" type="submit" value="Cadastrar">
 			         	</div>
 			         </form>
 		         </div>
