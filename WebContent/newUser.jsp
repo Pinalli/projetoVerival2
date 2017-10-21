@@ -30,7 +30,7 @@
 			<jsp:include page="/template/msg.jsp"></jsp:include>
 	
 	
-				<form method="post" action="main?acao=addUser">
+				<form method="post" action="main?acao=newUser">
 	
 					<div class="form-group">
 					

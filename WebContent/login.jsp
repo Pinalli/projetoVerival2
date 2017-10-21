@@ -58,11 +58,10 @@
 			         	</div>
 			         </form>
 			         <br>
-			         <form method="post" action="main?acao=newUser">
+			         
 			         	<div class="text-center">
-			             	<input class="btn btn-success login pull-center" type="submit" value="Cadastrar">
+			             	<a class="btn btn-success login pull-center" href="newUser.jsp">Cadastrar</a>
 			         	</div>
-			         </form>
 		         </div>
 		         
 	         </div>

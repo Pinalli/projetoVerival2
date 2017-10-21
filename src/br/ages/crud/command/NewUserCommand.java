@@ -33,25 +33,25 @@ public class NewUserCommand implements Command {
 	public String execute(HttpServletRequest request) throws SQLException, NegocioException, ParseException, PersistenciaException {
 		usuarioBO = new UsuarioBO();
 		
-//		String nome = request.getParameter("nome");
-//		String email = request.getParameter("email");
-//		String cpf = request.getParameter("cpf");
-//		String endereco = request.getParameter("endereco");
-//		String telefone = request.getParameter("telefone");
-//		String usuario = request.getParameter("usuario");
-//		String senha = request.getParameter("senha");
-//		String confirmarSenha = request.getParameter("confirmarSenha");
-//		String tipoUsuario = request.getParameter("tipoUsuario");
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		String cpf = request.getParameter("cpf");
+		String endereco = request.getParameter("endereco");
+		String telefone = request.getParameter("telefone");
+		String usuario = request.getParameter("usuario");
+		String senha = request.getParameter("senha");
+		String confirmarSenha = request.getParameter("confirmarSenha");
+		String tipoUsuario = request.getParameter("tipoUsuario");
 				
-		String nome = "mock";
-		String email = "mock@mock.com";
-		String cpf = "84613491053";
-		String endereco = "mock";
-		String telefone = "mock";
-		String usuario = "mock";
-		String senha = "mock";
-		String confirmarSenha = "mock";
-		String tipoUsuario = "Nutricionista";
+//		String nome = "mock";
+//		String email = "mock@mock.com";
+//		String cpf = "84613491053";
+//		String endereco = "mock";
+//		String telefone = "mock";
+//		String usuario = "mock";
+//		String senha = "mock";
+//		String confirmarSenha = "mock";
+//		String tipoUsuario = "Nutricionista";
 		
 		try {
 			Usuario user = new Usuario();
