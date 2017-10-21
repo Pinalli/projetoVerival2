@@ -69,43 +69,43 @@
 							<tbody>
 								<tr>
 									<td width="40%">Valor Energético</td>
-									<td width="40%" id="valorEnergeticoQP"></td>
-									<td width="20%" id="valorEnergeticoVD"></td>
+									<td width="40%" id="modalValorEnergeticoQP"></td>
+									<td width="20%" id="modalValorEnergeticoVD"></td>
 								</tr>
 								<tr>
 									<td>Carboidratos</td>
-									<td id="carboidratosQP"></td>
-									<td id="carboidratosVD"></td>
+									<td id="modalCarboidratosQP"></td>
+									<td id="modalCarboidratosVD"></td>
 								</tr>
 								<tr>
 									<td>Proteinas</td>
-									<td id="proteinasQP"></td>
-									<td id="proteinasVD"></td>
+									<td id="modalProteinasQP"></td>
+									<td id="modalProteinasVD"></td>
 								</tr>
 								<tr>
 									<td>Gorduras totais</td>
-									<td id="gordTotalQP"></td>
-									<td id="gordTotalVD"></td>
+									<td id="modalGordTotalQP"></td>
+									<td id="modalGordTotalVD"></td>
 								</tr>
 								<tr>
 									<td>Gorduras saturadas</td>
-									<td id="gordSaturadaQP"></td>
-									<td id="gordSaturadaVD"></td>
+									<td id="modalGordSaturadaQP"></td>
+									<td id="modalGordSaturadaVD"></td>
 								</tr>
 								<tr>
 									<td>Gorduras trans</td>
-									<td id="gordTransQP"></td>
-									<td id="gordTransVD">-</td>
+									<td id="modalGordTransQP"></td>
+									<td id="modalGordTransVD">-</td>
 								</tr>
 								<tr>
 									<td>Fibra alimentar</td>
-									<td id="fibraAlimQP"></td>
-									<td id="fibraAlimVD"></td>
+									<td id="modalFibraAlimQP"></td>
+									<td id="modalFibraAlimVD"></td>
 								</tr>
 								<tr>
 									<td>Sódio</td>
-									<td id="sodioQP"></td>
-									<td id="sodioVD"></td>
+									<td id="modalSodioQP"></td>
+									<td id="modalSodioVD"></td>
 								</tr>
 							</tbody>
 							<tfoot>
@@ -222,8 +222,8 @@ $('#modalVisualizar').on('show.bs.modal', function (event) {
 	  	var id = botao.data('id');
 	  	var d = new Date();
 	  	
-	  	preencheDados();
-	  	
+	  	//preencheDados();
+	  	carregaRotuloPDF(id);
 	  	var d = new Date();
 	  	var month= d.getUTCMonth() + 1;
 		var dataBrasil = d.getDate() + "/" + month +  "/" + d.getFullYear()+" "+(d.getUTCHours()-3)+":"+d.getUTCMinutes();

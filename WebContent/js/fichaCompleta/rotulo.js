@@ -1,4 +1,5 @@
 function gerarRotulo(id) {
+	console.log("XXXXXXXXXXXXXXXXXXXXXX");
 	return $.ajax({
 		type: 'GET',
 		url: 'ajax?acao=buscaDadosRotulo',

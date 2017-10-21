@@ -5,7 +5,6 @@
 <!-- MODAL / POPUP -->
 <jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
 <script src="./js/fichaCompleta/rotulo.js"></script>
-
 <script src="./js/gerarPDF.js"></script>
 <script src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
 <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>

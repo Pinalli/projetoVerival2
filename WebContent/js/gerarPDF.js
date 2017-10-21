@@ -10,11 +10,6 @@
     		console.log(cache_height);
     		
     		    var size = $("#size").val();
-    		    
-    		    
-    		
-    		
-    		
    		
             // Setar o tamanho da div pelo input fornecido pelo usuário
             $("#renderPDF").width(size).css('max-width','none');
@@ -37,8 +32,9 @@
                 }
             });
         }
+	
         
-        var representante = {
+       /* var representante = {
             "ingrediente":
             [
                 {
@@ -77,7 +73,8 @@
                 }
             ]
         }
-        var len = representante.ingrediente.length/*, aryRepresentantes = []*/;
+        var len = representante.ingrediente.length/*, aryRepresentantes = [];
+        
         var Ids=[];
         for (var i = 0; i < len; i++) {
             var VE= representante.ingrediente[i].VE;
@@ -101,26 +98,43 @@
                 "<br>" + GordTrans +
                 "<br>" + Fibra +
                 "<br>" + Sodio;
-            aryRepresentantes.push(strHTML);*/
-        }
-        function preencheDados(){
+            aryRepresentantes.push(strHTML);
+        }*/
+        function preencheDados(infoRotulo){
             /*var aryUF = ["SP","SC","RJ"];
             for (var i=0; i < aryUF.length; i++){
               $('#div'+aryUF[i]).html(aryRepresentantes[i]);
             }*/ 
-            $('#valorEnergeticoQP').html(VE);
-            $('#valorEnergeticoVD').html(VEVd);
-            $('#carboidratosQP').html(Carb);
-            $('#carboidratosVD').html(CarbVd);
-            $('#proteinasQP').html(Prot);
-            $('#proteinasVD').html(ProtVD);
-            $('#gordTotalQP').html(GordTotal);
-            $('#gordTotalVD').html(GordTotalVd);
-            $('#gordSaturadaQP').html(GordSat);
-            $('#gordSaturadaVD').html(GordSatVd)
-            $('#gordTransQP').html(GordTrans);
-            $('#fibraAlimQP').html(Fibra);
-            $('#fibraAlimVD').html(FibraVd);
-            $('#sodioQP').html(Sodio);
-            $('#sodioVD').html(SodioVd);
+            $('#modalValorEnergeticoQP').html(infoRotulo.valorEnergeticoQP);
+            $('#modalValorEnergeticoVD').html(infoRotulo.valorEnergeticoVD);
+            $('#modalCarboidratosQP').html(infoRotulo.carboidratosQP);
+            $('#modalCarboidratosVD').html(infoRotulo.carboidratosVD);
+            $('#modalProteinasQP').html(infoRotulo.proteinasQP);
+            $('#modalProteinasVD').html(infoRotulo.proteinasVD);
+            $('#modalGordTotalQP').html(infoRotulo.gorduraTotalQP);
+            $('#modalGordTotalVD').html(infoRotulo.gorduraTotalVD);
+            $('#modalGordSaturadaQP').html(infoRotulo.gorduraSaturadaQP);
+            $('#modalGordSaturadaVD').html(infoRotulo.gorduraSaturadaVD)
+            $('#modalGordTransQP').html(infoRotulo.gorduraTransQP);
+            $('#modalFibraAlimQP').html(infoRotulo.fibraAlimentarQP);
+            $('#modalFibraAlimVD').html(infoRotulo.fibraAlimentarVD);
+            $('#modalSodioQP').html(infoRotulo.sodioQP);
+            $('#modalSodioVD').html(infoRotulo.sodioVD);
         }
+        
+        
+
+
+        function carregaRotuloPDF(id) {
+
+        	gerarRotulo(id).done(function(result) {
+        		//console.log("AAASS"+result);
+        		var resultAsJson = $.parseJSON(result);
+        		var infoRotulo = calculoRotulo(resultAsJson);
+        		console.log("AAAAAAAAAAAAADoceAAAAA"+infoRotulo);
+        		preencheDados(infoRotulo);
+        	});
+        }
+        
+        
+        

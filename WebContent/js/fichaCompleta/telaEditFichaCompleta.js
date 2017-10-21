@@ -533,7 +533,7 @@ $(document).ready(function() {
 	 */
 	 
 	carregaRotulo();
-	 	
+//	 	
 	function carregaRotulo() {
 		var idFicha = $('#idFicha').val();
 		
@@ -544,7 +544,7 @@ $(document).ready(function() {
 			gerarRotulo(idFicha).done(function(result) {
 				var resultAsJson = $.parseJSON(result);
 				var infoRotulo = calculoRotulo(resultAsJson);
-				
+//				
 				var rotQntUniMedida = $('#qnt-unidade-medida-rotulo').val();
 				var rotUniMedida = $('#select-unidade-medida-rotulo').val();
 				
