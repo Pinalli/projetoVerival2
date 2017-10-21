@@ -125,7 +125,7 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
-		updateValorTotal();
+		updateValorTotal()
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -294,7 +294,7 @@ $(document).ready(function() {
 		row.find("#lip").val(ingrediente.lipidios);
 		row.find("#kcal").val(kcal);
 		row.find("#valor-unitario").val(ingrediente.custo);
-		row.find("#custo-real").val(ingrediente.custo);
+		row.find("#custo-real").val(2);
 		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
 		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
 	}
@@ -375,7 +375,25 @@ $(document).ready(function() {
 	}
 
 	function updateValorTotal(){
-		$("#valorTotalFicha").val(function soma(){return 2+2;});
+		$("#valorTotalFicha").val(0);
+		$(".table-row").not(".configurado").each(function(){
+			var row = $(this);
+			var select = row.find("#select-ingredientes");
+			if(select.val()){
+				somaValor(row, select.val());
+			}
+			select.change(function(){
+				var id = $(this).val();
+				$("#valorTotalFichaHidden").val($("#valorTotalFicha").val()+somaValor(row, id));
+			});
+		});
+		$("#valorTotalFicha").val($("#valorTotalHidden").val());
+	}
+	updateValorTotal()
+	
+	function somaValor(row, id){
+		return row.find("#custo-real").val();
+		
 	}
 	
 //	function updateValorTotal(){
