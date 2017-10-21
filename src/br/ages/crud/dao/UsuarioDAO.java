@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.mysql.jdbc.Statement;
 
@@ -142,7 +144,6 @@ public class UsuarioDAO {
 		Integer idUsuario = null;
 
 		try {
-			
 			conexao = ConexaoUtil.getConexao();
 
 			StringBuilder sql = new StringBuilder();
@@ -172,14 +173,27 @@ public class UsuarioDAO {
 			ResultSet resultset = statement.getGeneratedKeys();
 			if (resultset.first()) {
 				idUsuario = resultset.getInt(1);
-
 			}
-			return idUsuario;
+			
+		} catch (SQLException e) {
 
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			//throw new PersistenciaException(MensagemContantes.MSG_ERR_USUARIO_JA_EXISTENTE.replace("?", usuario.getUsuario()));
-
+			// Dispara a exceção apropriada, dependendo da mensagem de erro vinda do banco.
+			Pattern pattern = Pattern.compile("Duplicate entry '(?<value>.*)' for key '(?<key>.*)'");
+			Matcher matcher = pattern.matcher(e.getMessage());
+			
+			if (matcher.find()) {
+				String campoDuplicado = matcher.group("key");
+				String valorCampoDuplicado = matcher.group("value");
+				if (campoDuplicado.equals("CPF_UNIQUE")) {
+					throw new PersistenciaException(MensagemContantes.MSG_ERR_CPF_JA_EXISTENTE.replace("?", valorCampoDuplicado));
+				} else if (campoDuplicado.equals("USUARIO")) {
+					throw new PersistenciaException(MensagemContantes.MSG_ERR_USUARIO_JA_EXISTENTE.replace("?", valorCampoDuplicado));
+				}
+			} else {
+				throw new PersistenciaException(MensagemContantes.MSG_ERR_USUARIO_DADOS_INVALIDOS);				
+			}
+		} catch (ClassNotFoundException e) {
+			throw new PersistenciaException(MensagemContantes.MSG_ERR_BANCO_DE_DADOS);
 		} finally {
 			conexao.close();
 		}
