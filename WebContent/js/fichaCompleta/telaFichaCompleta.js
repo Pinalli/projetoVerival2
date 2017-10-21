@@ -125,6 +125,7 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
+		updateValorTotal();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -282,7 +283,7 @@ $(document).ready(function() {
 	updateIngredienteListener();
 	
 	/**
-	 * Atualiza campos referntes ao ingrediente
+	 * Atualiza campos referentes ao ingrediente
 	 * @param ingrediente
 	 * @returns
 	 */
@@ -297,7 +298,7 @@ $(document).ready(function() {
 		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
 		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
 	}
-	
+		
 	/**
 	 * Busca ingrediente pelo ID
 	 * @param id
@@ -318,20 +319,20 @@ $(document).ready(function() {
 		});
 	}
 	
-		function updateQuantidades(){
-			$(".table-row").not(".configurado").each(function(){
-				var row = $(this);
-				var select = row.find("#select-ingredientes");
-				if(select.val()){
-					multiplica(row, select.val());
-				}
-				select.change(function(){
-					var id = $(this).val();
-					multiplica(row, id);
-				});
+	function updateQuantidades(){
+		$(".table-row").not(".configurado").each(function(){
+			var row = $(this);
+			var select = row.find("#select-ingredientes");
+			if(select.val()){
+				multiplica(row, select.val());
+			}
+			select.change(function(){
+				var id = $(this).val();
+				multiplica(row, id);
 			});
-		}
-		updateQuantidades();
+		});
+	}
+	updateQuantidades();
 	
 	function multiplica(row, id){
 		row.find("#qnt-unidade-medida").change(function() {
@@ -368,9 +369,29 @@ $(document).ready(function() {
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 			else y =x;
 			row.find("#indice-de-coccaoShow").val(y);
+
+			updateValorTotal();
 		});
 	}
 
+	function updateValorTotal(){
+		$("#valorTotalFicha").val(function soma(){return 2+2;});
+	}
+	
+//	function updateValorTotal(){
+//		$(".table-row").not(".configurado").each(function(){
+//			var row = $(this);
+//			var select = row.find("#select-ingredientes");
+//			if(select.val()){
+//				multiplica(row, select.val());
+//			}
+//			select.change(function(){
+//				var id = $(this).val();
+//				$(valorTotalFicha).val() = $(valorTotalFicha).val() + extraiValorIngrediente();
+//				
+//			});
+//		});
+//	}
 	
 	$(function() {
 		$("#imgFile").change(function() {
