@@ -12,10 +12,13 @@
     		    var size = $("#size").val();
    		
             // Setar o tamanho da div pelo input fornecido pelo usuário
+    		if(!isNaN(parseFloat(size)) && isFinite(size)){
+    		    if(size>=300 && size <=600){
             $("#renderPDF").width(size).css('max-width','none');
             $("#renderPDF").height(size).css('max-height','none');
-            
-           
+
+		    }}
+
    	
             // Aqui ele cria a imagem e cria o pdf
             html2canvas($('#renderPDF'), {
