@@ -20,7 +20,7 @@ public class NewUserCommand implements Command {
 	private String proxima;
 	
 	private final StatusUsuario DEFAULT_STATUS = StatusUsuario.ATIVO;
-	private final PerfilAcesso DEFAULT_PROFILE = PerfilAcesso.ADMINISTRADOR;
+	private final PerfilAcesso DEFAULT_PROFILE = PerfilAcesso.NAVEGADOR;
 	
 	/**
 	 * Comando de criação de usuário padrão do sistema.
