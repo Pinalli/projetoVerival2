@@ -2,17 +2,22 @@
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@page import="br.ages.crud.model.Usuario"%>
+<%@page import="br.ages.crud.bo.UsuarioBO"%>
 <%@page import="br.ages.crud.model.TipoUsuario"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
-<jsp:include page="../template/head.jsp"></jsp:include>
-
 <head>
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/bootstrap.min.js"></script>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/mostrarsenha.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
 <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
 </head>
+<div class="container">    	
 	<div class="panel panel-success panel-addUser">
 	
 		<div class="panel-heading text-center" id="cadastro-head">
@@ -68,7 +73,8 @@
 						</div>
 						<label class="form-label ages">Tipo de Usuário: <span class="red">*</span></label> <select class="form-control" id="tipoUsuario" name="tipoUsuario" required>
 							<%
-								List<TipoUsuario> listaTipoUsuarios = (List<TipoUsuario>) request.getAttribute("tipoUsuarios");
+								UsuarioBO usuarioBO = new UsuarioBO();
+								List<TipoUsuario> listaTipoUsuarios = usuarioBO.listaTipoUsuarios();
 								for (TipoUsuario tipoUsuario : listaTipoUsuarios) {
 							%>
 							<option value="<%=tipoUsuario.getIdTipoUsuario()%>"><%=tipoUsuario.getNome()%></option>
@@ -89,5 +95,5 @@
 				</form>
 		</div>
 	</div>
-
+</div>
 <jsp:include page="/template/foot.jsp"></jsp:include>
