@@ -158,6 +158,7 @@
 						class="form-control text-center box-transparent" value = "0"
 						placeholder="Valor Total" />
 					<input type="hidden" name="valorTotalFichaHidden" id="valorTotalFichaHidden" value = "0"/>
+					
 			</div>
 		
 			<div class="row">

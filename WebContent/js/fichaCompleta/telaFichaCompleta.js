@@ -2,6 +2,7 @@ $(document).ready(function() {
 	var RESOLUCAO_MINIMA = 990;
 	var RESOLUCAO_MAX = 99000;
 	var qntIngredientes = 2;
+	var custos = [];
 	
 	setSelect2();
 
@@ -125,7 +126,8 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
-		updateValorTotal()
+		//somaValor();
+		somaVetor();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -189,6 +191,7 @@ $(document).ready(function() {
 			    scrollTop: target.offset().top
 			}, 1000);
 		}
+		somaValor();
 	}
 	
 	/**
@@ -327,6 +330,7 @@ $(document).ready(function() {
 				multiplica(row, select.val());
 			}
 			select.change(function(){
+				var valor = $("#valorTotalFicha").val();
 				var id = $(this).val();
 				multiplica(row, id);
 			});
@@ -361,6 +365,10 @@ $(document).ready(function() {
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 			else y =x;
 			row.find("#custo-realShow").val(y);
+
+			//$("#valorTotalFichaHidden").val(y);
+			insereVetor(row, y);
+			
 			x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 			else y =x;
@@ -369,48 +377,40 @@ $(document).ready(function() {
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 			else y =x;
 			row.find("#indice-de-coccaoShow").val(y);
-
-			updateValorTotal();
+			
 		});
 	}
 
-	function updateValorTotal(){
-		$("#valorTotalFicha").val(0);
-		$(".table-row").not(".configurado").each(function(){
-			var row = $(this);
-			var select = row.find("#select-ingredientes");
-			if(select.val()){
-				$("#valorTotalFichaHidden").val($("#valorTotalFicha").val()+somaValor(row, id));
+	function insereVetor(row, custoUni){
+		var custo = {linha: row, valorUni: custoUni}
+		custos.push(custo); 
+		show(custo.custoUni)
+	}
+	
+	function somaVetor(){
+		eliminaIguais();
+		var total = 0;
+		for (var ind = 0; ind < custos.length; ind++) {
+			total = custos[i].custoUni + total;
+		}
+		$("#valorTotalFicha").val(total);
+	}
+	
+	function eliminaIguais(){
+		for (var i = 0; i < custos.length-1; i++) {
+			if (custos[i].linha==custos[i+1].linha){
+				custos[i].custo = 0;
+				eliminaIguais();
 			}
-			select.change(function(){
-				var id = $(this).val();
-				$("#valorTotalFichaHidden").val($("#valorTotalFicha").val()+somaValor(row, id));
-			});
-		});
-		$("#valorTotalFicha").val($("#valorTotalFichaHidden").val());
+		}
 	}
-	updateValorTotal()
 	
-	function somaValor(row, id){
-		return row.find("#custo-real").val();
+	function somaValor(){
+		var valor = $("#valorTotalFicha").val();
+		if (valor>0) $("#valorTotalFicha").val($("#valorTotalFicha").val()*1+$("#valorTotalFichaHidden").val()*1);
+		else $("#valorTotalFicha").val($("#valorTotalFichaHidden").val());
+	}
 		
-	}
-	
-//	function updateValorTotal(){
-//		$(".table-row").not(".configurado").each(function(){
-//			var row = $(this);
-//			var select = row.find("#select-ingredientes");
-//			if(select.val()){
-//				multiplica(row, select.val());
-//			}
-//			select.change(function(){
-//				var id = $(this).val();
-//				$(valorTotalFicha).val() = $(valorTotalFicha).val() + extraiValorIngrediente();
-//				
-//			});
-//		});
-//	}
-	
 	$(function() {
 		$("#imgFile").change(function() {
 			var file = this.files[0];
