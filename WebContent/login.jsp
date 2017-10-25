@@ -50,10 +50,15 @@
 			            	<label class="form-label ages">Senha:</label>
 			            	<input class="form-control" id="senha" name="senha" value="${param.senha}" type="password" maxlength="15" required>
 		            	</div>
-		             	<a class="text-left" href="newUser.jsp" id="cadastro" title="Clique para cadastrar uma nova conta">Novo cadastro</a>
-		            	<div class="pull-right">
-		            		<i class="glyphicon glyphicon-lock"></i>
-		            		<a href="" data-toggle="modal" data-id="login" data-usuario="#login" data-target="#modalSenha" title="Clique para recuperar a sua senha">Recuperar senha</a>
+		            	<div class="line">
+			            	<div align="left" style="display: inline;">
+			            		<i class="glyphicon glyphicon-user"></i>
+				             	<a href="newUser.jsp" id="novoCadastro" title="Clique para cadastrar uma nova conta">Novo cadastro</a>
+			            	</div>
+			            	<div class="pull-right" style="display: inline;">
+			            		<i class="glyphicon glyphicon-lock"></i>
+			            		<a href="" data-toggle="modal" data-id="login" data-usuario="#login" data-target="#modalSenha" title="Clique para recuperar a sua senha">Recuperar senha</a>
+			             	</div>
 		             	</div>
 		             	<hr>
 			            <div class="text-center">
@@ -61,10 +66,6 @@
 			         	</div>
 			         </form>
 			         <br>
-			         
-			         	<div class="text-center">
-			             	<a class="btn btn-success login pull-center" href="newUser.jsp">Cadastrar</a>
-			         	</div>
 		         </div>
 		         
 	         </div>
