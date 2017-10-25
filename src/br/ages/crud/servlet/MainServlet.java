@@ -43,6 +43,7 @@ public class MainServlet extends HttpServlet {
 		comandos.put("addUser", new AddUserCommand());
 		comandos.put("editUser", new EditUserCommand());
 		comandos.put("removerUsuario", new RemoveUserCommand());
+		comandos.put("newUser", new NewUserCommand());
 
 		// COMANDOS DE UNIDADE MEDIDA
 		comandos.put("listUnidadeMedida", new ListUnidadeMedidaCommand());

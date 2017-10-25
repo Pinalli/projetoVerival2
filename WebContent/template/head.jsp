@@ -1,4 +1,6 @@
 <%@page import="br.ages.crud.model.Usuario"%>
+<%@page import="br.ages.crud.model.PerfilAcesso"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -91,7 +93,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
-      <ul class="nav navbar-nav">        
+      <ul class="nav navbar-nav"> 
+      	<% if(usuarioSessao.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR)) { %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -99,7 +102,7 @@
             <li><a href="main?acao=telaUser">Cadastrar</a></li>            
           </ul>
         </li>
-         
+                 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -107,7 +110,7 @@
             <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
           </ul>
         </li>
-        
+      	<% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredientes <span class="caret"></span></a>
           <ul class="dropdown-menu">

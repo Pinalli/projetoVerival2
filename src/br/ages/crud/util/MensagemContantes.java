@@ -2,6 +2,7 @@ package br.ages.crud.util;
 
 public class MensagemContantes {
 	//gerais: cadastro, login, logout
+	public static final String MSG_ERR_BANCO_DE_DADOS = "Erro fatal: conexão com o banco de dados não pode ser estabelecida.";
 	public static final String MSG_ERR_CNPJ_INVALIDA = " campo cnpj invalido";
 	public static final String MSG_ERR_CAMPO_CNPJ_MENOR_RECOMENDADO = "Campo ? com menos de 11 caracteres!";
 	public static final String MSG_ERR_CAMPO_CNPJ_MAIOR_RECOMENDADO = "Campo ? com mais de 11 caracteres!";
@@ -28,8 +29,9 @@ public class MensagemContantes {
 	public static final String MSG_ERR_CAMPO_UF_OBRIGATORIO = "Campo UF obrigatorio!";
 	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!<br>Exemplo correto: ages_user@acad.pucrs.br";
 	public static final String MSG_ERR_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo correto: Joï¿½o Cardoso";
-	public static final String MSG_ERR_USUARIO_JA_EXISTENTE = "Usuário ou matrï¿½culajá cadastrados!";
-	public static final String MSG_ERR_REMOVE_USUARIO_EM_PROJETO = "Este Usuáriojá está em algum projeto e não pode ser removido!";
+	public static final String MSG_ERR_USUARIO_JA_EXISTENTE = "Usuário ? já cadastrado!";
+	public static final String MSG_ERR_CPF_JA_EXISTENTE = "CPF ? já cadastrado!";
+	public static final String MSG_ERR_REMOVE_USUARIO_EM_PROJETO = "Este Usuário já está em algum projeto e não pode ser removido!";
 	public static final String MSG_SUC_CADASTRO_PESSOA = "Cadastro de Pessoa efetuado com sucesso!";
 	public static final String MSG_SUC_CADASTRO_USUARIO = "Usuário ? cadastrado com sucesso!";
 	public static final String MSG_SUC_EDICAO_USUARIO = "Usuário ? editado com sucesso!";
