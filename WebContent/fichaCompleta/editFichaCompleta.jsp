@@ -93,7 +93,7 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
-								placeholder="Qnt" min="0.001" max="9999" step="0.001" 
+								placeholder="Qnt" min="0" max="9999" step="any" 
 								name="qnt-unidade-medida"
 								value="<%= item.getQuantidadeUnidadeMedida()%>">
 						</div>
@@ -109,7 +109,7 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
-								placeholder="Qnt" min="0.001" max="9999" step="0.001"
+								placeholder="Qnt" min="0" max="9999" step="any"
 								name="qnt-medida-caseira"
 								value="<%= item.getQuantidadeMedidaCaseira()%>">
 						</div>

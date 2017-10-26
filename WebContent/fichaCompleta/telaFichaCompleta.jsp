@@ -140,7 +140,7 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
-								placeholder="Qnt" min="0.001" max="9999" name="qnt-unidade-medida">
+								placeholder="Qnt" min="0" max="9999" step="any" name="qnt-unidade-medida">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-unidade-medida" class="">Unidade de
@@ -152,7 +152,7 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
-								placeholder="Qnt" min="0.1" max="100" step="0.1"
+								placeholder="Qnt" min="0" max="9999" step="any"
 								name="qnt-medida-caseira">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
