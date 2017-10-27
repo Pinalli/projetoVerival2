@@ -1,6 +1,7 @@
 package br.ages.crud.servlet;
 
 import br.ages.crud.bo.EmpresaBO;
+import br.ages.crud.bo.FichaCompletaBO;
 import br.ages.crud.util.Constantes;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
@@ -49,7 +50,7 @@ public class FileUploadServlet extends HttpServlet {
 			if(fichaSimplificada){
 				idFicha = Integer.valueOf(request.getParameter("idFicha"));
 				if(idFicha == 0){
-					idFicha = new FichaSimplificadaBO().getProximoIdFicha();
+					idFicha = new FichaCompletaBO().getProximoIdFicha();
 				}
 				appPath = "fichas"+File.separator+"ficha-"+idFicha;
 				savePath += appPath;
@@ -71,7 +72,7 @@ public class FileUploadServlet extends HttpServlet {
 				//gravar foto ficha-id/foto-ficha-id.extensao
 				fileName = "foto-ficha-"+idFicha+"."+FilenameUtils.getExtension(fileName);
 			}
-
+			System.out.println(savePath + fileName);
 			if(empresa){
 				int idEmpresa = Integer.valueOf(request.getParameter("idEmpresa"));
 				if(idEmpresa == 0){
