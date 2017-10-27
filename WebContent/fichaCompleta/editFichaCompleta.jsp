@@ -51,13 +51,13 @@
 				</div>
 
 				<div class="col-md-4 col-md-offset-4">
-                					<label for="tempoPreparo"
-                						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de Preparo</label>
+   					<label for="tempoPreparo"
+   						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de Preparo</label>
 
-                					<input type="text" name="tempoPreparo" id="tempoPreparo"
-                						class="form-control text-center box-transparent"
-                						placeholder="Tempo de Preparo" />
-                				</div>
+   					<input type="text" name="tempoPreparo" id="tempoPreparo"
+   						class="form-control text-center box-transparent"
+   						placeholder="Tempo de Preparo" value="<%=ficha.getTempoPreparo()%>" />
+   				</div>
 
 
 			<div class="row">
