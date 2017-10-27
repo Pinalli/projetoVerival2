@@ -3,6 +3,8 @@ $(document).ready(function() {
 	var RESOLUCAO_MAX = 99000;
 	var qntIngredientes = 2;
 	var custos = [];
+	var rows=[];
+	var z =0;
 	
 	setSelect2();
 
@@ -365,9 +367,10 @@ $(document).ready(function() {
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 			else y =x;
 			row.find("#custo-realShow").val(y);
-
-			//$("#valorTotalFichaHidden").val(y);
-			insereVetor(row, y);
+			
+			rows[z]=row;
+			custos[z]=y;
+			z++;
 			
 			x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
@@ -381,34 +384,24 @@ $(document).ready(function() {
 		});
 	}
 
-	function insereVetor(row, custoUni){
-		var custo = {linha: row, valorUni: custoUni}
-		custos.push(custo); 
-		show(custo.custoUni)
-	}
-	
 	function somaVetor(){
 		eliminaIguais();
 		var total = 0;
-		for (var ind = 0; ind < custos.length; ind++) {
-			total = custos[i].custoUni + total;
+		for (var v=0;v<custos.length();v++){
+			total = total + custos[v];
 		}
-		$("#valorTotalFicha").val(total);
+		return total;
 	}
 	
 	function eliminaIguais(){
-		for (var i = 0; i < custos.length-1; i++) {
-			if (custos[i].linha==custos[i+1].linha){
-				custos[i].custo = 0;
-				eliminaIguais();
+		for (var i = 0; i < custos.length()-1; i++) {
+			for(var j =1;j<custos.length();j++){
+				if (rows[i]==rows[j]){
+					custos[i] = 0;
+				}
 			}
+			
 		}
-	}
-	
-	function somaValor(){
-		var valor = $("#valorTotalFicha").val();
-		if (valor>0) $("#valorTotalFicha").val($("#valorTotalFicha").val()*1+$("#valorTotalFichaHidden").val()*1);
-		else $("#valorTotalFicha").val($("#valorTotalFichaHidden").val());
 	}
 		
 	$(function() {
