@@ -100,7 +100,7 @@ $(document).ready(function() {
 		}else if(data.rendimento == '' || data.rendimento === null){
 			showModalErro("Dados da ficha incompletos", "Informe o rendimento");
 			return false;
-		}else if(data.tempoPreparo == '' || data.tempoPreparo === null) {
+		}else if(data.tempoPreparo == '' || data.tempoPreparo === null || data.tempoPreparo < 0) {
 			showModalErro("Dados da ficha impletos", "Informe o tempo de preparo");
 			return false;
 		}else if(data.foto == '' || data.foto === null){
@@ -127,7 +127,7 @@ $(document).ready(function() {
 		}else if(data.apresentacao == '' || data.apresentacao === null){
 			showModalErro("Dados da ficha incompletos", "Informe a apresentacao");
 			return false;
-		}else if(data.temperatura == '' || data.temperatura === null){
+		}else if(data.temperatura == '' || data.temperatura === null || data.temperatura < 0){
 			showModalErro("Dados da ficha incompletos", "Informe a temperatura");
 			return false;
 		}
