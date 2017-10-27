@@ -15,8 +15,8 @@ services:
       MYSQL_DATABASE: ficha_e
 
     volumes:
-      - BD:/var/lib/mysql
-      - scripts/:/docker-entrypoint-initdb.d/
+      - $PWD/BD:/var/lib/mysql
+      - $PWD/scripts/:/docker-entrypoint-initdb.d/
 
   adminer:
     image: adminer
@@ -37,4 +37,4 @@ services:
        - JPDA_TRANSPORT=dt_socket
         # observe que a aplicacao devera ser montada a partir da pasta onde se localiza o war - note tambem que a url ficara com o nome do arquivo
      volumes:
-       - target:/usr/local/tomcat/webapps/
+       - $PWD/target:/usr/local/tomcat/webapps/
