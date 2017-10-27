@@ -18,9 +18,9 @@ import java.util.ResourceBundle;
 
 /**
  * Grava a imagem no savePath.
- * É necessário passar o input com o name "file"
+ *  necessrio passar o input com o name "file"
  * Servlet implementation class FileUploadServlet
- * Para a empresa é necessário gravar em um outro path.
+ * Para a empresa  necessrio gravar em um outro path.
  * @author Luis Santana
  */
 @WebServlet("/upload")
@@ -45,6 +45,16 @@ public class FileUploadServlet extends HttpServlet {
 			this.criaPastas();
 			String appPath = "";
 			String savePath = SAVE_DIR+File.separator+"upload"+File.separator;
+			
+			if(fichaSimplificada){
+				idFicha = Integer.valueOf(request.getParameter("idFicha"));
+				if(idFicha == 0){
+					idFicha = new FichaSimplificadaBO().getProximoIdFicha();
+				}
+				appPath = "fichas"+File.separator+"ficha-"+idFicha;
+				savePath += appPath;
+			}
+
 			if (empresa){
 				appPath = "logo";
 				savePath += appPath;
