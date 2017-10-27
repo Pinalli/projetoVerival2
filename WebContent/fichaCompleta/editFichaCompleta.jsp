@@ -49,14 +49,6 @@
 						class="form-control text-center box-transparent"
 						placeholder="Rendimento" value="<%=ficha.getRendimento()%>"/>
 				</div>
-				<div class="col-md-4 col-md-offset-4">
-                					<label for="tempoDePreparo"
-                						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de Preparo</label>
-
-                					<input type="text" name="tempoDePreparo" id="tempoDePreparo"
-                						class="form-control text-center box-transparent"
-                						placeholder="Tempo de Preparo" />
-                				</div>
 
 
 			<div class="row">
