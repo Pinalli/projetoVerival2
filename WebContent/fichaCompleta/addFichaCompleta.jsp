@@ -45,7 +45,7 @@
 				</div>
 				<div class="col-md-4 col-md-offset-4">
 					<label for="tempoDePreparo"
-						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de Preparo</label>
+						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de preparo</label>
 					
 					<input type="text" name="tempoDePreparo" id="tempoDePreparo"
 						class="form-control text-center box-transparent"
@@ -82,7 +82,7 @@
 								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
-							<label for="select-unidade-medida" class="">Unidadede
+							<label for="select-unidade-medida" class="">Unidade de
 								medida</label> <select id="select-unidade-medida"
 								name="select-unidade-medida" data-native-menu="false"
 								class="form-control selectBatata">
@@ -97,7 +97,7 @@
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
-								Caseira</label> <select id="select-medida-caseira"
+								caseira</label> <select id="select-medida-caseira"
 								name="select-medida-caseira" data-native-menu="false"
 								class="form-control selectBatata">
 							</select>
@@ -124,22 +124,22 @@
 								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="valor-unitario" class="">Valor Unitário</label> 
+								<label for="valor-unitario" class="">Valor unitário</label> 
 								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
 								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="custo-real" class="">Custo Real</label>
+								<label for="custo-real" class="">Custo real</label>
 								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly>
 								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="fator-de-correcao" class="">Fator de Correção</label>
+								<label for="fator-de-correcao" class="">Fator de correção</label>
 								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
 								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="indice-de-coccao" class="">Índice de Cocção</label>
+								<label for="indice-de-coccao" class="">Índice de cocção</label>
 								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
@@ -155,7 +155,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-2 col-md-offset-8">
-						<a class="btn btn-success pull-right" id="add-row-btn">Novo Item</a>
+						<a class="btn btn-success pull-right" id="add-row-btn">Novo item</a>
 					</div>
 				</div>
 			</div>
@@ -186,7 +186,7 @@
 					<div class="row">
 						<div class="panel panel-info">
 							<div class="panel-heading trigger-display" data-target="modo-preparo-content">
-                                Modo de Preparo
+                                Modo de preparo
                             </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
