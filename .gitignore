@@ -10,6 +10,7 @@ pom.xml
 /FichaTP.iml
 .idea/
 .classpath
+.externalToolBuilders/
 FichaTecnicaPreparo.iml
 .DS_Store
 BD/*
