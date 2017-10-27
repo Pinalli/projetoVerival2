@@ -107,6 +107,13 @@
 					class="form-control text-center box-transparent"
 					placeholder="Rendimento" />
 			</div>
+			<div class="col-xs-6 col-sm-4">
+				<label for="tempoPreparo" class="col-md-12 col-md-offset-9 form-control-static">Tempo de Preparo</label>
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<input type="text" name="tempoPreparo" id="tempoPreparo" class="form-control text-center box-transparent"
+				placeholder="Tempo de Preparo"/>
+			</div>
 
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
@@ -222,6 +229,17 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="modoprep7">
+					<div class="row">
+						<div class="panel panel-info">
+							<div class="panel-heading" id="tempoPreparo">Tempo de Preparo</div>
+						</div>
+					<div class="col-md-9 col-md-offset-1">
+						<div class="form-group hide" id="tempoPreparo">
+							<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+							<textarea rows="10" cols="" class="form-control" name="tempPreparo"></textarea>
+						</div>
+					</div>
+					</div>
 					<div class="row">
 						<div class="panel panel-info">
 							<div class="panel-heading" id="mdpreparo">Modo de Preparo</div>

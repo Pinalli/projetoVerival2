@@ -50,10 +50,19 @@
 						placeholder="Rendimento" value="<%=ficha.getRendimento()%>"/>
 				</div>
 
+				<div class="col-md-4 col-md-offset-4">
+   					<label for="tempoPreparo"
+   						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de preparo</label>
+
+   					<input type="text" name="tempoPreparo" id="tempoPreparo"
+   						class="form-control text-center box-transparent"
+   						placeholder="Tempo de Preparo" value="<%=ficha.getTempoPreparo()%>" />
+   				</div>
+
+
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
-
 
 			<div class="row" id="table-rows">
 					
@@ -66,7 +75,7 @@
 					<input type="hidden" name="idFichaItem" id="idFichaItem" value="<%= item.getIdFichaItem() %>"/>
 					<input type="hidden" name="idFicha" id="idFicha" value="<%= item.getIdFicha() %>"/>
 					<input type="hidden" name="operacao" id="operacao" value="u"/>
-					<div class="panel panel-info">
+					<div class="panel panel-info" style="margin-top:20px">
 						<div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div>
 					</div>
 
@@ -78,7 +87,6 @@
 								data-live-search="true" class="form-control selectBatata"
 								data-selected-id="<%= item.getIdIngrediente() %>" 
 								data-selected-text="<%= item.getIngrediente() %>">
-								</script>
 							</select>
 						</div>
 
@@ -90,7 +98,7 @@
 								value="<%= item.getQuantidadeUnidadeMedida()%>">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
-							<label for="select-unidade-medida" class="">Unidadede
+							<label for="select-unidade-medida" class="">Unidade de
 								medida</label> <select id="select-unidade-medida"
 								name="select-unidade-medida" data-native-menu="false"
 								class="form-control selectBatata"
@@ -108,7 +116,7 @@
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
-								Caseira</label> <select id="select-medida-caseira"
+								caseira</label> <select id="select-medida-caseira"
 								name="select-medida-caseira" data-native-menu="false"
 								class="form-control selectBatata"
 								data-selected-id="<%= item.getIdMedidaCaseira()%>" 
@@ -137,22 +145,22 @@
 								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="valor-unitario" class="">Valor Unitário</label> 
+								<label for="valor-unitario" class="">Valor unitário</label> 
 								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
 								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="custo-real" class="">Custo Real</label>
+								<label for="custo-real" class="">Custo real</label>
 								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly>
 								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="fator-de-correcao" class="">Fator de Correção</label>
+								<label for="fator-de-correcao" class="">Fator de correção</label>
 								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
 								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="indice-de-coccao" class="">Índice de Cocção</label>
+								<label for="indice-de-coccao" class="">Índice de cocção</label>
 								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
@@ -193,7 +201,7 @@
 								value="">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
-							<label for="select-unidade-medida" class="">Unidadede
+							<label for="select-unidade-medida" class="">Unidade de
 								medida</label> <select id="select-unidade-medida"
 								name="select-unidade-medida" data-native-menu="false"
 								class="form-control selectBatata"
@@ -211,7 +219,7 @@
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
-								Caseira</label> <select id="select-medida-caseira"
+								caseira</label> <select id="select-medida-caseira"
 								name="select-medida-caseira" data-native-menu="false"
 								class="form-control selectBatata"
 								data-selected-id="" 
@@ -240,22 +248,22 @@
 								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="valor-unitario" class="">Valor Unitário</label> 
+								<label for="valor-unitario" class="">Valor unitário</label> 
 								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
 								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="custo-real" class="">Custo Real</label>
+								<label for="custo-real" class="">Custo real</label>
 								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly>
 								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="fator-de-correcao" class="">Fator de Correção</label>
+								<label for="fator-de-correcao" class="">Fator de correção</label>
 								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
 								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="indice-de-coccao" class="">Índice de Cocção</label>
+								<label for="indice-de-coccao" class="">Índice de cocção</label>
 								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
@@ -295,23 +303,19 @@
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="utensilios-equipamentos-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-								name="utensiliosEquipamentos"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="utensiliosEquipamentos"><%=ficha.getUtensilios()%></textarea>
 							</div>
 						</div>
 					</div>
+					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de Preparo</div>
+							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de preparo</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="modo-preparo-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<label class="text-center col-md-12 col-sm-12 col-xs-12">	</label>
 								<textarea rows="10" cols="" class="form-control"
 									name="modoPreparo"><%=ficha.getModoPreparo()%></textarea><br>
-									<label class="text-center">Tempo de Preparo
-									<input class="form-control text-left col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="tempoPreparo" 
-									name="tempoPreparo" value="" type="text" maxlength="15">
-								</label>
 							</div>
 						</div>
 					</div>
@@ -329,7 +333,7 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">Orientações e
+							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">Orientações de
 								armazenamento</div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
@@ -381,10 +385,18 @@
 							<div class="form-group hide" id="apresentacao-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="apresentacao"><%=ficha.getApresentacao()%></textarea><br><label class="text-center">Temperatura
-									<input class="text-center col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="temperatura" name="temperatura" 
-									value="" type="text" maxlength="15">
-								</label>
+									name="apresentacao"><%=ficha.getApresentacao()%></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="panel panel-info">
+							<div class="panel-heading trigger-display" data-target="temperatura-content">Temperatura</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group hide" id="temperatura-content">
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<textarea rows="10" cols="" class="form-control" name="temperatura"><%=ficha.getTemperatura()%></textarea>
 							</div>
 						</div>
 					</div>
@@ -403,6 +415,7 @@
 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
 					</div>
 				</div>
+			</div>
 		</form>
 
 	</article>

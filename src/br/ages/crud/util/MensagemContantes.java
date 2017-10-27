@@ -103,6 +103,9 @@ public class MensagemContantes {
 	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_TEXTURA = "Campo textura obrigatório!";
 	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_SABOR = "Campo sabor obrigatório!";
 	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_APRESENTACAO = "Campo apresentação obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_TEMPO_PREPARO = "Campo tempo de preparo obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_UTENSILIOS = "Campo utensilios obrigatório!";
+	public static final String MSG_ERR_FICHA_COMPLETA_CAMPO_TEMPERATURA = "Campo temperatura obrigatório!";	
 	public static final String MSG_ERR_REMOVE_FICHA_COMPLETA_EM_PROJETO = "Esta Ficha já está em algum projeto e não pode ser removido!";
 	
 }

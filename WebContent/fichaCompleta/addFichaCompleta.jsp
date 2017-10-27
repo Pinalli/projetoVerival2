@@ -11,7 +11,8 @@
 </head>
 <body>
 	<article>
-		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm" method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
+		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm"
+			method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
 			<div class="form-group col-md-4 col-md-offset-4">
 				<input type="text" name="nome" id="nome"
 					class="form-control text-center box-transparent"
@@ -19,20 +20,20 @@
 			</div>
 
 			<!-- File Button -->
-				<div class="form-group col-md-12">
-					<!--label class="col-md-3 control-label ages" for="Foto"></label-->
-					<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
-						<input id="imgFile" name="imgFile" class="input-file" type="file">
-					</div>
+			<div class="form-group col-md-12">
+				<!--label class="col-md-3 control-label ages" for="Foto"></label-->
+				<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
+					<input id="imgFile" name="imgFile" class="input-file" type="file">
 				</div>
-				<div class="form-group col-md-12">
-					<div id="image_preview">
-						<img id="previewing" src=""
-							class="img-responsive img-thumbnail center-block" />
-					</div>
+			</div>
+			<div class="form-group col-md-12">
+				<div id="image_preview">
+					<img id="previewing" src=""
+						class="img-responsive img-thumbnail center-block" />
 				</div>
-				<h4 id='loading'></h4>
-				<div id="message"></div>
+			</div>
+			<h4 id='loading'></h4>
+			<div id="message"></div>
 
 
 				<div class="col-md-4 col-md-offset-4">
@@ -41,6 +42,14 @@
 					<input type="text" name="rendimento" id="rendimento"
 						class="form-control text-center box-transparent"
 						placeholder="Rendimento" />
+				</div>
+				<div class="col-md-4 col-md-offset-4">
+					<label for="tempoDePreparo"
+						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de preparo</label>
+					
+					<input type="text" name="tempoDePreparo" id="tempoDePreparo"
+						class="form-control text-center box-transparent"
+						placeholder="Tempo de Preparo" />
 				</div>
 
 			<div class="row">
@@ -73,7 +82,7 @@
 								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
-							<label for="select-unidade-medida" class="">Unidadede
+							<label for="select-unidade-medida" class="">Unidade de
 								medida</label> <select id="select-unidade-medida"
 								name="select-unidade-medida" data-native-menu="false"
 								class="form-control selectBatata">
@@ -88,7 +97,7 @@
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
-								Caseira</label> <select id="select-medida-caseira"
+								caseira</label> <select id="select-medida-caseira"
 								name="select-medida-caseira" data-native-menu="false"
 								class="form-control selectBatata">
 							</select>
@@ -115,28 +124,28 @@
 								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="valor-unitario" class="">Valor Unitário</label> 
+								<label for="valor-unitario" class="">Valor unitário</label> 
 								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
 								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="custo-real" class="">Custo Real</label>
+								<label for="custo-real" class="">Custo real</label>
 								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly>
 								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="fator-de-correcao" class="">Fator de Correção</label>
+								<label for="fator-de-correcao" class="">Fator de correção</label>
 								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
 								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="indice-de-coccao" class="">Índice de Cocção</label>
+								<label for="indice-de-coccao" class="">Índice de cocção</label>
 								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="btn-excluir-wrapper"></div>
+							<div class="btn-excluir-wrapper"></div>
 						</div>
 					</div>
 
@@ -146,7 +155,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-2 col-md-offset-8">
-						<a class="btn btn-success pull-right" id="add-row-btn">Novo Item</a>
+						<a class="btn btn-success pull-right" id="add-row-btn">Novo item</a>
 					</div>
 				</div>
 			</div>
@@ -160,9 +169,11 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="informacoes-content">
-				<div class="row">
+                    <div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">Utensílios e equipamentos</div>
+							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">
+                                Utensílios e equipamentos
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="utensilios-equipamentos-content">
@@ -174,36 +185,36 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de Preparo</div>
+							<div class="panel-heading trigger-display" data-target="modo-preparo-content">
+                                Modo de preparo
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="modo-preparo-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea><br>
-									<label class="text-center">Tempo de Preparo
-									<input class="form-control text-left col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="tempoPreparo" name="tempoPreparo" 
-									value="" type="text" maxlength="15">
-								</label>
+									name="modoPreparo"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="montagem-content">Montagem</div>
+							<div class="panel-heading trigger-display" data-target="montagem-content">
+                                Montagem
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="montagem-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="montagem"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="montagem"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">Orientações e
-								armazenamento</div>
+							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">
+                                Orientações de armazenamento
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="orientacoes-armazenamento-content">
@@ -218,53 +229,67 @@
 			<div class="row"></div>
 
 			<div class="panel panel-info">
-				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">Avaliação sensorial</div>
+				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">
+                    Avaliação sensorial
+                </div>
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="avaliacao-sensorial-content">
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="textura-content">Textura</div>
+							<div class="panel-heading trigger-display" data-target="textura-content">
+                                Textura
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="textura-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="textura"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="textura"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="sabor-content">Sabor</div>
+							<div class="panel-heading trigger-display" data-target="sabor-content">
+                                Sabor
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="sabor-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="sabor"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="sabor"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="apresentacao-content">Apresentação</div>
+							<div class="panel-heading trigger-display" data-target="apresentacao-content">
+                                Apresentação
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="apresentacao-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
-									name="apresentacao"></textarea><br>
-								<label class="text-center">Temperatura
-									<input class="text-center col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="temperatura" name="temperatura" 
-									value="" type="text" maxlength="15">
-								</label>
+									name="apresentacao"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="panel panel-info">
+							<div class="panel-heading trigger-display" data-target="temperatura-content">
+                                Temperatura
+                            </div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group hide" id="temperatura-content">
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<textarea rows="10" cols="" class="form-control" name="temperatura"></textarea>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
@@ -277,6 +302,7 @@
 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
 					</div>
 				</div>
+			</div>
 		</form>
 
 	</article>

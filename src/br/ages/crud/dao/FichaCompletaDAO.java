@@ -43,9 +43,20 @@ public class FichaCompletaDAO {
             		+ "TIPO_FICHA,"
             		+ "TEXTURA,"
             		+ "SABOR,"
-            		+ "APRESENTACAO )");
-            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            		+ "APRESENTACAO, "
+            		
+            		
+            		
+            		
+            		+ "TEMPO_DE_PREPARO, "
+            		+ "UTENSILIOS_E_EQUIPAMENTOS, "
+            		+ "TEMPERATURA )");
+            
+            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            
+            
 
+            
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
             statement.setInt(1, fichaCompleta.getIdEmpresa());
@@ -61,7 +72,17 @@ public class FichaCompletaDAO {
             statement.setString(9, fichaCompleta.getTextura());
     		statement.setString(10,fichaCompleta.getSabor());
 			statement.setString(11,fichaCompleta.getApresentacao());
+			
+			
+			
+			
+			statement.setString(12,fichaCompleta.getTempoPreparo());
+			statement.setString(13,fichaCompleta.getUtensilios());
+			statement.setDouble(14,fichaCompleta.getTemperatura());
 
+			
+			
+			
             statement.executeUpdate();
 
             ResultSet resultset = statement.getGeneratedKeys();
@@ -109,6 +130,15 @@ public class FichaCompletaDAO {
             		+ "TIPO_FICHA, "
             		+ "TEXTURA, "
             		+ "SABOR, "
+            		
+            		
+            		
+            		+ "TEMPO_DE_PREPARO, "
+            		+ "UTENSILIOS_E_EQUIPAMENTOS, "
+            		+ "TEMPERATURA, "
+            		
+            		
+            		
             		+ "APRESENTACAO FROM TB_FICHA WHERE TIPO_FICHA = 'c' ");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -127,6 +157,15 @@ public class FichaCompletaDAO {
                 dto.setTextura(resultset.getString("TEXTURA"));
                 dto.setSabor(resultset.getString("SABOR"));
                 dto.setApresentacao(resultset.getString("APRESENTACAO"));
+                
+                
+                
+                dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
+                dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
+                dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
+                
+                
+                
 
                 listarFichasCompleta.add(dto);
             }
@@ -158,7 +197,17 @@ public class FichaCompletaDAO {
                     + "ORIENTACOES_ARMAZENAMENTO = ?, "
                     + "TEXTURA = ?,"
                     + "SABOR = ?,"
-                    + "APRESENTACAO = ?"
+                    + "APRESENTACAO = ?,"
+                    
+                    
+                    
+                    + "TEMPO_DE_PREPARO = ?,"
+                    + "UTENSILIOS_E_EQUIPAMENTOS = ?,"
+                    + "TEMPERATURA = ?"
+                    
+                    
+                    
+                    
                     + " WHERE ID_FICHA = "+ idFichaCompleta 
                     + " AND TIPO_FICHA = 'c'");
 
@@ -174,6 +223,16 @@ public class FichaCompletaDAO {
             statement.setString(7, fichaCompleta.getTextura());
             statement.setString(8, fichaCompleta.getSabor());
             statement.setString(9, fichaCompleta.getApresentacao());
+            
+            
+            
+            statement.setString(10, fichaCompleta.getTempoPreparo());
+            statement.setString(11, fichaCompleta.getUtensilios());
+            statement.setDouble(12, fichaCompleta.getTemperatura());
+            
+            
+            
+            
             
 			List<FichaItem> itens = fichaCompleta.getItens();
 
@@ -257,6 +316,15 @@ public class FichaCompletaDAO {
 					+  "TEXTURA,"
 					+  "SABOR,"
 					+  "APRESENTACAO,"
+					
+					
+					
+					+ "TEMPO_DE_PREPARO,"
+					+ "UTENSILIOS_E_EQUIPAMENTOS,"
+					+ "TEMPERATURA,"
+					
+					
+					
 					+ " TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 'c' AND ID_FICHA = "+id);
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -275,6 +343,17 @@ public class FichaCompletaDAO {
 				dto.setTextura(resultset.getString("TEXTURA"));
 				dto.setSabor(resultset.getString("SABOR"));
 				dto.setApresentacao(resultset.getString("APRESENTACAO"));
+				
+				
+				
+				
+				dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
+				dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
+				dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
+				
+				
+				
+				
 				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
 			}		
 			
