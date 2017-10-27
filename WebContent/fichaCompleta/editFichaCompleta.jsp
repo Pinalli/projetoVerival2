@@ -50,6 +50,15 @@
 						placeholder="Rendimento" value="<%=ficha.getRendimento()%>"/>
 				</div>
 
+				<div class="col-md-4 col-md-offset-4">
+                					<label for="tempoPreparo"
+                						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de Preparo</label>
+
+                					<input type="text" name="tempoPreparo" id="tempoPreparo"
+                						class="form-control text-center box-transparent"
+                						placeholder="Tempo de Preparo" />
+                				</div>
+
 
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
@@ -307,10 +316,6 @@
 								<label class="text-center col-md-12 col-sm-12 col-xs-12">	</label>
 								<textarea rows="10" cols="" class="form-control"
 									name="modoPreparo"><%=ficha.getModoPreparo()%></textarea><br>
-									<label class="text-center">Tempo de Preparo
-									<input class="form-control text-left col-md-12 col-sm-12 col-xs-12" vertical-align="right" id="tempoPreparo" 
-									name="tempoPreparo" value="" type="text" maxlength="15">
-								</label>
 							</div>
 						</div>
 					</div>
