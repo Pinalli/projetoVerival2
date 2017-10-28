@@ -2,9 +2,6 @@ $(document).ready(function() {
 	var RESOLUCAO_MINIMA = 990;
 	var RESOLUCAO_MAX = 99000;
 	var qntIngredientes = 2;
-	var custos = [];
-	var rows=[];
-	var z =0;
 	
 	setSelect2();
 
@@ -128,8 +125,6 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
-		//somaValor();
-		somaVetor();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -148,6 +143,8 @@ $(document).ready(function() {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 			
 				target.fadeOut(300, function(){
+					var valor = Numer($("#valorTotalFicha").val());
+					$("#valorTotalFicha").val(Number(valor) - (Number(target.find("#custo-real").val())*Number(target.find("#qtd-unidade-medida"))));
 					target.remove();
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
@@ -332,7 +329,6 @@ $(document).ready(function() {
 				multiplica(row, select.val());
 			}
 			select.change(function(){
-				var valor = $("#valorTotalFicha").val();
 				var id = $(this).val();
 				multiplica(row, id);
 			});
@@ -341,7 +337,8 @@ $(document).ready(function() {
 	updateQuantidades();
 	
 	function multiplica(row, id){
-		row.find("#qnt-unidade-medida").change(function() {
+		
+			row.find("#qnt-unidade-medida").change(function() {
 			var x, y;
 			x = row.find("#cho").val()*row.find("#qnt-unidade-medida").val();
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
@@ -368,9 +365,12 @@ $(document).ready(function() {
 			else y =x;
 			row.find("#custo-realShow").val(y);
 			
-			rows[z]=row;
-			custos[z]=y;
-			z++;
+			if($("#valorTotalFicha").val()>0){
+				var valor = Number($("#valorTotalFicha").val());
+				$("#valorTotalFicha").val(Number(valor) + (Number(row.find("#custo-realShow").val()))*0.5);				
+			}else{
+				$("#valorTotalFicha").val(row.find("#custo-realShow").val());
+			}
 			
 			x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
@@ -382,26 +382,6 @@ $(document).ready(function() {
 			row.find("#indice-de-coccaoShow").val(y);
 			
 		});
-	}
-
-	function somaVetor(){
-		eliminaIguais();
-		var total = 0;
-		for (var v=0;v<custos.length();v++){
-			total = total + custos[v];
-		}
-		return total;
-	}
-	
-	function eliminaIguais(){
-		for (var i = 0; i < custos.length()-1; i++) {
-			for(var j =1;j<custos.length();j++){
-				if (rows[i]==rows[j]){
-					custos[i] = 0;
-				}
-			}
-			
-		}
 	}
 		
 	$(function() {
@@ -449,7 +429,6 @@ $(document).ready(function() {
 		$('#previewing').attr('width', '300px');
 		$('#previewing').attr('height', '300px');
 	};
-	
 });
 
 function check_multifile_logo(file) {
@@ -460,4 +439,5 @@ function check_multifile_logo(file) {
         return false;
     }
 }
+document.getElementById("preco").innerHTML = somaVetor();
 

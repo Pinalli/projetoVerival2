@@ -7,7 +7,6 @@
 
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
-<script type="text/javascript" src="js/fichaCompletaCalculos.js"></script>
 </head>
 <body>
 	<article>
@@ -152,13 +151,11 @@
 			</div>
 			
 			<div class="col-md-4 col-md-offset-4">
-					<label for="rendimento"
+					<label for="valorTotal" id="preco"
 						class="col-xs-12 col-sm-12 form-control-static text-center">Valor Total</label>
 					<input type="number" name="valorTotalFicha" id="valorTotalFicha"
 						class="form-control text-center box-transparent" value = "0"
 						placeholder="Valor Total" />
-					<input type="hidden" name="valorTotalFichaHidden" id="valorTotalFichaHidden" value = "0"/>
-					<input type="button" name="calculaValor" id="calculaValor" onClick="somaVetor()" value="somaVetor()"/>
 			</div>
 		
 			<div class="row">
