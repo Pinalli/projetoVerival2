@@ -10,7 +10,7 @@
 	<div class="panel panel-success panel-addUser">
     		
 		<div class="panel-heading text-center">
-			Editar Unidade Medida Caseira <b><%=unidadeMedidaCaseira.getNome() %></b>
+			Editar Medida Caseira <b><%=unidadeMedidaCaseira.getNome() %></b>
 		</div>
 		
 		
@@ -33,7 +33,7 @@
 		            </div>
 
 					<div class="form-group">
-			           	<label class="form-label ages">Sigla:</label>
+			           	<label class="form-label ages">Abreviação:</label>
 			           	<input class="form-control" id="sigla" name="sigla" value="<%=unidadeMedidaCaseira.getSigla() %>" type="text" maxlength="10" >
 		            </div>
                         
