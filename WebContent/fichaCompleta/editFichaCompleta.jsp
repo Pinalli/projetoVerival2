@@ -93,8 +93,8 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
-								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
-								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
+								placeholder="Qnt" min="0" max="9999" step="any" 
+								name="qnt-unidade-medida"
 								value="<%= item.getQuantidadeUnidadeMedida()%>">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
@@ -109,9 +109,8 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
-								placeholder="Qnt" min="0.1" max="100" step="0.1"
-								name="qnt-medida-caseira" onKeyDown="limitText(this,4);"
-								onKeyUp="limitText(this,4);"
+								placeholder="Qnt" min="0" max="9999" step="any"
+								name="qnt-medida-caseira"
 								value="<%= item.getQuantidadeMedidaCaseira()%>">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
@@ -196,8 +195,7 @@
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
 								onInput="multiplica('cho'), multiplica('ptn'), multiplica('lip'), multiplica('kcal')"
-								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
-								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);"
+								placeholder="Qnt" min="0.001" max="9999" name="qnt-unidade-medida"
 								value="">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
@@ -212,9 +210,8 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
-								placeholder="Qnt" min="0.1" max="100" step="0.1"
-								name="qnt-medida-caseira" onKeyDown="limitText(this,4);"
-								onKeyUp="limitText(this,4);"
+								placeholder="Qnt" min="0.001" max="9999" step="0.001"
+								name="qnt-medida-caseira"
 								value="">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
@@ -318,7 +315,6 @@
 									name="modoPreparo"><%=ficha.getModoPreparo()%></textarea><br>
 							</div>
 						</div>
-					</div>
 					<div class="row">
 						<div class="panel panel-info">
 							<div class="panel-heading trigger-display" data-target="montagem-content">Montagem</div>
@@ -345,7 +341,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 			<div class="row"></div>
 
 			<div class="panel panel-info">
@@ -426,12 +421,6 @@
 <script src="./js/fichaCompleta/telaEditFichaCompleta.js"></script>
 <script src="./js/fichaCompleta/editFichaCompleta.js"></script>
 
-<script type="text/javascript">
-	function limitText(limitField, limitNum) {
-		if (limitField.value.length > limitNum) {
-			limitField.value = limitField.value.substring(0, limitNum);
-		}
-	}
-</script>
+
 
 <jsp:include page="/template/foot.jsp"></jsp:include>

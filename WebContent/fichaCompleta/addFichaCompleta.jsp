@@ -78,8 +78,7 @@
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
 								onInput="alert02()"							
-								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
-								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+								placeholder="Qnt" min="0" max="9999" step="any" name="qnt-unidade-medida">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-unidade-medida" class="">Unidade de
@@ -91,9 +90,8 @@
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
-								placeholder="Qnt" min="0.1" max="100" step="0.1"
-								name="qnt-medida-caseira" onKeyDown="limitText(this,4);"
-								onKeyUp="limitText(this,4);">
+								placeholder="Qnt" min="0" max="9999" step="any"
+								name="qnt-medida-caseira">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
@@ -313,12 +311,5 @@
 <script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
 <script src="./js/fichaCompleta/addFichaCompleta.js"></script>
 
-<script type="text/javascript">
-	function limitText(limitField, limitNum) {
-		if (limitField.value.length > limitNum) {
-			limitField.value = limitField.value.substring(0, limitNum);
-		}
-	}
-</script>
 
 <jsp:include page="/template/foot.jsp"></jsp:include>
