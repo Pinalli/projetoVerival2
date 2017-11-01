@@ -9,7 +9,7 @@
 	<div class="panel panel-success panel-addUser">
     		
 		<div class="panel-heading text-center">
-			Cadastrar Unidade de Medida Caseira
+			Cadastrar Medida Caseira
 		</div>
 		
 		
@@ -25,7 +25,7 @@
 			           	<input class="form-control" id="nome" name="nome" value="" type="text" maxlength="120" required>
 		            </div>
 					<div class="form-group">
-			           	<label class="form-label ages">sigla <span class="red">*</span></label>
+			           	<label class="form-label ages">Abreviação <span class="red">*</span></label>
 			           	<input class="form-control" id="sigla" name="sigla" value="" type="text" maxlength="120" required>
 		            </div>
                     								    

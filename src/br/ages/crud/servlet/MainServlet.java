@@ -46,11 +46,7 @@ public class MainServlet extends HttpServlet {
 		comandos.put("newUser", new NewUserCommand());
 
 		// COMANDOS DE UNIDADE MEDIDA
-		comandos.put("listUnidadeMedida", new ListUnidadeMedidaCommand());
-		comandos.put("addUnidadeMedida", new AddUnidadeMedidaCommand());
-		comandos.put("editUnidadeMedida", new EditUnidadeMedidaCommand());
-		comandos.put("removerUnidadeMedida", new RemoveUnidadeMedidaCommand());
-		comandos.put("telaUnidadeMedida", new CreateScreenUnidadeMedidaCommand());
+		//DELETADO
 
 		// COMANDOS DE UNIDADE DE MEDIDA CASEIRA
 		comandos.put("listUnidadeMedidaCaseira", new ListUnidadeMedidaCaseiraCommand());
