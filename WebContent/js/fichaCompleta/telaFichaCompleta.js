@@ -142,9 +142,11 @@ $(document).ready(function() {
 			$(this).click(function(e) {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 			
-				target.fadeOut(300, function(){
-					var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-real").val())*Number(target.find("#qtd-unidade-medida")));
+				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()));
+				if(valor>0){
 					$("#valorTotalFicha").val(valor);
+				}
+				target.fadeOut(300, function(){					
 					target.remove();
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
@@ -296,7 +298,7 @@ $(document).ready(function() {
 		row.find("#lip").val(ingrediente.lipidios);
 		row.find("#kcal").val(kcal);
 		row.find("#valor-unitario").val(ingrediente.custo);
-		row.find("#custo-real").val(2);
+		row.find("#custo-real").val(ingrediente.custo);
 		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
 		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
 	}

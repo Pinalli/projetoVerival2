@@ -145,7 +145,11 @@ $(document).ready(function() {
 		$('.delete-row').each(function() {
 			$(this).click(function(e) {
 				e.preventDefault();				
-				var target = $(this).closest('.table-row'); 			
+				var target = $(this).closest('.table-row'); 	
+				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()));
+				if(valor>0){
+					$("#valorTotalFicha").val(valor);
+				}
 				target.fadeOut(300, function(){
 					var operacao = $("#operacao",target);
 					if(!operacao.val() || operacao.val() == "u"){
@@ -411,6 +415,14 @@ function multiplica(row, id){
 		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 		else y =x;
 		row.find("#custo-realShow").val(y);
+		
+		if($("#valorTotalFicha").val()>0){
+			var valor = Number($("#valorTotalFicha").val());
+			$("#valorTotalFicha").val(Number(valor) + (Number(row.find("#custo-realShow").val()))*0.5);				
+		}else{
+			$("#valorTotalFicha").val(row.find("#custo-realShow").val());
+		}
+		
 		x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
 		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 		else y =x;
