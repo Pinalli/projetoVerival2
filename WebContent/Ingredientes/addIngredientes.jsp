@@ -46,23 +46,23 @@
 					
 					<div class="row">					
 						<div class="col-sm-4">
-							<label class="form-label ages">Proteinas</span></label> 
+							<label class="form-label ages">Proteínas</span></label> 
 							<input class="form-control"  id="proteinas" name="proteinas" value="${param.proteinas}" type="number" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
 						</div>
 						<div class="col-sm-8">
-							<label class="form-label ages">Proteinas Kcal </span></label> 
+							<label class="form-label ages">Proteínas Kcal </span></label> 
 							<input class="form-control"  readonly="readonly" id="kcalproteinas" name="kcalproteinas" value="${param.kcalproteinas}" type="text" maxlength="5" required> 
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-4">
-						    <label class="form-label ages">Lipidios</span></label> 
+						    <label class="form-label ages">Lipídios</span></label> 
 							<input class="form-control" id="lipidios" name="lipidios" value="${param.lipidios}" type="number" step="any"  onInput="multiplica('Lipidios')" maxlength="5" required>
 						</div>
 
 						<div class="col-sm-8">
-						    <label class="form-label ages">Lipidios Kcal </span></label> 
+						    <label class="form-label ages">Lipídios Kcal </span></label> 
 							<input class="form-control" readonly="readonly" id="kcallipidios" name="kcallipidios" value="${param.kcallipidios}" type="text" maxlength="5" required>
 						</div>					
 					</div>
@@ -90,7 +90,7 @@
 					
 					<div class="row">
 						<div class="col-sm-4">
-						    <label class="form-label ages">Sodio</span></label> 
+						    <label class="form-label ages">Sódio</span></label> 
 							<input class="form-control" id="sodio" name="sodio" value="${param.sodio}" type="number" step="any"  maxlength="5" required>
 						</div>
 					</div>

@@ -27,7 +27,7 @@
        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">       
-        <title>Nutrição - Ficha Técnica a</title>
+        <title>Ficha Técnica de Preparo</title>
         <link rel="icon" href="img/iconutri.ico">
         
 		<!-- BOOTSTRAP -->
@@ -96,7 +96,7 @@
       <ul class="nav navbar-nav"> 
       	<% if(usuarioSessao.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR)) { %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usurio <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="main?acao=listUser">Listar</a></li>
             <li><a href="main?acao=telaUser">Cadastrar</a></li>            
@@ -128,9 +128,9 @@
         </li>
        
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas tcnicas<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Téˆcnica Completa</a></li>
+                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Técnica Completa</a></li>
 				  <li><a  href="main?acao=listFichaCompleta">Listar Fichas Técnicas Completas</a></li>
               </ul>
           </li>
@@ -146,7 +146,7 @@
         <li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
         						<span class="glyphicon glyphicon-user"></span>
-        						Ol, <%=usuarioSessao.getNome()%>!
+        						Olá, <%=usuarioSessao.getNome()%>!
         						<span class="caret"></span>
         					</a>
                            

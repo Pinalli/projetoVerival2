@@ -24,7 +24,7 @@
 					<th style="text-align: center;">Perfil</th>
 					<th style="text-align: center;">Status</th>
 					<th style="text-align: center;">Tipo</th>
-					<th style="text-align: center;">TELEFONE</th>
+					<th style="text-align: center;">Telefone</th>
 					<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
@@ -74,7 +74,7 @@ $(document).ready(function(){
 	$('#listaAlunos').dataTable({
 	    "language": {
             "lengthMenu": "Mostrando _MENU_ registros por página",
-            "zeroRecords": "Sem registros - sorry",
+            "zeroRecords": "Sem registros",
             "info": "Mostrando _PAGE_ de _PAGES_ páginas",
             "infoEmpty": "Nenhum registros encontrados!",
             "infoFiltered": "(Filtrado _MAX_ do total deregistros)",
