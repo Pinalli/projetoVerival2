@@ -143,8 +143,8 @@ $(document).ready(function() {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 			
 				target.fadeOut(300, function(){
-					var valor = Numer($("#valorTotalFicha").val());
-					$("#valorTotalFicha").val(Number(valor) - (Number(target.find("#custo-real").val())*Number(target.find("#qtd-unidade-medida"))));
+					var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-real").val())*Number(target.find("#qtd-unidade-medida")));
+					$("#valorTotalFicha").val(valor);
 					target.remove();
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
