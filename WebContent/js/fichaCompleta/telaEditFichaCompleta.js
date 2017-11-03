@@ -139,6 +139,7 @@ $(document).ready(function() {
 		setSelect2();
 		showItemListener();
 		updateIngredienteListener();
+		addRotuloListener();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -154,43 +155,39 @@ $(document).ready(function() {
 	function addRemoveListener() {
 		$('.delete-row').each(function() {
 			$(this).click(function(e) {
-				e.preventDefault();				
+				e.preventDefault();		
 				var target = $(this).closest('.table-row'); 	
 				
 				var $kcalElem = target.find("#kcal");
 				var $choElem = target.find("#cho");
 				var $ptnElem = target.find("#ptn");
-				var $lipElem = row.find("#lip");
+				var $lipElem = target.find("#lip");
 				var $gordSaturada = target.find("#gordura-saturada");
 				var $fibraAlim = target.find("#fibra-alimentar");
 				var $sodio = target.find("#sodio");
 				
-				valorEnergetico -= $kcalElem.val();
-				carboidratos -= $choElem.val();
-				proteinas -= $ptnElem.val();
-				gordTotal -= $lipElem.val();
-				gordSaturada -= $gordSaturada.val();
-				fibraAlim -= $fibraAlim.val();
-				sodio -= $sodio.val();
-				
-				updateRotulo();
-				
+//				target.fadeOut(300, function(){
+//					var operacao = $("#operacao",target);
+//					if(!operacao.val() || operacao.val() == "u"){
+//						operacao.val("d");
+//						target.remove();
+//					}else if(operacao.val() == "c"){
+//						if($(".table-row").length > 1){
+//							target.remove();
+//						}
+//					}else{
+//						target.remove();
+//					}
+//				});				
 				target.fadeOut(300, function(){
-					var operacao = $("#operacao",target);
-					if(!operacao.val() || operacao.val() == "u"){
-						operacao.val("d");
-					}else if(operacao.val() == "c"){
-						if($(".table-row").length > 1){
-							target.remove();
-						}
-					}else{
-						target.remove();
-					}
+					target.remove();
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
 					}
 				});				
-				qntIngredientes--;			
+				qntIngredientes--;
+				
+				createRotulo();
 			});
 		});
 	}
@@ -601,23 +598,29 @@ $(document).ready(function() {
 		}
 	}
 	
-	$('#qnt-unidade-medida').on('change', function() {
-		console.log("QNT INGREDIENTE");
-		createRotulo();
-	});
-	
-	$('#qnt-unidade-medida-rotulo').on('change', function() {
-		console.log("QNT ROTULO");
-		createRotulo();
-	});
-	
-	$('#select-unidade-medida-rotulo').on('change', function() {
-		console.log("ROTULO UM");
-		createRotulo();
-	});
-	
-	$('#select-unidade-medida').on('change', function() {
-		console.log("INGREDIENTE UM");
-		createRotulo();
-	});
+	function addRotuloListener() {
+		$('#table-rows').find('.table-row').each(function() {
+			$(this).find('#qnt-unidade-medida').on('change', function() {
+				console.log("QNT INGREDIENTE");
+				createRotulo();
+			});
+			
+			$(this).find('#qnt-unidade-medida-rotulo').on('change', function() {
+				console.log("QNT ROTULO");
+				createRotulo();
+			});
+			
+			$(this).find('#select-unidade-medida-rotulo').on('change', function() {
+				console.log("ROTULO UM");
+				createRotulo();
+			});
+			
+			$(this).find('#select-unidade-medida').on('change', function() {
+				console.log("INGREDIENTE UM");
+				createRotulo();
+			});
+		});
+	}
+	addRotuloListener();
+
 });

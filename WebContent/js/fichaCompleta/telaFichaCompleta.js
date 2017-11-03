@@ -133,6 +133,7 @@ $(document).ready(function() {
 		setSelect2();
 		showItemListener();
 		updateIngredienteListener();
+		addRotuloListener();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -155,18 +156,10 @@ $(document).ready(function() {
 				var $kcalElem = target.find("#kcal");
 				var $choElem = target.find("#cho");
 				var $ptnElem = target.find("#ptn");
+				var $lipElem = target.find("#lip");
 				var $gordSaturada = target.find("#gordura-saturada");
 				var $fibraAlim = target.find("#fibra-alimentar");
 				var $sodio = target.find("#sodio");
-				
-				valorEnergetico -= $kcalElem.val();
-				carboidratos -= $choElem.val();
-				proteinas -= $ptnElem.val();
-				gordSaturada -= $gordSaturada.val();
-				fibraAlim -= $fibraAlim.val();
-				sodio -= $sodio.val();
-				
-				updateRotulo();
 				
 				target.fadeOut(300, function(){
 					target.remove();
@@ -175,6 +168,8 @@ $(document).ready(function() {
 					}
 				});				
 				qntIngredientes--;
+				
+				createRotulo();
 			});
 		});
 	}
@@ -503,26 +498,30 @@ $(document).ready(function() {
 		$('#previewing').attr('height', '300px');
 	};
 	
-
-	$('#qnt-unidade-medida').on('change', function() {
-		console.log("QNT INGREDIENTE");
-		createRotulo();
-	});
-	
-	$('#qnt-unidade-medida-rotulo').on('change', function() {
-		console.log("QNT ROTULO");
-		createRotulo();
-	});
-	
-	$('#select-unidade-medida-rotulo').on('change', function() {
-		console.log("ROTULO UM");
-		createRotulo();
-	});
-	
-	$('#select-unidade-medida').on('change', function() {
-		console.log("INGREDIENTE UM");
-		createRotulo();
-	});
+	function addRotuloListener() {
+		$('#table-rows').find('.table-row').each(function() {
+			$(this).find('#qnt-unidade-medida').on('change', function() {
+				console.log("QNT INGREDIENTE");
+				createRotulo();
+			});
+			
+			$(this).find('#qnt-unidade-medida-rotulo').on('change', function() {
+				console.log("QNT ROTULO");
+				createRotulo();
+			});
+			
+			$(this).find('#select-unidade-medida-rotulo').on('change', function() {
+				console.log("ROTULO UM");
+				createRotulo();
+			});
+			
+			$(this).find('#select-unidade-medida').on('change', function() {
+				console.log("INGREDIENTE UM");
+				createRotulo();
+			});
+		});
+	}
+	addRotuloListener();
 });
 
 function check_multifile_logo(file) {
