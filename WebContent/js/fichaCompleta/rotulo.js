@@ -1,5 +1,4 @@
 function gerarRotulo(id) {
-	console.log("XXXXXXXXXXXXXXXXXXXXXX");
 	return $.ajax({
 		type: 'GET',
 		url: 'ajax?acao=buscaDadosRotulo',
@@ -22,6 +21,12 @@ function getUnidadeMedida(id) {
 }
 
 function calculoRotulo(fichaIngredientes) {
+
+	var listFI = fichaIngredientes.fichaIngredientes;
+	
+	//em gramas
+	var qntRotulo = calculaQntRotulo(fichaIngredientes); 
+	
 	var qntMedidaTotal = 0
 	
 	var valorEnergetico = 0;
@@ -32,28 +37,37 @@ function calculoRotulo(fichaIngredientes) {
 	var gordTrans = 0;
 	var fibraAlim = 0;
 	var sodio = 0;
-	
-	for (i = 0; i < fichaIngredientes.length; i++) {
-		var unidadeMedida = conversaoDeMedida(fichaIngredientes[i]);
-		var taxaConversao = unidadeMedida.qntMedida * unidadeMedida.fatorConversao;
-		
-		qntMedidaTotal += unidadeMedida.fatorConversao * fichaIngredientes[i].quantidadeMedida; 
-		
-		var kcal = fichaIngredientes[i].ingrediente.kcalCarboidratos + fichaIngredientes[i].ingrediente.kcalLipidios + fichaIngredientes[i].ingrediente.kcalProteinas;
 
-		valorEnergetico += taxaConversao * kcal;
-		carboidratos += taxaConversao * fichaIngredientes[i].ingrediente.carboidratos;
-		proteinas += taxaConversao * fichaIngredientes[i].ingrediente.proteinas;
-		gordTotal += taxaConversao * fichaIngredientes[i].ingrediente.lipidios;
-		gordSaturada += taxaConversao * fichaIngredientes[i].ingrediente.gorduraSaturada;
-		gordTrans += taxaConversao * fichaIngredientes[i].ingrediente.gorduraTrans;
-		fibraAlim += taxaConversao * fichaIngredientes[i].ingrediente.fibrasAlimentares;
-		sodio += taxaConversao * fichaIngredientes[i].ingrediente.sodio;
+	for (i = 0; i < listFI.length; i++) {
+		var unidadeMedida = conversaoDeMedida(listFI[i]);
+		// Em gramas
+		qntMedidaTotal += unidadeMedida.fatorConversao * listFI[i].quantidadeMedida;
 	}
 	
-	console.log("++++");
-	console.log(qntMedidaTotal);
-	console.log("++++");
+	for (i = 0; i < listFI.length; i++) {
+		var unidadeMedida = conversaoDeMedida(listFI[i]);
+		var taxaConversao = unidadeMedida.qntMedida * unidadeMedida.fatorConversao;
+		
+		/*// Em gramas
+		qntMedidaTotal += unidadeMedida.fatorConversao * listFI[i].quantidadeMedida; 
+		*/
+		
+		var kcal;
+		if (listFI[i].ingrediente.kcal != null) {
+			kcal = listFI[i].ingrediente.kcal;
+		} else {
+			kcal = listFI[i].ingrediente.kcalCarboidratos + listFI[i].ingrediente.kcalLipidios + listFI[i].ingrediente.kcalProteinas;
+		}
+
+		valorEnergetico += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * kcal));
+		carboidratos += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.carboidratos));
+		proteinas += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.proteinas));
+		gordTotal += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.lipidios));
+		gordSaturada += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.gorduraSaturada));
+		gordTrans += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.gorduraTrans));
+		fibraAlim += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.fibrasAlimentares));
+		sodio += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.sodio));
+	}
 	
 //	Valor Energético - Necessidades diárias: 2.000 kcalorias
 	var veKj = valorEnergetico * 4.1868;
@@ -127,17 +141,105 @@ function calculoRotulo(fichaIngredientes) {
 }
 
 function conversaoDeMedida(fichaIngrediente) {
+	var um = fichaIngrediente.unidadeMedida;
+
 	var conversaoDeMedida = {
 			'unidadeMedida' : 'Grama',
-			'fatorConversao' : 1,
+			'siglaUnidadeMedida' : 'G',
+			'fatorConversao' : conversorUnidadeMedida(um.siglaUnidadeMedida, "G"),
 			'qntMedida' : fichaIngrediente.quantidadeMedida
 	};
 	
-	var um = fichaIngrediente.unidadeMedida;
-	
-	if(um.unidadeMedida != 'Grama') {
-		conversaoDeMedida.fatorConversao = um.fatorConversao;
+	return conversaoDeMedida;
+}
+
+function conversorUnidadeMedida(from, to) {
+	switch(from.toUpperCase() + "_TO_" + to.toUpperCase()) {
+		case "G_TO_MG":
+			return 1000;
+		case "G_TO_G":
+			return 1;
+		case "G_TO_KG":
+			return 0.001;
+		case "G_TO_ML":
+			return 1;
+		case "G_TO_L":
+			return 0.001;
+		case "MG_TO_G":
+			return 0.001;
+		case "KG_TO_G":
+			return 1000;
+		case "ML_TO_G":
+			return 1;
+		case "L_TO_G":
+			return 1000;
+	}
+}
+
+function retornaSiglaUnidadeMedidaPorNome(um) {
+	var sigla;
+	switch(um.toUpperCase()) {
+		case "KILOGRAMA":
+			sigla = "KG";
+			break;
+		case "GRAMA":
+			sigla = "G";
+			break;
+		case "LITRO":
+			sigla = "L";
+			break;
+		case "MILILITRO":
+			sigla = "ML";
+			break;
 	}
 	
-	return conversaoDeMedida;
+	var unidadeMedida = {
+		'unidadeMedida': um,
+		'siglaUnidadeMedida': sigla
+	};
+	
+	return unidadeMedida;
+}
+
+function retornaSiglaUnidadeMedidaPorId(umId) {
+	var sigla;
+	var um;
+	switch(umId) {
+		case '1':
+			um: "KILOGRAMA"
+			sigla = "KG";
+			break;
+		case '2':
+			um: "GRAMA"
+			sigla = "G";
+			break;
+		case '3':
+			um: "LITRO"
+			sigla = "L";
+			break;
+		case '4':
+			um: "MILILITRO"
+			sigla = "ML";
+			break;
+	}
+	
+	var unidadeMedida = {
+		'idUnidadeMedida': umId,
+		'unidadeMedida': um,
+		'siglaUnidadeMedida': sigla
+	};
+	
+	return unidadeMedida;
+}
+
+function calculaProporcoes(qntRotulo, qntTotal, valor) {
+	// Regra de 3 para calcular propocao entre quantidade total de ingredientes e quantidade do rotulo
+	var x = (valor*qntRotulo)/qntTotal;
+	return x;
+}
+
+function calculaQntRotulo(fichaIngredientes) {
+	var fatorConv = conversorUnidadeMedida(fichaIngredientes.unidadeMedida.siglaUnidadeMedida, "G");
+	var result = fichaIngredientes.qntMedida * fatorConv;
+	return result;
 }

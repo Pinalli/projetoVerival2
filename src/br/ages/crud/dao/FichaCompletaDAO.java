@@ -14,6 +14,7 @@ import org.apache.commons.io.FilenameUtils;
 import com.mysql.jdbc.Statement;
 
 import br.ages.crud.exception.PersistenciaException;
+import br.ages.crud.model.DadosRotulo;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaIngrediente;
 import br.ages.crud.model.FichaItem;
@@ -29,7 +30,7 @@ import br.ages.crud.util.ConexaoUtil;
 public class FichaCompletaDAO {
 
     private List<Ficha> listarFichasCompleta;
-    private List<FichaIngrediente> dadosRotulo;
+    private DadosRotulo dadosRotulo;
     private FichaCompletaItemDAO itemDAO;
 
 
@@ -159,28 +160,39 @@ public class FichaCompletaDAO {
         return listarFichasCompleta;
     }
 
-    public List<FichaIngrediente> buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException {
+    public DadosRotulo buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException {
         Connection conn = null;
-        dadosRotulo = new ArrayList<>();
+        dadosRotulo = new DadosRotulo();
         try {
 
             conn = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
+//            sql.append(
+//                    "select descricao, um.unidade_medida, um.fator_conversao, um.medida_conversao, um.sigla_unidade_medida, quantidade_unidade_medida, umc.nome, " +
+//                            "quantidade_medida_caseira,\n" +
+//                    "carboidratos, kcal_carboidratos, proteinas, kcal_proteinas,\n" +
+//                    "lipidios, kcal_lipidios, gordura_saturada, gordura_trans, fibras_alimentares, sodio\n" +
+//                    "from \n" +
+//                    "tb_ficha f inner join tb_ficha_item fi on f.id_ficha = fi.id_ficha\n" +
+//                    "inner join tb_unidade_medida um\n" +
+//                    "on fi.id_unidade_medida = um.id_unidade_medida\n" +
+//                    "inner join tb_unidade_medida_caseira umc\n" +
+//                    "on fi.id_medida_caseira = umc.id_unidade_medida_caseira\n" +
+//                    "inner join tb_ingredientes i\n" +
+//                    "on fi.id_ingrediente = i.id\n" +
+//                    "where f.id_ficha =" + id
+//            );
+            
             sql.append(
-                    "select descricao, um.unidade_medida, um.fator_conversao, um.medida_conversao, quantidade_unidade_medida, umc.nome, " +
-                            "quantidade_medida_caseira,\n" +
-                    "carboidratos, kcal_carboidratos, proteinas, kcal_proteinas,\n" +
-                    "lipidios, kcal_lipidios, gordura_saturada, gordura_trans, fibras_alimentares, sodio\n" +
-                    "from \n" +
-                    "tb_ficha f inner join tb_ficha_item fi on f.id_ficha = fi.id_ficha\n" +
-                    "inner join tb_unidade_medida um\n" +
-                    "on fi.id_unidade_medida = um.id_unidade_medida\n" +
-                    "inner join tb_unidade_medida_caseira umc\n" +
-                    "on fi.id_medida_caseira = umc.id_unidade_medida_caseira\n" +
-                    "inner join tb_ingredientes i\n" +
-                    "on fi.id_ingrediente = i.id\n" +
-                    "where f.id_ficha =" + id
-            );
+            		"select * from tb_ficha f inner join tb_unidade_medida fum " +
+            		"on f.rotulo_id_medida = fum.id_unidade_medida inner join tb_ficha_item fi " + 
+            		"on f.id_ficha = fi.id_ficha inner join tb_unidade_medida um " +
+            		"on fi.id_unidade_medida = um.id_unidade_medida inner join tb_unidade_medida_caseira umc " +
+            		"on fi.id_medida_caseira = umc.id_unidade_medida_caseira inner join tb_ingredientes i " +
+            		"on fi.id_ingrediente = i.id " +
+            		"where f.id_ficha = " + id
+            		);
+            
             PreparedStatement statement = conn.prepareStatement(sql.toString());
             ResultSet resultset = statement.executeQuery();
 
@@ -188,12 +200,22 @@ public class FichaCompletaDAO {
                 FichaIngrediente fi = new FichaIngrediente();
 
                 Ingrediente i = new Ingrediente();
+                UnidadeMedida fum = new UnidadeMedida();
                 UnidadeMedida um = new UnidadeMedida();
                 UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
 
+                fum.setUnidadeMedida(resultset.getString("fum.unidade_medida"));
+                fum.setFatorConversao(resultset.getDouble("fum.fator_conversao"));
+                fum.setMedidaConversao(resultset.getString("fum.medida_conversao"));
+                fum.setSiglaUnidadeMedida(resultset.getString("fum.sigla_unidade_medida"));
+                dadosRotulo.setUnidadeMedida(fum);
+                
+                dadosRotulo.setQntMedida(resultset.getDouble("f.rotulo_qnt_medida"));
+                
                 um.setUnidadeMedida(resultset.getString("um.unidade_medida"));
                 um.setFatorConversao(resultset.getDouble("um.fator_conversao"));
                 um.setMedidaConversao(resultset.getString("um.medida_conversao"));
+                um.setSiglaUnidadeMedida(resultset.getString("um.sigla_unidade_medida"));
                 umc.setNome(resultset.getString("umc.nome"));
 
                 i.setDescricao(resultset.getString("descricao"));
@@ -214,9 +236,8 @@ public class FichaCompletaDAO {
                 fi.setUnidadeMedidaCaseira(umc);
                 fi.setIngrediente(i);
 
-                dadosRotulo.add(fi);
+                dadosRotulo.addFichaIngredientes(fi);
             }
-
         } catch (ClassCastException | SQLException e){
             throw new PersistenciaException(e);
         } finally {
@@ -357,6 +378,7 @@ public class FichaCompletaDAO {
 					"F.ROTULO_QNT_MEDIDA, " +
 					"F.ROTULO_ID_MEDIDA, " +
 					"UM.UNIDADE_MEDIDA, " +
+					"UM.SIGLA_UNIDADE_MEDIDA, " +
 					"F.ROTULO_QNT_MEDIDA_CASEIRA, " +
 					"F.ROTULO_ID_MEDIDA_CASEIRA, " +
 					"UMC.NOME, " +
@@ -389,6 +411,7 @@ public class FichaCompletaDAO {
 				UnidadeMedida um = new UnidadeMedida();
 				um.setIdUnidadeMedida(resultset.getInt("F.ROTULO_ID_MEDIDA"));
 				um.setUnidadeMedida(resultset.getString("UM.UNIDADE_MEDIDA"));
+				um.setSiglaUnidadeMedida(resultset.getString("UM.SIGLA_UNIDADE_MEDIDA"));
 				dto.setMedida(um);
 				
 				UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();

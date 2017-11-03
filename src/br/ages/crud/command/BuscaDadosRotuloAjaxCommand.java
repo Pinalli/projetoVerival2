@@ -1,14 +1,13 @@
 package br.ages.crud.command;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.Gson;
 
 import br.ages.crud.bo.FichaCompletaBO;
-import br.ages.crud.model.FichaIngrediente;
+import br.ages.crud.model.DadosRotulo;
 
 public class BuscaDadosRotuloAjaxCommand implements Command {
 
@@ -21,9 +20,9 @@ public class BuscaDadosRotuloAjaxCommand implements Command {
 		String json = "";
 		int id = Integer.parseInt(request.getParameter("id"));
 		try {			
-			List<FichaIngrediente> ingredientes = fichaCompletaBO.buscarDadosRotulo(id);			
+			DadosRotulo dadosRotulo = fichaCompletaBO.buscarDadosRotulo(id);			
 			Gson gson = new Gson();
-			json = gson.toJson(ingredientes);
+			json = gson.toJson(dadosRotulo);
 			request.setAttribute("json", json);			
 		} catch (Exception e) {
 			e.printStackTrace();

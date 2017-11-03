@@ -7,6 +7,7 @@ import java.util.List;
 import br.ages.crud.dao.FichaCompletaDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
+import br.ages.crud.model.DadosRotulo;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaIngrediente;
 import br.ages.crud.model.Ingrediente;
@@ -144,7 +145,7 @@ public class FichaCompletaBO {
         }
     }
 
-	public List<FichaIngrediente> buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException, NegocioException {
+	public DadosRotulo buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException, NegocioException {
 		try {
 			 return fichaCompletaDAO.buscarDadosRotulo(id);
 		} catch (PersistenciaException e){

@@ -381,6 +381,7 @@
 </body>
 <script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
 <script src="./js/fichaCompleta/addFichaCompleta.js"></script>
+<script src="./js/fichaCompleta/rotulo.js"></script>
 
 <script type="text/javascript">
 	function limitText(limitField, limitNum) {

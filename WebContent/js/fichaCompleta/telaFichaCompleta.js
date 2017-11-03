@@ -321,31 +321,7 @@ $(document).ready(function() {
 		var $gordSaturada = row.find("#gordura-saturada");
 		var $fibraAlim = row.find("#fibra-alimentar");
 		var $sodio = row.find("#sodio");
-		
-		valorEnergetico -= $kcalElem.val();
-		valorEnergetico += kcal;
-		
-		carboidratos -= $choElem.val();
-		carboidratos += ingrediente.carboidratos;
-		
-		proteinas -= $ptnElem.val();
-		proteinas += ingrediente.proteinas;
-		
-		gordTotal = 0;
-		
-		gordSaturada -= $gordSaturada.val();
-		gordSaturada += ingrediente.gorduraSaturada;
-		
-		gordTrans = 0;
-		
-		fibraAlim -= $fibraAlim.val();
-		fibraAlim += ingrediente.fibrasAlimentares;
-		
-		sodio -= $sodio.val();
-		sodio += ingrediente.sodio;
-		
-		updateRotulo();
-		
+				
 		$kcalElem.val(kcal);
 		$choElem.val(ingrediente.carboidratos);
 		$ptnElem.val(ingrediente.proteinas);
@@ -358,8 +334,70 @@ $(document).ready(function() {
 		$fibraAlim.val(ingrediente.fibrasAlimentares);
 		$sodio.val(ingrediente.sodio);
 		
+		createRotulo();
+		
 	}
 	
+ 	function createRotulo() {
+ 		var idUMRotulo = $('#select-unidade-medida-rotulo').val();
+ 		var qntUMRotulo = $('#qnt-unidade-medida-rotulo').val();
+
+ 		if(idUMRotulo != null && qntUMRotulo != null) {
+ 			console.log("COMECOU");
+	 		var $ingredientes = $('#table-rows').find('.table-row');
+	 		
+	 		var fichaIngredientes = null;
+	 		
+	 		$ingredientes.each(function(index) {
+	 			var ingrediente = {
+		 			'kcal': $(this).find("#kcal").val(),
+		 			'carboidratos': $(this).find("#cho").val(),
+		 			'proteinas': $(this).find("#ptn").val(),
+		 			'lipidios': $(this).find("#lip").val(),
+		 			'gorduraSaturada': $(this).find("#gordura-saturada").val(),
+		 			'gorduraTrans': 0,
+		 			'fibrasAlimentares': $(this).find("#fibra-alimentar").val(),
+		 			'sodio': $(this).find("#sodio").val()
+	 			};
+	 			var unidadeMedida = retornaSiglaUnidadeMedidaPorId($(this).find('#select-unidade-medida').val());
+	 			
+	 			var fichaIngrediente = {
+	 				'ingrediente': ingrediente,
+	 				'quantidadeMedida': $(this).find('#qnt-unidade-medida').val(),
+	 				'unidadeMedida': unidadeMedida
+	 			};
+	
+	 			if(fichaIngredientes == null) {
+	 				fichaIngredientes = [fichaIngrediente];
+	 			} else {
+	 				fichaIngredientes.push(fichaIngrediente);
+	 			}
+	 		});
+	 		
+	 		var unidadeMedida = retornaSiglaUnidadeMedidaPorId($('#select-unidade-medida-rotulo').val());
+	 		
+	 		var dadosFicha = {
+	 			'fichaIngredientes': fichaIngredientes,
+	 			'qntMedida': qntUMRotulo,
+	 			'unidadeMedida': unidadeMedida
+	 		};
+	
+			var infoRotulo = calculoRotulo(dadosFicha);
+			
+			valorEnergetico = infoRotulo.valorEnergeticoOri;
+			carboidratos = infoRotulo.carboidratosOri;
+			proteinas = infoRotulo.proteinasOri;
+			gordTotal = infoRotulo.gorduraTotalOri;
+			gordSaturada = infoRotulo.gorduraSaturadaOri;
+			gordTrans = infoRotulo.gorduraTransOri;
+			fibraAlim = infoRotulo.fibraAlimentarOri;
+			sodio = infoRotulo.sodioOri;
+			
+			updateRotulo();
+ 		}
+
+ 	}
+ 	
 	function updateRotulo() {
 		
 //		Necessidades diárias: 2.000 kcalorias
@@ -377,7 +415,7 @@ $(document).ready(function() {
 		$('#proteinasQP').html(parseFloat(proteinas.toFixed(3)) + ' g');
 		var proteinasVD = (proteinas*100)/75;
 		$('#proteinasVD').html(parseFloat(proteinasVD.toFixed(3)) + '%');
-
+		
 //		Gorduras totais - Necessidades diárias: 55g
 		$('#gordTotalQP').html(parseFloat(gordTotal.toFixed(3)) + ' g');
 		var gordTotalVD = (gordTotal*100)/55;
@@ -465,6 +503,26 @@ $(document).ready(function() {
 		$('#previewing').attr('height', '300px');
 	};
 	
+
+	$('#qnt-unidade-medida').on('change', function() {
+		console.log("QNT INGREDIENTE");
+		createRotulo();
+	});
+	
+	$('#qnt-unidade-medida-rotulo').on('change', function() {
+		console.log("QNT ROTULO");
+		createRotulo();
+	});
+	
+	$('#select-unidade-medida-rotulo').on('change', function() {
+		console.log("ROTULO UM");
+		createRotulo();
+	});
+	
+	$('#select-unidade-medida').on('change', function() {
+		console.log("INGREDIENTE UM");
+		createRotulo();
+	});
 });
 
 function check_multifile_logo(file) {
