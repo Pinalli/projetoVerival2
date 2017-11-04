@@ -110,7 +110,7 @@ public class IngredienteDAO {
 					+ "`UNIDADE_MEDIDA`, "
 					+ "`DATA_INSERCAO`)"
 					);
-			sql.append("VALUE (NULL ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
+			sql.append("VALUE (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
 			java.sql.Date dataInclusao = new java.sql.Date(utilDate.getTime());
@@ -125,12 +125,12 @@ public class IngredienteDAO {
 			statement.setDouble(7, ingrediente.getLipidios());
 			statement.setDouble(8, ingrediente.getKcalLipidios());
 			statement.setDouble(9, ingrediente.getGorduraSaturada());
-			statement.setDouble(11, ingrediente.getFibrasAlimentares());
-			statement.setDouble(12, ingrediente.getSodio());
-			statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());
-			statement.setDouble(15, ingrediente.getCusto());
-			statement.setString(16, ingrediente.getUnidadeMedida());
+			statement.setDouble(10, ingrediente.getFibrasAlimentares());
+			statement.setDouble(11, ingrediente.getSodio());
+			statement.setDouble(12, ingrediente.getFatorCorrecao());
+			statement.setDouble(13, ingrediente.getIndiceCoccao());
+			statement.setDouble(14, ingrediente.getCusto());
+			statement.setString(15, ingrediente.getUnidadeMedida());
 			
 			statement.executeUpdate();
 
