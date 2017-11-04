@@ -125,6 +125,7 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
+		updateCusto();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -298,7 +299,7 @@ $(document).ready(function() {
 		row.find("#lip").val(ingrediente.lipidios);
 		row.find("#kcal").val(kcal);
 		row.find("#valor-unitario").val(ingrediente.custo);
-		row.find("#custo-real").val(ingrediente.custo);
+		row.find("#custo-realShow").val(0);
 		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
 		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
 	}
@@ -338,6 +339,32 @@ $(document).ready(function() {
 	}
 	updateQuantidades();
 	
+	function updateCusto(){
+		$(".table-row").not(".configurado").each(function(){
+			var row = $(this);
+			var select = row.find("#custo-realShow");
+			if(select.val()){
+				atualizaCusto(row, select.val());
+			}
+			select.change(function(){
+				var id = $(this).val();
+				atualizaCusto(row, id);
+			});
+		});
+	}
+	updateCusto();
+	
+	function atualizaCusto(row,id){	
+		//row.find("#custo-realShow").change(function() {
+			var x = Number($("#valorTotalFicha").val());
+			var y = Number(row.find("#custo-realShow").val());
+			var z = x-y;
+			
+			$("#valorTotalFicha").val((y-z+x)/2);				
+			
+		//});
+	}
+	
 	function multiplica(row, id){
 		
 			row.find("#qnt-unidade-medida").change(function() {
@@ -362,11 +389,7 @@ $(document).ready(function() {
 			if (row.find("#valor-unitarioShow").val().length > 5){
 				row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
 			    }
-			x = row.find("#custo-real").val()*row.find("#qnt-unidade-medida").val();
-			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
-			else y =x;
-			row.find("#custo-realShow").val(y);
-			
+						
 			if($("#valorTotalFicha").val()>0){
 				var valor = Number($("#valorTotalFicha").val());
 				$("#valorTotalFicha").val(Number(valor) + (Number(row.find("#custo-realShow").val()))*0.5);				
