@@ -10,7 +10,7 @@ $(document).ready(function() {
 		var foto = $('input[name="imgFile"]').val();
 		var utensiliosEquipamentos = $('textarea[name="utensiliosEquipamentos"]').val();
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
-		var tempoPreparo = $('textarea[name="tempoPreparo"]').val();
+		var tempoPreparo = $('input[name="tempoDePreparo"]').val();
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
 		var textura = $('textarea[name="textura"]').val();
