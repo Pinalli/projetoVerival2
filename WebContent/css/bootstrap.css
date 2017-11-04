@@ -97,11 +97,11 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
-  color: #14171a;
+  color: #212529;
   background-color: #e9ecef;
 }
 
@@ -1577,9 +1577,9 @@ pre code {
 }
 
 .form-control:focus {
-  color: #454f7a;
+  color: #495057;
   background-color: #fff;
-  border-color: #bdcf46;
+  border-color: #80bdff;
   outline: none;
 }
 
@@ -1980,7 +1980,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 .btn:focus, .btn.focus {
   outline: 0;
-  box-shadow: 0 0 0 3px rgba(126, 155, 70, 0.25);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .btn.disabled, .btn:disabled {
@@ -2234,7 +2234,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
-  box-shadow: 0 0 0 3px rgba(126, 155, 70, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
@@ -2587,7 +2587,7 @@ tbody.collapse.show {
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #212529;
   text-align: left;
   list-style: none;
@@ -2620,7 +2620,7 @@ tbody.collapse.show {
 .dropdown-item:focus, .dropdown-item:hover {
   color: #16181b;
   text-decoration: none;
-  background-color: #efffce;
+  background-color: #f8f9fa;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -3072,7 +3072,7 @@ tbody.collapse.show {
 }
 
 .custom-select:focus {
-  border-color: #bdcf46;
+  border-color: #80bdff;
   outline: none;
 }
 
@@ -3602,7 +3602,7 @@ tbody.collapse.show {
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: rgba(69, 79, 122, 1);
+  color: rgba(69, 79, 122, 0.7);
 }
 
 .navbar-light .navbar-toggler {
@@ -3714,6 +3714,7 @@ tbody.collapse.show {
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  font-weight: bold;
 }
 
 .card-header:first-child {
@@ -3917,7 +3918,7 @@ tbody.collapse.show {
 .page-item.disabled .page-link {
   color: #868e96;
   pointer-events: none;
-  background-color: #e9ecef;
+  background-color: #fff;
   border-color: #ddd;
 }
 
@@ -3933,10 +3934,10 @@ tbody.collapse.show {
 }
 
 .page-link:focus, .page-link:hover {
-  color: #7e9b46;
+  color: #0056b3;
   text-decoration: none;
-  background-color: #dfffbd;
-  border-color: #bddd9c;
+  background-color: #e9ecef;
+  border-color: #ddd;
 }
 
 .pagination-lg .page-link {
@@ -5249,7 +5250,7 @@ a.bg-primary:focus, a.bg-primary:hover {
 }
 
 .bg-secondary {
-  background-color: #868e96 !important;
+  background-color: #eee !important;
 }
 
 a.bg-secondary:focus, a.bg-secondary:hover {
@@ -6560,7 +6561,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .m-5 {
-  margin: 3rem !important;
+  margin: 5rem !important;
 }
 
 .mt-5 {
@@ -6572,7 +6573,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .mb-5 {
-  margin-bottom: 5rem !important;
+  margin-bottom: 3rem !important;
 }
 
 .ml-5 {
@@ -8203,6 +8204,8 @@ a.text-dark:focus, a.text-dark:hover {
   display: flex;
   -ms-flex-align: center;
   -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
 }
-
 /*# sourceMappingURL=bootstrap.css.map */

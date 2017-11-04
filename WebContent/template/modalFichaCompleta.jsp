@@ -1,17 +1,19 @@
-<div class="modal fade" id="modalExcluir" role="dialog">
-	<div class="modal-dialog">
+<div class="modal fade" id="modalExcluir" role="dialog" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header modal-exclude">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title"></h4>
-			</div>
+        		<h5 class="modal-title"></h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
 			<div class="modal-body">
 				<p id="modal-descricao"></p>
 			</div>
 			<div class="modal-footer">
 				<form action="" method="post" id="formExcluir">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					<button type="submit" class="btn btn-exclude">Excluir</button>
+					<button type="submit" class="btn btn-danger">Excluir</button>
 				</form>
 			</div>
 		</div>
@@ -170,7 +172,7 @@ $( document ).ready(function() {
 	  	var fichaS = botao.data('fichaS');
 		var id = botao.data('id');
 		
-	  	$(this).find('.modal-title').text('Excluir Ficha Completa');
+	  	$(this).find('.modal-title').text('Excluir ' + fichaS + '?');
 	  	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha Completa(' + fichaS + ')?');
 	  	
 	  	$('#formExcluir').attr('action', "main?acao=removerFichaCompleta&id_ficha_Completa=" + id);

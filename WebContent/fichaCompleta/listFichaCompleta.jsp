@@ -1,94 +1,72 @@
-<%@page import="br.ages.crud.model.Ficha"%>
-<%@page import="java.util.List"%>
+<%@ page import="br.ages.crud.model.Ficha" %>
+<%@page import="java.util.List" %>
+
 <jsp:include page="../template/head.jsp"></jsp:include>
-
-<!-- MODAL / POPUP -->
+<jsp:include page="../template/msg.jsp"></jsp:include>
 <jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
- 		
-<div class="panel panel-success">
-   		
-	<div class="panel-heading text-center">Lista de Fichas Completas</div>
-               
-       <div class="panel-body">
-       
-		<jsp:include page="/template/msg.jsp"></jsp:include>
-        <div class="table-responsive">
-       
-        <table id="listaFicha" class="table table-responsive table-striped table-hover table-condensed table-bordered">
 
-            <thead>
-                <tr>
-                    <th style="text-align: center;">Nome</th>
-		 			<th style="text-align: center;"></th>
-					<th style="text-align: center;"></th>
-                </tr>
-            </thead>
-         <tbody> 
-            	<%
+	<div class="jumbotron mb-5">
+		<h1><span class="icon-fichas text-info"></span> Lista de Fichas Técnicas</h1>
+		<hr />
+				
+		<table id="lista-ftp" class="table table-responsive table-bordered table-hover" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th class="text-center">Nome da Receita</th>
+					<th class="text-center">Categoria</th>
+					<th class="text-center">Visualizar</th>
+					<th class="text-center">Editar</th>
+					<th class="text-center">Excluir</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th class="text-center">Nome da Receita</th>
+					<th class="text-center">Categoria</th>
+					<th class="text-center">Visualizar</th>
+					<th class="text-center">Editar</th>
+					<th class="text-center">Excluir</th>
+				</tr>
+			</tfoot>
+			<tbody>
+				<%
 					List<Ficha> listaFicha = (List<Ficha>) request.getAttribute("listaFichaCompleta");
 					for (Ficha ficha : listaFicha) {
 				%>
-				          
-            	<tr>
-	            	<td align="center"><%=ficha.getNome()%></td>
-	            	
-	            	<td align="center">
-						<form action="" method="post">
-            				<a href="" onclick="preencheDados();" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>"
-            				data-target="#modalVisualizar" title="Visualizar"><i class="glyphicon glyphicon-download-alt"></i></a>
-            			</form>
-            		</td>	
-	            	<td align="center">
-						<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>"
-            				data-target="#modalEditar" title="Editar"> <i class="glyphicon glyphicon-pencil"></i></a>
-            			</form>
-            		</td>	
-            		
-            		<td align="center">
-            			<form action="" method="post">
-            				<a href="" data-toggle="modal" data-id="<%=ficha.getIdFicha() %>" data-fichaS="<%=ficha.getNome()%>"
-            				data-target="#modalExcluir" title="Deletar"> <i class="glyphicon glyphicon-trash"></i></a>
-            			</form>
-            		</td>
-            	</tr>
-				<% 
+					<tr>
+						<td><%= ficha.getNome() %></td>
+						<td>Prato Principal</td>
+						<td class="text-center">
+							<form action="" method="post">
+	            				<a href="#" onclick="preencheDados();" data-toggle="modal" data-id="<%= ficha.getIdFicha() %>" data-fichaS="<%= ficha.getNome() %>" data-target="#modalVisualizar" title="Visualizar">
+	            					<span class="icon-visualizar"></span>
+	            				</a>
+	            			</form>
+						</td>
+						<td class="text-center">
+							<form action="" method="post">
+	            				<a href="#" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>" data-target="#modalEditar" title="Editar">
+	            					<span class="icon-editar"></span>
+	            				</a>
+	            			</form>
+						</td>
+						<td class="text-center">
+							<form action="" method="post">
+	            				<a href="#" class="text-danger" data-toggle="modal" data-id="<%=ficha.getIdFicha() %>" data-fichaS="<%=ficha.getNome()%>" data-target="#modalExcluir" title="Deletar">
+	            					<span class="icon-deletar"></span>
+	            				</a>
+	            			</form>
+						</td>
+					</tr>
+				<%
 					} 
 				%>
 			</tbody>
-    
-           
-        </table> 
-		</div>
-    </div>
-</div>
+		</table>
+	</div>
+
 <jsp:include page="../template/foot.jsp"></jsp:include>
 
-<script src="jquery-3.2.1.min.js"></script>
 <script src="./js/gerarPDF.js"></script>
 <script src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
     <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script>
-$(document).ready(function(){
-	$('#listaFicha').dataTable({
-	    "language": {
-            "lengthMenu": "_MENU_ Registros",
-            "zeroRecords": "Sem registros - sorry",
-            "info": "Mostrando _PAGE_ de _PAGES_ páginas",
-            "infoEmpty": "Nenhum registros encontrados!",
-            "infoFiltered": "(Filtrado _MAX_ do total deregistros)",
-            "search":"",
-            "searchPlaceholder": "Buscar",
-           	"paginate": {
-                "first":      "Primeiro",
-                "last":       "Último",
-                "next":       "Próximo",
-                "previous":   "Anterior"
-	        },
-        },
-        "dom": '<"pull-right"f>rtip'
-	});
-});;
-</script>
