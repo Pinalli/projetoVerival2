@@ -278,6 +278,15 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="col-md-4 col-md-offset-4">
+					<label for="valorTotal" id="preco"
+						class="col-xs-12 col-sm-12 form-control-static text-center">Valor Total</label>
+					<input type="number" name="valorTotalFicha" id="valorTotalFicha"
+						class="form-control text-center box-transparent" value = "0"
+						placeholder="Valor Total" />
+			</div>
+			
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
