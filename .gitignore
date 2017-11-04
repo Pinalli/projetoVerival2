@@ -14,3 +14,4 @@ pom.xml
 FichaTecnicaPreparo.iml
 .DS_Store
 BD/*
+/target/
