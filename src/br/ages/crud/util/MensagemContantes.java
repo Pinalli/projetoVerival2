@@ -41,6 +41,7 @@ public class MensagemContantes {
 	public static final String MSG_INF_DENY = "Acesso negado! Você precisa logar primeiro.";
 	public static final String MSG_INF_DENY_SELF = "Você não pode remover a si mesmo.";
 	public static final String MSG_INF_SEM_PERISSAO = "Acesso negado! Você NÃO tem permissão para acessar essa funcionalidade.";
+	public static final String MSG_INF_PROBLEMA_ROTUDO = "Não foi possível gerar o Rótulo.";
 	
 
 	//msgs de unidades de medidas
@@ -89,6 +90,18 @@ public class MensagemContantes {
 	public static final String MSG_ERR_EMPRESA_DADOS_INVALIDOS = "Dados da Empresa inválidos ou inconsistentes!";
 	public static final String MSG_ERR_EMPRESA_NOME_INVALIDO = "A descrição da origem da Empresa deve ter de 1 a 60 caracteres";
 	public static final String MSG_ERR_REMOVE_EMPRESA_EM_PROJETO = "Esta Empresa está em algum projeto e não pode ser removido!";
+	
+	//msgs da ficha tecnica simplificada
+	public static final String MSG_SUC_CADASTRO_FICHA_SIMPLIFICADA = " Ficha técnica simplificada ? cadastrada com sucesso!";
+	public static final String MSG_SUC_REMOVE_FICHA_SIMPLIFICADA = "Ficha técnica simplificada ? removida com sucesso!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_JA_EXISTENTE = "Ficha técnica simplificada já existente";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_DADOS_INVALIDOS = "Dados da ficha técnica inválido ou inconsistentes";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_NOME_FICHA_OBRIGATORIO = "Campo nome obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_RENDIMENTO_FICHA_OBRIGATORIO = "Campo rendimento obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_MODO_PREPARO_FICHA_OBRIGATORIO = "Campo modo preparo obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_MONTAGEM_FICHA_OBRIGATORIO = "Campo montagem obrigatório!";
+	public static final String MSG_ERR_FICHA_SIMPLIFICADA_CAMPO_ORIENTACAO_ARMAZENAMENTO_FICHA_OBRIGATORIO = "Campo orientação e armazenamento obrigatório!";
+	public static final String MSG_ERR_REMOVE_FICHA_SIMPLIFICADA_EM_PROJETO = "Esta Ficha já está em algum projeto e não pode ser removido!";
 	
 	//msgs da ficha técnica completa
 	public static final String MSG_SUC_CADASTRO_FICHA_COMPLETA = " Ficha técnica completa ? cadastrada com sucesso!";

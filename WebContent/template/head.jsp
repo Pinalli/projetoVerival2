@@ -27,7 +27,7 @@
        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">       
-        <title>Nutri√Å‚Äûo - Ficha T√àcnica a</title>
+        <title>NutriÁ„o - Ficha TÈcnica a</title>
         <link rel="icon" href="img/iconutri.ico">
         
 		<!-- BOOTSTRAP -->
@@ -130,8 +130,8 @@
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas tcnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha T√àcnica Completa</a></li>
-				  <li><a  href="main?acao=listFichaCompleta">Listar Fichas T√àcnicas Completas</a></li>
+                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha TÈàcnica Completa</a></li>
+				  <li><a  href="main?acao=listFichaCompleta">Listar Fichas TÈcnicas Completas</a></li>
               </ul>
           </li>
 

@@ -1,18 +1,25 @@
 package br.ages.crud.dao;
 
-import br.ages.crud.exception.PersistenciaException;
-import br.ages.crud.model.Ficha;
-import br.ages.crud.model.FichaItem;
-import br.ages.crud.util.ConexaoUtil;
-import com.mysql.jdbc.Statement;
-import org.apache.commons.io.FilenameUtils;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.io.FilenameUtils;
+
+import com.mysql.jdbc.Statement;
+
+import br.ages.crud.exception.PersistenciaException;
+import br.ages.crud.model.DadosRotulo;
+import br.ages.crud.model.Ficha;
+import br.ages.crud.model.FichaIngrediente;
+import br.ages.crud.model.FichaItem;
+import br.ages.crud.model.Ingrediente;
+import br.ages.crud.model.UnidadeMedida;
+import br.ages.crud.model.UnidadeMedidaCaseira;
+import br.ages.crud.util.ConexaoUtil;
 
 /**
  * @author Alessandro
@@ -21,6 +28,7 @@ import java.util.List;
 public class FichaCompletaDAO {
 
     private List<Ficha> listarFichasCompleta;
+    private DadosRotulo dadosRotulo;
     private FichaCompletaItemDAO itemDAO;
 
 
@@ -43,20 +51,17 @@ public class FichaCompletaDAO {
             		+ "TIPO_FICHA,"
             		+ "TEXTURA,"
             		+ "SABOR,"
-            		+ "APRESENTACAO, "
-            		
-            		
-            		
-            		
+            		+ "APRESENTACAO,"
             		+ "TEMPO_DE_PREPARO, "
             		+ "UTENSILIOS_E_EQUIPAMENTOS, "
-            		+ "TEMPERATURA )");
-            
-            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            
-            
+            		+ "TEMPERATURA, "
+            		+ "ROTULO_QNT_MEDIDA,"
+            		+ "ROTULO_ID_MEDIDA,"
+            		+ "ROTULO_QNT_MEDIDA_CASEIRA,"
+            		+ "ROTULO_ID_MEDIDA_CASEIRA"
+            		+ ")");
+            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
             statement.setInt(1, fichaCompleta.getIdEmpresa());
@@ -72,17 +77,14 @@ public class FichaCompletaDAO {
             statement.setString(9, fichaCompleta.getTextura());
     		statement.setString(10,fichaCompleta.getSabor());
 			statement.setString(11,fichaCompleta.getApresentacao());
-			
-			
-			
-			
 			statement.setString(12,fichaCompleta.getTempoPreparo());
 			statement.setString(13,fichaCompleta.getUtensilios());
 			statement.setDouble(14,fichaCompleta.getTemperatura());
+			statement.setDouble(15,fichaCompleta.getQntMedida());
+			statement.setInt(16,fichaCompleta.getMedida().getIdUnidadeMedida());
+			statement.setDouble(17,fichaCompleta.getQntMedidaCaseira());
+			statement.setInt(18,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
 
-			
-			
-			
             statement.executeUpdate();
 
             ResultSet resultset = statement.getGeneratedKeys();
@@ -103,6 +105,7 @@ public class FichaCompletaDAO {
 			return idFichaCompleta;
 
         } catch (ClassNotFoundException | SQLException e) {
+        	e.printStackTrace();
         	throw new PersistenciaException(e.getMessage());
             //throw new PersistenciaException(MensagemContantes.MSG_ERR_FICHA_Completa_JA_EXISTENTE.replace("?", fichaCompleta.getNome()));
 
@@ -130,15 +133,9 @@ public class FichaCompletaDAO {
             		+ "TIPO_FICHA, "
             		+ "TEXTURA, "
             		+ "SABOR, "
-            		
-            		
-            		
             		+ "TEMPO_DE_PREPARO, "
             		+ "UTENSILIOS_E_EQUIPAMENTOS, "
             		+ "TEMPERATURA, "
-            		
-            		
-            		
             		+ "APRESENTACAO FROM TB_FICHA WHERE TIPO_FICHA = 'c' ");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -157,15 +154,9 @@ public class FichaCompletaDAO {
                 dto.setTextura(resultset.getString("TEXTURA"));
                 dto.setSabor(resultset.getString("SABOR"));
                 dto.setApresentacao(resultset.getString("APRESENTACAO"));
-                
-                
-                
                 dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
                 dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
                 dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
-                
-                
-                
 
                 listarFichasCompleta.add(dto);
             }
@@ -177,6 +168,77 @@ public class FichaCompletaDAO {
             conexao.close();
         }
         return listarFichasCompleta;
+    }
+
+    public DadosRotulo buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException {
+        Connection conn = null;
+        dadosRotulo = new DadosRotulo();
+        try {
+
+            conn = ConexaoUtil.getConexao();
+            StringBuilder sql = new StringBuilder();
+            
+            sql.append(
+            		"select * from tb_ficha f inner join tb_unidade_medida fum " +
+            		"on f.rotulo_id_medida = fum.id_unidade_medida inner join tb_ficha_item fi " + 
+            		"on f.id_ficha = fi.id_ficha inner join tb_unidade_medida um " +
+            		"on fi.id_unidade_medida = um.id_unidade_medida inner join tb_unidade_medida_caseira umc " +
+            		"on fi.id_medida_caseira = umc.id_unidade_medida_caseira inner join tb_ingredientes i " +
+            		"on fi.id_ingrediente = i.id " +
+            		"where f.id_ficha = " + id
+            		);
+            
+            PreparedStatement statement = conn.prepareStatement(sql.toString());
+            ResultSet resultset = statement.executeQuery();
+
+            while (resultset.next()) {
+                FichaIngrediente fi = new FichaIngrediente();
+
+                Ingrediente i = new Ingrediente();
+                UnidadeMedida fum = new UnidadeMedida();
+                UnidadeMedida um = new UnidadeMedida();
+                UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
+
+                fum.setUnidadeMedida(resultset.getString("fum.unidade_medida"));
+                fum.setFatorConversao(resultset.getDouble("fum.fator_conversao"));
+                fum.setMedidaConversao(resultset.getString("fum.medida_conversao"));
+                fum.setSiglaUnidadeMedida(resultset.getString("fum.sigla_unidade_medida"));
+                dadosRotulo.setUnidadeMedida(fum);
+                
+                dadosRotulo.setQntMedida(resultset.getDouble("f.rotulo_qnt_medida"));
+                
+                um.setUnidadeMedida(resultset.getString("um.unidade_medida"));
+                um.setFatorConversao(resultset.getDouble("um.fator_conversao"));
+                um.setMedidaConversao(resultset.getString("um.medida_conversao"));
+                um.setSiglaUnidadeMedida(resultset.getString("um.sigla_unidade_medida"));
+                umc.setNome(resultset.getString("umc.nome"));
+
+                i.setDescricao(resultset.getString("descricao"));
+                i.setCarboidratos(resultset.getDouble("carboidratos"));
+                i.setKcalCarboidratos(resultset.getDouble("kcal_carboidratos"));
+                i.setProteinas(resultset.getDouble("proteinas"));
+                i.setKcalProteinas(resultset.getDouble("kcal_proteinas"));
+                i.setLipidios(resultset.getDouble("lipidios"));
+                i.setKcalLipidios(resultset.getDouble("kcal_lipidios"));
+                i.setGorduraSaturada(resultset.getDouble("gordura_saturada"));
+                i.setGorduraTrans(resultset.getDouble("gordura_trans"));
+                i.setFibrasAlimentares(resultset.getDouble("fibras_alimentares"));
+                i.setSodio(resultset.getDouble("sodio"));
+
+                fi.setQuantidadeMedida(resultset.getDouble("quantidade_unidade_medida"));
+                fi.setQuantidadeMedidaCaseira(resultset.getDouble("quantidade_medida_caseira"));
+                fi.setUnidadeMedida(um);
+                fi.setUnidadeMedidaCaseira(umc);
+                fi.setIngrediente(i);
+
+                dadosRotulo.addFichaIngredientes(fi);
+            }
+        } catch (ClassCastException | SQLException e){
+            throw new PersistenciaException(e);
+        } finally {
+            conn.close();
+        }
+        return dadosRotulo;
     }
 
     public boolean editarFichaCompleta(Ficha fichaCompleta) throws PersistenciaException {
@@ -198,16 +260,13 @@ public class FichaCompletaDAO {
                     + "TEXTURA = ?,"
                     + "SABOR = ?,"
                     + "APRESENTACAO = ?,"
-                    
-                    
-                    
                     + "TEMPO_DE_PREPARO = ?,"
                     + "UTENSILIOS_E_EQUIPAMENTOS = ?,"
-                    + "TEMPERATURA = ?"
-                    
-                    
-                    
-                    
+                    + "TEMPERATURA = ?,"
+                    + "ROTULO_QNT_MEDIDA = ?,"
+            		+ "ROTULO_ID_MEDIDA = ?,"
+            		+ "ROTULO_QNT_MEDIDA_CASEIRA = ?,"
+            		+ "ROTULO_ID_MEDIDA_CASEIRA = ?"
                     + " WHERE ID_FICHA = "+ idFichaCompleta 
                     + " AND TIPO_FICHA = 'c'");
 
@@ -223,16 +282,13 @@ public class FichaCompletaDAO {
             statement.setString(7, fichaCompleta.getTextura());
             statement.setString(8, fichaCompleta.getSabor());
             statement.setString(9, fichaCompleta.getApresentacao());
-            
-            
-            
             statement.setString(10, fichaCompleta.getTempoPreparo());
             statement.setString(11, fichaCompleta.getUtensilios());
             statement.setDouble(12, fichaCompleta.getTemperatura());
-            
-            
-            
-            
+			statement.setDouble(13,fichaCompleta.getQntMedida());
+			statement.setInt(14,fichaCompleta.getMedida().getIdUnidadeMedida());
+			statement.setDouble(15,fichaCompleta.getQntMedidaCaseira());
+			statement.setInt(16,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
             
 			List<FichaItem> itens = fichaCompleta.getItens();
 
@@ -250,6 +306,7 @@ public class FichaCompletaDAO {
 			okei = statement.execute();
             
         } catch (ClassNotFoundException | SQLException e) {
+        	e.printStackTrace();
             throw new PersistenciaException(e);
         } finally {
             try {
@@ -306,54 +363,68 @@ public class FichaCompletaDAO {
 			itemDAO = new FichaCompletaItemDAO();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT ID_FICHA,"
-					+ " NOME,"
-					+ " RENDIMENTO,"
-					+ " FOTO, MODO_PREPARO,"
-					+ " MONTAGEM,"
-					+ " ORIENTACOES_ARMAZENAMENTO,"
-					+ " ID_EMPRESA,"
-					+  "TEXTURA,"
-					+  "SABOR,"
-					+  "APRESENTACAO,"
-					
-					
-					
-					+ "TEMPO_DE_PREPARO,"
-					+ "UTENSILIOS_E_EQUIPAMENTOS,"
-					+ "TEMPERATURA,"
-					
-					
-					
-					+ " TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 'c' AND ID_FICHA = "+id);
+			sql.append(
+					"SELECT " +
+					"F.ID_FICHA, " +
+					"F.NOME, " +
+					"F.RENDIMENTO, " +
+					"F.FOTO, " +
+					"F.MODO_PREPARO, " +
+					"F.MONTAGEM, " +
+					"F.ORIENTACOES_ARMAZENAMENTO, " +
+					"F.ID_EMPRESA, " +
+					"F.TEXTURA, " +
+					"F.SABOR, " +
+					"F.APRESENTACAO, " +
+					"F.TEMPO_DE_PREPARO, " +
+					"F.UTENSILIOS_E_EQUIPAMENTOS, " +
+					"F.TEMPERATURA, " +
+					"F.ROTULO_QNT_MEDIDA, " +
+					"F.ROTULO_ID_MEDIDA, " +
+					"UM.UNIDADE_MEDIDA, " +
+					"UM.SIGLA_UNIDADE_MEDIDA, " +
+					"F.ROTULO_QNT_MEDIDA_CASEIRA, " +
+					"F.ROTULO_ID_MEDIDA_CASEIRA, " +
+					"UMC.NOME, " +
+					"F.TIPO_FICHA " +
+					"FROM TB_FICHA F INNER JOIN TB_UNIDADE_MEDIDA UM " +
+					"ON F.ROTULO_ID_MEDIDA = UM.ID_UNIDADE_MEDIDA JOIN TB_UNIDADE_MEDIDA_CASEIRA UMC " +
+					"ON F.ROTULO_ID_MEDIDA_CASEIRA = UMC.ID_UNIDADE_MEDIDA_CASEIRA " +
+					"WHERE F.TIPO_FICHA = 'c' AND F.ID_FICHA = " + id
+			);
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			ResultSet resultset = statement.executeQuery();
 			Ficha dto = null;
 			if (resultset.next()) {
 				dto = new Ficha();
-				dto.setIdFicha(resultset.getInt("ID_FICHA"));
-				dto.setIdEmpresa(resultset.getInt("ID_EMPRESA"));
-				dto.setNome(resultset.getString("NOME"));
-				dto.setRendimento(resultset.getString("RENDIMENTO"));
-				dto.setFoto(resultset.getString("FOTO"));
-				dto.setModoPreparo(resultset.getString("MODO_PREPARO"));
-				dto.setMontagem(resultset.getString("MONTAGEM"));
-				dto.setOrientacoesArmazenamento(resultset.getString("ORIENTACOES_ARMAZENAMENTO"));
-				dto.setTextura(resultset.getString("TEXTURA"));
-				dto.setSabor(resultset.getString("SABOR"));
-				dto.setApresentacao(resultset.getString("APRESENTACAO"));
+				dto.setIdFicha(resultset.getInt("F.ID_FICHA"));
+				dto.setIdEmpresa(resultset.getInt("F.ID_EMPRESA"));
+				dto.setNome(resultset.getString("F.NOME"));
+				dto.setRendimento(resultset.getString("F.RENDIMENTO"));
+				dto.setFoto(resultset.getString("F.FOTO"));
+				dto.setModoPreparo(resultset.getString("F.MODO_PREPARO"));
+				dto.setMontagem(resultset.getString("F.MONTAGEM"));
+				dto.setOrientacoesArmazenamento(resultset.getString("F.ORIENTACOES_ARMAZENAMENTO"));
+				dto.setTextura(resultset.getString("F.TEXTURA"));
+				dto.setSabor(resultset.getString("F.SABOR"));
+				dto.setApresentacao(resultset.getString("F.APRESENTACAO"));
+				dto.setQntMedida(resultset.getDouble("F.ROTULO_QNT_MEDIDA"));
+				dto.setQntMedidaCaseira(resultset.getDouble("F.ROTULO_QNT_MEDIDA_CASEIRA"));
+				dto.setTempoPreparo(resultset.getString("F.TEMPO_DE_PREPARO"));
+				dto.setUtensilios(resultset.getString("F.UTENSILIOS_E_EQUIPAMENTOS"));
+				dto.setTemperatura(resultset.getDouble("F.TEMPERATURA"));
 				
+				UnidadeMedida um = new UnidadeMedida();
+				um.setIdUnidadeMedida(resultset.getInt("F.ROTULO_ID_MEDIDA"));
+				um.setUnidadeMedida(resultset.getString("UM.UNIDADE_MEDIDA"));
+				um.setSiglaUnidadeMedida(resultset.getString("UM.SIGLA_UNIDADE_MEDIDA"));
+				dto.setMedida(um);
 				
-				
-				
-				dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
-				dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
-				dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
-				
-				
-				
-				
+				UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
+				umc.setIdUnidadeMedidaCaseira(resultset.getInt("F.ROTULO_ID_MEDIDA_CASEIRA"));
+				umc.setNome(resultset.getString("UMC.NOME"));
+				dto.setMedidaCaseira(umc);
 				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
 			}		
 			
@@ -364,7 +435,6 @@ public class FichaCompletaDAO {
 
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);
-
 		} finally {
 			conexao.close();
 		}
@@ -372,31 +442,30 @@ public class FichaCompletaDAO {
 	}
 
 	public int getProximoIdFicha() throws PersistenciaException, SQLException {
+		int idRetorno = 0;
+		Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+			String table = "TB_FICHA";
+			StringBuilder sql = new StringBuilder();
+			sql.append("SHOW TABLE STATUS LIKE '" + table + "'");
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultset = statement.executeQuery();
 
-			          int idRetorno = 0;
-			          Connection conexao = null;
-			          try {
-			              conexao = ConexaoUtil.getConexao();
-						  String table = "TB_FICHA";
-			              StringBuilder sql = new StringBuilder();
-			              sql.append("SHOW TABLE STATUS LIKE '"+table+"'");
-			              PreparedStatement statement = conexao.prepareStatement(sql.toString());
-						  ResultSet resultset = statement.executeQuery();
+			while (resultset.next()) {
+				idRetorno = Integer.valueOf(resultset.getString("AUTO_INCREMENT"));
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			try {
+				conexao.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
-			              while (resultset.next()) {
-			                  idRetorno = Integer.valueOf(resultset.getString("AUTO_INCREMENT"));
-			              }
-			          } catch (ClassNotFoundException | SQLException e) {
-			              throw new PersistenciaException(e);
-			          } finally {
-			              try {
-			                  conexao.close();
-			              } catch (Exception e) {
-			                  e.printStackTrace();
-			              }
-			          }
-
-			          return idRetorno;
-			      }
+		return idRetorno;
+	}
 
 }

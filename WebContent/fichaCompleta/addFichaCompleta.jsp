@@ -57,6 +57,98 @@
 			</div>
 
 
+			<div class="row" style="text-align: center;">
+				<div class="container" style="width: 640px;">
+					<h2>Informação Nutricional</h2>
+						<div class="row">
+							<div class="col-sm-2">
+								<label for="qnt-unidade-medida-rotulo" class="">Porção</label> 
+								<input type="number" class="form-control" id="qnt-unidade-medida-rotulo"
+									placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida-rotulo"
+									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+							</div>
+							<div class="col-sm-4">
+								<label for="select-unidade-medida" class="">Unidadede medida</label> 
+								<select id="select-unidade-medida-rotulo"
+									name="select-unidade-medida-rotulo" data-native-menu="false"
+									class="form-control selectBatata">
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<label for="qnt-unidade-medida-caseira-rotulo" class="">Porção</label>
+								<input type="number" class="form-control" id="qnt-unidade-medida-caseira-rotulo"
+									placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida-caseira-rotulo"
+									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+							</div>
+							<div class="col-sm-4">
+								<label for="select-medida-caseira-rotulo" class="">Medida Caseira</label> 
+								<select id="select-medida-caseira-rotulo"
+									name="select-medida-caseira-rotulo" data-native-menu="false"
+									class="form-control selectBatata">
+								</select>
+							</div>
+						</div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th colspan="2" style="text-align: center;">Quantidade por porção</th>
+								<th style="text-align: center;">%VD (*)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Valor Energético</td>
+								<td id="valorEnergeticoQP" style="min-width: 150px;"></td>
+								<td id="valorEnergeticoVD" style="min-width: 150px;"></td>
+							</tr>
+							<tr>
+								<td>Carboidratos</td>
+								<td id="carboidratosQP"></td>
+								<td id="carboidratosVD"></td>
+							</tr>
+							<tr>
+								<td>Proteinas</td>
+								<td id="proteinasQP"></td>
+								<td id="proteinasVD"></td>
+							</tr>
+							<tr>
+								<td>Gorduras totais</td>
+								<td id="gordTotalQP"></td>
+								<td id="gordTotalVD"></td>
+							</tr>
+							<tr>
+								<td>Gorduras saturadas</td>
+								<td id="gordSaturadaQP"></td>
+								<td id="gordSaturadaVD"></td>
+							</tr>
+							<tr>
+								<td>Gorduras trans</td>
+								<td id="gordTransQP"></td>
+								<td id="gordTransVD">-</td>
+							</tr>
+							<tr>
+								<td>Fibra alimentar</td>
+								<td id="fibraAlimQP"></td>
+								<td id="fibraAlimVD"></td>
+							</tr>
+							<tr>
+								<td>Sódio</td>
+								<td id="sodioQP"></td>
+								<td id="sodioVD"></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr style="background-color: #f9f9f9;">
+								<td colspan="3">(*) % Valores Diários com base em uma dieta
+									de 2.000 kcal ou 8400 KJ. Seus valores diários podem ser
+									maiores ou menores dependendo de suas necessidades energéticas.</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			
+
 			<div class="row" id="table-rows">
 				<div class="table-row"
 					style="width: 100%; float: left; margin-bottom: 5px;">
@@ -141,6 +233,10 @@
 								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
+							<input type="text" class="hidden" id="gordura-trans" name="gordura-trans">
+							<input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada">
+							<input type="text" class="hidden" id="fibra-alimentar" name="fibra-alimentar">
+							<input type="text" class="hidden" id="sodio" name="sodio">
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<div class="btn-excluir-wrapper"></div>
@@ -310,6 +406,14 @@
 </body>
 <script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
 <script src="./js/fichaCompleta/addFichaCompleta.js"></script>
+<script src="./js/fichaCompleta/rotulo.js"></script>
 
+<script type="text/javascript">
+	function limitText(limitField, limitNum) {
+		if (limitField.value.length > limitNum) {
+			limitField.value = limitField.value.substring(0, limitNum);
+		}
+	}
+</script>
 
 <jsp:include page="/template/foot.jsp"></jsp:include>

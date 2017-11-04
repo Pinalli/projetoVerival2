@@ -80,8 +80,8 @@ $(document).ready(function() {
 	function removeIncompleteItens(itens){
 		for(var i=0; i<itens.length; i++){
 			if(itens[i].idIngrediente === '' &&
-					itens[i].idUnidadeMedida  === '' &&
-					itens[i].idMedidaCaseira === ''){
+				itens[i].idUnidadeMedida  === '' &&
+				itens[i].idMedidaCaseira === ''){
 				itens.splice(i,1);
 			}
 		}

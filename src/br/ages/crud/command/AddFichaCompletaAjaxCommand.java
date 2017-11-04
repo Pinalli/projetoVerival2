@@ -15,6 +15,8 @@ import br.ages.crud.bo.FichaCompletaBO;
 import br.ages.crud.bo.FichaCompletaItemBO;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;
+import br.ages.crud.model.UnidadeMedida;
+import br.ages.crud.model.UnidadeMedidaCaseira;
 import br.ages.crud.util.MensagemContantes;
 
 public class AddFichaCompletaAjaxCommand implements Command {
@@ -36,7 +38,6 @@ public class AddFichaCompletaAjaxCommand implements Command {
 		try {
 			String jsonItens = request.getParameter("itens");
 
-						
 			FichaItem[] itens = gson.fromJson(jsonItens, FichaItem[].class);
 			
 			List<FichaItem> listaFichaItens = new ArrayList<FichaItem>();
@@ -63,6 +64,31 @@ public class AddFichaCompletaAjaxCommand implements Command {
 			ficha.setTipoFicha("c");
 			ficha.setItens(listaFichaItens);
 			
+			String qntUMRaw = request.getParameter("qntUnidadeMedida");
+			if(qntUMRaw != null) {
+				ficha.setQntMedida(Double.valueOf(qntUMRaw));
+			}
+			
+			UnidadeMedida um = new UnidadeMedida();
+			String idUMRaw = request.getParameter("unidadeMedidaId");
+			if(idUMRaw != null) {
+				um.setIdUnidadeMedida(Integer.valueOf(idUMRaw));
+			}
+			
+			String qntUMCRaw = request.getParameter("qntUnidadeMedidaCaseira");
+			if(qntUMCRaw != null) {
+				ficha.setQntMedidaCaseira(Double.valueOf(qntUMCRaw));
+			}
+			
+			UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
+			String idUMCRaw = request.getParameter("unidadeMedidaCaseiraId");
+			if(idUMCRaw != null) {
+				umc.setIdUnidadeMedidaCaseira(Integer.valueOf(idUMCRaw));
+			}
+			
+			ficha.setMedida(um);
+			ficha.setMedidaCaseira(umc);
+			
 			if(fichaCompletaBO.validarFichaCompleta(ficha)){
 				int id = fichaCompletaBO.cadastrarFichaCompleta(ficha);				
 				request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_CADASTRO_FICHA_COMPLETA.replace("?", ficha.getNome()));
@@ -77,6 +103,7 @@ public class AddFichaCompletaAjaxCommand implements Command {
 			}
 			return json;
 		} catch (Exception e) {
+			e.printStackTrace();
 		    msg.put("msgErro", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
 		    msg.put("erro", e.getMessage());
 		    msg.put("proxima", "main?acao=telaFichaCompleta");

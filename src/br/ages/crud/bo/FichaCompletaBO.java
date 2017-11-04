@@ -7,7 +7,10 @@ import java.util.List;
 import br.ages.crud.dao.FichaCompletaDAO;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
+import br.ages.crud.model.DadosRotulo;
 import br.ages.crud.model.Ficha;
+import br.ages.crud.model.FichaIngrediente;
+import br.ages.crud.model.Ingrediente;
 import br.ages.crud.util.MensagemContantes;
 
 /**
@@ -83,8 +86,6 @@ public class FichaCompletaBO {
 			if(fichaCompleta.getApresentacao()==null || fichaCompleta.getApresentacao().equals("")){
 				isValido = false;
 				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_APRESENTACAO + "<br/>");
-				
-				
 			}
 			
 			//Tempo de Preparo
@@ -105,13 +106,15 @@ public class FichaCompletaBO {
 				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_TEMPERATURA + "<br/>");
 			}
 			
-			
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 			throw new NegocioException(e);
 			
 		}
+		
+		System.out.println("LOGGING ERRORS IN VALIDATION");
+		System.out.println(msg);
+		System.out.println("LOGGING ERRORS IN VALIDATION");
 		return isValido;
 	}
 	
@@ -162,5 +165,14 @@ public class FichaCompletaBO {
             throw new NegocioException(e);
         }
     }
+
+	public DadosRotulo buscarDadosRotulo(int id) throws PersistenciaException, SQLException, ClassNotFoundException, NegocioException {
+		try {
+			 return fichaCompletaDAO.buscarDadosRotulo(id);
+		} catch (PersistenciaException e){
+			e.printStackTrace();
+			throw new NegocioException(MensagemContantes.MSG_INF_PROBLEMA_ROTUDO);
+		}
+	}
 	
 }
