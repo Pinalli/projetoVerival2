@@ -68,7 +68,7 @@ $(document).ready(function(){
 	$('#listaUnidadeMedida').dataTable({
 		"language": {
             "lengthMenu": "_MENU_ Registros",
-            "zeroRecords": "Sem registros - sorry",
+            "zeroRecords": "Sem registros",
             "info": "Mostrando _PAGE_ de _PAGES_ páginas",
             "infoEmpty": "Nenhum registros encontrados!",
             "infoFiltered": "(Filtrado _MAX_ do total deregistros)",
