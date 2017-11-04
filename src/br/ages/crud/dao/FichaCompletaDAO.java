@@ -1,5 +1,3 @@
-
-
 package br.ages.crud.dao;
 
 import java.sql.Connection;
@@ -54,12 +52,15 @@ public class FichaCompletaDAO {
             		+ "TEXTURA,"
             		+ "SABOR,"
             		+ "APRESENTACAO,"
+            		+ "TEMPO_DE_PREPARO, "
+            		+ "UTENSILIOS_E_EQUIPAMENTOS, "
+            		+ "TEMPERATURA, "
             		+ "ROTULO_QNT_MEDIDA,"
             		+ "ROTULO_ID_MEDIDA,"
             		+ "ROTULO_QNT_MEDIDA_CASEIRA,"
             		+ "ROTULO_ID_MEDIDA_CASEIRA"
             		+ ")");
-            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -76,10 +77,13 @@ public class FichaCompletaDAO {
             statement.setString(9, fichaCompleta.getTextura());
     		statement.setString(10,fichaCompleta.getSabor());
 			statement.setString(11,fichaCompleta.getApresentacao());
-			statement.setDouble(12,fichaCompleta.getQntMedida());
-			statement.setInt(13,fichaCompleta.getMedida().getIdUnidadeMedida());
-			statement.setDouble(14,fichaCompleta.getQntMedidaCaseira());
-			statement.setInt(15,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
+			statement.setString(12,fichaCompleta.getTempoPreparo());
+			statement.setString(13,fichaCompleta.getUtensilios());
+			statement.setDouble(14,fichaCompleta.getTemperatura());
+			statement.setDouble(15,fichaCompleta.getQntMedida());
+			statement.setInt(16,fichaCompleta.getMedida().getIdUnidadeMedida());
+			statement.setDouble(17,fichaCompleta.getQntMedidaCaseira());
+			statement.setInt(18,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
 
             statement.executeUpdate();
 
@@ -129,6 +133,9 @@ public class FichaCompletaDAO {
             		+ "TIPO_FICHA, "
             		+ "TEXTURA, "
             		+ "SABOR, "
+            		+ "TEMPO_DE_PREPARO, "
+            		+ "UTENSILIOS_E_EQUIPAMENTOS, "
+            		+ "TEMPERATURA, "
             		+ "APRESENTACAO FROM TB_FICHA WHERE TIPO_FICHA = 'c' ");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -147,6 +154,9 @@ public class FichaCompletaDAO {
                 dto.setTextura(resultset.getString("TEXTURA"));
                 dto.setSabor(resultset.getString("SABOR"));
                 dto.setApresentacao(resultset.getString("APRESENTACAO"));
+                dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
+                dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
+                dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
 
                 listarFichasCompleta.add(dto);
             }
@@ -167,21 +177,6 @@ public class FichaCompletaDAO {
 
             conn = ConexaoUtil.getConexao();
             StringBuilder sql = new StringBuilder();
-//            sql.append(
-//                    "select descricao, um.unidade_medida, um.fator_conversao, um.medida_conversao, um.sigla_unidade_medida, quantidade_unidade_medida, umc.nome, " +
-//                            "quantidade_medida_caseira,\n" +
-//                    "carboidratos, kcal_carboidratos, proteinas, kcal_proteinas,\n" +
-//                    "lipidios, kcal_lipidios, gordura_saturada, gordura_trans, fibras_alimentares, sodio\n" +
-//                    "from \n" +
-//                    "tb_ficha f inner join tb_ficha_item fi on f.id_ficha = fi.id_ficha\n" +
-//                    "inner join tb_unidade_medida um\n" +
-//                    "on fi.id_unidade_medida = um.id_unidade_medida\n" +
-//                    "inner join tb_unidade_medida_caseira umc\n" +
-//                    "on fi.id_medida_caseira = umc.id_unidade_medida_caseira\n" +
-//                    "inner join tb_ingredientes i\n" +
-//                    "on fi.id_ingrediente = i.id\n" +
-//                    "where f.id_ficha =" + id
-//            );
             
             sql.append(
             		"select * from tb_ficha f inner join tb_unidade_medida fum " +
@@ -265,6 +260,9 @@ public class FichaCompletaDAO {
                     + "TEXTURA = ?,"
                     + "SABOR = ?,"
                     + "APRESENTACAO = ?,"
+                    + "TEMPO_DE_PREPARO = ?,"
+                    + "UTENSILIOS_E_EQUIPAMENTOS = ?,"
+                    + "TEMPERATURA = ?,"
                     + "ROTULO_QNT_MEDIDA = ?,"
             		+ "ROTULO_ID_MEDIDA = ?,"
             		+ "ROTULO_QNT_MEDIDA_CASEIRA = ?,"
@@ -284,10 +282,13 @@ public class FichaCompletaDAO {
             statement.setString(7, fichaCompleta.getTextura());
             statement.setString(8, fichaCompleta.getSabor());
             statement.setString(9, fichaCompleta.getApresentacao());
-			statement.setDouble(10,fichaCompleta.getQntMedida());
-			statement.setInt(11,fichaCompleta.getMedida().getIdUnidadeMedida());
-			statement.setDouble(12,fichaCompleta.getQntMedidaCaseira());
-			statement.setInt(13,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
+            statement.setString(10, fichaCompleta.getTempoPreparo());
+            statement.setString(11, fichaCompleta.getUtensilios());
+            statement.setDouble(12, fichaCompleta.getTemperatura());
+			statement.setDouble(13,fichaCompleta.getQntMedida());
+			statement.setInt(14,fichaCompleta.getMedida().getIdUnidadeMedida());
+			statement.setDouble(15,fichaCompleta.getQntMedidaCaseira());
+			statement.setInt(16,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
             
 			List<FichaItem> itens = fichaCompleta.getItens();
 
@@ -375,6 +376,9 @@ public class FichaCompletaDAO {
 					"F.TEXTURA, " +
 					"F.SABOR, " +
 					"F.APRESENTACAO, " +
+					"F.TEMPO_DE_PREPARO, " +
+					"F.UTENSILIOS_E_EQUIPAMENTOS, " +
+					"F.TEMPERATURA, " +
 					"F.ROTULO_QNT_MEDIDA, " +
 					"F.ROTULO_ID_MEDIDA, " +
 					"UM.UNIDADE_MEDIDA, " +
@@ -407,6 +411,9 @@ public class FichaCompletaDAO {
 				dto.setApresentacao(resultset.getString("F.APRESENTACAO"));
 				dto.setQntMedida(resultset.getDouble("F.ROTULO_QNT_MEDIDA"));
 				dto.setQntMedidaCaseira(resultset.getDouble("F.ROTULO_QNT_MEDIDA_CASEIRA"));
+				dto.setTempoPreparo(resultset.getString("F.TEMPO_DE_PREPARO"));
+				dto.setUtensilios(resultset.getString("F.UTENSILIOS_E_EQUIPAMENTOS"));
+				dto.setTemperatura(resultset.getDouble("F.TEMPERATURA"));
 				
 				UnidadeMedida um = new UnidadeMedida();
 				um.setIdUnidadeMedida(resultset.getInt("F.ROTULO_ID_MEDIDA"));

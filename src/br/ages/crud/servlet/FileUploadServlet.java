@@ -1,7 +1,6 @@
 package br.ages.crud.servlet;
 
 import br.ages.crud.bo.EmpresaBO;
-import br.ages.crud.bo.FichaSimplificadaBO;
 import br.ages.crud.util.Constantes;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
@@ -46,14 +45,6 @@ public class FileUploadServlet extends HttpServlet {
 			this.criaPastas();
 			String appPath = "";
 			String savePath = SAVE_DIR+File.separator+"upload"+File.separator;
-			if(fichaSimplificada){
-				idFicha = Integer.valueOf(request.getParameter("idFicha"));
-				if(idFicha == 0){
-					idFicha = new FichaSimplificadaBO().getProximoIdFicha();
-				}
-				appPath = "fichas"+File.separator+"ficha-"+idFicha;
-				savePath += appPath;
-			}
 			if (empresa){
 				appPath = "logo";
 				savePath += appPath;

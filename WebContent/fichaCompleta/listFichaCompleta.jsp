@@ -67,10 +67,7 @@
 		</div>
     </div>
 </div>
-<jsp:include page="../template/foot.jsp"></jsp:include>
-
-	
-	
+<jsp:include page="../template/foot.jsp"></jsp:include>	
 <script>
 $(document).ready(function(){
 	$('#listaFicha').dataTable({

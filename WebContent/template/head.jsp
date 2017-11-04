@@ -1,4 +1,6 @@
 <%@page import="br.ages.crud.model.Usuario"%>
+<%@page import="br.ages.crud.model.PerfilAcesso"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -91,15 +93,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
-      <ul class="nav navbar-nav">        
+      <ul class="nav navbar-nav"> 
+      	<% if(usuarioSessao.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR)) { %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usurio <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="main?acao=listUser">Listar</a></li>
             <li><a href="main?acao=telaUser">Cadastrar</a></li>            
           </ul>
         </li>
-         
+                 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -107,7 +110,7 @@
             <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
           </ul>
         </li>
-        
+      	<% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredientes <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -117,21 +120,17 @@
         </li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unidades de Medida<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Medidas Caseiras<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listUnidadeMedida">Listar Unidades de Medida</a></li>
-            <li><a href="main?acao=telaUnidadeMedida">Cadastrar Unidade de Medida</a></li>
-			<li><a href="main?acao=listUnidadeMedidaCaseira">Listar Unidades de Medida Caseira</a></li>
-            <li><a href="main?acao=telaUnidadeMedidaCaseira">Cadastrar Unidade Medida Caseira</a></li>			
+			<li><a href="main?acao=listUnidadeMedidaCaseira">Listar Medidas Caseiras</a></li>
+            <li><a href="main?acao=telaUnidadeMedidaCaseira">Cadastrar Medida Caseira</a></li>			
           </ul>
         </li>
        
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas tcnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><a  href="main?acao=telaFichaSimplificada">Cadastrar Ficha Técnica Simplificada</a></li>
-                  <li><a  href="main?acao=listFichaSimplificada">Listar Fichas Técnicas Simplificadas</a></li>
-                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Técnica Completa</a></li>
+                  <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Téˆcnica Completa</a></li>
 				  <li><a  href="main?acao=listFichaCompleta">Listar Fichas Técnicas Completas</a></li>
               </ul>
           </li>
@@ -147,7 +146,7 @@
         <li class="dropdown">
         					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
         						<span class="glyphicon glyphicon-user"></span>
-        						Olá, <%=usuarioSessao.getNome()%>!
+        						Ol, <%=usuarioSessao.getNome()%>!
         						<span class="caret"></span>
         					</a>
                            

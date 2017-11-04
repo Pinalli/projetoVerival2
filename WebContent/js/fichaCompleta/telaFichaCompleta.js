@@ -133,6 +133,7 @@ $(document).ready(function() {
 		setSelect2();
 		showItemListener();
 		updateIngredienteListener();
+		updateQuantidades();
 		addRotuloListener();
 		qntIngredientes++;
 		/**
@@ -451,6 +452,61 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+	function updateQuantidades(){
+		$(".table-row").not(".configurado").each(function(){
+			var row = $(this);
+			var select = row.find("#select-ingredientes");
+			if(select.val()){
+				multiplica(row, select.val());
+			}
+			select.change(function(){
+				var id = $(this).val();
+				multiplica(row, id);
+			});
+		});
+	}
+	updateQuantidades();
+	
+	function multiplica(row, id){
+		row.find("#qnt-unidade-medida").change(function() {
+			var x, y;
+			x = row.find("#cho").val()*row.find("#qnt-unidade-medida").val();
+			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+			else y =x;
+			row.find("#choShow").val(y);
+			x = row.find("#ptn").val()*row.find("#qnt-unidade-medida").val();
+			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+			else y =x;
+			row.find("#ptnShow").val(y);
+			x = row.find("#lip").val()*row.find("#qnt-unidade-medida").val();
+			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+			else y =x;
+			row.find("#lipShow").val(y);
+			x = row.find("#kcal").val()*row.find("#qnt-unidade-medida").val();
+			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+			else y =x;
+			row.find("#kcalShow").val(y);
+			row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val());
+			if (row.find("#valor-unitarioShow").val().length > 5){
+				row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
+			    }
+			x = row.find("#custo-real").val()*row.find("#qnt-unidade-medida").val();
+			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+			else y =x;
+			row.find("#custo-realShow").val(y);
+			x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
+			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+			else y =x;
+			row.find("#fator-de-correcaoShow").val(y);
+			x = row.find("#indice-de-coccao").val()*row.find("#qnt-unidade-medida").val();
+			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
+			else y =x;
+			row.find("#indice-de-coccaoShow").val(y);
+			
+			createRotulo();
+		});
+	}
 	
 	$(function() {
 		$("#imgFile").change(function() {
@@ -500,25 +556,27 @@ $(document).ready(function() {
 	
 	function addRotuloListener() {
 		$('#table-rows').find('.table-row').each(function() {
-			$(this).find('#qnt-unidade-medida').on('change', function() {
-				console.log("QNT INGREDIENTE");
-				createRotulo();
-			});
-			
-			$(this).find('#qnt-unidade-medida-rotulo').on('change', function() {
-				console.log("QNT ROTULO");
-				createRotulo();
-			});
-			
-			$(this).find('#select-unidade-medida-rotulo').on('change', function() {
-				console.log("ROTULO UM");
-				createRotulo();
-			});
+//			$(this).find('#qnt-unidade-medida').on('change', function() {
+//				console.log("QNT INGREDIENTE");
+//				createRotulo();
+//			});
 			
 			$(this).find('#select-unidade-medida').on('change', function() {
 				console.log("INGREDIENTE UM");
 				createRotulo();
 			});
+			
+			$('#qnt-unidade-medida-rotulo').on('change', function() {
+				console.log("QNT ROTULO");
+				createRotulo();
+			});
+			
+			$('#select-unidade-medida-rotulo').on('change', function() {
+				console.log("ROTULO UM");
+				createRotulo();
+			});
+			
+			
 		});
 	}
 	addRotuloListener();

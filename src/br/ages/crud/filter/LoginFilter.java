@@ -24,7 +24,7 @@ import br.ages.crud.util.MensagemContantes;
 public class LoginFilter implements Filter {
 	
 	Logger logger = Logger.getLogger("servlet.FileUploadServlet");
-	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".jpg", ".png", ".gif","login.jsp","/FluxoAGES/" };
+	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".jpg", ".png", ".gif","login.jsp", "newUser.jsp","/FluxoAGES/" };
 
 	/**
 	 * @see Filter#destroy()
@@ -75,7 +75,8 @@ public class LoginFilter implements Filter {
 			if(uri != null && uri.endsWith("main") 
 					&& (acao != null 
 					&& acao.equals("login")
-					|| (acao.equals("recuperarSenha")))){
+					|| (acao.equals("recuperarSenha"))
+					|| (acao.equals("newUser")))){
 				retorno = true;
 			}
 		}

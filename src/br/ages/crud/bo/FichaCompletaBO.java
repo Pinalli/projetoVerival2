@@ -88,12 +88,33 @@ public class FichaCompletaBO {
 				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_APRESENTACAO + "<br/>");
 			}
 			
+			//Tempo de Preparo
+			if(fichaCompleta.getTempoPreparo()==null || fichaCompleta.getTempoPreparo().equals("")){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_TEMPO_PREPARO + "<br/>");
+			}
+			
+			//Utensilios e Equipamentos
+			if(fichaCompleta.getUtensilios()==null || fichaCompleta.getUtensilios().equals("")){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_UTENSILIOS + "<br/>");
+			}
+			
+			//Temperatura
+			if(fichaCompleta.getTemperatura()==null || fichaCompleta.getTemperatura().equals("")){
+				isValido = false;
+				msg.append(MensagemContantes.MSG_ERR_FICHA_COMPLETA_CAMPO_TEMPERATURA + "<br/>");
+			}
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 			throw new NegocioException(e);
 			
 		}
+		
+		System.out.println("LOGGING ERRORS IN VALIDATION");
+		System.out.println(msg);
+		System.out.println("LOGGING ERRORS IN VALIDATION");
 		return isValido;
 	}
 	

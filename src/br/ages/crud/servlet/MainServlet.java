@@ -43,13 +43,10 @@ public class MainServlet extends HttpServlet {
 		comandos.put("addUser", new AddUserCommand());
 		comandos.put("editUser", new EditUserCommand());
 		comandos.put("removerUsuario", new RemoveUserCommand());
+		comandos.put("newUser", new NewUserCommand());
 
 		// COMANDOS DE UNIDADE MEDIDA
-		comandos.put("listUnidadeMedida", new ListUnidadeMedidaCommand());
-		comandos.put("addUnidadeMedida", new AddUnidadeMedidaCommand());
-		comandos.put("editUnidadeMedida", new EditUnidadeMedidaCommand());
-		comandos.put("removerUnidadeMedida", new RemoveUnidadeMedidaCommand());
-		comandos.put("telaUnidadeMedida", new CreateScreenUnidadeMedidaCommand());
+		//DELETADO
 
 		// COMANDOS DE UNIDADE DE MEDIDA CASEIRA
 		comandos.put("listUnidadeMedidaCaseira", new ListUnidadeMedidaCaseiraCommand());
@@ -72,11 +69,6 @@ public class MainServlet extends HttpServlet {
 		comandos.put("editEmpresa", new EditEmpresaCommand());
 		comandos.put("removerEmpresa", new RemoveEmpresaCommand());
 
-		
-		// COMANDOS DA FICHA TECNICA SIMPLIFICADA
-		comandos.put("telaFichaSimplificada", new CreateScreenFichaSimplificadaCommand());
-		comandos.put("listFichaSimplificada", new ListFichaSimplificadaCommand());
-		comandos.put("removerFichaSimplificada", new RemoveFichaSimplificadaCommand());
 		
 		// COMANDOS DA FICHA TECNICA COMPLETA
 		comandos.put("telaFichaCompleta", new CreateScreenFichaCompletaCommand());

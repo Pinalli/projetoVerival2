@@ -17,11 +17,14 @@ public class Ficha {
 	private String textura;
 	private String sabor;
 	private String apresentacao;
+	private String tempoPreparo;
+	private String utensilios;
+	private Double temperatura;
 	private Double qntMedida;
 	private UnidadeMedida medida;
 	private Double qntMedidaCaseira;
 	private UnidadeMedidaCaseira medidaCaseira;
-
+	
 	private List<FichaItem> itens;
 
 	public Ficha() {
@@ -125,6 +128,30 @@ public class Ficha {
 		this.apresentacao = apresentacao;
 	}
 
+	public String getTempoPreparo() {
+		return tempoPreparo;
+	}
+	
+	public void setTempoPreparo(String tempoPreparo) {
+		this.tempoPreparo = tempoPreparo;
+	}
+	
+	public String getUtensilios() {
+		return utensilios;
+	}
+	
+	public void setUtensilios(String utensilios) {
+		this.utensilios = utensilios;
+	}
+	
+	public Double getTemperatura() {
+		return temperatura;
+	}
+	
+	public void setTemperatura(Double temperatura) {
+		this.temperatura = temperatura;
+	}
+
 	public List<FichaItem> getItens() {
 		return itens;
 	}
@@ -164,5 +191,4 @@ public class Ficha {
 	public void setMedidaCaseira(UnidadeMedidaCaseira medidaCaseira) {
 		this.medidaCaseira = medidaCaseira;
 	}
-	
 }

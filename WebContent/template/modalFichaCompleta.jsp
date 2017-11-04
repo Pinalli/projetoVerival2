@@ -226,7 +226,6 @@ $('#modalVisualizar').on('show.bs.modal', function (event) {
 	var botao = $(event.relatedTarget);
 	var fichaS = botao.data('fichas');
 	var id = botao.data('id');
-
 	  	
 	//preencheDados();
 	carregaRotuloPDF(id);
@@ -234,22 +233,15 @@ $('#modalVisualizar').on('show.bs.modal', function (event) {
 	var d = new Date();
 	var date = d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()+'   '+ pad(d.getHours(),2)+":"+pad(d.getMinutes(),2);
 	document.getElementById("date").innerHTML = date;
-	
-	
-  	
+
 	$(this).find('.modal-title').text('Exportar para PDF');
 	$(this).find('#modal-descricao').text('');
-	$(this).find('#nome-receita').text(fichaS);
- 	
-	 		
-  	
+	$(this).find('#nome-receita').text(fichaS);  	
 });
-
 
 $(document).on('show.bs.modal','#modalErro', function (event) {
 	var botao = $(event.relatedTarget);
   	var fichaS = botao.data('fichaS');
   	var id = botao.data('id');
-
 });
 </script>
