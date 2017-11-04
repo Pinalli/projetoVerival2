@@ -17,6 +17,8 @@ public class FichaItem {
 	// Item da Ficha Completa
 	private double perCapita;
 	private double valorUnit;
+
+	private double gorduraTrans;
 	
 	private String operacao;
 
@@ -129,4 +131,7 @@ public class FichaItem {
 	public void setQuantidadeMedidaCaseira(double quantidadeMedidaCaseira) {
 		this.quantidadeMedidaCaseira = quantidadeMedidaCaseira;
 	}
+
+	public void setGorduraTrans(double gorduraTrans){this.gorduraTrans = gorduraTrans;}
+	public double getGorduraTrans(){return gorduraTrans;}
 }
