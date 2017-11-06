@@ -129,6 +129,7 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
+		updateCusto();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -146,9 +147,10 @@ $(document).ready(function() {
 			$(this).click(function(e) {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 	
-				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()));
+				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()))/2;
 				if(valor>0){
 					$("#valorTotalFicha").val(valor);
+					$("#valorTotalFichaAux").val(valor);
 				}
 				target.fadeOut(300, function(){
 					var operacao = $("#operacao",target);
@@ -345,6 +347,36 @@ $(document).ready(function() {
  		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
  		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
  	}
+ 	
+ 	function updateCusto(){
+		$(".table-row").not(".configurado").each(function(){
+			var row = $(this);
+			var select = row.find("#custo-realShow");
+			if(select.val()){
+				atualizaCusto(row, select.val(),false);
+			}
+			select.change(function(){
+				var id = $(this).val();
+				atualizaCusto(row, id,true);
+			});
+		});
+	}
+	updateCusto();
+	
+	function atualizaCusto(row,id,valido){	
+		var x = Number($("#valorTotalFicha").val());
+		var y = Number(row.find("#custo-realShow").val());
+		var w = Number(row.find("#custo-realShow").val())-Number(row.find("#custo-realAnterior").val());
+		var z = x-y;		
+		if(valido){
+			if (Number($("#valorTotalFicha").val())>0||row.find("#custo-realAnterior").val()>0){
+				$("#valorTotalFicha").val(Number($("#valorTotalFicha").val())+w);	
+				row.find("#custo-realAnterior").val(row.find("#custo-realShow").val())
+			}
+			else
+				$("#valorTotalFicha").val(Number($("#valorTotalFicha").val())+(y-z+x)/2);			
+		}
+	}
  	
  	/**
  	 * Busca ingrediente pelo ID

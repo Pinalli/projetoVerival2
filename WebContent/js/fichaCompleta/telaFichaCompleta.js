@@ -143,9 +143,10 @@ $(document).ready(function() {
 			$(this).click(function(e) {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 			
-				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()));
+				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()))/2;
 				if(valor>0){
 					$("#valorTotalFicha").val(valor);
+					$("#valorTotalFichaAux").val(valor);
 				}
 				target.fadeOut(300, function(){					
 					target.remove();
@@ -161,7 +162,12 @@ $(document).ready(function() {
 	/**
 	 * Clona ulltima linha
 	 */
-	function add() {		
+	function add() {	
+		if($("#valorTotalFichaAux").val()>0)
+			var aux = Number($("#valorTotalFicha").val());
+		else
+			var aux = Number($("#valorTotalFicha").val());
+		$("#valorTotalFichaAux").val(aux);
 		//Clona a ultima linha
 		var row = $('.table-row').last().clone();
 		row.removeClass('configurado');
@@ -359,9 +365,10 @@ $(document).ready(function() {
 			var x = Number($("#valorTotalFicha").val());
 			var y = Number(row.find("#custo-realShow").val());
 			var z = x-y;
-			
-			$("#valorTotalFicha").val((y-z+x)/2);				
-			
+			if(Number($("#valorTotalFichaAux").val())>0)
+				$("#valorTotalFicha").val(Number($("#valorTotalFichaAux").val())+(y-z+x)/2);				
+			else
+				$("#valorTotalFicha").val((y-z+x)/2);	
 		//});
 	}
 	

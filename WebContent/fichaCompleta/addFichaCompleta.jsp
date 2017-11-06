@@ -155,6 +155,8 @@
 					<input type="number" name="valorTotalFicha" id="valorTotalFicha"
 						class="form-control text-center box-transparent" value = "0"
 						placeholder="Valor Total" />
+					<input type="hidden" name="valorTotalFichaAux" id="valorTotalFichaAux"
+						class="form-control text-center box-transparent" value = "0" />
 			</div>
 		
 			<div class="row">
