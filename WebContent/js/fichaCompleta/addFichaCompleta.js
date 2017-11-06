@@ -32,6 +32,7 @@ $(document).ready(function() {
 					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
 					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
 					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
+					gorduraTrans : $(this).find('input[name="gorduraTrans"]').val(),
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
 			};

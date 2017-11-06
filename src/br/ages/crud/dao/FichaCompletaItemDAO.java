@@ -37,6 +37,7 @@ public class FichaCompletaItemDAO {
 					+ "TFI.ID_UNIDADE_MEDIDA, "
 					+ "TFI.ID_MEDIDA_CASEIRA, "
 					+ "TFI.ID_INGREDIENTE, "
+					+ "TFI.GORDURA_TRANS, "
 					+ "TFI.QUANTIDADE_UNIDADE_MEDIDA, "
 					+ "TFI.QUANTIDADE_MEDIDA_CASEIRA, "
 					+ "TFI.ID_FICHA, "
@@ -68,6 +69,7 @@ public class FichaCompletaItemDAO {
 				item.setIngrediente(resultSet.getString("INGREDIENTE"));
 				item.setUnidadeMedida(resultSet.getString("UNIDADE_MEDIDA"));
 				item.setUnidadeMedidaCaseira(resultSet.getString("UNIDADE_MEDIDA_CASEIRA"));
+				item.setGorduraTrans(resultSet.getDouble("GORDURA_TRANS"));
 				itens.add(item);
 			}
 			return itens;
@@ -90,8 +92,8 @@ public class FichaCompletaItemDAO {
 			StringBuilder sql = new StringBuilder();
 			sql.append(
 					"INSERT INTO TB_FICHA_ITEM (" + " ID_UNIDADE_MEDIDA," + " ID_MEDIDA_CASEIRA," + " ID_INGREDIENTE,"
-							+ " ID_FICHA," + " QUANTIDADE_UNIDADE_MEDIDA," + " QUANTIDADE_MEDIDA_CASEIRA )");
-			sql.append("VALUES (?, ?, ?, ?, ?, ?)");
+							+ " ID_FICHA," + " QUANTIDADE_UNIDADE_MEDIDA," + " QUANTIDADE_MEDIDA_CASEIRA, " + " GORDURA_TRANS)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -101,6 +103,7 @@ public class FichaCompletaItemDAO {
 			statement.setInt(4, item.getIdFicha());
 			statement.setDouble(5, item.getQuantidadeUnidadeMedida());
 			statement.setDouble(6, item.getQuantidadeMedidaCaseira());
+			statement.setDouble(7, item.getGorduraTrans());
 
 			statement.executeUpdate();
 
@@ -127,7 +130,8 @@ public class FichaCompletaItemDAO {
 			conexao = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
 			sql.append("UPDATE TB_FICHA_ITEM SET " + " ID_UNIDADE_MEDIDA = ?," + " ID_MEDIDA_CASEIRA = ?,"
-					+ " ID_INGREDIENTE = ?," + " QUANTIDADE_UNIDADE_MEDIDA = ?," + " QUANTIDADE_MEDIDA_CASEIRA = ?"
+					+ " ID_INGREDIENTE = ?," + " QUANTIDADE_UNIDADE_MEDIDA = ?," + " QUANTIDADE_MEDIDA_CASEIRA = ?,"
+					+ " GORDURA_TRANS = ?"
 					+ " WHERE ID_FICHA_ITEM = ?");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -137,7 +141,8 @@ public class FichaCompletaItemDAO {
 			statement.setInt(3, item.getIdIngrediente());
 			statement.setDouble(4, item.getQuantidadeUnidadeMedida());
 			statement.setDouble(5, item.getQuantidadeMedidaCaseira());
-			statement.setInt(6, item.getIdFichaItem());
+			statement.setDouble(6, item.getGorduraTrans());
+			statement.setInt(7, item.getIdFichaItem());
 
 			return statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {

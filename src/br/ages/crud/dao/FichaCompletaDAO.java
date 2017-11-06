@@ -221,7 +221,7 @@ public class FichaCompletaDAO {
                 i.setLipidios(resultset.getDouble("lipidios"));
                 i.setKcalLipidios(resultset.getDouble("kcal_lipidios"));
                 i.setGorduraSaturada(resultset.getDouble("gordura_saturada"));
-                i.setGorduraTrans(resultset.getDouble("gordura_trans"));
+                //i.setGorduraTrans(resultset.getDouble("gordura_trans"));
                 i.setFibrasAlimentares(resultset.getDouble("fibras_alimentares"));
                 i.setSodio(resultset.getDouble("sodio"));
 
@@ -230,6 +230,7 @@ public class FichaCompletaDAO {
                 fi.setUnidadeMedida(um);
                 fi.setUnidadeMedidaCaseira(umc);
                 fi.setIngrediente(i);
+                fi.setGorduraTrans(resultset.getDouble("fi.gordura_trans"));
 
                 dadosRotulo.addFichaIngredientes(fi);
             }

@@ -12,6 +12,7 @@ public class FichaIngrediente {
     private UnidadeMedidaCaseira unidadeMedidaCaseira;
 
     private Double quantidadeMedida, quantidadeMedidaCaseira;
+    private Double gorduraTrans;
 
 
 //    private FichaItem fichaItem;
@@ -59,6 +60,14 @@ public class FichaIngrediente {
     public void setQuantidadeMedidaCaseira(Double quantidadeMedidaCaseira){
         this.quantidadeMedidaCaseira = quantidadeMedidaCaseira;
     }
+
+	public Double getGorduraTrans() {
+		return gorduraTrans;
+	}
+
+	public void setGorduraTrans(Double gorduraTrans) {
+		this.gorduraTrans = gorduraTrans;
+	}
 
     //    public FichaItem getFichaItem(){
 //        return fichaItem;

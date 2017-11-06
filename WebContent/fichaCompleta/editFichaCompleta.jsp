@@ -218,8 +218,16 @@
 								name="select-medida-caseira" data-native-menu="false"
 								class="form-control selectBatata"
 								data-selected-id="<%= item.getIdMedidaCaseira()%>" 
-								data-selected-text="<%= item.getUnidadeMedidaCaseira() %>">
+								data-selected-text="<%=item.getUnidadeMedidaCaseira() %>">
 							</select>
+						</div>
+						</div>
+						<div class="form-group col-md-2 col-xs-4">
+							<label for="qnt-unidade-medida" class="">Gordura Trans</label> <input
+								type="number" class="form-control" id="gorduraTrans"						
+								placeholder="Gordura Trans" min="0" max="9999" step="0.1" name="gorduraTrans"
+								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);" value="<%= item.getGorduraTrans()%>">
+						<!--  		value="<%--= item.getGorduraTrans()--%>"> -->
 						</div>
 						<!--div class="form-group col-md-12"-->
 							<div class="form-group col-md-2 col-xs-4">

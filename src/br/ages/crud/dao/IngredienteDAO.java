@@ -62,7 +62,6 @@ public class IngredienteDAO {
 				dto.setLipidios(resultset.getDouble("I.LIPIDIOS"));
 				dto.setKcalLipidios(resultset.getDouble("I.KCAL_LIPIDIOS"));
 				dto.setGorduraSaturada(resultset.getDouble("I.GORDURA_SATURADA"));
-				dto.setGorduraTrans(resultset.getDouble("I.GORDURA_TRANS"));
 				dto.setFibrasAlimentares(resultset.getDouble("I.FIBRAS_ALIMENTARES"));
 				dto.setSodio(resultset.getDouble("I.SODIO"));
 				dto.setFatorCorrecao(resultset.getDouble("I.FATOR_CORRECAO"));
@@ -103,7 +102,6 @@ public class IngredienteDAO {
 					+ "`LIPIDIOS`, "
 					+ "`KCAL_LIPIDIOS`, "
 					+ "`GORDURA_SATURADA`, " 
-					+ "`GORDURA_TRANS`, "
 					+ "`FIBRAS_ALIMENTARES`, "
 					+ "`SODIO`, "
 					+ "`FATOR_CORRECAO`, "
@@ -112,7 +110,7 @@ public class IngredienteDAO {
 					+ "`UNIDADE_MEDIDA`, "
 					+ "`DATA_INSERCAO`)"
 					);
-			sql.append("VALUE (NULL ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
+			sql.append("VALUE (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
 			java.sql.Date dataInclusao = new java.sql.Date(utilDate.getTime());
@@ -127,13 +125,12 @@ public class IngredienteDAO {
 			statement.setDouble(7, ingrediente.getLipidios());
 			statement.setDouble(8, ingrediente.getKcalLipidios());
 			statement.setDouble(9, ingrediente.getGorduraSaturada());
-			statement.setDouble(10, ingrediente.getGorduraTrans());
-			statement.setDouble(11, ingrediente.getFibrasAlimentares());
-			statement.setDouble(12, ingrediente.getSodio());
-			statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());
-			statement.setDouble(15, ingrediente.getCusto());
-			statement.setString(16, ingrediente.getUnidadeMedida());
+			statement.setDouble(10, ingrediente.getFibrasAlimentares());
+			statement.setDouble(11, ingrediente.getSodio());
+			statement.setDouble(12, ingrediente.getFatorCorrecao());
+			statement.setDouble(13, ingrediente.getIndiceCoccao());
+			statement.setDouble(14, ingrediente.getCusto());
+			statement.setString(15, ingrediente.getUnidadeMedida());
 			
 			statement.executeUpdate();
 
@@ -177,7 +174,6 @@ public class IngredienteDAO {
 				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
 				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
 				ingrediente.setGorduraSaturada(resultset.getDouble("GORDURA_SATURADA"));
-				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
 				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
@@ -224,7 +220,6 @@ public class IngredienteDAO {
 				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
 				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
 				ingrediente.setGorduraSaturada(resultset.getDouble("GORDURA_SATURADA"));
-				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
 				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
@@ -278,7 +273,6 @@ public class IngredienteDAO {
 				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
 				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
 				ingrediente.setGorduraSaturada(resultset.getDouble("GORDURA_SATURADA"));
-				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
 				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
@@ -319,7 +313,6 @@ public class IngredienteDAO {
             sql.append(" LIPIDIOS = ?,");
             sql.append(" KCAL_LIPIDIOS = ?,");
             sql.append(" GORDURA_Saturada = ?,");
-            sql.append(" GORDURA_TRANS = ?,");
             sql.append(" FIBRAS_ALIMENTARES = ?,");
             sql.append(" SODIO = ?,");
             sql.append(" FATOR_CORRECAO = ?,");
@@ -340,13 +333,12 @@ public class IngredienteDAO {
 			statement.setDouble(7, ingrediente.getLipidios());
 			statement.setDouble(8, ingrediente.getKcalLipidios());
 			statement.setDouble(9, ingrediente.getGorduraSaturada());
-			statement.setDouble(10, ingrediente.getGorduraTrans());
-			statement.setDouble(11, ingrediente.getFibrasAlimentares());
-			statement.setDouble(12, ingrediente.getSodio());
-			statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());
-			statement.setDouble(15, ingrediente.getCusto());
-			statement.setString(16, ingrediente.getUnidadeMedida());
+			statement.setDouble(10, ingrediente.getFibrasAlimentares());
+			statement.setDouble(11, ingrediente.getSodio());
+			statement.setDouble(12, ingrediente.getFatorCorrecao());
+			statement.setDouble(13, ingrediente.getIndiceCoccao());
+			statement.setDouble(14, ingrediente.getCusto());
+			statement.setString(15, ingrediente.getUnidadeMedida());
 			
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {

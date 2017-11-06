@@ -64,7 +64,7 @@ function calculoRotulo(fichaIngredientes) {
 		proteinas += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.proteinas));
 		gordTotal += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.lipidios));
 		gordSaturada += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.gorduraSaturada));
-		gordTrans += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.gorduraTrans));
+		gordTrans += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].gorduraTrans));
 		fibraAlim += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.fibrasAlimentares));
 		sodio += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.sodio));
 	}
