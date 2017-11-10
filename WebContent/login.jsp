@@ -10,8 +10,13 @@
 	    
 	    <link rel="icon" href="img/iconutri.ico">
 	
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/login.css">
+		
+		
+    	<script src="js/jquery.min.js"></script>
+    	<script src="js/popper.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
 	</head>
 
     <body>
@@ -40,42 +45,5 @@
  				</form>
 			</div>
     	</div>
-    	
-		<!-- <div class="container">
-    	
-    		<div class="panel panel-success panel-login">
-    		
-    			<div class="panel-heading text-center">
-    				Sistema de Ficha Técnica de Preparo
-    			</div>
-                <div class="panel-body">                
-    
-    				<h1 class="welcome">Bem <span class="ages">V</span>indo!</h1>
-    				<img src="img/logo-ftp.png" alt="Nutri" width="100%" height="70%">
-    				<jsp:include page="/template/msg.jsp"></jsp:include>
- 			         <form method="post" action="main?acao=login">
-			         	<div class="form-group">
-			            	<label class="form-label ages">Usuário:</label>
-			            	<input class="form-control" id="login" name="login" value="${param.login}" type="text" maxlength="120" required>
-		             	</div>
-		             	<div class="form-group">
-			            	<label class="form-label ages">Senha:</label>
-			            	<input class="form-control" id="senha" name="senha" value="${param.senha}" type="password" maxlength="15" required>
-		            	</div>
-		            	<i class="glyphicon glyphicon-lock"></i>
-		            	<a href="" data-toggle="modal" data-id="login"  data-usuario="#login" data-target="#modalSenha" title="Click para recuperar a senha senha"> Recuperar Senha</a>
-		             	<hr>
-			            <div class="text-center">
-			             	<input class="btn btn-success login pull-center" type="submit" value="Entrar">
-			         	</div>
-			         </form>
-			         
-		         </div>
-		         
-	         </div>
-        </div> -->
     </body>
-    
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </html>

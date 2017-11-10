@@ -11,10 +11,35 @@
 		
 		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm" method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
 			<div class="row">
-				<div class="col-8">
+				<div class="col-md-8 col-sm-12">
 					<div class="row">
 						<div class="form-group col-12">
 							<label for="nome">Nome da Receita</label>
+							<input type="text" class="form-control" id="nome" name="nome" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-4 col-sm-12">
+							<label for="nome">Categoria</label>
+							<select class="custom-select" id="categoria" nome="categoria" required>
+								<option selected disabled>Selecione uma categoria</option>
+								<option value="1">Prato Principal</option>
+								<option value="2">Salada</option>
+								<option value="3">Sobremesa</option>
+								<option value="4">Guarnição</option>
+								<option value="5">Prato Base</option>
+								<option value="6">Acompanhamento</option>
+								<option value="7">Bebida</option>
+								<option value="8">Lanche</option>
+								<option value="9">Outros</option>
+							</select>
+						</div>
+						<div class="form-group col-md-4 col-sm-12">
+							<label for="nome">Rendimento</label>
+							<input type="text" class="form-control" id="nome" name="nome" />
+						</div>
+						<div class="form-group col-md-4 col-sm-12">
+							<label for="nome">Tempo de Preparo</label>
 							<input type="text" class="form-control" id="nome" name="nome" />
 						</div>
 					</div>
@@ -23,18 +48,8 @@
 							<input id="imgFile" name="imgFile" class="input-file" type="file">
 						</div>
 					</div>
-					<div class="row">
-						<div class="form-group col-6">
-							<label for="nome">Rendimento</label>
-							<input type="text" class="form-control" id="nome" name="nome" />
-						</div>
-						<div class="form-group col-6">
-							<label for="nome">Tempo de Preparo</label>
-							<input type="text" class="form-control" id="nome" name="nome" />
-						</div>
-					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-md-4 col-sm-12">
 					<div class="form-group col-md-12">
 						<label>Pré-Visualização</label>
 						<div id="image_preview">
@@ -131,10 +146,10 @@
 		</form>
 	</div>
 	<article>
-		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm"
+<!--		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm"
 			method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
 
-<!-- 
+ 
 			<div class="row" style="text-align: center;">
 				<div class="container" style="width: 640px;">
 					<h2>Informao Nutricional</h2>
