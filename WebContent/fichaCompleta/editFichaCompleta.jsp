@@ -83,7 +83,6 @@
 									data-selected-id="<%= ficha.getMedida().getIdUnidadeMedida() %>" 
 									data-selected-text="<%= ficha.getMedida().getUnidadeMedida() %>" >
 								</select>
-							</select>
 							</div>
 							<div class="col-sm-2">
 								<label for="qnt-unidade-medida-caseira-rotulo" class="">Porção</label>
@@ -164,7 +163,6 @@
 			
 
 			<div class="row" id="table-rows">
-					
 					<%
 						if(ficha.getItens().size() > 0){
 							for(int i = 0; i < ficha.getItens().size(); i++) {
@@ -220,7 +218,6 @@
 								data-selected-id="<%= item.getIdMedidaCaseira()%>" 
 								data-selected-text="<%=item.getUnidadeMedidaCaseira() %>">
 							</select>
-						</div>
 						</div>
 						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Gordura Trans</label> <input
@@ -404,31 +401,39 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="informacoes-content">
-					<div class="row">
+                    <div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">Utensílios e equipamentos</div>
+							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">
+                                Utensílios e equipamentos
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="utensilios-equipamentos-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control" name="utensiliosEquipamentos"><%=ficha.getUtensilios()%></textarea>
+								<textarea rows="10" cols="" class="form-control"
+									name="utensiliosEquipamentos"><%=ficha.getUtensilios()%></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de preparo</div>
+							<div class="panel-heading trigger-display" data-target="modo-preparo-content">
+                                Modo de preparo
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="modo-preparo-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12">	</label>
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
 								<textarea rows="10" cols="" class="form-control"
 									name="modoPreparo"><%=ficha.getModoPreparo()%></textarea><br>
 							</div>
 						</div>
+					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="montagem-content">Montagem</div>
+							<div class="panel-heading trigger-display" data-target="montagem-content">
+                                Montagem
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="montagem-content">
@@ -440,8 +445,9 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">Orientações de
-								armazenamento</div>
+							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">
+                                Orientações de armazenamento
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="orientacoes-armazenamento-content">
@@ -452,16 +458,21 @@
 						</div>
 					</div>
 				</div>
+			</div>
 			<div class="row"></div>
 
 			<div class="panel panel-info">
-				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">Avaliação sensorial</div>
+				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">
+                    Avaliação sensorial
+                </div>
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="avaliacao-sensorial-content">
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="textura-content">Textura</div>
+							<div class="panel-heading trigger-display" data-target="textura-content">
+                                Textura
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="textura-content">
@@ -473,7 +484,9 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="sabor-content">Sabor</div>
+							<div class="panel-heading trigger-display" data-target="sabor-content">
+                                Sabor
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="sabor-content">
@@ -485,7 +498,9 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="apresentacao-content">Apresentação</div>
+							<div class="panel-heading trigger-display" data-target="apresentacao-content">
+                                Apresentação
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="apresentacao-content">
@@ -497,7 +512,9 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="temperatura-content">Temperatura</div>
+							<div class="panel-heading trigger-display" data-target="temperatura-content">
+                                Temperatura
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="temperatura-content">

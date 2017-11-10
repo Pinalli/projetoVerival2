@@ -11,6 +11,8 @@ import br.ages.crud.bo.FichaCompletaBO;
 import br.ages.crud.bo.FichaCompletaItemBO;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;
+import br.ages.crud.model.UnidadeMedida;
+import br.ages.crud.model.UnidadeMedidaCaseira;
 import br.ages.crud.util.MensagemContantes;
 
 public class EditFichaCompletaAjaxCommand implements Command {
@@ -59,6 +61,31 @@ public class EditFichaCompletaAjaxCommand implements Command {
 			ficha.setTipoFicha("c");
 			ficha.setItens(listaFichaItens);
 			
+			String qntUMRaw = request.getParameter("qntUnidadeMedida");
+			if(qntUMRaw != null) {
+				ficha.setQntMedida(Double.valueOf(qntUMRaw));
+			}
+			
+			UnidadeMedida um = new UnidadeMedida();
+			String idUMRaw = request.getParameter("unidadeMedidaId");
+			if(idUMRaw != null) {
+				um.setIdUnidadeMedida(Integer.valueOf(idUMRaw));
+			}
+			
+			String qntUMCRaw = request.getParameter("qntUnidadeMedidaCaseira");
+			if(qntUMCRaw != null) {
+				ficha.setQntMedidaCaseira(Double.valueOf(qntUMCRaw));
+			}
+			
+			UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
+			String idUMCRaw = request.getParameter("unidadeMedidaCaseiraId");
+			if(idUMCRaw != null) {
+				umc.setIdUnidadeMedidaCaseira(Integer.valueOf(idUMCRaw));
+			}
+			
+			ficha.setMedida(um);
+			ficha.setMedidaCaseira(umc);
+			
 			if(fichaCompletaBO.validarFichaCompleta(ficha)){
 				fichaCompletaBO.editarFichaCompleta(ficha);
 				for(FichaItem item: listaFichaItens ){
@@ -77,14 +104,18 @@ public class EditFichaCompletaAjaxCommand implements Command {
 			}else{
 				msg.put("msgErro", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
 			    msg.put("erro", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
-			    msg.put("proxima", "main?acao=telaFichaCompleta");
+			    msg.put("proxima", "");
 			    json = gson.toJson(msg);
 			}
 			return json;
 		} catch (Exception e) {
 		    msg.put("msgErro", MensagemContantes.MSG_ERR_FICHA_COMPLETA_DADOS_INVALIDOS);
-		    msg.put("erro", e.getMessage());
-		    msg.put("proxima", "main?acao=telaFichaCompleta");
+		    if(e.getMessage() == null) {
+		    	msg.put("erro", "Erro ao salvar Ficha Completa!");
+		    } else {
+		    	msg.put("erro", e.getMessage());
+		    }
+		    msg.put("proxima", "");
 			json = gson.toJson(msg);
 			return json;
 		}
