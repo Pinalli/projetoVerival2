@@ -120,7 +120,7 @@
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="custo-real" class="">Custo Real</label>
-								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" >
+								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" onChange="updateCusto()">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de Correção</label>
@@ -155,8 +155,6 @@
 					<input type="number" name="valorTotalFicha" id="valorTotalFicha"
 						class="form-control text-center box-transparent" value = "0"
 						placeholder="Valor Total" />
-					<input type="hidden" name="valorTotalFichaAux" id="valorTotalFichaAux"
-						class="form-control text-center box-transparent" value = "0" />
 			</div>
 		
 			<div class="row">

@@ -129,7 +129,7 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
-		updateCusto();
+		//updateCusto();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -147,11 +147,6 @@ $(document).ready(function() {
 			$(this).click(function(e) {
 				e.preventDefault();				
 				var target = $(this).closest('.table-row'); 	
-				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()))/2;
-				if(valor>0){
-					$("#valorTotalFicha").val(valor);
-					$("#valorTotalFichaAux").val(valor);
-				}
 				target.fadeOut(300, function(){
 					var operacao = $("#operacao",target);
 					if(!operacao.val() || operacao.val() == "u"){
@@ -165,6 +160,10 @@ $(document).ready(function() {
 					}
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
+					}			
+					var valor = $("#valorTotalFicha").val();
+					if(valor>0){
+						$("#valorTotalFicha").val(valor-(Number(target.find("#custo-realShow").val())));
 					}
 				});				
 				qntIngredientes--;			
@@ -176,7 +175,12 @@ $(document).ready(function() {
 	/**
 	 * Clona ulltima linha
 	 */
-	function add() {		
+	function add() {
+		if($("#valorTotalFichaAux").val()>0)
+			var aux = Number($("#valorTotalFicha").val());
+		else
+			var aux = Number($("#valorTotalFicha").val());
+		$("#valorTotalFichaAux").val(aux);
 		//Clona a ultima linha
 		var row = $('.table-row').last().clone();
 		row.removeClass('configurado');
@@ -348,35 +352,31 @@ $(document).ready(function() {
  		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
  	}
  	
- 	function updateCusto(){
-		$(".table-row").not(".configurado").each(function(){
-			var row = $(this);
-			var select = row.find("#custo-realShow");
-			if(select.val()){
-				atualizaCusto(row, select.val(),false);
-			}
-			select.change(function(){
-				var id = $(this).val();
-				atualizaCusto(row, id,true);
-			});
-		});
-	}
-	updateCusto();
+// 	function updateCusto(){
+//		$(".table-row").not(".configurado").each(function(){
+//			var row = $(this);
+//			var select = row.find("#custo-realShow");
+//			if(select.val()){
+//				atualizaCusto(row, select.val(),false);
+//			}
+//			select.change(function(){
+//				var id = $(this).val();
+//				atualizaCusto(row, id,true);
+//			});
+//		});
+//	}
+//	updateCusto();
 	
-	function atualizaCusto(row,id,valido){	
-		var x = Number($("#valorTotalFicha").val());
-		var y = Number(row.find("#custo-realShow").val());
-		var w = Number(row.find("#custo-realShow").val())-Number(row.find("#custo-realAnterior").val());
-		var z = x-y;		
-		if(valido){
-			if (Number($("#valorTotalFicha").val())>0||row.find("#custo-realAnterior").val()>0){
-				$("#valorTotalFicha").val(Number($("#valorTotalFicha").val())+w);	
-				row.find("#custo-realAnterior").val(row.find("#custo-realShow").val())
-			}
-			else
-				$("#valorTotalFicha").val(Number($("#valorTotalFicha").val())+(y-z+x)/2);			
-		}
-	}
+//	function atualizaCusto(row,id,valido){	
+//		var x = Number($("#valorTotalFicha").val());
+//		var y = Number(row.find("#custo-realShow").val());
+//		var w = Number(row.find("#custo-realShow").val())-Number(row.find("#custo-realAnterior").val());
+//		var z = x-y;		
+//		if(valido){
+//			$("#valorTotalFicha").val(Number($("#valorTotalFicha").val())+(y-z+x)/2);	
+//		}				
+//		
+//	}
  	
  	/**
  	 * Busca ingrediente pelo ID
@@ -447,14 +447,6 @@ function multiplica(row, id){
 		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 		else y =x;
 		row.find("#custo-realShow").val(y);
-		
-		if($("#valorTotalFicha").val()>0){
-			var valor = Number($("#valorTotalFicha").val());
-			$("#valorTotalFicha").val(Number(valor) + (Number(row.find("#custo-realShow").val()))*0.5);				
-		}else{
-			$("#valorTotalFicha").val(row.find("#custo-realShow").val());
-		}
-		
 		x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
 		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 		else y =x;
@@ -521,9 +513,18 @@ function multiplica(row, id){
 	         return false;
 	     }
 	 }
-	
-	/**
-	 * Did you touched?
-	 */
 });
 
+function updateCusto(){
+	var custoTotalGlobal=0;
+	console.log("teste");
+	$(".table-row").each(function(){
+		var row = $(this);
+		console.log(custoTotalGlobal);
+		var select = row.find("#custo-realShow");
+		if(select.val()){
+			custoTotalGlobal+=Number(select.val());				
+		}
+	});
+	$("#valorTotalFicha").val(custoTotalGlobal);
+}

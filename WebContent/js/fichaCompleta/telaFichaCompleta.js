@@ -125,7 +125,8 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
-		updateCusto();
+		//updateCusto();
+		//addCustoListener();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -142,16 +143,15 @@ $(document).ready(function() {
 		$('.delete-row').each(function() {
 			$(this).click(function(e) {
 				e.preventDefault();				
-				var target = $(this).closest('.table-row'); 			
-				var valor = Number($("#valorTotalFicha").val())-(Number(target.find("#custo-realShow").val()))/2;
-				if(valor>0){
-					$("#valorTotalFicha").val(valor);
-					$("#valorTotalFichaAux").val(valor);
-				}
+				var target = $(this).closest('.table-row'); 	
 				target.fadeOut(300, function(){					
 					target.remove();
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
+					}
+					var valor = $("#valorTotalFicha").val();
+					if(valor>0){
+						$("#valorTotalFicha").val(valor-(Number(target.find("#custo-realShow").val())));
 					}
 				});				
 				qntIngredientes--;			
@@ -345,30 +345,41 @@ $(document).ready(function() {
 	}
 	updateQuantidades();
 	
-	function updateCusto(){
-		$(".table-row").not(".configurado").each(function(){
-			var row = $(this);
-			var select = row.find("#custo-realShow");
-			if(select.val()){
-				atualizaCusto(row, select.val());
-			}
-			select.change(function(){
-				var id = $(this).val();
-				atualizaCusto(row, id);
-			});
-		});
-	}
-	updateCusto();
+	var custoTotalGlobal=0;
+	
+//	function addCustoListener(){
+//		$("#table-rows").find(".table-row").each(function(){
+//			$(this).find("#custo-realShow").on("change",function(){
+//				updateCusto();
+//			})
+//		});
+//	}
+	
+//	function updateCusto(){
+//		console.log("teste");
+//		$(".table-row").each(function(){
+//			var row = $(this);
+//			console.log(custoTotalGlobal);
+//			var select = row.find("#custo-realShow");
+//			if(select.val()){
+//				//atualizaCusto(row, select.val());
+//				custoTotalGlobal+=select.val();				
+//			}
+//			//select.change(function(){
+//				//var id = $(this).val();
+//				//atualizaCusto(row, id);
+//			//});
+//		});
+//		$("#valorTotalFicha").val(custoTotalGlobal);
+//	}
+	//updateCusto();
 	
 	function atualizaCusto(row,id){	
-		//row.find("#custo-realShow").change(function() {
-			var x = Number($("#valorTotalFicha").val());
 			var y = Number(row.find("#custo-realShow").val());
-			var z = x-y;
-			if(Number($("#valorTotalFichaAux").val())>0)
-				$("#valorTotalFicha").val(Number($("#valorTotalFichaAux").val())+(y-z+x)/2);				
+			if(Number($("#valorTotalFichaAux").val())>0)				
+				$("#valorTotalFicha").val(Number($("#valorTotalFichaAux").val())+y);				
 			else
-				$("#valorTotalFicha").val((y-z+x)/2);	
+				$("#valorTotalFicha").val(y);	
 		//});
 	}
 	
@@ -471,5 +482,23 @@ function check_multifile_logo(file) {
         return false;
     }
 }
-document.getElementById("preco").innerHTML = somaVetor();
 
+document.getElementById("preco").innerHTML = somaVetor();
+function updateCusto(){
+	var custoTotalGlobal=0;
+	console.log("teste");
+	$(".table-row").each(function(){
+		var row = $(this);
+		console.log(custoTotalGlobal);
+		var select = row.find("#custo-realShow");
+		if(select.val()){
+			//atualizaCusto(row, select.val());
+			custoTotalGlobal+=Number(select.val());				
+		}
+		//select.change(function(){
+			//var id = $(this).val();
+			//atualizaCusto(row, id);
+		//});
+	});
+	$("#valorTotalFicha").val(custoTotalGlobal);
+}
