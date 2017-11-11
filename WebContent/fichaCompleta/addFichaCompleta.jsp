@@ -132,263 +132,210 @@
 					</div>
 					
 				</div>
-					<button type="submit" class="btn btn-primary" id="add-row-btn">
-						<span class="icon-adicionar"></span> Novo Item
-					</button>   
+				<button type="submit" class="btn btn-primary" id="add-row-btn">
+					<span class="icon-adicionar"></span> Novo Item
+				</button>   
             </div>
+            
+            <div class="card mb-3">
+				<div class="card-header">Informações de Preparo</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Utensílios & Equipamentos</label>
+						<textarea class="form-control" name="utensiliosEquipamentos" rows="4"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Modo de Preparo</label>
+						<textarea class="form-control" name="modoPreparo" rows="4"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Montagem</label>
+						<textarea class="form-control" name="montagem" rows="4"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Orientações de Armazenamento</label>
+						<textarea class="form-control" name="orientacaoArmazenamento" rows="4"></textarea>
+					</div>
+				</div>
+			</div>
+              
+			<div class="card mb-3">
+				<div class="card-header">Avaliação Sensorial</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Textura</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Sabor</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Apresentação</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+					</div>
+				</div>
+			</div>
+			
+			<div class="text-right">
+				<button type="submit" class="btn btn-primary"><span class="icon-ok"></span> Salvar</button>
+				<button type="submit" class="btn btn-warning"><span class="icon-cancelar"></span> Limpar</button>
+			</div>
 		</form>
 	</div>
-	<article>
-<!-- 			<div class="row" id="table-rows"> -->
-<!-- 				<div class="table-row" -->
-<!-- 					style="width: 100%; float: left; margin-bottom: 5px;"> -->
 
-<!-- 					<div class="panel panel-info"> -->
-<!-- 						<div class="panel-heading show-item-btn" id="ingrediente-1">Ingrediente</div> -->
-<!-- 					</div> -->
-
-<!-- 					<div class="col-md-12 item-wrapper"> -->
-<!-- 						<div class="form-group col-md-2 col-sm-12 col-xs-12 col-md-offset-1"> -->
-<!-- 							<label for="select-ingredientes" class="">Ingrediente</label> <select -->
-<!-- 								id="select-ingredientes" name="select-ingredientes" -->
-<!-- 								data-live-search="true" class="form-control selectBatata"> -->
-<!-- 							</select> -->
-<!-- 						</div> -->
-
-<!-- 						<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 							<label for="qnt-unidade-medida" class="">Qtd</label> <input -->
-<!-- 								type="number" class="form-control" id="qnt-unidade-medida" -->
-<!-- 								onInput="alert02()"							 -->
-<!-- 								placeholder="Qnt" min="0" max="9999" step="any" name="qnt-unidade-medida"> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group col-md-2 col-xs-8"> -->
-<!-- 							<label for="select-unidade-medida" class="">Unidade de -->
-<!-- 								medida</label> <select id="select-unidade-medida" -->
-<!-- 								name="select-unidade-medida" data-native-menu="false" -->
-<!-- 								class="form-control selectBatata"> -->
-<!-- 							</select> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 							<label for="qnt-medida-caseira" class="">Qtd</label> <input -->
-<!-- 								type="number" class="form-control" id="qnt-medida-caseira" -->
-<!-- 								placeholder="Qnt" min="0" max="9999" step="any" -->
-<!-- 								name="qnt-medida-caseira"> -->
-<!-- 						</div> -->
-<!-- 						<div class="form-group col-md-2 col-xs-8"> -->
-<!-- 							<label for="select-medida-caseira" class="">Medida -->
-<!-- 								caseira</label> <select id="select-medida-caseira" -->
-<!-- 								name="select-medida-caseira" data-native-menu="false" -->
-<!-- 								class="form-control selectBatata"> -->
-<!-- 							</select> -->
-<!-- 						</div> -->
-<!-- 						div class="form-group col-md-12" -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="cho" class="">CHO</label>  -->
-<!-- 								<input type="hidden" class="form-control" id="cho" placeholder="CHO" readonly> -->
-<!-- 								<input type="number" class="form-control" id="choShow" placeholder="CHO" readonly> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="ptn" class="">PTN</label>  -->
-<!-- 								<input type="hidden" class="form-control" id="ptn"	placeholder="PTN" readonly> -->
-<!-- 								<input type="number" class="form-control" id="ptnShow" placeholder="PTN" readonly> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="lip" class="">LIP</label>  -->
-<!-- 								<input type="hidden" class="form-control" id="lip" placeholder="LIP"  readonly> -->
-<!-- 								<input type="number" class="form-control" id="lipShow" placeholder="LIP"  readonly>								 -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="kcal" class="">Kcal</label>  -->
-<!-- 								<input type="hidden" class="form-control" id="kcal" placeholder="Kcal"  readonly> -->
-<!-- 								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="valor-unitario" class="">Valor unitrio</label>  -->
-<!-- 								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitrio"  readonly> -->
-<!-- 								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitrio"  readonly> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="custo-real" class="">Custo real</label> -->
-<!-- 								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly> -->
-<!-- 								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="fator-de-correcao" class="">Fator de correo</label> -->
-<!-- 								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correo" readonly> -->
-<!-- 								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correo" readonly> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group col-md-2 col-xs-4"> -->
-<!-- 								<label for="indice-de-coccao" class="">ndice de coco</label> -->
-<!-- 								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="ndice de Coco"  readonly> -->
-<!-- 								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="ndice de Coco"  readonly> -->
-<!-- 							</div> -->
-<!-- 							<input type="text" class="hidden" id="gordura-trans" name="gordura-trans"> -->
-<!-- 							<input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada"> -->
-<!-- 							<input type="text" class="hidden" id="fibra-alimentar" name="fibra-alimentar"> -->
-<!-- 							<input type="text" class="hidden" id="sodio" name="sodio"> -->
-<!-- 						/div -->
-<!-- 						<div class="col-md-12 col-sm-12 col-xs-12"> -->
-<!-- 							<div class="btn-excluir-wrapper"></div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div> -->
+<!-- 			</div> -->
+<!-- 			<div class="panel panel-info"> -->
+<!-- 				<div class="panel-heading row text-center trigger-display" data-target="informacoes-content"> -->
+<!-- 					Informaes de preparao -->
 <!-- 				</div> -->
 <!-- 			</div> -->
+<!-- 			<div class="col-md-12"> -->
+<!-- 				<div class="form-group hide" id="informacoes-content"> -->
+<!--                     <div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content"> -->
+<!--                                 Utenslios e equipamentos -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-9 col-md-offset-1"> -->
+<!-- 							<div class="form-group hide" id="utensilios-equipamentos-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" -->
+<!-- 									name="utensiliosEquipamentos"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="modo-preparo-content"> -->
+<!--                                 Modo de preparo -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-9 col-md-offset-1"> -->
+<!-- 							<div class="form-group hide" id="modo-preparo-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" -->
+<!-- 									name="modoPreparo"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="montagem-content"> -->
+<!--                                 Montagem -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-9 col-md-offset-1"> -->
+<!-- 							<div class="form-group hide" id="montagem-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" name="montagem"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content"> -->
+<!--                                 Orientaes de armazenamento -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-9 col-md-offset-1"> -->
+<!-- 							<div class="form-group hide" id="orientacoes-armazenamento-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" -->
+<!-- 									name="orientacaoArmazenamento"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="row"></div> -->
 
-			<div class="row">
-				<div class="col-md-12">
-					<div class="col-md-2 col-md-offset-8">
-						<a class="btn btn-success pull-right" id="add-row-btn">Novo item</a>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
-			</div>
-			<div class="panel panel-info">
-				<div class="panel-heading row text-center trigger-display" data-target="informacoes-content">
-					Informaes de preparao
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="form-group hide" id="informacoes-content">
-                    <div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">
-                                Utenslios e equipamentos
-                            </div>
-						</div>
-						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="utensilios-equipamentos-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="utensiliosEquipamentos"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="modo-preparo-content">
-                                Modo de preparo
-                            </div>
-						</div>
-						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="modo-preparo-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="modoPreparo"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="montagem-content">
-                                Montagem
-                            </div>
-						</div>
-						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="montagem-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control" name="montagem"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">
-                                Orientaes de armazenamento
-                            </div>
-						</div>
-						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="orientacoes-armazenamento-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="orientacaoArmazenamento"></textarea>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row"></div>
+<!-- 			<div class="panel panel-info"> -->
+<!-- 				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content"> -->
+<!--                     Avaliao sensorial -->
+<!--                 </div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-12"> -->
+<!-- 				<div class="form-group hide" id="avaliacao-sensorial-content"> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="textura-content"> -->
+<!--                                 Textura -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-9 col-md-offset-1"> -->
+<!-- 							<div class="form-group hide" id="textura-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" name="textura"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="sabor-content"> -->
+<!--                                 Sabor -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-12"> -->
+<!-- 							<div class="form-group hide" id="sabor-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" name="sabor"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="apresentacao-content"> -->
+<!--                                 Apresentao -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-12"> -->
+<!-- 							<div class="form-group hide" id="apresentacao-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" -->
+<!-- 									name="apresentacao"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="panel panel-info"> -->
+<!-- 							<div class="panel-heading trigger-display" data-target="temperatura-content"> -->
+<!--                                 Temperatura -->
+<!--                             </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="col-md-12"> -->
+<!-- 							<div class="form-group hide" id="temperatura-content"> -->
+<!-- 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label> -->
+<!-- 								<textarea rows="10" cols="" class="form-control" name="temperatura"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div> -->
+<!-- 			</div> -->
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col-md-9 col-md-offset-1"> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<input type="reset" value="Limpar" -->
+<!-- 							class="btn btn-warning pull-left col-md-2 col-sm-2 col-xs-5" /> -->
+<!-- 						<input type="submit" value="Salvar" -->
+<!-- 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" /> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</form> -->
 
-			<div class="panel panel-info">
-				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">
-                    Avaliao sensorial
-                </div>
-			</div>
-			<div class="col-md-12">
-				<div class="form-group hide" id="avaliacao-sensorial-content">
-					<div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="textura-content">
-                                Textura
-                            </div>
-						</div>
-						<div class="col-md-9 col-md-offset-1">
-							<div class="form-group hide" id="textura-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control" name="textura"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="sabor-content">
-                                Sabor
-                            </div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group hide" id="sabor-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control" name="sabor"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="apresentacao-content">
-                                Apresentao
-                            </div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group hide" id="apresentacao-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="apresentacao"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="temperatura-content">
-                                Temperatura
-                            </div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group hide" id="temperatura-content">
-								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control" name="temperatura"></textarea>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-9 col-md-offset-1">
-					<div class="form-group">
-						<input type="reset" value="Limpar"
-							class="btn btn-warning pull-left col-md-2 col-sm-2 col-xs-5" />
-						<input type="submit" value="Salvar"
-							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
-					</div>
-				</div>
-			</div>
-		</form>
-
-	</article>
+<!-- 	</article> -->
 
 	<!--footer>Ficha Tcnica Completa</footer-->
 
