@@ -129,7 +129,7 @@ $(document).ready(function() {
 	$('#add-row-btn').click(function(e) {
 		e.preventDefault();
 		add();
-		addRemoveListener();
+		//addRemoveListener();
 		setSelect2();
 		showItemListener();
 		updateIngredienteListener();
@@ -145,67 +145,82 @@ $(document).ready(function() {
 	/**
 	 * Remove linha
 	 */
-	function addRemoveListener() {
-		$('.delete-row').each(function() {
-			$(this).click(function(e) {
-				e.preventDefault();
-				
-				var target = $(this).closest('.table-row');
-				
-				var $kcalElem = target.find("#kcal");
-				var $choElem = target.find("#cho");
-				var $ptnElem = target.find("#ptn");
-				var $gordSaturada = target.find("#gordura-saturada");
-				var $fibraAlim = target.find("#fibra-alimentar");
-				var $sodio = target.find("#sodio");
-				
-				valorEnergetico -= $kcalElem.val();
-				carboidratos -= $choElem.val();
-				proteinas -= $ptnElem.val();
-				gordSaturada -= $gordSaturada.val();
-				fibraAlim -= $fibraAlim.val();
-				sodio -= $sodio.val();
-				
-				updateRotulo();
-				
-				target.fadeOut(300, function(){
-					target.remove();
-					if($(window).width() <= RESOLUCAO_MINIMA){
-						scroll($('.table-row:last'));
-					}
-				});				
-				qntIngredientes--;
-			});
-		});
-	}
+//	function addRemoveListener() {
+//		$('.delete-row').each(function() {
+//			$(this).click(function(e) {
+//				e.preventDefault();
+//				
+//				var target = $(this).closest('.table-row');
+//				
+//				var $kcalElem = target.find("#kcal");
+//				var $choElem = target.find("#cho");
+//				var $ptnElem = target.find("#ptn");
+//				var $gordSaturada = target.find("#gordura-saturada");
+//				var $fibraAlim = target.find("#fibra-alimentar");
+//				var $sodio = target.find("#sodio");
+//				
+//				valorEnergetico -= $kcalElem.val();
+//				carboidratos -= $choElem.val();
+//				proteinas -= $ptnElem.val();
+//				gordSaturada -= $gordSaturada.val();
+//				fibraAlim -= $fibraAlim.val();
+//				sodio -= $sodio.val();
+//				
+//				updateRotulo();
+//				
+//				target.fadeOut(300, function(){
+//					target.remove();
+//					if($(window).width() <= RESOLUCAO_MINIMA){
+//						scroll($('.table-row:last'));
+//					}
+//				});				
+//				qntIngredientes--;
+//			});
+//		});
+//	}
 
 	/**
 	 * Clona ulltima linha
 	 */
-	function add() {		
-		//Clona a ultima linha
-		var row = $('.table-row').last().clone();
-		row.removeClass('configurado');
-		row.find('.item-wrapper').removeClass('hide');
-		var id = 'ingrediente-'+qntIngredientes;
-		$('.show-item-btn', row).attr('id',id);
+//	function add() {		
+//		//Clona a ultima linha
+//		var row = $('.card').last().clone();
+//		row.removeClass('configurado');
+//		row.find('.item-wrapper').removeClass('hide');
+//		var id = 'ingrediente-'+qntIngredientes;
+//		$('.show-item-btn', row).attr('id',id);
+//		
+//		row.find('input[type="number"]').each(function(){
+//			$(this).val('')
+//		});
+//		row.find('.select2').remove();
+//		row.find('select').removeClass('select2-hidden-accessible');
+//		row.hide().appendTo($('#table-rows')).fadeIn(300);
+//		//Adiciona botão de excluir na linha clonada se ela não contém um
+//		var btn = $.parseHTML('<button type="submit" class="btn btn-danger delete-row pull-right"><span class="icon-cancelar"></span> Excluir</button>');
+//		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
+//		if (len == 0) {
+//			$('.btn-excluir-wrapper').last().append(btn);
+//		}
+//		//Scroll
+//		if($(window).width() <= RESOLUCAO_MINIMA){
+//			scroll($('#'+id));
+//		}
+//	}
+	
+	function add() {
+		console.log("Qualquer coisa");
+		var d = new Date();
+		var n = d.getTime();
 		
-		row.find('input[type="number"]').each(function(){
-			$(this).val('')
-		});
-		row.find('.select2').remove();
-		row.find('select').removeClass('select2-hidden-accessible');
-		row.hide().appendTo($('#table-rows')).fadeIn(300);
-		//Adiciona botão de excluir na linha clonada se ela não contém um
-		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
-		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
-		if (len == 0) {
-			$('.btn-excluir-wrapper').last().append(btn);
-		}
-		//Scroll
-		if($(window).width() <= RESOLUCAO_MINIMA){
-			scroll($('#'+id));
-		}
+		var div = document.getElementById('elemento-ingrediente'),
+		clone = div.cloneNode(true); // true means clone all childNodes and all event handlers
+		clone.id = "elemento-ingrediente-"+n;
+		
+		var btn = $.parseHTML('<button type="submit" class="btn btn-danger delete-row pull-right" onClick="excluirIngrediente('+n+')"><span class="icon-cancelar"></span> Excluir</button>');
+		$(clone).find(".btn-excluir-wrapper").append(btn);
+		
+		$('#elemento-ingrediente').parent().append(clone);
 	}
 	
 	function scroll(target){
@@ -468,5 +483,10 @@ function check_multifile_logo(file) {
         return true;
     } else {
         return false;
-    }
+    }    
+}
+
+function excluirIngrediente(id) {
+	console.log(id);
+	$('#elemento-ingrediente-'+id).remove();
 }
