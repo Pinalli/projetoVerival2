@@ -129,7 +129,6 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
-		//updateCusto();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -176,11 +175,6 @@ $(document).ready(function() {
 	 * Clona ulltima linha
 	 */
 	function add() {
-		if($("#valorTotalFichaAux").val()>0)
-			var aux = Number($("#valorTotalFicha").val());
-		else
-			var aux = Number($("#valorTotalFicha").val());
-		$("#valorTotalFichaAux").val(aux);
 		//Clona a ultima linha
 		var row = $('.table-row').last().clone();
 		row.removeClass('configurado');
@@ -351,32 +345,6 @@ $(document).ready(function() {
  		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
  		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
  	}
- 	
-// 	function updateCusto(){
-//		$(".table-row").not(".configurado").each(function(){
-//			var row = $(this);
-//			var select = row.find("#custo-realShow");
-//			if(select.val()){
-//				atualizaCusto(row, select.val(),false);
-//			}
-//			select.change(function(){
-//				var id = $(this).val();
-//				atualizaCusto(row, id,true);
-//			});
-//		});
-//	}
-//	updateCusto();
-	
-//	function atualizaCusto(row,id,valido){	
-//		var x = Number($("#valorTotalFicha").val());
-//		var y = Number(row.find("#custo-realShow").val());
-//		var w = Number(row.find("#custo-realShow").val())-Number(row.find("#custo-realAnterior").val());
-//		var z = x-y;		
-//		if(valido){
-//			$("#valorTotalFicha").val(Number($("#valorTotalFicha").val())+(y-z+x)/2);	
-//		}				
-//		
-//	}
  	
  	/**
  	 * Busca ingrediente pelo ID

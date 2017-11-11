@@ -125,8 +125,6 @@ $(document).ready(function() {
 		showItemListener();
 		updateIngredienteListener();
 		updateQuantidades();
-		//updateCusto();
-		//addCustoListener();
 		qntIngredientes++;
 		/**
 		 * Adiciona class 'configurado' a linha para que 
@@ -162,12 +160,7 @@ $(document).ready(function() {
 	/**
 	 * Clona ulltima linha
 	 */
-	function add() {	
-		if($("#valorTotalFichaAux").val()>0)
-			var aux = Number($("#valorTotalFicha").val());
-		else
-			var aux = Number($("#valorTotalFicha").val());
-		$("#valorTotalFichaAux").val(aux);
+	function add() {			
 		//Clona a ultima linha
 		var row = $('.table-row').last().clone();
 		row.removeClass('configurado');
@@ -345,44 +338,6 @@ $(document).ready(function() {
 	}
 	updateQuantidades();
 	
-	var custoTotalGlobal=0;
-	
-//	function addCustoListener(){
-//		$("#table-rows").find(".table-row").each(function(){
-//			$(this).find("#custo-realShow").on("change",function(){
-//				updateCusto();
-//			})
-//		});
-//	}
-	
-//	function updateCusto(){
-//		console.log("teste");
-//		$(".table-row").each(function(){
-//			var row = $(this);
-//			console.log(custoTotalGlobal);
-//			var select = row.find("#custo-realShow");
-//			if(select.val()){
-//				//atualizaCusto(row, select.val());
-//				custoTotalGlobal+=select.val();				
-//			}
-//			//select.change(function(){
-//				//var id = $(this).val();
-//				//atualizaCusto(row, id);
-//			//});
-//		});
-//		$("#valorTotalFicha").val(custoTotalGlobal);
-//	}
-	//updateCusto();
-	
-	function atualizaCusto(row,id){	
-			var y = Number(row.find("#custo-realShow").val());
-			if(Number($("#valorTotalFichaAux").val())>0)				
-				$("#valorTotalFicha").val(Number($("#valorTotalFichaAux").val())+y);				
-			else
-				$("#valorTotalFicha").val(y);	
-		//});
-	}
-	
 	function multiplica(row, id){
 		
 			row.find("#qnt-unidade-medida").change(function() {
@@ -492,13 +447,8 @@ function updateCusto(){
 		console.log(custoTotalGlobal);
 		var select = row.find("#custo-realShow");
 		if(select.val()){
-			//atualizaCusto(row, select.val());
 			custoTotalGlobal+=Number(select.val());				
 		}
-		//select.change(function(){
-			//var id = $(this).val();
-			//atualizaCusto(row, id);
-		//});
 	});
 	$("#valorTotalFicha").val(custoTotalGlobal);
 }
