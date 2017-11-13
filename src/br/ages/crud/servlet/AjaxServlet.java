@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import br.ages.crud.command.AddFichaCompletaAjaxCommand;
-import br.ages.crud.command.BuscaEmpresaLogoAjaxCommand;
+import br.ages.crud.command.BuscaDadosFichaCompletaAjaxCommand;
 import br.ages.crud.command.BuscaDadosRotuloAjaxCommand;
+import br.ages.crud.command.BuscaEmpresaLogoAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteDescricaoAjaxCommand;
 import br.ages.crud.command.BuscaIngredienteIdAjaxCommand;
 import br.ages.crud.command.BuscaUnidadeMedidaCaseiraNomeAjaxCommand;
@@ -54,6 +55,7 @@ public class AjaxServlet extends HttpServlet {
 		comandos.put("buscaEmpresaLogoAjax", new BuscaEmpresaLogoAjaxCommand());
 		
 		//COMANDOS DE FICHA TÉCNICA COMPLETA
+		comandos.put("buscaDadosFichaCompletaAjaxCommand", new BuscaDadosFichaCompletaAjaxCommand());
 		comandos.put("addFichaCompletaAjaxCommand", new AddFichaCompletaAjaxCommand());
 		comandos.put("editFichaCompletaAjaxCommand", new EditFichaCompletaAjaxCommand());
 		comandos.put("buscaDadosRotulo", new BuscaDadosRotuloAjaxCommand());

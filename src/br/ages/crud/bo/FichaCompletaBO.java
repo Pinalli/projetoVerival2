@@ -175,4 +175,13 @@ public class FichaCompletaBO {
 		}
 	}
 	
+	public Ficha buscarDadosFichaCompleta(int id) throws PersistenciaException, SQLException, ClassNotFoundException, NegocioException {
+		try {
+			return fichaCompletaDAO.buscarDadosFichaCompleta(id);
+		} catch (PersistenciaException e){
+			e.printStackTrace();
+			throw new NegocioException(MensagemContantes.MSG_INF_PROBLEMA_ROTUDO);
+		}
+	}
+	
 }

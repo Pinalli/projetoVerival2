@@ -180,7 +180,8 @@ public class FichaCompletaDAO {
             
             sql.append(
             		"select * from tb_ficha f inner join tb_unidade_medida fum " +
-            		"on f.rotulo_id_medida = fum.id_unidade_medida inner join tb_ficha_item fi " + 
+            		"on f.rotulo_id_medida = fum.id_unidade_medida inner join tb_unidade_medida_caseira fumc " +
+            		"on f.rotulo_id_medida_caseira = fumc.id_unidade_medida_caseira inner join tb_ficha_item fi " + 
             		"on f.id_ficha = fi.id_ficha inner join tb_unidade_medida um " +
             		"on fi.id_unidade_medida = um.id_unidade_medida inner join tb_unidade_medida_caseira umc " +
             		"on fi.id_medida_caseira = umc.id_unidade_medida_caseira inner join tb_ingredientes i " +
@@ -197,6 +198,7 @@ public class FichaCompletaDAO {
                 Ingrediente i = new Ingrediente();
                 UnidadeMedida fum = new UnidadeMedida();
                 UnidadeMedida um = new UnidadeMedida();
+                UnidadeMedidaCaseira fumc = new UnidadeMedidaCaseira();
                 UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
 
                 fum.setUnidadeMedida(resultset.getString("fum.unidade_medida"));
@@ -206,6 +208,12 @@ public class FichaCompletaDAO {
                 dadosRotulo.setUnidadeMedida(fum);
                 
                 dadosRotulo.setQntMedida(resultset.getDouble("f.rotulo_qnt_medida"));
+                
+                fumc.setNome(resultset.getString("fumc.nome"));
+                fumc.setSigla(resultset.getString("fumc.sigla"));
+                dadosRotulo.setUnidadeMedidaCaseira(fumc);
+                
+                dadosRotulo.setQntMedidaCaseira(resultset.getDouble("f.rotulo_qnt_medida_caseira"));
                 
                 um.setUnidadeMedida(resultset.getString("um.unidade_medida"));
                 um.setFatorConversao(resultset.getDouble("um.fator_conversao"));
@@ -240,6 +248,88 @@ public class FichaCompletaDAO {
             conn.close();
         }
         return dadosRotulo;
+    }
+    
+    public Ficha buscarDadosFichaCompleta(int id) throws PersistenciaException, SQLException, ClassNotFoundException {
+    	Connection conexao = null;
+		try {
+			conexao = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append(
+					"SELECT " +
+					"F.ID_FICHA, " +
+					"F.NOME, " +
+					"F.RENDIMENTO, " +
+					"F.FOTO, " +
+					"F.MODO_PREPARO, " +
+					"F.MONTAGEM, " +
+					"F.ORIENTACOES_ARMAZENAMENTO, " +
+					"F.ID_EMPRESA, " +
+					"F.TEXTURA, " +
+					"F.SABOR, " +
+					"F.APRESENTACAO, " +
+					"F.TEMPO_DE_PREPARO, " +
+					"F.UTENSILIOS_E_EQUIPAMENTOS, " +
+					"F.TEMPERATURA, " +
+					"F.ROTULO_QNT_MEDIDA, " +
+					"F.ROTULO_ID_MEDIDA, " +
+					"UM.UNIDADE_MEDIDA, " +
+					"UM.SIGLA_UNIDADE_MEDIDA, " +
+					"F.ROTULO_QNT_MEDIDA_CASEIRA, " +
+					"F.ROTULO_ID_MEDIDA_CASEIRA, " +
+					"UMC.NOME, " +
+					"F.TIPO_FICHA " +
+					"FROM TB_FICHA F INNER JOIN TB_UNIDADE_MEDIDA UM " +
+					"ON F.ROTULO_ID_MEDIDA = UM.ID_UNIDADE_MEDIDA JOIN TB_UNIDADE_MEDIDA_CASEIRA UMC " +
+					"ON F.ROTULO_ID_MEDIDA_CASEIRA = UMC.ID_UNIDADE_MEDIDA_CASEIRA " +
+					"WHERE F.TIPO_FICHA = 'c' AND F.ID_FICHA = " + id
+			);
+			
+			PreparedStatement statement = conexao.prepareStatement(sql.toString());
+			ResultSet resultset = statement.executeQuery();
+			Ficha dto = null;
+			if (resultset.next()) {
+				dto = new Ficha();
+				dto.setIdFicha(resultset.getInt("F.ID_FICHA"));
+				dto.setIdEmpresa(resultset.getInt("F.ID_EMPRESA"));
+				dto.setNome(resultset.getString("F.NOME"));
+				dto.setRendimento(resultset.getString("F.RENDIMENTO"));
+				dto.setFoto(resultset.getString("F.FOTO"));
+				dto.setModoPreparo(resultset.getString("F.MODO_PREPARO"));
+				dto.setMontagem(resultset.getString("F.MONTAGEM"));
+				dto.setOrientacoesArmazenamento(resultset.getString("F.ORIENTACOES_ARMAZENAMENTO"));
+				dto.setTextura(resultset.getString("F.TEXTURA"));
+				dto.setSabor(resultset.getString("F.SABOR"));
+				dto.setApresentacao(resultset.getString("F.APRESENTACAO"));
+				dto.setQntMedida(resultset.getDouble("F.ROTULO_QNT_MEDIDA"));
+				dto.setQntMedidaCaseira(resultset.getDouble("F.ROTULO_QNT_MEDIDA_CASEIRA"));
+				dto.setTempoPreparo(resultset.getString("F.TEMPO_DE_PREPARO"));
+				dto.setUtensilios(resultset.getString("F.UTENSILIOS_E_EQUIPAMENTOS"));
+				dto.setTemperatura(resultset.getDouble("F.TEMPERATURA"));
+				
+				UnidadeMedida um = new UnidadeMedida();
+				um.setIdUnidadeMedida(resultset.getInt("F.ROTULO_ID_MEDIDA"));
+				um.setUnidadeMedida(resultset.getString("UM.UNIDADE_MEDIDA"));
+				um.setSiglaUnidadeMedida(resultset.getString("UM.SIGLA_UNIDADE_MEDIDA"));
+				dto.setMedida(um);
+				
+				UnidadeMedidaCaseira umc = new UnidadeMedidaCaseira();
+				umc.setIdUnidadeMedidaCaseira(resultset.getInt("F.ROTULO_ID_MEDIDA_CASEIRA"));
+				umc.setNome(resultset.getString("UMC.NOME"));
+				dto.setMedidaCaseira(umc);
+				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
+			}		
+			
+			DadosRotulo dadosRotulo = buscarDadosRotulo(id);
+			dto.setIngredientes(dadosRotulo.getFichaIngredientes());
+			
+			return dto;
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new PersistenciaException(e);
+		} finally {
+			conexao.close();
+		}
     }
 
     public boolean editarFichaCompleta(Ficha fichaCompleta) throws PersistenciaException {

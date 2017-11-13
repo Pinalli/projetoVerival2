@@ -26,6 +26,8 @@ public class Ficha {
 	private UnidadeMedidaCaseira medidaCaseira;
 	
 	private List<FichaItem> itens;
+	
+	private List<FichaIngrediente> ingredientes;
 
 	public Ficha() {
 		super();
@@ -191,4 +193,13 @@ public class Ficha {
 	public void setMedidaCaseira(UnidadeMedidaCaseira medidaCaseira) {
 		this.medidaCaseira = medidaCaseira;
 	}
+
+	public List<FichaIngrediente> getIngredientes() {
+		return ingredientes;
+	}
+
+	public void setIngredientes(List<FichaIngrediente> ingredientes) {
+		this.ingredientes = ingredientes;
+	}
+	
 }

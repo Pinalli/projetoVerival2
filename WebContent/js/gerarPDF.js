@@ -1,40 +1,32 @@
-var cache_width = $('#renderPDF').width(); //Criado um cache do CSS
+function gerarPDF(elem) {
+    var mywindow = window.open('', 'PRINT', 'height=800,width=1000');
 
-var a4 = [595.28, 841.89]; // Width e Height de uma folha a4
-
-function gerarPDF() {
-	var cache_width = $('#renderPDF'); //Criado um cache do CSS
-	var cache_height = $('#renderPDF'); //Criado um cache do CSS
+    mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='./css/bootstrap.min.css'>" );
+	mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='./css/bootstrap-theme.min.css'>" );
+	mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='./css/select2.min.css'>" );
+	mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='./css/select2-bootstrap.css'>" );
+	mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css'>" );
+	mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='./css/style.css'>" );
+	mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='./css/bootstrap-duallistbox.min.css'>" );
+	mywindow.document.write( "<link rel='stylesheet' type='text/css' media='print' href='./css/bootstrap-datetimepicker.min.css'>" );
 	
-	var size = $("#size").val();
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write('<h1>' + document.title  + '</h1>');
+    mywindow.document.write(document.getElementById(elem).innerHTML);
+    mywindow.document.write('</body></html>');
 
-	// Setar o tamanho da div pelo input fornecido pelo usuário
-	if(!isNaN(parseFloat(size)) && isFinite(size)){
-		if(size>=14.5 && size<=19.5){
-			size = size*37.795275591;
-			$("#renderPDF").width(size).css('max-width','none');
-			$("#renderPDF").height(size).css('max-height','none');
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+    setTimeout(function(){
+    	mywindow.print();
+    	mywindow.close();
+    },500);
 
-		}
-	}
-
-    // Aqui ele cria a imagem e cria o pdf
-    html2canvas($('#renderPDF'), {
-        onrendered: function (canvas) {
-            var img = canvas.toDataURL("image/png", 1.0);
-            var doc = new jsPDF({ unit: 'px', format: 'a4' });
-
-            doc.addImage(img, 'JPEG', 20, 20);
-            doc.save('FTP.pdf');
-            //Retorna ao CSS normal
-            $('#renderPDF').width(cache_width);
-            $('#renderPDF').height(cache_height);
-           console.log("Error");
-        }
-    });
+    return true;
 }
 
-function preencheDados(infoRotulo){
+function preencheDados(infoRotulo, dadosFicha){
     $('#modalValorEnergeticoQP').html(infoRotulo.valorEnergeticoQP);
     $('#modalValorEnergeticoVD').html(infoRotulo.valorEnergeticoVD);
     $('#modalCarboidratosQP').html(infoRotulo.carboidratosQP);
@@ -50,6 +42,9 @@ function preencheDados(infoRotulo){
     $('#modalFibraAlimVD').html(infoRotulo.fibraAlimentarVD);
     $('#modalSodioQP').html(infoRotulo.sodioQP);
     $('#modalSodioVD').html(infoRotulo.sodioVD);
+    
+    $('#modalMedida').html(dadosFicha.qntMedida + " " + dadosFicha.unidadeMedida.siglaUnidadeMedida);
+    $('#modalMedidaCaseira').html(dadosFicha.qntMedidaCaseira + " " + dadosFicha.unidadeMedidaCaseira.nome);
 }
 
 function carregaRotuloPDF(id) {
@@ -57,6 +52,77 @@ function carregaRotuloPDF(id) {
 	gerarRotulo(id).done(function(result) {
 		var resultAsJson = $.parseJSON(result);
 		var infoRotulo = calculoRotulo(resultAsJson);
-		preencheDados(infoRotulo);
+		preencheDados(infoRotulo, resultAsJson);
 	});
+}
+
+function carragarDadosFicha(id) {
+	buscaDadosFichaCompleta(id).done(function(result) {
+		var dadosFicha = $.parseJSON(result);
+		preencheDadosFichaCompleta(dadosFicha);
+		preencheDadosFichaSimplificada(dadosFicha);
+	});
+}
+
+function buscaDadosFichaCompleta(id) {
+	return $.ajax({
+		type: 'GET',
+		url: 'ajax?acao=buscaDadosFichaCompletaAjaxCommand',
+		data: {id: id},
+		error: function() {
+			console.log('Error on buscaDadosFichaCompletaAjaxCommand.');
+		}
+	});
+}
+
+function preencheDadosFichaCompleta(dadosFicha) {
+	$('#nome-receita-ftc').html(dadosFicha.nome);
+	$('#rendimento-ftc').html(dadosFicha.rendimento);
+	$('#categoria-ftc').html(dadosFicha.categoria);
+	$('#tempo-preparo-ftc').html(dadosFicha.tempoPreparo);
+	$('#custo-total-ftc').html(dadosFicha.custoTotal);
+	$('#custo-porcao-ftc').html(dadosFicha.custoPorcao);
+	$('#utensilios-equipamentos-ftc').html(dadosFicha.utensilios);
+	$('#modo-preparo-ftc').html(dadosFicha.modoPreparo);
+	$('#montagem-ftc').html(dadosFicha.montagem);
+	$('#orientacoes-armazenamento-ftc').html(dadosFicha.orientacoesArmazenamento);
+	$('#textura-ftc').html(dadosFicha.textura);
+	$('#sabor-ftc').html(dadosFicha.sabor);
+	$('#apresentacao-ftc').html(dadosFicha.apresentacao);
+	$('#temperatura-ftc').html(dadosFicha.temperatura);
+	
+	for(var i=0; i < dadosFicha.ingredientes.length; i++) {
+		$('#ingredientes-ftc').append(
+			'<tr>' +
+				'<td>' + dadosFicha.ingredientes[i].ingrediente.descricao + '</td>' +
+				'<td>' + dadosFicha.ingredientes[i].quantidadeMedida + ' ' + dadosFicha.ingredientes[i].unidadeMedida.siglaUnidadeMedida + '</td>' +
+				'<td>' + dadosFicha.ingredientes[i].quantidadeMedidaCaseira + ' ' + dadosFicha.ingredientes[i].unidadeMedidaCaseira.nome + '</td>' +
+				'<td>' + ' ' + '</td>' +
+				'<td>' + ' ' + '</td>' +
+				'<td>' + ' ' + '</td>' +
+				'<td>' + ' ' + '</td>' +
+			'</tr>'
+		);
+	}
+}
+
+function preencheDadosFichaSimplificada(dadosFicha) {
+	$('#nome-receita-fts').html(dadosFicha.nome);
+	$('#rendimento-fts').html(dadosFicha.rendimento);
+	$('#categoria-fts').html(dadosFicha.categoria);
+	$('#tempo-preparo-fts').html(dadosFicha.tempoPreparo);
+	$('#utensilios-equipamentos-fts').html(dadosFicha.utensilios);
+	$('#modo-preparo-fts').html(dadosFicha.modoPreparo);
+	$('#montagem-fts').html(dadosFicha.montagem);
+	$('#orientacoes-armazenamento-fts').html(dadosFicha.orientacoesArmazenamento);
+
+	for(var i=0; i < dadosFicha.ingredientes.length; i++) {
+		$('#ingredientes-fts').append(
+			'<tr>' +
+				'<td>' + dadosFicha.ingredientes[i].ingrediente.descricao + '</td>' +
+				'<td>' + dadosFicha.ingredientes[i].quantidadeMedida + ' ' + dadosFicha.ingredientes[i].unidadeMedida.siglaUnidadeMedida + '</td>' +
+				'<td>' + dadosFicha.ingredientes[i].quantidadeMedidaCaseira + ' ' + dadosFicha.ingredientes[i].unidadeMedidaCaseira.nome + '</td>' +
+			'</tr>'
+		);
+	}
 }

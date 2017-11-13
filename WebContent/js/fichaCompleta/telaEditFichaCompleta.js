@@ -401,13 +401,13 @@ $(document).ready(function() {
 		 			'proteinas': $(this).find("#ptn").val(),
 		 			'lipidios': $(this).find("#lip").val(),
 		 			'gorduraSaturada': $(this).find("#gordura-saturada").val(),
-		 			'gorduraTrans': 0,
 		 			'fibrasAlimentares': $(this).find("#fibra-alimentar").val(),
 		 			'sodio': $(this).find("#sodio").val()
 	 			};
 	 			var unidadeMedida = retornaSiglaUnidadeMedidaPorId($(this).find('#select-unidade-medida').val());
 	 			
 	 			var fichaIngrediente = {
+ 					'gorduraTrans': $(this).find("#gorduraTrans").val(),
 	 				'ingrediente': ingrediente,
 	 				'quantidadeMedida': $(this).find('#qnt-unidade-medida').val(),
 	 				'unidadeMedida': unidadeMedida
@@ -427,7 +427,7 @@ $(document).ready(function() {
 	 			'qntMedida': qntUMRotulo,
 	 			'unidadeMedida': unidadeMedida
 	 		};
-	
+	 		
 			var infoRotulo = calculoRotulo(dadosFicha);
 			
 			valorEnergetico = infoRotulo.valorEnergeticoOri;
@@ -471,6 +471,9 @@ $(document).ready(function() {
 		$('#gordSaturadaQP').html(parseFloat(gordSaturada.toFixed(3)) + ' g');
 		var gordSaturadaVD = (gordSaturada*100)/22;
 		$('#gordSaturadaVD').html(parseFloat(gordSaturadaVD.toFixed(3)) + '%');
+		
+//		Gordura Trans
+		$('#gordTransQP').html(parseFloat(gordTrans.toFixed(3)) + ' g');
 		
 //		Necessidades diárias: 25g
 		$('#fibraAlimQP').html(parseFloat(fibraAlim.toFixed(3)) + ' g');
@@ -640,7 +643,6 @@ $(document).ready(function() {
 		if(qntMedida != null && unidadeMedida != null) {
 			gerarRotulo(idFicha).done(function(result) {
 				var resultAsJson = $.parseJSON(result);
-
 				var infoRotulo = calculoRotulo(resultAsJson);
 				
 				valorEnergetico = infoRotulo.valorEnergeticoOri;
@@ -661,24 +663,20 @@ $(document).ready(function() {
 	}
 	
 	function addRotuloListener() {
-		$('#table-rows').find('.table-row').each(function() {
-//			$(this).find('#qnt-unidade-medida').on('change', function() {
-//				console.log("QNT INGREDIENTE");
-//				createRotulo();
-//			});
-			
+		$('#table-rows').find('.table-row').each(function() {			
 			$(this).find('#select-unidade-medida').on('change', function() {
-				console.log("INGREDIENTE UM");
+				createRotulo();
+			});
+			
+			$(this).find('#gorduraTrans').on('change', function() {
 				createRotulo();
 			});
 			
 			$('#qnt-unidade-medida-rotulo').on('change', function() {
-				console.log("QNT ROTULO");
 				createRotulo();
 			});
 			
 			$('#select-unidade-medida-rotulo').on('change', function() {
-				console.log("ROTULO UM");
 				createRotulo();
 			});
 			

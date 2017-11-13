@@ -6,7 +6,9 @@ import java.util.List;
 public class DadosRotulo {
 
 	private double qntMedida;
+	private double qntMedidaCaseira;
     private UnidadeMedida unidadeMedida;
+    private UnidadeMedidaCaseira unidadeMedidaCaseira;
     private List<FichaIngrediente> fichaIngredientes;
 
     public DadosRotulo(){
@@ -21,6 +23,14 @@ public class DadosRotulo {
 		this.qntMedida = qntMedida;
 	}
 
+	public double getQntMedidaCaseira() {
+		return qntMedidaCaseira;
+	}
+
+	public void setQntMedidaCaseira(double qntMedidaCaseira) {
+		this.qntMedidaCaseira = qntMedidaCaseira;
+	}
+
 	public UnidadeMedida getUnidadeMedida() {
         return unidadeMedida;
     }
@@ -28,6 +38,14 @@ public class DadosRotulo {
     public void setUnidadeMedida(UnidadeMedida unidadeMedida){
         this.unidadeMedida = unidadeMedida;
     }
+
+	public UnidadeMedidaCaseira getUnidadeMedidaCaseira() {
+		return unidadeMedidaCaseira;
+	}
+
+	public void setUnidadeMedidaCaseira(UnidadeMedidaCaseira unidadeMedidaCaseira) {
+		this.unidadeMedidaCaseira = unidadeMedidaCaseira;
+	}
 
 	public List<FichaIngrediente> getFichaIngredientes() {
 		return fichaIngredientes;

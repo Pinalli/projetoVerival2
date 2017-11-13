@@ -98,31 +98,31 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listUser">Listar</a></li>
-            <li><a href="main?acao=telaUser">Cadastrar</a></li>            
+            <li><a href="main?acao=listUser">Lista de Usuários</a></li>
+            <li><a href="main?acao=telaUser">Cadastrar Usuário</a></li>            
           </ul>
         </li>
                  
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listEmpresa">Listar</a></li>
-            <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
+            <li><a href="main?acao=listEmpresa">Lista de Empresas</a></li>
+            <li><a href="main?acao=telaEmpresa">Cadastrar Empresa</a></li>            
           </ul>
         </li>
       	<% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredientes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listIngrediente">Listar</a></li>
-            <li><a href="main?acao=telaIngredientes">Cadastrar</a></li>            
+            <li><a href="main?acao=listIngrediente">Lista de Ingredientes</a></li>
+            <li><a href="main?acao=telaIngredientes">Cadastrar Ingrediente</a></li>            
           </ul>
         </li>
         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Medidas Caseiras<span class="caret"></span></a>
           <ul class="dropdown-menu">
-			<li><a href="main?acao=listUnidadeMedidaCaseira">Listar Medidas Caseiras</a></li>
+			<li><a href="main?acao=listUnidadeMedidaCaseira">Lista de Medidas Caseiras</a></li>
             <li><a href="main?acao=telaUnidadeMedidaCaseira">Cadastrar Medida Caseira</a></li>			
           </ul>
         </li>
@@ -130,8 +130,8 @@
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">
+				  <li><a  href="main?acao=listFichaCompleta">Lista de Fichas Técnicas Completas</a></li>
                   <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Técnica Completa</a></li>
-				  <li><a  href="main?acao=listFichaCompleta">Listar Fichas Técnicas Completas</a></li>
               </ul>
           </li>
 

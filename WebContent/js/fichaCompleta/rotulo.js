@@ -20,8 +20,7 @@ function getUnidadeMedida(id) {
 	});
 }
 
-function calculoRotulo(fichaIngredientes) {
-
+function calculoRotulo(fichaIngredientes) {	
 	var listFI = fichaIngredientes.fichaIngredientes;
 	
 	//em gramas
@@ -64,10 +63,13 @@ function calculoRotulo(fichaIngredientes) {
 		proteinas += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.proteinas));
 		gordTotal += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.lipidios));
 		gordSaturada += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.gorduraSaturada));
-		gordTrans += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].gorduraTrans));
+
+		gordTrans += calculaProporcoes(qntRotulo, qntMedidaTotal, (listFI[i].gorduraTrans));
+		
 		fibraAlim += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.fibrasAlimentares));
 		sodio += calculaProporcoes(qntRotulo, qntMedidaTotal, (taxaConversao * listFI[i].ingrediente.sodio));
 	}
+	
 	
 //	Valor Energético - Necessidades diárias: 2.000 kcalorias
 	var veKj = valorEnergetico * 4.1868;

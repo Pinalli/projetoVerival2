@@ -267,6 +267,10 @@
 								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
 								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
 							</div>
+							<input type="text" class="hidden" id="gordura-trans" name="gordura-trans">
+							<input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada">
+							<input type="text" class="hidden" id="fibra-alimentar" name="fibra-alimentar">
+							<input type="text" class="hidden" id="sodio" name="sodio">
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="btn-excluir-wrapper">
@@ -326,6 +330,12 @@
 								data-selected-id="" 
 								data-selected-text="">
 							</select>
+						</div>
+						<div class="form-group col-md-2 col-xs-4">
+							<label for="qnt-unidade-medida" class="">Gordura Trans</label> <input
+								type="number" class="form-control" id="gorduraTrans"						
+								placeholder="Gordura Trans" min="0" max="9999" step="0.1" name="gorduraTrans"
+								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);" value="">
 						</div>
 						<!--div class="form-group col-md-12"-->
 							<div class="form-group col-md-2 col-xs-4">
