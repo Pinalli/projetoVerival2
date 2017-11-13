@@ -36,7 +36,7 @@
 					<div class="row">						
 						<div class="col-sm-4">
 						    <label class="form-label ages">Carboidratos</label> 
-							<input class="form-control" id="carboidratos" name="carboidratos" value="${param.carboidratos}" type="number" step="any" onInput="multiplica('Carboidrato')" maxlength="5" required>
+							<input class="form-control" id="carboidratos" name="carboidratos" value="${param.carboidratos}" type="number" min="0" step="any" onInput="multiplica('Carboidrato')" maxlength="5" required>
 						</div>
 						<div class="col-sm-8">
 						    <label class="form-label ages">Carboidratos Kcal</label> 
@@ -47,7 +47,7 @@
 					<div class="row">					
 						<div class="col-sm-4">
 							<label class="form-label ages">Proteínas</label> 
-							<input class="form-control"  id="proteinas" name="proteinas" value="${param.proteinas}" type="number" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
+							<input class="form-control"  id="proteinas" name="proteinas" value="${param.proteinas}" type="number" min="0" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
 						</div>
 						<div class="col-sm-8">
 							<label class="form-label ages">Proteínas Kcal</label> 
@@ -58,7 +58,7 @@
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Lipídios</label> 
-							<input class="form-control" id="lipidios" name="lipidios" value="${param.lipidios}" type="number" step="any"  onInput="multiplica('Lipidios')" maxlength="5" required>
+							<input class="form-control" id="lipidios" name="lipidios" value="${param.lipidios}" type="number" min="0" step="any"  onInput="multiplica('Lipidios')" maxlength="5" required>
 						</div>
 
 						<div class="col-sm-8">
@@ -70,39 +70,39 @@
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Gordura Saturada</label> 
-							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="${param.gordurasaturada}" type="number" step="any"  maxlength="5" required>
+							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="${param.gordurasaturada}" type="number" min="0" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Fibras Alimentares</label> 
-							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="${param.fibrasalimentares}" type="number" step="any"  maxlength="5" required>
+							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="${param.fibrasalimentares}" type="number" min="0" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Sódio</label> 
-							<input class="form-control" id="sodio" name="sodio" value="${param.sodio}" type="number" step="any"  maxlength="5" required>
+							<input class="form-control" id="sodio" name="sodio" value="${param.sodio}" type="number" min="0" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages">Fator de Correção</label> 
-							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="${param.fatorcorrecao}" type="value" maxlength="5" required> 
+							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="${param.fatorcorrecao}" type="value" min="0" maxlength="5" required> 
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages">Índice de Cocção</label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.indicecoccao}" type="value" maxlength="5" required>
+							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.indicecoccao}" type="value" min="0" maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages">Valor de Custo</label> 
-							<input class="form-control" id="custo" name="custo" value="${param.custo}" type="value" maxlength="5" required>
+							<input class="form-control" id="custo" name="custo" value="${param.custo}" type="value" min="0" maxlength="5" required>
 						</div>
 						
 						<div class="col-sm-6">

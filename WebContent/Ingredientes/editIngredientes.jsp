@@ -36,7 +36,7 @@
 					<div class="row">						
 						<div class="col-sm-4">
 						    <label class="form-label ages">Carboidratos</label> 
-							<input class="form-control" id="carboidratos" name="carboidratos" value="<%=ingrediente.getCarboidratos() %>" type="number" step="any" onInput="multiplica('Carboidrato')" maxlength="5" required>
+							<input class="form-control" id="carboidratos" name="carboidratos" value="<%=ingrediente.getCarboidratos() %>" type="number" min="0" step="any" onInput="multiplica('Carboidrato')" maxlength="5" required>
 						</div>
 						<div class="col-sm-8">
 						    <label class="form-label ages">Carboidratos Kcal </label> 
@@ -47,7 +47,7 @@
 					<div class="row">					
 						<div class="col-sm-4">
 							<label class="form-label ages">Proteínas</label> 
-							<input class="form-control"  id="proteinas" name="proteinas" value="<%=ingrediente.getProteinas() %>" type="number" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
+							<input class="form-control"  id="proteinas" name="proteinas" value="<%=ingrediente.getProteinas() %>" type="number" min="0" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
 						</div>
 						<div class="col-sm-8">
 							<label class="form-label ages">Proteínas Kcal</label> 
@@ -58,7 +58,7 @@
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Lipídios</label> 
-							<input class="form-control" id="lipidios" name="lipidios" value="<%=ingrediente.getLipidios() %>" type="number" step="any" onInput="multiplica('Lipidios')" maxlength="5" required>
+							<input class="form-control" id="lipidios" name="lipidios" value="<%=ingrediente.getLipidios() %>" type="number" min="0" step="any" onInput="multiplica('Lipidios')" maxlength="5" required>
 						</div>
 
 						<div class="col-sm-8">
@@ -71,7 +71,7 @@
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Gordura Saturada</label> 
-							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="<%=ingrediente.getGorduraSaturada()%>" type="number" step="any"  maxlength="5" required>
+							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="<%=ingrediente.getGorduraSaturada()%>" type="number" min="0" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
@@ -80,14 +80,14 @@
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Fibras Alimentares</label> 
-							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="<%=ingrediente.getFibrasAlimentares()%>" type="number" step="any"  maxlength="5" required>
+							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="<%=ingrediente.getFibrasAlimentares()%>" type="number" min="0" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-4">
 						    <label class="form-label ages">Sódio</label> 
-							<input class="form-control" id="sodio" name="sodio" value="<%=ingrediente.getSodio()%>" type="number" step="any"  maxlength="5" required>
+							<input class="form-control" id="sodio" name="sodio" value="<%=ingrediente.getSodio()%>" type="number" min="0" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
@@ -95,18 +95,18 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages"> Fator de Correção </label> 
-							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="<%=ingrediente.getFatorCorrecao()%>" type="value" maxlength="5" required> 
+							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="<%=ingrediente.getFatorCorrecao()%>" type="value" min="0" maxlength="5" required> 
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages"> Índice de Cocção </label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="<%=ingrediente.getIndiceCoccao()%>" type="value" maxlength="5" required>
+							<input class="form-control" id="indicecoccao" name="indicecoccao" value="<%=ingrediente.getIndiceCoccao()%>" type="value" min="0" maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages"> Valor de Custo   </label> 
-							<input class="form-control" id="custo" name="custo" value="<%=ingrediente.getCusto()%>" type="value" maxlength="5" required>
+							<input class="form-control" id="custo" name="custo" value="<%=ingrediente.getCusto()%>" type="value" min="0" maxlength="5" required>
 						</div>
 						<div class="col-sm-6">
 							<label class="form-label ages"> Unidade de Medida</label> 
