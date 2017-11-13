@@ -354,7 +354,7 @@
 <script>
 $(document).on('show.bs.modal','#modalExcluir', function (event) {
   	var botao = $(event.relatedTarget);
-  	var fichaS = botao.data('fichaS');
+  	var fichaS = botao.data('fichas');
 	var id = botao.data('id');
 
   	$(this).find('.modal-title').text('Excluir Ficha Completa');
