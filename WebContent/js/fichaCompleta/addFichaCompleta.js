@@ -17,6 +17,7 @@ $(document).ready(function() {
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
 		var temperatura = $('textarea[name="temperatura"]').val();
+		var custoTotal = $('textarea[name="custoTotal"]').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -49,6 +50,7 @@ $(document).ready(function() {
 			sabor:sabor,
 			apresentacao:apresentacao,
 			temperatura:temperatura,
+			custoTotal:custoTotal,
 			itens:JSON.stringify(itens)
 		};
 		

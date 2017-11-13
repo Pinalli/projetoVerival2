@@ -115,8 +115,7 @@
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label> 
-								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
-								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
+								<input	type="number" class="form-control"	id="valor-unitario" min="0" placeholder="Valor unitário">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="custo-real" class="">Custo Real</label>
@@ -152,7 +151,7 @@
 			<div class="col-md-4 col-md-offset-4">
 					<label for="valorTotal" id="preco"
 						class="col-xs-12 col-sm-12 form-control-static text-center">Valor Total</label>
-					<input type="number" name="valorTotalFicha" id="valorTotalFicha"
+					<input type="number" name="custoTotal" id="custoTotal"
 						class="form-control text-center box-transparent" value = "0"
 						placeholder="Valor Total" />
 			</div>

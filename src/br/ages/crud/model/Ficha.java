@@ -17,6 +17,7 @@ public class Ficha {
 	private String textura;
 	private String sabor;
 	private String apresentacao;
+	private float custoTotal;
 
 	private List<FichaItem> itens;
 
@@ -127,6 +128,14 @@ public class Ficha {
 
 	public void setItens(List<FichaItem> itens) {
 		this.itens = itens;
+	}
+
+	public float getCustoTotal() {
+		return custoTotal;
+	}
+
+	public void setCustoTotal(float string) {
+		this.custoTotal = string;
 	}
 
 }

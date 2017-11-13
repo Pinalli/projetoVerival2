@@ -130,7 +130,8 @@ CREATE TABLE `TB_FICHA` (
   -- Tabela Ficha (aspectos exclusivos da completa): serao omitidos da simplificada
   `TEXTURA` TEXT(1024) NULL,
   `SABOR` TEXT(1024) NULL,
-  `APRESENTACAO` TEXT(1024) NULL,
+  `APRESENTACAO` TEXT(1024) NULL,  
+  `CUSTO_TOTAL` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`ID_FICHA`));
 
 -- TABELA ITEM DA FICHA

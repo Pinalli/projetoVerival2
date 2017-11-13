@@ -147,9 +147,9 @@ $(document).ready(function() {
 					if($(window).width() <= RESOLUCAO_MINIMA){
 						scroll($('.table-row:last'));
 					}
-					var valor = $("#valorTotalFicha").val();
+					var valor = $("#custoTotal").val();
 					if(valor>0){
-						$("#valorTotalFicha").val(valor-(Number(target.find("#custo-realShow").val())));
+						$("#custoTotal").val(valor-(Number(target.find("#custo-realShow").val())));
 					}
 				});				
 				qntIngredientes--;			
@@ -358,17 +358,6 @@ $(document).ready(function() {
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 			else y =x;
 			row.find("#kcalShow").val(y);
-			row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val());
-			if (row.find("#valor-unitarioShow").val().length > 5){
-				row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
-			    }
-						
-			if($("#valorTotalFicha").val()>0){
-				var valor = Number($("#valorTotalFicha").val());
-				$("#valorTotalFicha").val(Number(valor) + (Number(row.find("#custo-realShow").val()))*0.5);				
-			}else{
-				$("#valorTotalFicha").val(row.find("#custo-realShow").val());
-			}
 			
 			x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
@@ -450,5 +439,5 @@ function updateCusto(){
 			custoTotalGlobal+=Number(select.val());				
 		}
 	});
-	$("#valorTotalFicha").val(custoTotalGlobal);
+	$("#custoTotal").val(custoTotalGlobal);
 }

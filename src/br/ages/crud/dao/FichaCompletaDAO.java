@@ -43,8 +43,9 @@ public class FichaCompletaDAO {
             		+ "TIPO_FICHA,"
             		+ "TEXTURA,"
             		+ "SABOR,"
-            		+ "APRESENTACAO )");
-            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            		+ "APRESENTACAO,"
+            		+ "CUSTO_TOTAL)");
+            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -61,6 +62,7 @@ public class FichaCompletaDAO {
             statement.setString(9, fichaCompleta.getTextura());
     		statement.setString(10,fichaCompleta.getSabor());
 			statement.setString(11,fichaCompleta.getApresentacao());
+			statement.setString(12, fichaCompleta.getCustoTotal()+"");
 
             statement.executeUpdate();
 
@@ -109,7 +111,8 @@ public class FichaCompletaDAO {
             		+ "TIPO_FICHA, "
             		+ "TEXTURA, "
             		+ "SABOR, "
-            		+ "APRESENTACAO FROM TB_FICHA WHERE TIPO_FICHA = 'c' ");
+            		+ "APRESENTACAO "
+            		+ "CUSTO_TOTAL FROM TB_FICHA WHERE TIPO_FICHA = 'c' ");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
             ResultSet resultset = statement.executeQuery();
@@ -127,6 +130,7 @@ public class FichaCompletaDAO {
                 dto.setTextura(resultset.getString("TEXTURA"));
                 dto.setSabor(resultset.getString("SABOR"));
                 dto.setApresentacao(resultset.getString("APRESENTACAO"));
+                dto.setCustoTotal(Float.parseFloat(resultset.getString("CUSTO_TOTAL")));
 
                 listarFichasCompleta.add(dto);
             }
@@ -159,6 +163,7 @@ public class FichaCompletaDAO {
                     + "TEXTURA = ?,"
                     + "SABOR = ?,"
                     + "APRESENTACAO = ?"
+                    + "CUSTO_TOTAL = ?"
                     + " WHERE ID_FICHA = "+ idFichaCompleta 
                     + " AND TIPO_FICHA = 'c'");
 
@@ -174,6 +179,7 @@ public class FichaCompletaDAO {
             statement.setString(7, fichaCompleta.getTextura());
             statement.setString(8, fichaCompleta.getSabor());
             statement.setString(9, fichaCompleta.getApresentacao());
+            statement.setString(10, fichaCompleta.getCustoTotal()+"");
             
 			List<FichaItem> itens = fichaCompleta.getItens();
 
@@ -257,6 +263,7 @@ public class FichaCompletaDAO {
 					+  "TEXTURA,"
 					+  "SABOR,"
 					+  "APRESENTACAO,"
+					+  "CUSTO_TOTAL,"					
 					+ " TIPO_FICHA FROM TB_FICHA WHERE TIPO_FICHA = 'c' AND ID_FICHA = "+id);
 			
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -275,6 +282,7 @@ public class FichaCompletaDAO {
 				dto.setTextura(resultset.getString("TEXTURA"));
 				dto.setSabor(resultset.getString("SABOR"));
 				dto.setApresentacao(resultset.getString("APRESENTACAO"));
+				dto.setCustoTotal(Float.parseFloat(resultset.getString("CUSTO_TOTAL")));
 				//dto.setTipoFicha(resultset.getString("TIPO_FICHA"));
 			}		
 			
