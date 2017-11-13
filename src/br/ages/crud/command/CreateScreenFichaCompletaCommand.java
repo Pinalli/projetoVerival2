@@ -21,8 +21,6 @@ public class CreateScreenFichaCompletaCommand implements Command {
 		Usuario currentUser = (Usuario)request.getSession().getAttribute("usuarioSessao");
 
 		try {			
-			if( !currentUser.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
-			
 			String isEdit = request.getParameter("isEdit");
 			
 			if (isEdit != null && !"".equals(isEdit)) {
