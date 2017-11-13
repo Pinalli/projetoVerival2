@@ -195,13 +195,14 @@
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de
-									Correção</label> <input type="number" readonly="readonly"
+									Correção</label> 
+									<input type="number" 
 									class="form-control" id="fator-de-correcao"
 									placeholder="Import">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="indice-de-coccao" class="">Índice de Cocção</label>
-								<input type="number" readonly="readonly" class="form-control"
+								<input type="number"  class="form-control"
 									id="indice-de-coccao" placeholder="Import">
 							</div>
 						</div>

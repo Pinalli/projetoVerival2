@@ -95,16 +95,6 @@
 						</div>
 					</div>
 					
-					<div class="row">
-						<div class="col-sm-6">
-							<label class="form-label ages"> Fator de Correção </span></label> 
-							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="${param.fatorcorrecao}" type="value" maxlength="5" required> 
-						</div>
-						<div class="col-sm-6">
-							<label class="form-label ages"> Índice de Cocção </span></label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.indicecoccao}" type="value" maxlength="5" required>
-						</div>
-					</div>
 					
 					<div class="row">
 						<div class="col-sm-6">

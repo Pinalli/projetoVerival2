@@ -9,17 +9,20 @@ public class FichaItem {
 	private int idFicha;
 	private double quantidadeUnidadeMedida;
 	private double quantidadeMedidaCaseira;
-	
+
 	private String ingrediente;
 	private String unidadeMedida;
 	private String unidadeMedidaCaseira;
+
+	private double fatorCorrecao;
+	private double indiceCoccao;
+
 	
 	// Item da Ficha Completa
 	private double perCapita;
 	private double valorUnit;
-	
-	private String operacao;
 
+	private String operacao;
 
 	public FichaItem() {
 		super();
@@ -64,7 +67,6 @@ public class FichaItem {
 	public void setIdFicha(int idFicha) {
 		this.idFicha = idFicha;
 	}
-
 
 	public double getPerCapita() {
 		return perCapita;
@@ -128,5 +130,21 @@ public class FichaItem {
 
 	public void setQuantidadeMedidaCaseira(double quantidadeMedidaCaseira) {
 		this.quantidadeMedidaCaseira = quantidadeMedidaCaseira;
+	}
+	
+	public double getFatorCorrecao() {
+		return fatorCorrecao;
+	}
+
+	public void setFatorCorrecao(double fatorCorrecao) {
+		this.fatorCorrecao = fatorCorrecao;
+	}
+
+	public double getIndiceCoccao() {
+		return indiceCoccao;
+	}
+
+	public void setIndiceCoccao(double indiceCoccao) {
+		this.indiceCoccao = indiceCoccao;
 	}
 }

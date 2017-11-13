@@ -18,6 +18,8 @@ $(document).ready(function() {
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
 		var temperatura = $('textarea[name="temperatura"]').val();
+		var fatorCorrecao = $('input[name="fator-de-correcao"').val();
+		var indiceCoccao = $('input[name="indice-de-coccao"').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -52,6 +54,8 @@ $(document).ready(function() {
 			sabor:sabor,
 			apresentacao:apresentacao,
 			temperatura:temperatura,
+			fatorCorrecao:fatorCorrecao,
+			indiceCoccao:indiceCoccao,
 			itens:JSON.stringify(itens)
 		};
 
@@ -129,6 +133,12 @@ $(document).ready(function() {
 			return false;
 		}else if(data.temperatura == '' || data.temperatura === null || data.temperatura < 0){
 			showModalErro("Dados da ficha incompletos", "Informe a temperatura");
+			return false;
+		}else if(data.fatorCorrecao == '' || data.fatorCorrecao === null || data.fatorCorrecao < 0){
+			showModalErro("Dados da ficha incompletos", "Informe o Fator de Correção");
+			return false;
+		}else if(data.indiceCoccao == '' || data.indiceCoccao === null || data.indiceCoccao < 0){
+			showModalErro("Dados da ficha incompletos", "Informe o Indice de Cocção");
 			return false;
 		}
 		return true;

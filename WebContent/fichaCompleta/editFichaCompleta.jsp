@@ -254,13 +254,17 @@
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de correção</label>
-								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
-								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
+								
+								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" 
+								value="<%= item.getFatorCorrecao()%>">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="indice-de-coccao" class="">Índice de cocção</label>
-								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
-								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
+								
+								
+								
+								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção" 
+								value="<%= item.getIndiceCoccao()%>">
 							</div>
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">

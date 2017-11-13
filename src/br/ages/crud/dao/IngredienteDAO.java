@@ -65,8 +65,6 @@ public class IngredienteDAO {
 				dto.setGorduraTrans(resultset.getDouble("I.GORDURA_TRANS"));
 				dto.setFibrasAlimentares(resultset.getDouble("I.FIBRAS_ALIMENTARES"));
 				dto.setSodio(resultset.getDouble("I.SODIO"));
-				dto.setFatorCorrecao(resultset.getDouble("I.FATOR_CORRECAO"));
-				dto.setIndiceCoccao(resultset.getDouble("I.INDICE_COCCAO"));
 				dto.setCusto(resultset.getDouble("I.CUSTO"));
 				dto.setUnidadeMedida(resultset.getString("I.UNIDADE_MEDIDA"));
 				dto.setDataAlteracao(resultset.getDate("I.DATA_INSERCAO"));
@@ -106,13 +104,11 @@ public class IngredienteDAO {
 					+ "`GORDURA_TRANS`, "
 					+ "`FIBRAS_ALIMENTARES`, "
 					+ "`SODIO`, "
-					+ "`FATOR_CORRECAO`, "
-					+ "`INDICE_COCCAO`, "
 					+ "`CUSTO`, "
 					+ "`UNIDADE_MEDIDA`, "
 					+ "`DATA_INSERCAO`)"
 					);
-			sql.append("VALUE (NULL ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
+			sql.append("VALUE (NULL ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() )");
 			// converte a data para data Juliana, data que o banco reconhece;
 			java.util.Date utilDate = new java.util.Date();
 			java.sql.Date dataInclusao = new java.sql.Date(utilDate.getTime());
@@ -130,8 +126,6 @@ public class IngredienteDAO {
 			statement.setDouble(10, ingrediente.getGorduraTrans());
 			statement.setDouble(11, ingrediente.getFibrasAlimentares());
 			statement.setDouble(12, ingrediente.getSodio());
-			statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());
 			statement.setDouble(15, ingrediente.getCusto());
 			statement.setString(16, ingrediente.getUnidadeMedida());
 			
@@ -180,8 +174,6 @@ public class IngredienteDAO {
 				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
 				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));	
@@ -227,8 +219,6 @@ public class IngredienteDAO {
 				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
 				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));	
@@ -281,8 +271,6 @@ public class IngredienteDAO {
 				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
 				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));		
@@ -322,8 +310,6 @@ public class IngredienteDAO {
             sql.append(" GORDURA_TRANS = ?,");
             sql.append(" FIBRAS_ALIMENTARES = ?,");
             sql.append(" SODIO = ?,");
-            sql.append(" FATOR_CORRECAO = ?,");
-            sql.append(" INDICE_COCCAO = ?,");
             sql.append(" CUSTO = ?,");
             sql.append(" UNIDADE_MEDIDA = ?");
             sql.append(" WHERE");
@@ -343,8 +329,6 @@ public class IngredienteDAO {
 			statement.setDouble(10, ingrediente.getGorduraTrans());
 			statement.setDouble(11, ingrediente.getFibrasAlimentares());
 			statement.setDouble(12, ingrediente.getSodio());
-			statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());
 			statement.setDouble(15, ingrediente.getCusto());
 			statement.setString(16, ingrediente.getUnidadeMedida());
 			

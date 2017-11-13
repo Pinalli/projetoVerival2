@@ -225,13 +225,11 @@
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de correção</label>
-								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
-								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
+								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" >
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="indice-de-coccao" class="">Índice de cocção</label>
-								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
-								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
+								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção" >
 							</div>
 							<input type="text" class="hidden" id="gordura-trans" name="gordura-trans">
 							<input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada">

@@ -21,8 +21,6 @@ public class Ingrediente {
 	private double gorduraTrans;
 	private double fibrasAlimentares;
 	private double sodio;
-	private double fatorCorrecao;
-	private double indiceCoccao;
 	private double custo;
 	private String unidadeMedida;
 	private Date dataAlteracao;
@@ -50,8 +48,8 @@ public class Ingrediente {
 		this.gorduraTrans = gorduraTrans;
 		this.fibrasAlimentares = fibrasAlimentares;
 		this.sodio = sodio;
-		this.fatorCorrecao = fatorCorrecao;
-		this.indiceCoccao = indiceCoccao;
+//		this.fatorCorrecao = fatorCorrecao;
+//		this.indiceCoccao = indiceCoccao;
 		this.custo = custo;
 		this.unidadeMedida = unidadeMedida;
 		this.dataAlteracao = new Date();
@@ -169,21 +167,21 @@ public class Ingrediente {
 		this.sodio = sodio;
 	}
 
-	public double getFatorCorrecao() {
-		return fatorCorrecao;
-	}
-
-	public void setFatorCorrecao(double fatorCorrecao) {
-		this.fatorCorrecao = fatorCorrecao;
-	}
-
-	public double getIndiceCoccao() {
-		return indiceCoccao;
-	}
-
-	public void setIndiceCoccao(double indiceCoccao) {
-		this.indiceCoccao = indiceCoccao;
-	}
+//	public double getFatorCorrecao() {
+//		return fatorCorrecao;
+//	}
+//
+//	public void setFatorCorrecao(double fatorCorrecao) {
+//		this.fatorCorrecao = fatorCorrecao;
+//	}
+//
+//	public double getIndiceCoccao() {
+//		return indiceCoccao;
+//	}
+//
+//	public void setIndiceCoccao(double indiceCoccao) {
+//		this.indiceCoccao = indiceCoccao;
+//	}
 
 	public double getCusto() {
 		return custo;
@@ -215,9 +213,8 @@ public class Ingrediente {
 				+ descricao + ", carboidratos=" + carboidratos + ", kcalCarboidratos=" + kcalCarboidratos
 				+ ", proteinas=" + proteinas + ", kcalProteinas=" + kcalProteinas + ", lipidios=" + lipidios
 				+ ", kcalLipidios=" + kcalLipidios + ", gorduraSaturada=" + gorduraSaturada + ", gorduraTrans=" 
-				+ gorduraTrans + ", fibrasAlimentares=" + fibrasAlimentares + ", sodio=" + sodio + "fatorCorrecao=" 
-				+ fatorCorrecao + ", indiceCoccao="
-				+ indiceCoccao + ", custo=" + custo + ", unidadeMedida=" + unidadeMedida + ", dataAlteracao="
+				+ gorduraTrans + ", fibrasAlimentares=" + fibrasAlimentares + ", sodio=" + sodio 
+				+ ", custo=" + custo + ", unidadeMedida=" + unidadeMedida + ", dataAlteracao="
 				+ dataAlteracao + "]";
 	}
 	

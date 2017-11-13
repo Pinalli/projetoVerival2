@@ -20,8 +20,6 @@
                 <tr>                    
                     <th style="text-align: center;">Código</th>
 					<th style="text-align: center;">Descrição</th>					
-					<th style="text-align: center;">Fator Correção</th>
-					<th style="text-align: center;">Índice Cocção</th>					
 					<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>
@@ -36,8 +34,6 @@
             	<tr>
 	            	<td align="center"><%=ing.getCodigo()%></td>
 	            	<td align="center"><%=ing.getDescricao()%></td>	            
-	            	<td align="center"><%=ing.getFatorCorrecao()%></td>
-	            	<td align="center"><%=ing.getIndiceCoccao()%></td>	            	
 	            	<td align="center">
 						<form action="" method="post">
             				<a href="" data-toggle="modal" data-id="<%=ing.getId() %>" data-ingrediente="<%=ing.getDescricao()%>" 
