@@ -22,6 +22,9 @@ public class AddIngredienteCommand implements Command {
 		String kcalProteinas = request.getParameter("kcalproteinas");
 		String lipidios = request.getParameter("lipidios");
 		String kcalLipidios = request.getParameter("kcallipidios");
+		String gorduraSaturada = request.getParameter("gordurasaturada");
+		String fibrasAlimentares = request.getParameter("fibrasalimentares");
+		String sodio = request.getParameter("sodio");
 		String fatorCorrecao = request.getParameter("fatorcorrecao").replace(",", ".");
 		String indiceCoccao = request.getParameter("indicecoccao").replace(",", ".");
 		String custo = request.getParameter("custo").replace(",", ".");
@@ -36,6 +39,9 @@ public class AddIngredienteCommand implements Command {
 			ingrediente.setKcalProteinas(Double.valueOf(kcalProteinas));
 			ingrediente.setLipidios(Double.valueOf(lipidios));
 			ingrediente.setKcalLipidios(Double.valueOf(kcalLipidios));
+			ingrediente.setGorduraSaturada(Double.valueOf(gorduraSaturada));
+			ingrediente.setFibrasAlimentares(Double.valueOf(fibrasAlimentares));
+			ingrediente.setSodio(Double.valueOf(sodio));
 			ingrediente.setFatorCorrecao(Double.valueOf(fatorCorrecao));
 			ingrediente.setIndiceCoccao(Double.valueOf(indiceCoccao));
 			ingrediente.setCusto(Double.valueOf(custo));

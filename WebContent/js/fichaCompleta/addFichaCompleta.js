@@ -8,12 +8,19 @@ $(document).ready(function() {
 		var nome = $('input[name="nome"]').val();
 		var rendimento = $('input[name="rendimento"]').val();
 		var foto = $('input[name="imgFile"]').val();
+		var utensiliosEquipamentos = $('textarea[name="utensiliosEquipamentos"]').val();
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
+		var tempoPreparo = $('input[name="tempoDePreparo"]').val();
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
 		var textura = $('textarea[name="textura"]').val();
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
+		var temperatura = $('textarea[name="temperatura"]').val();
+		var qntUnidadeMedida = $('#qnt-unidade-medida-rotulo').val();
+		var unidadeMedidaId = $('#select-unidade-medida-rotulo').val();
+		var qntUnidadeMedidaCaseira = $('#qnt-unidade-medida-caseira-rotulo').val();
+		var unidadeMedidaCaseiraId = $('#select-medida-caseira-rotulo').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -25,6 +32,7 @@ $(document).ready(function() {
 					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
 					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
 					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
+					gorduraTrans : $(this).find('input[name="gorduraTrans"]').val(),
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
 			};
@@ -37,13 +45,20 @@ $(document).ready(function() {
 			nome:nome,
 			rendimento:rendimento,
 			foto:foto,
+			utensiliosEquipamentos:utensiliosEquipamentos,
 			modoPreparo:modoPreparo,
+			tempoPreparo:tempoPreparo,
 			montagem:montagem,
 			orientacoesArmazenamento:orientecoesArmazenamento,
-			textura: textura,
+			textura:textura,
 			sabor:sabor,
 			apresentacao:apresentacao,
-			itens:JSON.stringify(itens)
+			temperatura:temperatura,
+			itens:JSON.stringify(itens),
+			qntUnidadeMedida:qntUnidadeMedida,
+			unidadeMedidaId:unidadeMedidaId,
+			qntUnidadeMedidaCaseira:qntUnidadeMedidaCaseira,
+			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId
 		};
 		
 		var action = form.attr("action");

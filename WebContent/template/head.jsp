@@ -1,4 +1,6 @@
 <%@page import="br.ages.crud.model.Usuario"%>
+<%@page import="br.ages.crud.model.PerfilAcesso"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,7 +27,7 @@
        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">       
-        <title>Nutrição - Ficha Técnica a</title>
+        <title>Ficha Técnica de Preparo</title>
         <link rel="icon" href="img/iconutri.ico">
         
 		<!-- BOOTSTRAP -->
@@ -91,54 +93,45 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
-      <ul class="nav navbar-nav">        
+      <ul class="nav navbar-nav"> 
+      	<% if(usuarioSessao.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR)) { %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listUser">Listar</a></li>
-            <li><a href="main?acao=telaUser">Cadastrar</a></li>            
+            <li><a href="main?acao=listUser">Lista de Usuários</a></li>
+            <li><a href="main?acao=telaUser">Cadastrar Usuário</a></li>            
           </ul>
         </li>
-         
+                 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listEmpresa">Listar</a></li>
-            <li><a href="main?acao=telaEmpresa">Cadastrar</a></li>            
+            <li><a href="main?acao=listEmpresa">Lista de Empresas</a></li>
+            <li><a href="main?acao=telaEmpresa">Cadastrar Empresa</a></li>            
           </ul>
         </li>
-        
+      	<% } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredientes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listIngrediente">Listar</a></li>
-            <li><a href="main?acao=telaIngredientes">Cadastrar</a></li>            
+            <li><a href="main?acao=listIngrediente">Lista de Ingredientes</a></li>
+            <li><a href="main?acao=telaIngredientes">Cadastrar Ingrediente</a></li>            
           </ul>
         </li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unidade Medida<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Medidas Caseiras<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="main?acao=listUnidadeMedida">Listar</a></li>
-            <li><a href="main?acao=telaUnidadeMedida">Cadastrar</a></li>            
-          </ul>
-        </li>
-        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unidade Medida Caseira<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="main?acao=listUnidadeMedidaCaseira">Listar</a></li>
-            <li><a href="main?acao=telaUnidadeMedidaCaseira">Cadastrar</a></li>            
+			<li><a href="main?acao=listUnidadeMedidaCaseira">Lista de Medidas Caseiras</a></li>
+            <li><a href="main?acao=telaUnidadeMedidaCaseira">Cadastrar Medida Caseira</a></li>			
           </ul>
         </li>
        
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichas técnicas<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><a  href="main?acao=telaFichaSimplificada">Cadastrar Ficha Técnica Simplificada</a></li>
-                  <li><a  href="main?acao=listFichaSimplificada">Listar Fichas Técnicas Simplificadas</a></li>
+				  <li><a  href="main?acao=listFichaCompleta">Lista de Fichas Técnicas Completas</a></li>
                   <li><a  href="main?acao=telaFichaCompleta">Cadastrar Ficha Técnica Completa</a></li>
-				  <li><a  href="main?acao=listFichaCompleta">Listar Fichas Técnicas Completas</a></li>
               </ul>
           </li>
 

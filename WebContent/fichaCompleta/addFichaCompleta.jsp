@@ -7,11 +7,12 @@
 
 <head>
 <!--link rel="stylesheet" href="./css/ficha.css"-->
-
+<script type="text/javascript" src="js/fichaCompletaCalculos.js"></script>
 </head>
 <body>
 	<article>
-		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm" method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
+		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm"
+			method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
 			<div class="form-group col-md-4 col-md-offset-4">
 				<input type="text" name="nome" id="nome"
 					class="form-control text-center box-transparent"
@@ -19,20 +20,20 @@
 			</div>
 
 			<!-- File Button -->
-				<div class="form-group col-md-12">
-					<!--label class="col-md-3 control-label ages" for="Foto"></label-->
-					<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
-						<input id="imgFile" name="imgFile" class="input-file" type="file">
-					</div>
+			<div class="form-group col-md-12">
+				<!--label class="col-md-3 control-label ages" for="Foto"></label-->
+				<div class="col-md-6 col-md-offset-4 col-xs-offset-3">
+					<input id="imgFile" name="imgFile" class="input-file" type="file">
 				</div>
-				<div class="form-group col-md-12">
-					<div id="image_preview">
-						<img id="previewing" src=""
-							class="img-responsive img-thumbnail center-block" />
-					</div>
+			</div>
+			<div class="form-group col-md-12">
+				<div id="image_preview">
+					<img id="previewing" src=""
+						class="img-responsive img-thumbnail center-block" />
 				</div>
-				<h4 id='loading'></h4>
-				<div id="message"></div>
+			</div>
+			<h4 id='loading'></h4>
+			<div id="message"></div>
 
 
 				<div class="col-md-4 col-md-offset-4">
@@ -42,11 +43,111 @@
 						class="form-control text-center box-transparent"
 						placeholder="Rendimento" />
 				</div>
+				<div class="col-md-4 col-md-offset-4">
+					<label for="tempoDePreparo"
+						class="col-xs-12 col-sm-12 form-control-static text-center">Tempo de preparo</label>
+					
+					<input type="text" name="tempoDePreparo" id="tempoDePreparo"
+						class="form-control text-center box-transparent"
+						placeholder="Tempo de Preparo" />
+				</div>
 
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
 
+
+			<div class="row" style="text-align: center;">
+				<div class="container" style="width: 640px;">
+					<h2>Informação Nutricional</h2>
+						<div class="row">
+							<div class="col-sm-2">
+								<label for="qnt-unidade-medida-rotulo" class="">Porção</label> 
+								<input type="number" class="form-control" id="qnt-unidade-medida-rotulo"
+									placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida-rotulo"
+									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+							</div>
+							<div class="col-sm-4">
+								<label for="select-unidade-medida" class="">Unidadede medida</label> 
+								<select id="select-unidade-medida-rotulo"
+									name="select-unidade-medida-rotulo" data-native-menu="false"
+									class="form-control selectBatata">
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<label for="qnt-unidade-medida-caseira-rotulo" class="">Porção</label>
+								<input type="number" class="form-control" id="qnt-unidade-medida-caseira-rotulo"
+									placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida-caseira-rotulo"
+									onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+							</div>
+							<div class="col-sm-4">
+								<label for="select-medida-caseira-rotulo" class="">Medida Caseira</label> 
+								<select id="select-medida-caseira-rotulo"
+									name="select-medida-caseira-rotulo" data-native-menu="false"
+									class="form-control selectBatata">
+								</select>
+							</div>
+						</div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th colspan="2" style="text-align: center;">Quantidade por porção</th>
+								<th style="text-align: center;">%VD (*)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Valor Energético</td>
+								<td id="valorEnergeticoQP" style="min-width: 150px;"></td>
+								<td id="valorEnergeticoVD" style="min-width: 150px;"></td>
+							</tr>
+							<tr>
+								<td>Carboidratos</td>
+								<td id="carboidratosQP"></td>
+								<td id="carboidratosVD"></td>
+							</tr>
+							<tr>
+								<td>Proteinas</td>
+								<td id="proteinasQP"></td>
+								<td id="proteinasVD"></td>
+							</tr>
+							<tr>
+								<td>Gorduras totais</td>
+								<td id="gordTotalQP"></td>
+								<td id="gordTotalVD"></td>
+							</tr>
+							<tr>
+								<td>Gorduras saturadas</td>
+								<td id="gordSaturadaQP"></td>
+								<td id="gordSaturadaVD"></td>
+							</tr>
+							<tr>
+								<td>Gorduras trans</td>
+								<td id="gordTransQP"></td>
+								<td id="gordTransVD">-</td>
+							</tr>
+							<tr>
+								<td>Fibra alimentar</td>
+								<td id="fibraAlimQP"></td>
+								<td id="fibraAlimVD"></td>
+							</tr>
+							<tr>
+								<td>Sódio</td>
+								<td id="sodioQP"></td>
+								<td id="sodioVD"></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr style="background-color: #f9f9f9;">
+								<td colspan="3">(*) % Valores Diários com base em uma dieta
+									de 2.000 kcal ou 8400 KJ. Seus valores diários podem ser
+									maiores ou menores dependendo de suas necessidades energéticas.</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			
 
 			<div class="row" id="table-rows">
 				<div class="table-row"
@@ -65,77 +166,86 @@
 							</select>
 						</div>
 
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-unidade-medida" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-unidade-medida"
-								placeholder="Qnt" min="1" max="9999" name="qnt-unidade-medida"
-								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+								onInput="alert02()"							
+								placeholder="Qnt" min="0" max="9999" step="any" name="qnt-unidade-medida">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
-							<label for="select-unidade-medida" class="">Unidadede
+							<label for="select-unidade-medida" class="">Unidade de
 								medida</label> <select id="select-unidade-medida"
 								name="select-unidade-medida" data-native-menu="false"
 								class="form-control selectBatata">
 							</select>
 						</div>
-						<div class="form-group col-md-1 col-xs-4">
+						<div class="form-group col-md-2 col-xs-4">
 							<label for="qnt-medida-caseira" class="">Qtd</label> <input
 								type="number" class="form-control" id="qnt-medida-caseira"
-								placeholder="Qnt" min="0.1" max="100" step="0.1"
-								name="qnt-medida-caseira" onKeyDown="limitText(this,4);"
-								onKeyUp="limitText(this,4);">
+								placeholder="Qnt" min="0" max="9999" step="any"
+								name="qnt-medida-caseira">
 						</div>
 						<div class="form-group col-md-2 col-xs-8">
 							<label for="select-medida-caseira" class="">Medida
-								Caseira</label> <select id="select-medida-caseira"
+								caseira</label> <select id="select-medida-caseira"
 								name="select-medida-caseira" data-native-menu="false"
 								class="form-control selectBatata">
 							</select>
 						</div>
+						<div class="form-group col-md-2 col-xs-4">
+							<label for="qnt-unidade-medida" class="">Gordura Trans</label> <input
+								type="number" class="form-control" id="gorduraTrans"						
+								placeholder="Gordura Trans" min="0" max="9999" step="0.1" name="gorduraTrans"
+								onKeyDown="limitText(this,4);" onKeyUp="limitText(this,4);">
+						</div>
 						<!--div class="form-group col-md-12"-->
-							<div class="form-group col-md-1 col-xs-4">
+							<div class="form-group col-md-2 col-xs-4">
 								<label for="cho" class="">CHO</label> 
-								<input type="number" class="form-control" id="cho" placeholder="CHO" readonly>
-							</div>
-							<div class="form-group col-md-1 col-xs-4">
-								<label for="ptn" class="">PTN</label> <input type="number"
-									class="form-control" id="ptn"
-									placeholder="PTN" readonly>
-							</div>
-							<div class="form-group col-md-1 col-xs-4">
-								<label for="lip" class="">LIP</label> <input type="number"
-									 class="form-control" id="lip"
-									placeholder="LIP"  readonly>
-							</div>
-							<div class="form-group col-md-1 col-xs-4">
-								<label for="kcal" class="">Kcal</label> <input type="number"
-									class="form-control" id="kcal"
-									placeholder="Kcal"  readonly>
+								<input type="hidden" class="form-control" id="cho" placeholder="CHO" readonly>
+								<input type="number" class="form-control" id="choShow" placeholder="CHO" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="valor-unitario" class="">Valor Unitário</label> <input
-									type="number" class="form-control"
-									id="valor-unitario" placeholder="Valor unitário"  readonly>
+								<label for="ptn" class="">PTN</label> 
+								<input type="hidden" class="form-control" id="ptn"	placeholder="PTN" readonly>
+								<input type="number" class="form-control" id="ptnShow" placeholder="PTN" readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="custo-real" class="">Custo Real</label> <input
-									type="number" class="form-control"
-									id="custo-real" placeholder="Custo real" readonly>
+								<label for="lip" class="">LIP</label> 
+								<input type="hidden" class="form-control" id="lip" placeholder="LIP"  readonly>
+								<input type="number" class="form-control" id="lipShow" placeholder="LIP"  readonly>								
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="fator-de-correcao" class="">Fator de
-									Correção</label> <input type="number"
-									class="form-control" id="fator-de-correcao"
-									placeholder="Fator de correção" readonly>
+								<label for="kcal" class="">Kcal</label> 
+								<input type="hidden" class="form-control" id="kcal" placeholder="Kcal"  readonly>
+								<input type="number" class="form-control" id="kcalShow" placeholder="Kcal"  readonly>
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
-								<label for="indice-de-coccao" class="">Índice de Cocção</label>
-								<input type="number" class="form-control"
-									id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
+								<label for="valor-unitario" class="">Valor unitário</label> 
+								<input	type="hidden" class="form-control"	id="valor-unitario" placeholder="Valor unitário"  readonly>
+								<input	type="number" class="form-control"	id="valor-unitarioShow" placeholder="Valor unitário"  readonly>
 							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="custo-real" class="">Custo real</label>
+								<input type="hidden" class="form-control" id="custo-real" placeholder="Custo real" readonly>
+								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" readonly>
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="fator-de-correcao" class="">Fator de correção</label>
+								<input type="hidden" class="form-control" id="fator-de-correcao" placeholder="Fator de correção" readonly>
+								<input type="number" class="form-control" id="fator-de-correcaoShow" placeholder="Fator de correção" readonly>
+							</div>
+							<div class="form-group col-md-2 col-xs-4">
+								<label for="indice-de-coccao" class="">Índice de cocção</label>
+								<input type="hidden" class="form-control" id="indice-de-coccao" placeholder="Índice de Cocção"  readonly>
+								<input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
+							</div>
+							<input type="text" class="hidden" id="gordura-trans" name="gordura-trans">
+							<input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada">
+							<input type="text" class="hidden" id="fibra-alimentar" name="fibra-alimentar">
+							<input type="text" class="hidden" id="sodio" name="sodio">
 						<!--/div-->
 						<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="btn-excluir-wrapper"></div>
+							<div class="btn-excluir-wrapper"></div>
 						</div>
 					</div>
 
@@ -145,7 +255,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-2 col-md-offset-8">
-						<a class="btn btn-success pull-right" id="add-row-btn">Novo Item</a>
+						<a class="btn btn-success pull-right" id="add-row-btn">Novo item</a>
 					</div>
 				</div>
 			</div>
@@ -159,9 +269,25 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="informacoes-content">
+                    <div class="row">
+						<div class="panel panel-info">
+							<div class="panel-heading trigger-display" data-target="utensilios-equipamentos-content">
+                                Utensílios e equipamentos
+                            </div>
+						</div>
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-group hide" id="utensilios-equipamentos-content">
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<textarea rows="10" cols="" class="form-control"
+									name="utensiliosEquipamentos"></textarea>
+							</div>
+						</div>
+					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="modo-preparo-content">Modo de Preparo</div>
+							<div class="panel-heading trigger-display" data-target="modo-preparo-content">
+                                Modo de preparo
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="modo-preparo-content">
@@ -173,20 +299,22 @@
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="montagem-content">Montagem</div>
+							<div class="panel-heading trigger-display" data-target="montagem-content">
+                                Montagem
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="montagem-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="montagem"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="montagem"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">Orientações e
-								armazenamento</div>
+							<div class="panel-heading trigger-display" data-target="orientacoes-armazenamento-content">
+                                Orientações de armazenamento
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="orientacoes-armazenamento-content">
@@ -201,37 +329,43 @@
 			<div class="row"></div>
 
 			<div class="panel panel-info">
-				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">Avaliação sensorial</div>
+				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">
+                    Avaliação sensorial
+                </div>
 			</div>
 			<div class="col-md-12">
 				<div class="form-group hide" id="avaliacao-sensorial-content">
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="textura-content">Textura</div>
+							<div class="panel-heading trigger-display" data-target="textura-content">
+                                Textura
+                            </div>
 						</div>
 						<div class="col-md-9 col-md-offset-1">
 							<div class="form-group hide" id="textura-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="textura"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="textura"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="sabor-content">Sabor</div>
+							<div class="panel-heading trigger-display" data-target="sabor-content">
+                                Sabor
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="sabor-content">
 								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
-								<textarea rows="10" cols="" class="form-control"
-									name="sabor"></textarea>
+								<textarea rows="10" cols="" class="form-control" name="sabor"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="panel panel-info">
-							<div class="panel-heading trigger-display" data-target="apresentacao-content">Apresentação</div>
+							<div class="panel-heading trigger-display" data-target="apresentacao-content">
+                                Apresentação
+                            </div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group hide" id="apresentacao-content">
@@ -241,9 +375,21 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="panel panel-info">
+							<div class="panel-heading trigger-display" data-target="temperatura-content">
+                                Temperatura
+                            </div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group hide" id="temperatura-content">
+								<label class="text-center col-md-12 col-sm-12 col-xs-12"></label>
+								<textarea rows="10" cols="" class="form-control" name="temperatura"></textarea>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
 			</div>
@@ -256,6 +402,7 @@
 							class="btn btn-success pull-right col-md-9 col-sm-9 col-xs-5" />
 					</div>
 				</div>
+			</div>
 		</form>
 
 	</article>
@@ -265,6 +412,7 @@
 </body>
 <script src="./js/fichaCompleta/telaFichaCompleta.js"></script>
 <script src="./js/fichaCompleta/addFichaCompleta.js"></script>
+<script src="./js/fichaCompleta/rotulo.js"></script>
 
 <script type="text/javascript">
 	function limitText(limitField, limitNum) {

@@ -32,10 +32,7 @@ public class CreateScreenIngredientesCommand implements Command {
 		proxima = "main?acao=listIngrediente";
 		Usuario currentUser = (Usuario)request.getSession().getAttribute("usuarioSessao");
 
-		try {			
-			if( !currentUser.getPerfilAcesso().equals(PerfilAcesso.ADMINISTRADOR) ) throw new NegocioException(MensagemContantes.MSG_INF_SEM_PERISSAO);
-			// Verifica se abre tela edição de pessoa ou de adição de pessoa.
-			
+		try {
 			this.unidadeMedidaBO = new UnidadeMedidaBO();
 			List<UnidadeMedida> listaUnidadesMedida = unidadeMedidaBO.listarUnidadesMedida();
 			request.setAttribute("listaUnidadesMedida", listaUnidadesMedida);

@@ -3,9 +3,15 @@
 .project
 /WebContent/lixo.html
 .jsdtscope
-/target/
+target/*
 .settings/
-/pom.xml
+pom.xml
 /.tern-project
 /FichaTP.iml
 .idea/
+.classpath
+.externalToolBuilders/
+FichaTecnicaPreparo.iml
+.DS_Store
+BD/*
+/target/

@@ -22,7 +22,7 @@
 				<sgbd.url>jdbc:mysql://localhost:3306/ficha_e</sgbd.url>
 				<sgbd.user>root</sgbd.user>
 				<sgbd.password>senha</sgbd.password>
-				<upload.path>H:\\Workspace</upload.path>
+				<upload.path>C:\\Sof\\apache-tomcat-8.0.45\\wtpwebapps\\FichaTecnicaPreparo</upload.path>
 				<log.path>/tmp/</log.path>
 			</properties>
 		</profile>

@@ -47,7 +47,7 @@
 						type="text" maxlength="120" required>
 					</div>
 					<div class="form-group">
-						<label class="form-label ages"> E-Mail </label>
+						<label class="form-label ages"> E-mail </label>
 						<input class="form-control" id="email" name="email" value="${param.email}"
 							type="text" maxlength="120" required>
 					</div>

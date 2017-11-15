@@ -7,7 +7,7 @@
 
 <div class="panel panel-success">
 
-    <div class="panel-heading text-center">Lista de Unidades de Medida Caseira</div>
+    <div class="panel-heading text-center">Lista de Medidas Caseiras</div>
 
     <div class="panel-body">
 
@@ -20,7 +20,7 @@
                 <thead>
                 <tr>
                     <th style="text-align: center;">Nome</th>
-                    <th style="text-align: center;">Sigla</th>
+                    <th style="text-align: center;">Abreviação</th>
                     <th style="text-align: center;"></th>
                     <th style="text-align: center;"></th>
                 </tr>
@@ -67,7 +67,7 @@
         $('#listaUnidadeMedidaCaseira').dataTable({
         	"language": {
                 "lengthMenu": "_MENU_ Registros",
-                "zeroRecords": "Sem registros - sorry",
+                "zeroRecords": "Sem registros",
                 "info": "Mostrando _PAGE_ de _PAGES_ páginas",
                 "infoEmpty": "Nenhum registros encontrados!",
                 "infoFiltered": "(Filtrado _MAX_ do total deregistros)",

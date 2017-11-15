@@ -3,18 +3,25 @@ $(document).ready(function() {
 		event.preventDefault();
 		add($(this));
 	});
-	
+
 	function add(form){
 		var idFicha = $("#idFicha").val();
 		var nome = $('input[name="nome"]').val();
 		var rendimento = $('input[name="rendimento"]').val();
 		var foto = $('input[name="imgFile"]').attr('value');
+		var utensiliosEquipamentos = $('textarea[name="utensiliosEquipamentos"]').val();
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
+		var tempoPreparo = $('input[name="tempoPreparo"]').val();
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
 		var textura = $('textarea[name="textura"]').val();
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
+		var temperatura = $('textarea[name="temperatura"]').val();
+		var qntUnidadeMedida = $('#qnt-unidade-medida-rotulo').val();
+		var unidadeMedidaId = $('#select-unidade-medida-rotulo').val();
+		var qntUnidadeMedidaCaseira = $('#qnt-unidade-medida-caseira-rotulo').val();
+		var unidadeMedidaCaseiraId = $('#select-medida-caseira-rotulo').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -24,7 +31,8 @@ $(document).ready(function() {
 					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
 					idIngrediente : $(this).find('select[name="select-ingredientes"]').val(),
 					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
-					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),					
+					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
+					gorduraTrans : $(this).find('input[name="gorduraTrans"]').val(),
 					idFicha : idFicha,					
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
@@ -32,23 +40,30 @@ $(document).ready(function() {
 			};
 			itens.push(item);
 		});
-		
+
 		itens = removeIncompleteItens(itens);
-		
+
 		var data = {
 			id:idFicha,
 			nome:nome,
 			rendimento:rendimento,
 			foto:foto,
+			utensiliosEquipamentos:utensiliosEquipamentos,
 			modoPreparo:modoPreparo,
+			tempoPreparo:tempoPreparo,
 			montagem:montagem,
 			orientacoesArmazenamento:orientecoesArmazenamento,
-			textura: textura,
+			textura:textura,
 			sabor:sabor,
 			apresentacao:apresentacao,
-			itens:JSON.stringify(itens)
+			temperatura:temperatura,
+			itens:JSON.stringify(itens),
+			qntUnidadeMedida:qntUnidadeMedida,
+			unidadeMedidaId:unidadeMedidaId,
+			qntUnidadeMedidaCaseira:qntUnidadeMedidaCaseira,
+			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId
 		};
-		
+
 		//Valida
 		if(validateFicha(data) && validateItens(itens)){
 			//save
@@ -81,7 +96,7 @@ $(document).ready(function() {
 		}
 		return itens;
 	}
-	
+
 	/**
 	 * Valida dados da ficha
 	 * @param data
@@ -94,8 +109,14 @@ $(document).ready(function() {
 		}else if(data.rendimento == '' || data.rendimento === null){
 			showModalErro("Dados da ficha incompletos", "Informe o rendimento");
 			return false;
+		}else if(data.tempoPreparo == '' || data.tempoPreparo === null || data.tempoPreparo < 0) {
+			showModalErro("Dados da ficha impletos", "Informe o tempo de preparo");
+			return false;
 		}else if(data.foto == '' || data.foto === null){
 			showModalErro("Dados da ficha incompletos", "Informe a foto");
+			return false;
+		}else if(data.utensiliosEquipamentos == '' || data.utensiliosEquipamentos === null) {
+			showModalErro("Dados da ficha incompletos", "Informe os utensilios e equipamentos utilizados");
 			return false;
 		}else if(data.modoPreparo == '' || data.modoPreparo === null){
 			showModalErro("Dados da ficha incompletos", "Informe o modo de preparo");
@@ -115,10 +136,13 @@ $(document).ready(function() {
 		}else if(data.apresentacao == '' || data.apresentacao === null){
 			showModalErro("Dados da ficha incompletos", "Informe a apresentacao");
 			return false;
+		}else if(data.temperatura == '' || data.temperatura === null || data.temperatura < 0){
+			showModalErro("Dados da ficha incompletos", "Informe a temperatura");
+			return false;
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Valida itens
 	 * @param itens
@@ -146,11 +170,10 @@ $(document).ready(function() {
 		}
 		return true;
 	}
-	
+
 	function showModalErro(title, text){
 		$("#modalErro").modal('show');
 		$("#modalErro").find('.modal-title').text(title);
-	  	$("#modalErro").find('#modal-descricao').text(text);
+		$("#modalErro").find('#modal-descricao').text(text);
 	}
-	
 });

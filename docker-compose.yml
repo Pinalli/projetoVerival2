@@ -1,0 +1,40 @@
+# docker-compose.yml
+
+version: '2'
+
+services:
+
+  mysql:
+    image: mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: ficha_e
+
+    volumes:
+      - $PWD/BD:/var/lib/mysql
+      - $PWD/scripts/:/docker-entrypoint-initdb.d/
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    links:
+      - mysql:db
+
+  tomcat:
+     image: tomcat
+     ports:
+       - 8888:8080
+       - 9000:8000
+     links:
+      - mysql:db
+     environment:
+       - JPDA_ADDRESS=8000
+       - JPDA_TRANSPORT=dt_socket
+        # observe que a aplicacao devera ser montada a partir da pasta onde se localiza o war - note tambem que a url ficara com o nome do arquivo
+     volumes:
+       - $PWD/target:/usr/local/tomcat/webapps/

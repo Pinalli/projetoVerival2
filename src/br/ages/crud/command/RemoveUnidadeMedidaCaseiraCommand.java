@@ -1,6 +1,7 @@
 package br.ages.crud.command;
 
 import br.ages.crud.model.PerfilAcesso;
+import br.ages.crud.model.UnidadeMedidaCaseira;
 import br.ages.crud.util.MensagemContantes;
 import br.ages.crud.bo.UnidadeMedidaCaseiraBO;
 import br.ages.crud.bo.UnidadeMedidaBO;
@@ -39,9 +40,10 @@ public class RemoveUnidadeMedidaCaseiraCommand implements Command {
 
 
             Integer idUnidadeMedidaCaseira = Integer.parseInt(request.getParameter("id_unidade_medida_caseira"));
+            UnidadeMedidaCaseira unidadeExcluir = unidadeMedidaCaseiraBO.buscaUnidadeMedidaCaseiraId(idUnidadeMedidaCaseira);
             unidadeMedidaCaseiraBO.removerUnidadeMedidaCaseira(idUnidadeMedidaCaseira);
 
-            request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_UNIDADE_MEDIDA_CASEIRA.replace("?", idUnidadeMedidaCaseira.toString()).concat("<br/>"));
+            request.setAttribute("msgSucesso", MensagemContantes.MSG_SUC_REMOVE_UNIDADE_MEDIDA_CASEIRA.replace("?", unidadeExcluir.getNome().toString()).concat("<br/>"));
 
 
         } catch (Exception e) {
