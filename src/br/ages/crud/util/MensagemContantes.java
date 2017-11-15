@@ -22,13 +22,13 @@ public class MensagemContantes {
 	public static final String MSG_ERR_CAMPO_DATA_MAIOR_RECOMENDADO = "Campo ? com mais de 10 caracteres!";
 	public static final String MSG_ERR_CAMPO_DATA_MENOR_RECOMENDADO = "Campo ? com menos de 10 caracteres!";
 	public static final String MSG_ERR_CAMPO_DATA_INVALIDO = "Ocorreu algum problema no envio da data";	
-	public static final String MSG_ERR_SENHA_INVALIDA = "A senha do usuario ï¿½ invï¿½lida: Deve ter no mï¿½nimo 3 e no mï¿½ximo 8 caracteres, apenas nï¿½meros e letras!";
+	public static final String MSG_ERR_SENHA_INVALIDA = "Senha inválida: Deve ter no mínimo 3 e no máximo 8 caracteres, apenas números e letras!";
 	public static final String MSG_ERR_CPF_INVALIDA = "CPF invalido!";
 	public static final String MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO = "Campo Endereço obrigatorio!";
 	public static final String MSG_ERR_CAMPO_TELEFONE_OBRIGATORIO = "Campo Telefone obrigatorio!";
 	public static final String MSG_ERR_CAMPO_UF_OBRIGATORIO = "Campo UF obrigatorio!";
-	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!<br>Exemplo correto: ages_user@acad.pucrs.br";
-	public static final String MSG_ERR_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo correto: Joï¿½o Cardoso";
+	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuação e caracteres especiais!<br>Exemplo correto: ages_user@acad.pucrs.br";
+	public static final String MSG_ERR_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo correto: João Cardoso";
 	public static final String MSG_ERR_USUARIO_JA_EXISTENTE = "Usuário ? já cadastrado!";
 	public static final String MSG_ERR_CPF_JA_EXISTENTE = "CPF ? já cadastrado!";
 	public static final String MSG_ERR_REMOVE_USUARIO_EM_PROJETO = "Este Usuário já está em algum projeto e não pode ser removido!";
