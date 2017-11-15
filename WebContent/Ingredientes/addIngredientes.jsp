@@ -9,10 +9,11 @@
 <head>
 	<script type="text/javascript" src="js/ingrediente.js"></script>
 </head>
-<div class="panel panel-success panel-addUser">
+<!-- <div class="panel panel-success panel-addUser"> -->
 
-	<div class="panel-heading text-center">Cadastro de Ingredientes</div>
-
+<div class="jumbotron mb-5">
+	<h1 style="color: #787a89;"><span class="icon-adicionar text-info"></span> Cadastro de Ingredientes</h1>
+	<hr />
 
 	<div class="panel-body">
 
@@ -76,13 +77,6 @@
 					
 					<div class="row">
 						<div class="col-sm-4">
-						    <label class="form-label ages">Gordura Trans</span></label> 
-							<input class="form-control" id="goduratrans" name="gorduratrans" value="${param.gorduratrans}" type="number" step="any"  maxlength="5" required>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-4">
 						    <label class="form-label ages">Fibras Alimentares</span></label> 
 							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="${param.fibrasalimentares}" type="number" step="any"  maxlength="5" required>
 						</div>
@@ -94,25 +88,9 @@
 							<input class="form-control" id="sodio" name="sodio" value="${param.sodio}" type="number" step="any"  maxlength="5" required>
 						</div>
 					</div>
-					
+										
 					<div class="row">
-						<div class="col-sm-6">
-							<label class="form-label ages"> Fator de Correção </span></label> 
-							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="${param.fatorcorrecao}" type="value" maxlength="5" required> 
-						</div>
-						<div class="col-sm-6">
-							<label class="form-label ages"> Índice de Cocção </span></label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.indicecoccao}" type="value" maxlength="5" required>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-6">
-							<label class="form-label ages"> Valor de Custo   </span></label> 
-							<input class="form-control" id="custo" name="custo" value="${param.custo}" type="value" maxlength="5" required>
-						</div>
-						
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<label class="form-label ages"> Unidade de Medida</span></label> 
 							<select class="form-control input-sm" id="unidadeMedida" name="unidadeMedida">
 								<%

@@ -4,24 +4,50 @@
 <jsp:include page="/template/msg.jsp"></jsp:include>
 <jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
 <script type="text/javascript" src="js/fichaCompletaCalculos.js"></script>
+<style>
+input[type='file'] {
+  display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+.selecao-arquivo-label {
+  background-color: #6d8a35;
+  border-color: #5c7924;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
+</style>
 
 	<div class="jumbotron mb-5">
-		<h1><span class="icon-adicionar text-info"></span> Cadastro de Ficha Técnica de Preparo</h1>
+		<h1 style="color: #787a89;"><span class="icon-adicionar text-info"></span> Cadastro de Ficha Técnica de Preparo</h1>
 		<hr />
 		
 		<form name="addFichaTecnicaCompleta" id="addFichaTecnicaCompletaForm" method="post" action="ajax?acao=addFichaCompletaAjaxCommand">
 			<div class="row">
-				<div class="col-md-8 col-sm-12">
+				<div class="col-sm-6">
 					<div class="row">
-						<div class="form-group col-12">
+						<div class="form-group col-sm-12">
 							<label for="nome">Nome da Receita</label>
 							<input type="text" class="form-control" id="nome" name="nome" />
 						</div>
 					</div>
 					<div class="row">
-						<div class="form-group col-md-4 col-sm-12">
+						<div class="form-group col-sm-6">
+							<label for="nome">Rendimento</label>
+							<input type="text" class="form-control" id="nome" name="nome" />
+						</div>
+						<div class="form-group col-sm-6">
+							<label for="nome">Tempo de Preparo</label>
+							<input type="text" class="form-control" id="nome" name="nome" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
 							<label for="nome">Categoria</label>
-							<select class="custom-select" id="categoria" nome="categoria" required>
+							<select class="custom-select" id="categoria" nome="categoria" required style="width: 100%; ">
 								<option selected disabled>Selecione uma categoria</option>
 								<option value="1">Prato Principal</option>
 								<option value="2">Salada</option>
@@ -34,24 +60,16 @@
 								<option value="9">Outros</option>
 							</select>
 						</div>
-						<div class="form-group col-md-4 col-sm-12">
-							<label for="nome">Rendimento</label>
-							<input type="text" class="form-control" id="nome" name="nome" />
-						</div>
-						<div class="form-group col-md-4 col-sm-12">
-							<label for="nome">Tempo de Preparo</label>
-							<input type="text" class="form-control" id="nome" name="nome" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-12">
-							<input id="imgFile" name="imgFile" class="input-file" type="file">
-						</div>
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-12">
+				<div class="col-sm-6 text-center">
+					<label style="margin-bottom: 0px;">Imagem</label>
+					<div class="form-group col-12">
+<!-- 						<input id="imgFile" name="imgFile" class="input-file" type="file" value=''> -->
+						<label id="imgFileName" class="selecao-arquivo-label" for='imgFile'>Selecionar um arquivo...</label>
+						<input id="imgFile" name="imgFile" type='file' value="">
+					</div>
 					<div class="form-group col-md-12">
-						<label>Pré-Visualização</label>
 						<div id="image_preview">
 							<img id="previewing" src="" class="img-responsive img-thumbnail center-block" />
 						</div>
@@ -60,11 +78,11 @@
 			</div>
 			
 			
-			<div class="card mb-3">
+			<div class="card mb-3" style="margin-top: 30px;">
 				<div class="card-header">Ingredientes</div>
 				<div class="card-body">
 					<div id="elemento-ingrediente" class="row">
-						<div class="card bg-secondary mb-3 show-item-btn" id="ingrediente-1" style="margin:0 auto">
+						<div class="card bg-secondary mb-3 show-item-btn" id="ingrediente-1" style="margin-left: 10px; margin-right: 10px; width: 100%;">
 						    <div class="card-body">
 								<div class="row">
 									<div class="form-group col-12">
@@ -132,7 +150,7 @@
 					</div>
 					
 				</div>
-				<button type="submit" class="btn btn-primary" id="add-row-btn">
+				<button type="submit" class="btn btn-primary" id="add-row-btn" style="background-color: #6d8a35; border-color: #5c7924;">
 					<span class="icon-adicionar"></span> Novo Item
 				</button>   
             </div>
@@ -181,6 +199,33 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="card mb-3">
+				<div class="card-header">Informação Nutricional</div>
+				<div class="card-body">
+					<div class="form-group">
+						<div class="row">
+							<div class="form-group col-md-4 col-sm-6">
+								<label for="exampleInputEmail1">Unidade de Medida</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+							</div>
+							<div class="form-group col-2">
+								<label for="exampleInputEmail1">Quantidade</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+							</div>
+							<div class="form-group col-4">
+								<label for="exampleInputEmail1">Unidade de Medida Caseira</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+							</div>
+							<div class="form-group col-2">
+								<label for="exampleInputEmail1">Quantidade</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 			
 			<div class="text-right">
 				<button type="submit" class="btn btn-primary"><span class="icon-ok"></span> Salvar</button>
@@ -345,11 +390,15 @@
 <script src="./js/fichaCompleta/rotulo.js"></script>
 
 <script type="text/javascript">
-	function limitText(limitField, limitNum) {
-		if (limitField.value.length > limitNum) {
-			limitField.value = limitField.value.substring(0, limitNum);
-		}
+function limitText(limitField, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
 	}
+}
+
+$('#imgFile').on('change', function() {
+	$('#imgFileName').html(this.value);
+});
 </script>
 
 <jsp:include page="/template/foot.jsp"></jsp:include>

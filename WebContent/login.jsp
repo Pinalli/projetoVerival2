@@ -25,7 +25,7 @@
     	<div class="login-form">
     		<div class="login-form-header">
 				<h1 class="title">Sistema de Ficha Técnica de Preparo</h1>
-				<img src="img/logo-ftp.png" />
+				<img src="img/sabor-e-preparo-logo-1.png" />
 			</div>
 			<div class="login-form-body">
 				<form class="form-horizontal" method="post" action="main?acao=login">

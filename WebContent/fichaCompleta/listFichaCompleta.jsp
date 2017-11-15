@@ -5,68 +5,58 @@
 <jsp:include page="../template/msg.jsp"></jsp:include>
 <jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
 
-	<div class="jumbotron mb-5">
-		<h1><span class="icon-fichas text-info"></span> Lista de Fichas Técnicas</h1>
-		<hr />
-				
-		<table id="lista-ftp" class="table table-responsive table-bordered table-hover" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th class="text-center">Nome da Receita</th>
-					<th class="text-center">Categoria</th>
-					<th class="text-center">Visualizar</th>
-					<th class="text-center">Editar</th>
-					<th class="text-center">Excluir</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<th class="text-center">Nome da Receita</th>
-					<th class="text-center">Categoria</th>
-					<th class="text-center">Visualizar</th>
-					<th class="text-center">Editar</th>
-					<th class="text-center">Excluir</th>
-				</tr>
-			</tfoot>
-			<tbody>
-				<%
-					List<Ficha> listaFicha = (List<Ficha>) request.getAttribute("listaFichaCompleta");
-					for (Ficha ficha : listaFicha) {
-				%>
-					<tr>
-						<td><%= ficha.getNome() %></td>
-						<td>Prato Principal</td>
-						<td class="text-center">
-							<form action="" method="post">
-	            				<a href="#" onclick="preencheDados();" data-toggle="modal" data-id="<%= ficha.getIdFicha() %>" data-fichaS="<%= ficha.getNome() %>" data-target="#modalVisualizar" title="Visualizar">
-	            					<span class="icon-visualizar"></span>
-	            				</a>
-	            			</form>
-						</td>
-						<td class="text-center">
-							<form action="" method="post">
-	            				<a href="#" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>" data-target="#modalEditar" title="Editar">
-	            					<span class="icon-editar"></span>
-	            				</a>
-	            			</form>
-						</td>
-						<td class="text-center">
-							<form action="" method="post">
-	            				<a href="#" class="text-danger" data-toggle="modal" data-id="<%=ficha.getIdFicha() %>" data-fichaS="<%=ficha.getNome()%>" data-target="#modalExcluir" title="Deletar">
-	            					<span class="icon-deletar"></span>
-	            				</a>
-	            			</form>
-						</td>
-					</tr>
-				<%
-					} 
-				%>
-			</tbody>
-		</table>
-	</div>
+<div class="jumbotron mb-5">
+	<h1 style="color: #787a89;"><span class="icon-fichas text-info"></span> Lista de Fichas Técnicas</h1>
+	<hr />
+	<table id="lista-ftp" class="table table-responsive table-bordered table-hover" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th class="text-center">Nome da Receita</th>
+				<th class="text-center">Categoria</th>
+				<th class="text-center">Visualizar</th>
+				<th class="text-center">Editar</th>
+				<th class="text-center">Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+				List<Ficha> listaFicha = (List<Ficha>) request.getAttribute("listaFichaCompleta");
+				for (Ficha ficha : listaFicha) {
+			%>
+			<tr>
+				<td><%= ficha.getNome() %></td>
+				<td>Prato Principal</td>
+				<td class="text-center">
+					<form action="" method="post">
+           				<a href="#" onclick="preencheDados();" data-toggle="modal" data-id="<%= ficha.getIdFicha() %>" data-fichaS="<%= ficha.getNome() %>" data-target="#modalVisualizar" title="Visualizar">
+           					<span class="icon-visualizar"></span>
+           				</a>
+           			</form>
+				</td>
+				<td class="text-center">
+					<form action="" method="post">
+           				<a href="#" data-toggle="modal" data-id="<%= ficha.getIdFicha()  %>" data-fichaS="<%=ficha.getNome()%>" data-target="#modalEditar" title="Editar">
+           					<span class="icon-editar"></span>
+           				</a>
+           			</form>
+				</td>
+				<td class="text-center">
+					<form action="" method="post">
+           				<a href="#" class="text-danger" data-toggle="modal" data-id="<%=ficha.getIdFicha() %>" data-fichaS="<%=ficha.getNome()%>" data-target="#modalExcluir" title="Deletar">
+           					<span class="icon-deletar"></span>
+           				</a>
+           			</form>
+				</td>
+			</tr>
+			<%
+				} 
+			%>
+		</tbody>
+	</table>
+</div>
 
 <jsp:include page="../template/foot.jsp"></jsp:include>
 
 <script src="./js/gerarPDF.js"></script>
 <script src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
-    <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+<script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>

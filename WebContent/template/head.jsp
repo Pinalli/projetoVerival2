@@ -44,7 +44,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="index.jsp">
-					<img src="img/favicon-32x32.png" alt="">
+					<img src="img/sabor-e-preparo-logo-2.png" width="42" alt="">
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
