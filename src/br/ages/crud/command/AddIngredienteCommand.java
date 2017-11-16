@@ -26,8 +26,9 @@ public class AddIngredienteCommand implements Command {
 		String gorduraTrans = request.getParameter("gorduratrans");
 		String fibrasAlimentares = request.getParameter("fibrasalimentares");
 		String sodio = request.getParameter("sodio");
-		String fatorCorrecao = request.getParameter("fatorcorrecao").replace(",", ".");
-		String indiceCoccao = request.getParameter("indicecoccao").replace(",", ".");
+		/*String fatorCorrecao = request.getParameter("fatorcorrecao").replace(",", ".");
+		String indiceCoccao = request.getParameter("indicecoccao").replace(",", ".");*/
+		//não há custo no cadastro de ingrediente
 		String custo = request.getParameter("custo").replace(",", ".");
 		String unidadeMedida = request.getParameter("unidadeMedida");
 		try {
