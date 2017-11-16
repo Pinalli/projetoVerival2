@@ -44,8 +44,8 @@ public class AddIngredienteCommand implements Command {
 			ingrediente.setGorduraTrans(Double.valueOf(gorduraTrans));
 			ingrediente.setFibrasAlimentares(Double.valueOf(fibrasAlimentares));
 			ingrediente.setSodio(Double.valueOf(sodio));
-			ingrediente.setFatorCorrecao(Double.valueOf(fatorCorrecao));
-			ingrediente.setIndiceCoccao(Double.valueOf(indiceCoccao));
+			/*ingrediente.setFatorCorrecao(Double.valueOf(fatorCorrecao));
+			ingrediente.setIndiceCoccao(Double.valueOf(indiceCoccao));*/
 			ingrediente.setCusto(Double.valueOf(custo));
 			ingrediente.setUnidadeMedida(unidadeMedida);	
 			ingredienteBO.cadastraIngrediente(ingrediente);
