@@ -58,7 +58,7 @@
 								</a>
 								
 								<div class="dropdown-menu" aria-labelledby="dpdUsuarios">
-									<a class="dropdown-item" href="main?acao=listUser"><span class="icon-lista"></span> Listar</a>
+									<a class="dropdown-item" href="main?acao=listUser"><span class="icon-lista"></span> Lista</a>
 									<a class="dropdown-item" href="main?acao=telaUser"><span class="icon-adicionar"></span> Cadastrar</a>
 								</div>
 							</div>
@@ -70,7 +70,7 @@
 								</a>
 								
 								<div class="dropdown-menu" aria-labelledby="dpdEmpresas">
-									<a class="dropdown-item" href="main?acao=listEmpresa"><span class="icon-lista"></span> Listar</a>
+									<a class="dropdown-item" href="main?acao=listEmpresa"><span class="icon-lista"></span> Lista</a>
 									<a class="dropdown-item" href="main?acao=telaEmpresa"><span class="icon-adicionar"></span> Cadastrar</a>
 								</div>
 							</div>
@@ -82,7 +82,7 @@
 								</a>
 								
 								<div class="dropdown-menu" aria-labelledby="dpdIngredientes">
-									<a class="dropdown-item" href="main?acao=listIngrediente"><span class="icon-lista"></span> Listar</a>
+									<a class="dropdown-item" href="main?acao=listIngrediente"><span class="icon-lista"></span> Lista</a>
 									<a class="dropdown-item" href="main?acao=telaIngredientes"><span class="icon-adicionar"></span> Cadastrar</a>
 								</div>
 							</div>
@@ -94,7 +94,7 @@
 								</a>
 								
 								<div class="dropdown-menu" aria-labelledby="dpdUnidadesMedida">
-									<a class="dropdown-item" href="main?acao=listUnidadeMedidaCaseira"><span class="icon-lista"></span> Listar</a>
+									<a class="dropdown-item" href="main?acao=listUnidadeMedidaCaseira"><span class="icon-lista"></span> Lista</a>
 									<a class="dropdown-item" href="main?acao=telaUnidadeMedidaCaseira"><span class="icon-adicionar"></span> Cadastrar</a>
 								</div>
 							</div>
@@ -106,7 +106,7 @@
 								</a>
 								
 								<div class="dropdown-menu" aria-labelledby="dpdFichaTecnicas">
-									<a class="dropdown-item" href="main?acao=listFichaCompleta"><span class="icon-lista"></span> Listar</a>
+									<a class="dropdown-item" href="main?acao=listFichaCompleta"><span class="icon-lista"></span> Lista</a>
 									<a class="dropdown-item" href="main?acao=telaFichaCompleta"><span class="icon-adicionar"></span> Cadastrar</a>
 								</div>
 							</div>
