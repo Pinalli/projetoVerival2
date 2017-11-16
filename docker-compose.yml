@@ -29,7 +29,7 @@ services:
      image: tomcat
      ports:
        - 8888:8080
-       - 9000:8000
+       - 9001:8000
      links:
       - mysql:db
      environment:

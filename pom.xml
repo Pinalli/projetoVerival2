@@ -19,7 +19,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<sgbd.url>jdbc:mysql://localhost:3306/ficha_e</sgbd.url>
+				<sgbd.url>jdbc:mysql://mysql:3306/ficha_e</sgbd.url>
 				<sgbd.user>root</sgbd.user>
 				<sgbd.password>senha</sgbd.password>
 				<upload.path>C:\\Sof\\apache-tomcat-8.0.45\\wtpwebapps\\FichaTecnicaPreparo</upload.path>
@@ -133,6 +133,11 @@
 					<propertyFileWillOverride>true</propertyFileWillOverride>
 					<propertyFile>src/br/ages/crud/changelog/liquibase.properties</propertyFile>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.0.2</version>
 			</plugin>
 		</plugins>
 	</build>
