@@ -323,7 +323,7 @@ $(document).ready(function() {
 	updateIngredienteListener();
 	
 	/**
-	 * Atualiza campos referntes ao ingrediente
+	 * Atualiza campos referentes ao ingrediente
 	 * @param ingrediente
 	 * @returns
 	 */

@@ -18,7 +18,7 @@ import br.ages.crud.util.ConexaoUtil;
 import br.ages.crud.util.MensagemContantes;
 
 /**
- * 
+ *
  * @author Luis Santana
  *
  */
@@ -33,7 +33,7 @@ public class IngredienteDAO {
 
 	/**
 	 * Lista os Ingredientes da basee
-	 * 
+	 *
 	 * @return
 	 * @throws PersistenciaException
 	 * @throws SQLException
@@ -65,8 +65,8 @@ public class IngredienteDAO {
 				dto.setGorduraTrans(resultset.getDouble("I.GORDURA_TRANS"));
 				dto.setFibrasAlimentares(resultset.getDouble("I.FIBRAS_ALIMENTARES"));
 				dto.setSodio(resultset.getDouble("I.SODIO"));
-				dto.setFatorCorrecao(resultset.getDouble("I.FATOR_CORRECAO"));
-				dto.setIndiceCoccao(resultset.getDouble("I.INDICE_COCCAO"));
+				/*dto.setFatorCorrecao(resultset.getDouble("I.FATOR_CORRECAO"));
+				dto.setIndiceCoccao(resultset.getDouble("I.INDICE_COCCAO"));*/
 				dto.setCusto(resultset.getDouble("I.CUSTO"));
 				dto.setUnidadeMedida(resultset.getString("I.UNIDADE_MEDIDA"));
 				dto.setDataAlteracao(resultset.getDate("I.DATA_INSERCAO"));
@@ -89,7 +89,7 @@ public class IngredienteDAO {
 			Integer idIngrediente = null;
 
 			conexao = ConexaoUtil.getConexao();
-			
+
 			StringBuilder sql = new StringBuilder();
 			sql.append(
 					"INSERT INTO "+ this.table +" ("
@@ -102,12 +102,12 @@ public class IngredienteDAO {
 					+ "`KCAL_PROTEINAS`, "
 					+ "`LIPIDIOS`, "
 					+ "`KCAL_LIPIDIOS`, "
-					+ "`GORDURA_SATURADA`, " 
+					+ "`GORDURA_SATURADA`, "
 					+ "`GORDURA_TRANS`, "
 					+ "`FIBRAS_ALIMENTARES`, "
 					+ "`SODIO`, "
-					+ "`FATOR_CORRECAO`, "
-					+ "`INDICE_COCCAO`, "
+					/*+ "`FATOR_CORRECAO`, "
+					+ "`INDICE_COCCAO`, "*/
 					+ "`CUSTO`, "
 					+ "`UNIDADE_MEDIDA`, "
 					+ "`DATA_INSERCAO`)"
@@ -130,11 +130,11 @@ public class IngredienteDAO {
 			statement.setDouble(10, ingrediente.getGorduraTrans());
 			statement.setDouble(11, ingrediente.getFibrasAlimentares());
 			statement.setDouble(12, ingrediente.getSodio());
-			statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());
+			/*statement.setDouble(13, ingrediente.getFatorCorrecao());
+			statement.setDouble(14, ingrediente.getIndiceCoccao());*/
 			statement.setDouble(15, ingrediente.getCusto());
 			statement.setString(16, ingrediente.getUnidadeMedida());
-			
+
 			statement.executeUpdate();
 
 			ResultSet resultset = statement.getGeneratedKeys();
@@ -180,11 +180,11 @@ public class IngredienteDAO {
 				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
+				/*ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
+				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));*/
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
-				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));	
+				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));
 				ingredientes.add(ingrediente);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
@@ -199,7 +199,7 @@ public class IngredienteDAO {
 
 		return ingredientes;
 	}
-	
+
 	public ArrayList<Ingrediente> buscaIngredienteDescricao(String descricao, int limit) throws PersistenciaException {
 		ArrayList<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
 		Connection conexao = null;
@@ -227,11 +227,11 @@ public class IngredienteDAO {
 				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
+				/*ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
+				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));*/
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
-				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));	
+				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));
 				ingredientes.add(ingrediente);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
@@ -264,7 +264,7 @@ public class IngredienteDAO {
 			sql.append(" WHERE ID = ?;");
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
 			statement.setInt(1, idIngrediente);
-			
+
 			ResultSet resultset = statement.executeQuery();
 
 			while (resultset.next()) {
@@ -281,11 +281,11 @@ public class IngredienteDAO {
 				ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));
+				/*ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
+				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));*/
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
-				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));		
+				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -330,7 +330,7 @@ public class IngredienteDAO {
             sql.append(" ID =" + id + " LIMIT 1");
             System.out.println(sql);
 			PreparedStatement statement = conexao.prepareStatement(sql.toString());
-			
+
 			statement.setInt(1, ingrediente.getCodigo());
 			statement.setString(2, ingrediente.getDescricao());
 			statement.setDouble(3, ingrediente.getCarboidratos());
@@ -343,11 +343,11 @@ public class IngredienteDAO {
 			statement.setDouble(10, ingrediente.getGorduraTrans());
 			statement.setDouble(11, ingrediente.getFibrasAlimentares());
 			statement.setDouble(12, ingrediente.getSodio());
-			statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());
+			/*statement.setDouble(13, ingrediente.getFatorCorrecao());
+			statement.setDouble(14, ingrediente.getIndiceCoccao());*/
 			statement.setDouble(15, ingrediente.getCusto());
 			statement.setString(16, ingrediente.getUnidadeMedida());
-			
+
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new PersistenciaException(e);

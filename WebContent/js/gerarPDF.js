@@ -13,7 +13,7 @@
                     var doc = new jsPDF({ unit: 'px', format: 'a4' });
 
                     doc.addImage(img, 'JPEG', 20, 20);
-                    doc.save('ftp.pdf');
+                    doc.save('fichaTecnica.pdf');
                     //Retorna ao CSS normal
                     $('#renderPDF').width(cache_width);
                    
