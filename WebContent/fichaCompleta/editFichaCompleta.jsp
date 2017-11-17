@@ -452,9 +452,6 @@
 			<div class="row"></div>
 
 			
-			<div class="row">
-				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
-			</div>
 			
 			<div class="panel panel-info">
 				<div class="panel-heading row text-center trigger-display" data-target="avaliacao-sensorial-content">Avaliação sensorial</div>
@@ -510,6 +507,11 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="row">
+				<div class="col-md-9 col-md-offset-1 horizontal-divider"></div>
+			</div>
+			
 
 			<div class="row">
 				<div class="col-md-9 col-md-offset-1">
