@@ -37,11 +37,11 @@
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label for="nome">Rendimento</label>
-                        <input type="text" class="form-control" id="nome" name="nome" />
+                        <input type="text" class="form-control" id="rendimento" name="rendimento" />
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="nome">Tempo de Preparo</label>
-                        <input type="text" class="form-control" id="nome" name="nome" />
+                        <input type="text" class="form-control" id="tempoDePreparo" name="tempoDePreparo" />
                     </div>
                 </div>
                 <div class="row">
