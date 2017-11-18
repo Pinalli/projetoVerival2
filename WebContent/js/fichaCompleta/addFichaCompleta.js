@@ -32,10 +32,12 @@ $(document).ready(function() {
 					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
 					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
 					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),
-					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
+					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]s').val(),
 					gorduraTrans : $(this).find('input[name="gorduraTrans"]').val(),
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
+					fatorCorreção: $(this).find('#fator-de-correcaoShow').val(),
+					indiceCoccao: $(this).find('#indice-de-coccaoShow').val()
 			};
 			itens.push(item);
 		});

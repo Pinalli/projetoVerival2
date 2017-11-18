@@ -62,11 +62,8 @@ public class IngredienteDAO {
 				dto.setLipidios(resultset.getDouble("I.LIPIDIOS"));
 				dto.setKcalLipidios(resultset.getDouble("I.KCAL_LIPIDIOS"));
 				dto.setGorduraSaturada(resultset.getDouble("I.GORDURA_SATURADA"));
-				//dto.setGorduraTrans(resultset.getDouble("I.GORDURA_TRANS"));
 				dto.setFibrasAlimentares(resultset.getDouble("I.FIBRAS_ALIMENTARES"));
 				dto.setSodio(resultset.getDouble("I.SODIO"));
-				/*dto.setFatorCorrecao(resultset.getDouble("I.FATOR_CORRECAO"));
-				dto.setIndiceCoccao(resultset.getDouble("I.INDICE_COCCAO"));*/
 				dto.setCusto(resultset.getDouble("I.CUSTO"));
 				dto.setUnidadeMedida(resultset.getString("I.UNIDADE_MEDIDA"));
 				dto.setDataAlteracao(resultset.getDate("I.DATA_INSERCAO"));
@@ -169,11 +166,8 @@ public class IngredienteDAO {
 				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
 				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
 				ingrediente.setGorduraSaturada(resultset.getDouble("GORDURA_SATURADA"));
-				//ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				/*ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));*/
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
 				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));
@@ -216,11 +210,8 @@ public class IngredienteDAO {
 				ingrediente.setLipidios(resultset.getDouble("LIPIDIOS"));
 				ingrediente.setKcalLipidios(resultset.getDouble("KCAL_LIPIDIOS"));
 				ingrediente.setGorduraSaturada(resultset.getDouble("GORDURA_SATURADA"));
-				//ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				/*ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));*/
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
 				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));
@@ -273,8 +264,6 @@ public class IngredienteDAO {
 				//ingrediente.setGorduraTrans(resultset.getDouble("GORDURA_TRANS"));
 				ingrediente.setFibrasAlimentares(resultset.getDouble("FIBRAS_ALIMENTARES"));
 				ingrediente.setSodio(resultset.getDouble("SODIO"));
-				/*ingrediente.setFatorCorrecao(resultset.getDouble("FATOR_CORRECAO"));
-				ingrediente.setIndiceCoccao(resultset.getDouble("INDICE_COCCAO"));*/
 				ingrediente.setCusto(resultset.getDouble("CUSTO"));
 				ingrediente.setUnidadeMedida(resultset.getString("UNIDADE_MEDIDA"));
 				ingrediente.setDataAlteracao(resultset.getDate("DATA_INSERCAO"));

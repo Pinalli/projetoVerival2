@@ -41,6 +41,10 @@ public class FichaCompletaItemDAO {
 					+ "TFI.QUANTIDADE_UNIDADE_MEDIDA, "
 					+ "TFI.QUANTIDADE_MEDIDA_CASEIRA, "
 					+ "TFI.ID_FICHA, "
+					
+					+ "TFI.FATOR_CORRECAO, "
+					+ "TFI.INDICE_COCCAO, "
+					
 					+ "TI.DESCRICAO AS INGREDIENTE, "
 					+ "TUN.UNIDADE_MEDIDA, "
 					+ "TUNC.NOME AS UNIDADE_MEDIDA_CASEIRA "
@@ -65,6 +69,8 @@ public class FichaCompletaItemDAO {
 				item.setIdUnidadeMedida(resultSet.getInt("ID_UNIDADE_MEDIDA"));
 				item.setQuantidadeMedidaCaseira(resultSet.getDouble("QUANTIDADE_MEDIDA_CASEIRA"));
 				item.setQuantidadeUnidadeMedida(resultSet.getDouble("QUANTIDADE_UNIDADE_MEDIDA"));
+				item.setFatorCorrecao(resultSet.getDouble("FATOR_CORRECAO"));
+				item.setIndiceCoccao(resultSet.getDouble("INDICE_COCCAO"));
 				item.setIdFicha(idFichaCompleta);
 				item.setIngrediente(resultSet.getString("INGREDIENTE"));
 				item.setUnidadeMedida(resultSet.getString("UNIDADE_MEDIDA"));
@@ -92,8 +98,8 @@ public class FichaCompletaItemDAO {
 			StringBuilder sql = new StringBuilder();
 			sql.append(
 					"INSERT INTO TB_FICHA_ITEM (" + " ID_UNIDADE_MEDIDA," + " ID_MEDIDA_CASEIRA," + " ID_INGREDIENTE,"
-							+ " ID_FICHA," + " QUANTIDADE_UNIDADE_MEDIDA," + " QUANTIDADE_MEDIDA_CASEIRA, " + " GORDURA_TRANS)");
-			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?)");
+							+ " ID_FICHA," + " QUANTIDADE_UNIDADE_MEDIDA," + " QUANTIDADE_MEDIDA_CASEIRA, " +"FATOR_CORRECAO, " + "INDICE_COCCAO, " + " GORDURA_TRANS)");
+			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 			PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -103,7 +109,9 @@ public class FichaCompletaItemDAO {
 			statement.setInt(4, item.getIdFicha());
 			statement.setDouble(5, item.getQuantidadeUnidadeMedida());
 			statement.setDouble(6, item.getQuantidadeMedidaCaseira());
-			statement.setDouble(7, item.getGorduraTrans());
+			statement.setDouble(7, item.getFatorCorrecao());
+			statement.setDouble(8, item.getIndiceCoccao());
+			statement.setDouble(9, item.getGorduraTrans());
 
 			statement.executeUpdate();
 
@@ -131,6 +139,8 @@ public class FichaCompletaItemDAO {
 			StringBuilder sql = new StringBuilder();
 			sql.append("UPDATE TB_FICHA_ITEM SET " + " ID_UNIDADE_MEDIDA = ?," + " ID_MEDIDA_CASEIRA = ?,"
 					+ " ID_INGREDIENTE = ?," + " QUANTIDADE_UNIDADE_MEDIDA = ?," + " QUANTIDADE_MEDIDA_CASEIRA = ?,"
+					+ " FATOR_CORRECAO = ?,"
+					+ "INDICE_COCCAO = ?,"
 					+ " GORDURA_TRANS = ?"
 					+ " WHERE ID_FICHA_ITEM = ?");
 
@@ -141,8 +151,10 @@ public class FichaCompletaItemDAO {
 			statement.setInt(3, item.getIdIngrediente());
 			statement.setDouble(4, item.getQuantidadeUnidadeMedida());
 			statement.setDouble(5, item.getQuantidadeMedidaCaseira());
-			statement.setDouble(6, item.getGorduraTrans());
-			statement.setInt(7, item.getIdFichaItem());
+			statement.setDouble(6, item.getFatorCorrecao());
+			statement.setDouble(7, item.getIndiceCoccao());
+			statement.setDouble(8, item.getGorduraTrans());
+			statement.setInt(9, item.getIdFichaItem());
 
 			return statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {

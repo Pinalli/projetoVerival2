@@ -19,6 +19,8 @@ public class FichaItem {
 	private double valorUnit;
 
 	private double gorduraTrans;
+	private double fatorCorrecao;
+    private double indiceCoccao;
 	
 	private String operacao;
 
@@ -134,4 +136,21 @@ public class FichaItem {
 
 	public void setGorduraTrans(double gorduraTrans){this.gorduraTrans = gorduraTrans;}
 	public double getGorduraTrans(){return gorduraTrans;}
+	
+	public double getFatorCorrecao() {
+        return fatorCorrecao;
+    }
+
+    public void setFatorCorrecao(double fatorCorrecao) {
+        this.fatorCorrecao = fatorCorrecao;
+    }
+
+    public double getIndiceCoccao() {
+        return indiceCoccao;
+    }
+
+    public void setIndiceCoccao(double indiceCoccao) {
+        this.indiceCoccao = indiceCoccao;
+    }
+
 }

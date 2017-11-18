@@ -7,206 +7,184 @@ import java.util.Date;
  *
  */
 public class Ingrediente {
-    private int id;
-    private int codigo;
-    private int id_empresa;
-    private String descricao;
-    private double carboidratos;
-    private double kcalCarboidratos;
-    private double proteinas;
-    private double kcalProteinas;
-    private double lipidios;
-    private double kcalLipidios;
-    private double gorduraSaturada;
-    private double fibrasAlimentares;
-    private double sodio;
-    private double fatorCorrecao;
-    private double indiceCoccao;
-    private double custo;
-    private String unidadeMedida;
-    private Date dataAlteracao;
+	private int id;
+	private int codigo;
+	private int id_empresa;
+	private String descricao;
+	private double carboidratos;
+	private double kcalCarboidratos;
+	private double proteinas;
+	private double kcalProteinas;
+	private double lipidios;
+	private double kcalLipidios;
+	private double gorduraSaturada;
+	private double fibrasAlimentares;
+	private double sodio;
+	private double custo;
+	private String unidadeMedida;
+	private Date dataAlteracao;
 
-    public Ingrediente(){
-        this.dataAlteracao = new Date();
-    }
+	public Ingrediente() {
+		this.dataAlteracao = new Date();
+	}
 
+	public Ingrediente(int id, int codigo, String descricao, double carboidratos, double kcalCarboidratos,
+			double proteinas, double kcalProteinas, double lipidios, double kcalLipidios, double gorduraSaturada,
+			double fibrasAlimentares, double sodio, double fatorCorrecao, double indiceCoccao, double custo,
+			String unidadeMedida) {
+		this.id = id;
+		this.codigo = codigo;
+		this.descricao = descricao;
+		this.carboidratos = carboidratos;
+		this.kcalCarboidratos = kcalCarboidratos;
+		this.proteinas = proteinas;
+		this.kcalProteinas = kcalProteinas;
+		this.lipidios = lipidios;
+		this.kcalLipidios = kcalLipidios;
+		this.gorduraSaturada = gorduraSaturada;
+		this.fibrasAlimentares = fibrasAlimentares;
+		this.sodio = sodio;
+		this.custo = custo;
+		this.unidadeMedida = unidadeMedida;
+		this.dataAlteracao = new Date();
+	}
 
+	public int getId() {
+		return id;
+	}
 
-    public Ingrediente(int id, int codigo, String descricao, double carboidratos, double kcalCarboidratos,
-                       double proteinas, double kcalProteinas, double lipidios, double kcalLipidios, double gorduraSaturada,
-                       double fibrasAlimentares,	double sodio, double fatorCorrecao,
-                       double indiceCoccao, double custo, String unidadeMedida) {
-        this.id = id;
-        this.codigo = codigo;
-        this.descricao = descricao;
-        this.carboidratos = carboidratos;
-        this.kcalCarboidratos = kcalCarboidratos;
-        this.proteinas = proteinas;
-        this.kcalProteinas = kcalProteinas;
-        this.lipidios = lipidios;
-        this.kcalLipidios = kcalLipidios;
-        this.gorduraSaturada = gorduraSaturada;
-        this.fibrasAlimentares = fibrasAlimentares;
-        this.sodio = sodio;
-        this.fatorCorrecao = fatorCorrecao;
-        this.indiceCoccao = indiceCoccao;
-        this.custo = custo;
-        this.unidadeMedida = unidadeMedida;
-        this.dataAlteracao = new Date();
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getCodigo() {
+		return codigo;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
-    public int getCodigo() {
-        return codigo;
-    }
+	public int getId_empresa() {
+		return id_empresa;
+	}
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
+	public void setId_empresa(int id_empresa) {
+		this.id_empresa = id_empresa;
+	}
 
-    public int getId_empresa() {
-        return id_empresa;
-    }
+	public String getDescricao() {
+		return descricao;
+	}
 
-    public void setId_empresa(int id_empresa) {
-        this.id_empresa = id_empresa;
-    }
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
-    public String getDescricao() {
-        return descricao;
-    }
+	public double getCarboidratos() {
+		return carboidratos;
+	}
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+	public void setCarboidratos(double carboidratos) {
+		this.carboidratos = carboidratos;
+	}
 
-    public double getCarboidratos() {
-        return carboidratos;
-    }
+	public double getKcalCarboidratos() {
+		return kcalCarboidratos;
+	}
 
-    public void setCarboidratos(double carboidratos) {
-        this.carboidratos = carboidratos;
-    }
+	public void setKcalCarboidratos(double kcalCarboidratos) {
+		this.kcalCarboidratos = kcalCarboidratos;
+	}
 
-    public double getKcalCarboidratos() {
-        return kcalCarboidratos;
-    }
+	public double getProteinas() {
+		return proteinas;
+	}
 
-    public void setKcalCarboidratos(double kcalCarboidratos) {
-        this.kcalCarboidratos = kcalCarboidratos;
-    }
+	public void setProteinas(double proteinas) {
+		this.proteinas = proteinas;
+	}
 
-    public double getProteinas() {
-        return proteinas;
-    }
+	public double getKcalProteinas() {
+		return kcalProteinas;
+	}
 
-    public void setProteinas(double proteinas) {
-        this.proteinas = proteinas;
-    }
+	public void setKcalProteinas(double kcalProteinas) {
+		this.kcalProteinas = kcalProteinas;
+	}
 
-    public double getKcalProteinas() {
-        return kcalProteinas;
-    }
+	public double getLipidios() {
+		return lipidios;
+	}
 
-    public void setKcalProteinas(double kcalProteinas) {
-        this.kcalProteinas = kcalProteinas;
-    }
+	public void setLipidios(double lipidios) {
+		this.lipidios = lipidios;
+	}
 
-    public double getLipidios() {
-        return lipidios;
-    }
+	public double getKcalLipidios() {
+		return kcalLipidios;
+	}
 
-    public void setLipidios(double lipidios) {
-        this.lipidios = lipidios;
-    }
+	public void setKcalLipidios(double kcalLipidios) {
+		this.kcalLipidios = kcalLipidios;
+	}
 
-    public double getKcalLipidios() {
-        return kcalLipidios;
-    }
+	public double getGorduraSaturada() {
+		return gorduraSaturada;
+	}
 
-    public void setKcalLipidios(double kcalLipidios) {
-        this.kcalLipidios = kcalLipidios;
-    }
+	public void setGorduraSaturada(double gorduraSaturada) {
+		this.gorduraSaturada = gorduraSaturada;
+	}
 
-    public double getGorduraSaturada() {
-        return gorduraSaturada;
-    }
+	public double getFibrasAlimentares() {
+		return fibrasAlimentares;
+	}
 
-    public void setGorduraSaturada(double gorduraSaturada) {
-        this.gorduraSaturada = gorduraSaturada;
-    }
+	public void setFibrasAlimentares(double fibrasAlimentares) {
+		this.fibrasAlimentares = fibrasAlimentares;
+	}
 
-    public double getFibrasAlimentares() {
-        return fibrasAlimentares;
-    }
+	public double getSodio() {
+		return sodio;
+	}
 
-    public void setFibrasAlimentares(double fibrasAlimentares) {
-        this.fibrasAlimentares = fibrasAlimentares;
-    }
+	public void setSodio(double sodio) {
+		this.sodio = sodio;
+	}
 
-    public double getSodio() {
-        return sodio;
-    }
+	public double getCusto() {
+		return custo;
+	}
 
-    public void setSodio(double sodio) {
-        this.sodio = sodio;
-    }
+	public void setCusto(double custo) {
+		this.custo = custo;
+	}
 
-    public double getFatorCorrecao() {
-        return fatorCorrecao;
-    }
+	public String getUnidadeMedida() {
+		return unidadeMedida;
+	}
 
-    public void setFatorCorrecao(double fatorCorrecao) {
-        this.fatorCorrecao = fatorCorrecao;
-    }
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
 
-    public double getIndiceCoccao() {
-        return indiceCoccao;
-    }
+	public Date getDataAlteracao() {
+		return dataAlteracao;
+	}
 
-    public void setIndiceCoccao(double indiceCoccao) {
-        this.indiceCoccao = indiceCoccao;
-    }
+	public void setDataAlteracao(Date dataAlteracao) {
+		this.dataAlteracao = dataAlteracao;
+	}
 
-    public double getCusto() {
-        return custo;
-    }
-
-    public void setCusto(double custo) {
-        this.custo = custo;
-    }
-
-    public String getUnidadeMedida() {
-        return unidadeMedida;
-    }
-
-    public void setUnidadeMedida(String unidadeMedida) {
-        this.unidadeMedida = unidadeMedida;
-    }
-
-    public Date getDataAlteracao() {
-        return dataAlteracao;
-    }
-
-    public void setDataAlteracao(Date dataAlteracao) {
-        this.dataAlteracao = dataAlteracao;
-    }
-
-    @Override
-    public String toString() {
-        return "Ingrediente [id=" + id + ", codigo=" + codigo + ", id_empresa=" + id_empresa + ", descricao="
-                + descricao + ", carboidratos=" + carboidratos + ", kcalCarboidratos=" + kcalCarboidratos
-                + ", proteinas=" + proteinas + ", kcalProteinas=" + kcalProteinas + ", lipidios=" + lipidios
-                + ", kcalLipidios=" + kcalLipidios + ", gorduraSaturada=" + gorduraSaturada + ", fibrasAlimentares=" + fibrasAlimentares + ", sodio=" + sodio + "fatorCorrecao="
-                + fatorCorrecao + ", indiceCoccao="	+ indiceCoccao + ", custo=" + custo + ", unidadeMedida=" + unidadeMedida
-                + ", dataAlteracao=" + dataAlteracao + "]";
-    }
+	@Override
+	public String toString() {
+		return "Ingrediente [id=" + id + ", codigo=" + codigo + ", id_empresa=" + id_empresa + ", descricao="
+				+ descricao + ", carboidratos=" + carboidratos + ", kcalCarboidratos=" + kcalCarboidratos
+				+ ", proteinas=" + proteinas + ", kcalProteinas=" + kcalProteinas + ", lipidios=" + lipidios
+				+ ", kcalLipidios=" + kcalLipidios + ", gorduraSaturada=" + gorduraSaturada + ", fibrasAlimentares="
+				+ fibrasAlimentares + ", sodio=" + sodio + "fatorCorrecao=" + ", indiceCoccao=" + ", custo=" + custo
+				+ ", unidadeMedida=" + unidadeMedida + ", dataAlteracao=" + dataAlteracao + "]";
+	}
 
 }

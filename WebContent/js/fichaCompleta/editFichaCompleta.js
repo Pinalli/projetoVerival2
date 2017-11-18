@@ -40,6 +40,8 @@ $(document).ready(function() {
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
 					operacao: $(this).find('#operacao').val(),
+					fatorCorreção: $(this).find('#fator-de-correcaoShow').val(),
+					indiceCoccao: $(this).find('#indice-de-coccaoShow').val()
 			};
 			itens.push(item);
 		});
