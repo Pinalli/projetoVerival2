@@ -87,45 +87,45 @@ a{text-decoration: none;color:#555555;}
      }
 }
 
-/* @media (min-width: 350px) and (max-width: 500px) { */
-/*      .login-form{ */
-/*      	width: 300px !important; */
-/*      } */
+@media (min-width: 350px) and (max-width: 500px) {
+     .login-form{
+     	width: 300px !important;
+     }
      
-/* } */
+}
 
-/* @media (min-width: 320px) and (max-width: 1023px) { */
-/*      body{ */
-/* 		background: url(../img/bg2.jpg) no-repeat center center fixed;  */
-/* 	  	-webkit-background-size: cover; */
-/* 	  	-moz-background-size: cover; */
-/* 	  	-o-background-size: cover; */
-/* 	  	background-size: cover; */
-/* 		background-color: #fff; */
-/* 	} */
-/* } */
+@media (min-width: 320px) and (max-width: 1023px) {
+     body{
+		background: url(../img/bg2.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+		background-color: #fff;
+	}
+}
 
-/* @media (min-width: 1024px) and (max-width: 1360px) { */
-/*      body{ */
-/* 		background: url(././img/bg2.jpg) no-repeat center center fixed;  */
-/* 	  	-webkit-background-size: cover; */
-/* 	  	-moz-background-size: cover; */
-/* 	  	-o-background-size: cover; */
-/* 	  	background-size: cover; */
-/* 		background-color: #fff; */
-/* 	} */
-/* } */
+@media (min-width: 1024px) and (max-width: 1360px) {
+     body{
+		background: url(././img/bg2.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+		background-color: #fff;
+	}
+}
 
-/* @media (min-width: 1361px) and (max-width: 1960px) { */
-/*      body{ */
-/* 		background: url(../img/bg2.jpg) no-repeat center center fixed;  */
-/* 	  	-webkit-background-size: cover; */
-/* 	  	-moz-background-size: cover; */
-/* 	  	-o-background-size: cover; */
-/* 	  	background-size: cover; */
-/* 		background-color: #fff; */
-/* 	} */
-/* } */
+@media (min-width: 1361px) and (max-width: 1960px) {
+     body{
+		background: url(../img/bg2.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+		background-color: #fff;
+	}
+}
 
 .has-error{color:#ff0000 !important;}
 .has-success{color:#78b310 !important;}
