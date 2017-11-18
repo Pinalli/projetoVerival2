@@ -29,11 +29,11 @@
 			</div>
 			<div class="modal-body">
 				<ul class="nav nav-tabs nav-justified" role="tablist">
-					<li role="presentation" class="active"><a href="#ftp" aria-controls="ftp" role="tab" data-toggle="tab">Ficha Técnica de Preparo</a></li>
+					<li role="presentation" class="active"><a href="#ftp" aria-controls="ftp" role="tab" data-toggle="tab">Ficha T�cnica de Preparo</a></li>
 
-					<li role="presentation"><a href="#ftpSimplificada" aria-controls="ftpSimplificada" role="tab" data-toggle="tab">Ficha Técnica Simplificada</a></li>
+					<li role="presentation"><a href="#ftpSimplificada" aria-controls="ftpSimplificada" role="tab" data-toggle="tab">Ficha T�cnica Simplificada</a></li>
 
-					<li role="presentation"><a href="#rtl" aria-controls="rtl" role="tab" data-toggle="tab">Rótulo Nutricional</a></li>
+					<li role="presentation"><a href="#rtl" aria-controls="rtl" role="tab" data-toggle="tab">R�tulo Nutricional</a></li>
 				</ul>
 
 				<div class="tab-content">
@@ -42,9 +42,9 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="vertical-align:middle" width="28%">NOME DA PREPRAÇÃO:</th>
+										<th style="vertical-align:middle" width="28%">NOME DA PREPRA�ÃO:</th>
 										<td id="nome-receita-ftc" colspan="3" style="vertical-align:middle"></td>
-										<td id="foto-ftc" rowspan="5" colspan="3" class="text-center">FOTO DA PREPARAÇÃO</td>
+										<td id="foto-ftc" rowspan="5" colspan="3" class="text-center">FOTO DA PREPARA�ÃO</td>
 									</tr>
 									<tr>
 										<tr>
@@ -67,7 +67,7 @@
 										<th class="text-center" style="vertical-align:middle">Medida Caseira</th>
 										<th class="text-center" style="vertical-align:middle">FC</th>
 										<th class="text-center" style="vertical-align:middle">Quant. Compra</th>
-										<th class="text-center" style="vertical-align:middle">R$ Unitário</th>
+										<th class="text-center" style="vertical-align:middle">R$ Unit�rio</th>
 										<th class="text-center" style="vertical-align:middle">R$ Parcial</th>
 									</tr>
 
@@ -79,11 +79,11 @@
 										<td id="custo-total-ftc" colspan="6"></td>
 									</tr>
 									<tr>
-										<td class="text-right" colspan="1"><strong>Custo Porção (R$):</strong></td>
+										<td class="text-right" colspan="1"><strong>Custo Por��o (R$):</strong></td>
 										<td id="custo-porcao-ftc" colspan="6"></td>
 									</tr>
 									<tr>
-										<td class="text-center" colspan="7"><strong>UTENSÍLIOS E EQUIPAMENTOS</strong></td>
+										<td class="text-center" colspan="7"><strong>UTENS͍LIOS E EQUIPAMENTOS</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="utensilios-equipamentos-ftc"></td>
@@ -101,7 +101,7 @@
 										<td colspan="7" id="montagem-ftc"></td>
 									</tr>
 										<tr>
-										<td class="text-center" colspan="7"><strong>ORIENTAÇÔES DE ARMAZENAMENTO</strong></td>
+										<td class="text-center" colspan="7"><strong>ORIENTA�Շ�ES DE ARMAZENAMENTO</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="orientacoes-armazenamento-ftc"></td>
@@ -119,7 +119,7 @@
 										<td colspan="7" id="sabor-ftc"></td>
 									</tr>
 									<tr>
-											<td class="text-center" colspan="7"><strong>APRESENTAÇÂO</strong></td>
+											<td class="text-center" colspan="7"><strong>APRESENTA�ÂO</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="apresentacao-ftc"></td>
@@ -151,9 +151,9 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="vertical-align:middle" width="28%">NOME DA PREPARAÇÃO:</th>
+										<th style="vertical-align:middle" width="28%">NOME DA PREPARAǇÃO:</th>
 										<td id="nome-receita-fts" style="vertical-align:middle"></td>
-										<td id="foto-fts" rowspan="5" class="text-center">FOTO DA PREPARAÇÃO</td>
+										<td id="foto-fts" rowspan="5" class="text-center">FOTO DA PREPARAǇÃO</td>
 									</tr>
 									<tr>
 										<tr>
@@ -177,7 +177,7 @@
 								<tbody id="ingredientes-fts"></tbody>
 								<tbody>
 									<tr>
-										<td class="text-center" colspan="7"><strong>UTENSÍLIOS E EQUIPAMENTOS</strong></td>
+										<td class="text-center" colspan="7"><strong>UTENS�LIOS E EQUIPAMENTOS</strong></td>
 									</tr>
 									<tr>
 										<td colspan="3" id="utensilios-equipamentos-fts"></td>
@@ -195,7 +195,7 @@
 										<td colspan="3" id="montagem-fts"></td>
 									</tr>
 									<tr>
-										<td class="text-center" colspan="3"><strong>ORIENTAÇÔES DE ARMAZEMENTO</strong></td>
+										<td class="text-center" colspan="3"><strong>ORIENTA�ՔES DE ARMAZEMENTO</strong></td>
 									</tr>
 									<tr>
 										<td colspan="3" id="orientacoes-armazenamento-fts"></td>
@@ -224,18 +224,18 @@
 										<th rowspan="2"><img src="./img/faenfi.png" width="100%"></th>
 									</tr>
 									<tr>
-										<th colspan="2" class="text-center">INFORMAÇÂO NUTRICIONAL<br />
+										<th colspan="2" class="text-center">INFORMAǇÂO NUTRICIONAL<br />
 											<h5 style="margin: 0; margin-top: 3px; padding: 0;">Porção de <span id="modalMedida"></span> (<span id="modalMedidaCaseira"></span>)</h5>
 										</th>
 									</tr>
 									<tr>
-										<th colspan="2" class="text-center">Quantidade por porção</th>
+										<th colspan="2" class="text-center">Quantidade por por��o</th>
 										<th class="text-center">%VD (*)</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td width="40%">Valor Energético</td>
+										<td width="40%">Valor Energ�tico</td>
 										<td width="40%" id="modalValorEnergeticoQP"></td>
 										<td width="20%" id="modalValorEnergeticoVD"></td>
 									</tr>
@@ -277,10 +277,10 @@
 								</tbody>
 								<tfoot>
 									<tr style="background-color: #f9f9f9;">
-										<td colspan="3">(*) % Valores Diários com base em uma
-											dieta de 2.000 kcal ou 8400 KJ. Seus valores diários podem ser
+										<td colspan="3">(*) % Valores Di�rios com base em uma
+											dieta de 2.000 kcal ou 8400 KJ. Seus valores di�rios podem ser
 											maiores ou menores dependendo de suas necessidades
-											energéticas.</td>
+											energ�ticas.</td>
 									</tr>
 								</tfoot>
 							</table>
