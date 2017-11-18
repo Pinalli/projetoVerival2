@@ -72,20 +72,8 @@
 								</a>
 
 								<div class="dropdown-menu" aria-labelledby="dpdUsuarios">
-									<a class="dropdown-item" href="main?acao=listUser"><span class="icon-lista"></span> Lista</a>
-									<a class="dropdown-item" href="main?acao=telaUser"><span class="icon-adicionar"></span> Cadastrar</a>
-								</div>
-							</div>
-						</li>
-						<li class="nav-item">
-							<div class="dropdown show">
-								<a class="nav-link dropdown-toggle" href="#" role="button" id="dpdEmpresas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="icon-empresas"></span> Empresas
-								</a>
-
-								<div class="dropdown-menu" aria-labelledby="dpdEmpresas">
-									<a class="dropdown-item" href="main?acao=listEmpresa"><span class="icon-lista"></span> Lista</a>
-									<a class="dropdown-item" href="main?acao=telaEmpresa"><span class="icon-adicionar"></span> Cadastrar</a>
+									<a class="dropdown-item" href="main?acao=listUser"><span class="icon-lista"></span> Lista de usuários</a>
+									<a class="dropdown-item" href="main?acao=telaUser"><span class="icon-adicionar"></span> Cadastrar usuário</a>
 								</div>
 							</div>
 						</li>
@@ -97,20 +85,20 @@
 								</a>
 
 								<div class="dropdown-menu" aria-labelledby="dpdIngredientes">
-									<a class="dropdown-item" href="main?acao=listIngrediente"><span class="icon-lista"></span> Lista</a>
-									<a class="dropdown-item" href="main?acao=telaIngredientes"><span class="icon-adicionar"></span> Cadastrar</a>
+									<a class="dropdown-item" href="main?acao=listIngrediente"><span class="icon-lista"></span> Lista de ingredientes</a>
+									<a class="dropdown-item" href="main?acao=telaIngredientes"><span class="icon-adicionar"></span> Cadastrar ingrediente</a>
 								</div>
 							</div>
 						</li>
 						<li class="nav-item">
 							<div class="dropdown show">
 								<a class="nav-link dropdown-toggle" href="#" role="button" id="dpdUnidadesMedida" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="icon-medida-caseira"></span> Unidades de Medida
+									<span class="icon-medida-caseira"></span> Medidas Caseiras
 								</a>
 
 								<div class="dropdown-menu" aria-labelledby="dpdUnidadesMedida">
-									<a class="dropdown-item" href="main?acao=listUnidadeMedidaCaseira"><span class="icon-lista"></span> Lista</a>
-									<a class="dropdown-item" href="main?acao=telaUnidadeMedidaCaseira"><span class="icon-adicionar"></span> Cadastrar</a>
+									<a class="dropdown-item" href="main?acao=listUnidadeMedidaCaseira"><span class="icon-lista"></span> Lista de medidas caseiras</a>
+									<a class="dropdown-item" href="main?acao=telaUnidadeMedidaCaseira"><span class="icon-adicionar"></span> Cadastrar medida caseira</a>
 								</div>
 							</div>
 						</li>
@@ -121,8 +109,8 @@
 								</a>
 
 								<div class="dropdown-menu" aria-labelledby="dpdFichaTecnicas">
-									<a class="dropdown-item" href="main?acao=listFichaCompleta"><span class="icon-lista"></span> Lista</a>
-									<a class="dropdown-item" href="main?acao=telaFichaCompleta"><span class="icon-adicionar"></span> Cadastrar</a>
+									<a class="dropdown-item" href="main?acao=listFichaCompleta"><span class="icon-lista"></span> Lista de fichas técnicas</a>
+									<a class="dropdown-item" href="main?acao=telaFichaCompleta"><span class="icon-adicionar"></span> Cadastrar ficha técnica</a>
 								</div>
 							</div>
 						</li>
