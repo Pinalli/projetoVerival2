@@ -9,6 +9,8 @@ import org.apache.log4j.Logger;
 import com.google.gson.Gson;
 import br.ages.crud.bo.FichaCompletaBO;
 import br.ages.crud.bo.FichaCompletaItemBO;
+import br.ages.crud.bo.UnidadeMedidaBO;
+import br.ages.crud.bo.UnidadeMedidaCaseiraBO;
 import br.ages.crud.model.Ficha;
 import br.ages.crud.model.FichaItem;
 import br.ages.crud.util.MensagemContantes;
@@ -21,12 +23,16 @@ public class EditFichaCompletaAjaxCommand implements Command {
 
 	private FichaCompletaBO fichaCompletaBO;
 	private FichaCompletaItemBO itemBO;
+	private UnidadeMedidaCaseiraBO medidaCaseiraBO;
+	private UnidadeMedidaBO unidadeMedidaBO;
 
 
 	@Override
 	public String execute(HttpServletRequest request) {
 		fichaCompletaBO = new FichaCompletaBO();
 		itemBO = new FichaCompletaItemBO();
+		unidadeMedidaBO = new UnidadeMedidaBO();
+		medidaCaseiraBO = new UnidadeMedidaCaseiraBO();
 		String json = "";
 		Map<String,String> msg = new HashMap<String, String>();
 
@@ -58,6 +64,8 @@ public class EditFichaCompletaAjaxCommand implements Command {
 			ficha.setIdEmpresa(1);
 			ficha.setTipoFicha("c");
 			ficha.setItens(listaFichaItens);
+			ficha.setMedida(unidadeMedidaBO.buscaUnidadeMedidaId(Integer.parseInt(request.getParameter("unidadeMedidaId"))));
+			ficha.setMedidaCaseira(medidaCaseiraBO.buscaUnidadeMedidaCaseiraId(Integer.parseInt(request.getParameter("unidadeMedidaCaseiraId"))));
 			
 			if(fichaCompletaBO.validarFichaCompleta(ficha)){
 				fichaCompletaBO.editarFichaCompleta(ficha);

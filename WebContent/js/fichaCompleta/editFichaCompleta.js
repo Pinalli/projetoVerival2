@@ -18,8 +18,10 @@ $(document).ready(function() {
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
 		var temperatura = $('textarea[name="temperatura"]').val();
-		var fatorCorrecao = $('input[name="fator-de-correcao"').val();
-		var indiceCoccao = $('input[name="indice-de-coccao"').val();
+		var qntUnidadeMedida = $('#qnt-unidade-medida-rotulo').val();
+		var unidadeMedidaId = $('#select-unidade-medida-rotulo').val();
+		var qntUnidadeMedidaCaseira = $('#qnt-unidade-medida-caseira-rotulo').val();
+		var unidadeMedidaCaseiraId = $('#select-medida-caseira-rotulo').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -34,6 +36,8 @@ $(document).ready(function() {
 					perCapita: $(this).find('#custo-real').val(),
 					valorUnit: $(this).find('#valor-unitario').val(),
 					operacao: $(this).find('#operacao').val(),
+					fatorCorrecao : $(this).find('#fator-de-correcaoShow').val(),
+					indiceCoccao : $(this).find('#indice-de-coccaoShow').val()
 			};
 			itens.push(item);
 		});
@@ -54,9 +58,11 @@ $(document).ready(function() {
 			sabor:sabor,
 			apresentacao:apresentacao,
 			temperatura:temperatura,
-			fatorCorrecao:fatorCorrecao,
-			indiceCoccao:indiceCoccao,
-			itens:JSON.stringify(itens)
+			itens:JSON.stringify(itens),
+			qntUnidadeMedida:qntUnidadeMedida,
+			unidadeMedidaId:unidadeMedidaId,
+			qntUnidadeMedidaCaseira:qntUnidadeMedidaCaseira,
+			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId
 		};
 
 		//Valida
