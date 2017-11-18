@@ -91,18 +91,6 @@
 						</div>
 					</div>
 					
-					
-					<div class="row">
-						<div class="col-sm-6">
-							<label class="form-label ages"> Fator de Correção </label> 
-							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="<%=ingrediente.getFatorCorrecao()%>" type="value" min="0" maxlength="5" required> 
-						</div>
-						<div class="col-sm-6">
-							<label class="form-label ages"> Índice de Cocção </label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="<%=ingrediente.getIndiceCoccao()%>" type="value" min="0" maxlength="5" required>
-						</div>
-					</div>
-					
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="form-label ages"> Valor de Custo   </label> 
