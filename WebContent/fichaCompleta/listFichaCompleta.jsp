@@ -6,7 +6,7 @@
 <jsp:include page="../template/modalFichaCompleta.jsp"></jsp:include>
 
 <div class="jumbotron mb-5">
-    <h1 style="color: #787a89;"><span class="icon-fichas text-info"></span> Lista de Fichas T�cnicas</h1>
+    <h1 style="color: #787a89;"><span class="icon-fichas text-info"></span> Lista de Fichas Técnicas</h1>
     <hr />
     <table id="lista-ftp" class="table table-responsive table-bordered table-hover" cellspacing="0" width="100%">
         <thead>
