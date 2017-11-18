@@ -55,6 +55,7 @@ public class AddFichaCompletaAjaxCommand implements Command {
 			ficha.setTextura(request.getParameter("textura"));
 			ficha.setSabor(request.getParameter("sabor"));
 			ficha.setApresentacao(request.getParameter("apresentacao"));
+			ficha.setCategoria(Ficha.Categoria.valueOf(request.getParameter("categoria")));
 			
 			ficha.setTempoPreparo(request.getParameter("tempoPreparo"));
 			ficha.setUtensilios(request.getParameter("utensiliosEquipamentos"));
