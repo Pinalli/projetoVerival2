@@ -1,4 +1,5 @@
 <%@ page import="br.ages.crud.model.Ficha" %>
+<%@ page import="br.ages.crud.model.Ficha.Categoria" %>
 <%@page import="java.util.List" %>
 
 <jsp:include page="../template/head.jsp"></jsp:include>

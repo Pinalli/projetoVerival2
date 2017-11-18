@@ -67,7 +67,7 @@ public class Ficha {
 		this.categoria = categoria;
 	}
 
-	public String getCategoria(){ return categoria.toString(); }
+	public Categoria getCategoria(){ return categoria; }
 
 	public int getIdFicha() {
 		return idFicha;
