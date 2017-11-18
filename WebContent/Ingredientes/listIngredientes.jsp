@@ -15,8 +15,8 @@
             <table id="listaIngredientes" class="table table-responsive table-striped table-hover table-condensed table-bordered">
                 <thead>
                 <tr>
-                    <th style="text-align: center;">Cï¿½digo</th>
-                    <th style="text-align: center;">Descriï¿½ï¿½o</th>
+                    <th style="text-align: center;">Código</th>
+                    <th style="text-align: center;">Descrição</th>
                     <th style="text-align: center;">Editar</th>
                     <th style="text-align: center;">Excluir</th>
                 </tr>
@@ -60,16 +60,16 @@
         $('#listaIngredientes').dataTable({
             "language": {
                 "lengthMenu": "_MENU_ Registros",
-                "zeroRecords": "Sem registros - sorry",
-                "info": "Mostrando _PAGE_ de _PAGES_ pï¿½ginas",
+                "zeroRecords": "Sem registros",
+                "info": "Mostrando _PAGE_ de _PAGES_ páginas",
                 "infoEmpty": "Nenhum registros encontrados!",
-                "infoFiltered": "(Filtrado _MAX_ do total deregistros)",
+                "infoFiltered": "(Filtrado _MAX_ do total de registros)",
                 "search":"",
                 "searchPlaceholder": "Buscar",
                 "paginate": {
                     "first":      "Primeiro",
-                    "last":       "ï¿½ltimo",
-                    "next":       "Prï¿½ximo",
+                    "last":       "Último",
+                    "next":       "Próximo",
                     "previous":   "Anterior"
                 },
             },
