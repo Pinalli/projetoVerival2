@@ -80,7 +80,7 @@
 
         <div class="card mb-3" style="margin-top: 30px;">
             <div class="card-header">Ingredientes</div>
-            <div class="card-body">
+            <div class="card-body table-row">
                 <div id="elemento-ingrediente" class="row">
                     <div class="card bg-secondary mb-3 show-item-btn" id="ingrediente-1" style="margin-left: 10px; margin-right: 10px; width: 100%;">
                         <div class="card-body">
@@ -168,10 +168,10 @@
                                     <input type="number" class="form-control" id="indice-de-coccaoShow" placeholder="Índice de Cocção"  readonly>
                                 </div>
                             </div>
-                            <input type="text" class="hidden" id="gordura-trans" name="gordura-trans">
-                            <input type="text" class="hidden" id="gordura-saturada" name="gordura-saturada">
-                            <input type="text" class="hidden" id="fibra-alimentar" name="fibra-alimentar">
-                            <input type="text" class="hidden" id="sodio" name="sodio">
+                            <input type="hidden" id="gordura-trans" name="gordura-trans">
+                            <input type="hidden" id="gordura-saturada" name="gordura-saturada">
+                            <input type="hidden" id="fibra-alimentar" name="fibra-alimentar">
+                            <input type="hidden" id="sodio" name="sodio">
                             <div class="text-right btn-excluir-wrapper"></div>
                         </div>
                     </div>

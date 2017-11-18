@@ -36,25 +36,25 @@ $(document).ready(function() {
 					}
 					$(this).select2({
 						data: data,
-						 ajax: {							 
-							    url: "ajax?acao=buscaIngredienteDescricaoAjax",
-							    method: "GET",
-							    data: function (params) {	
-							        return {'descricao':params.term, 'limit':10};
-							    },
-							    processResults: function (data, params) {
-							    	var select2Data = [];
-							    	var json = jQuery.parseJSON(data);
-							    	for(var i=0; i<json.length; i++){
-										var obj = {'id':json[i].id, 'text':json[i].descricao}
-										select2Data.push(obj);				
-									}
-							        return {							          
-						                results: select2Data
-						            };
-							      },
-							      cache: true
-							  },
+						ajax: {							 
+						    url: "ajax?acao=buscaIngredienteDescricaoAjax",
+						    method: "GET",
+						    data: function (params) {
+						        return {'descricao':params.term, 'limit':10};
+						    },
+						    processResults: function (data, params) {
+						    	var select2Data = [];
+						    	var json = jQuery.parseJSON(data);
+						    	for(var i=0; i<json.length; i++){
+									var obj = {'id':json[i].id, 'text':json[i].descricao}
+									select2Data.push(obj);				
+								}
+						        return {							          
+					                results: select2Data
+					            };
+						      },
+						      cache: true
+						  }
 					      
 					});
 				} else if (obj.id == 'select-unidade-medida' || obj.id == 'select-unidade-medida-rotulo') {

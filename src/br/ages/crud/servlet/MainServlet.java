@@ -89,6 +89,7 @@ public class MainServlet extends HttpServlet {
 			if (usuario != null)
 				logger.debug("User: " + usuario.getUsuario() + " - comando " + comando.toString() + " acao: " + acao);
 		} catch (NegocioException | SQLException | ParseException | PersistenciaException e) {
+			e.printStackTrace();
 			request.setAttribute("msgErro", e.getMessage());
 		}
 
