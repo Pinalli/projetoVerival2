@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="">
 
 
     <script src="js/jquery.min.js"></script>
@@ -31,24 +32,22 @@
     	<jsp:include page="template/msg.jsp"></jsp:include>
         <form class="form-horizontal" method="post" action="main?acao=login">
             <div class="form-group">
-                <div class="col-sm-12">
-                    <input type="text" class="form-control input-lg" placeholder="Usuário" id="login" name="login" value="${param.login}" maxlength="120" required />
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" placeholder="Usuário" id="login" name="login" value="${param.login}" maxlength="120" required />
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-12">
-                    <input type="password" class="form-control input-lg" placeholder="Senha" id="senha" name="senha" value="${param.senha}" maxlength="15" required />
+                <div class="input-group input-group-lg">
+                    <input type="password" class="form-control" placeholder="Senha" id="senha" name="senha" value="${param.senha}" maxlength="15" required />
                 </div>
             </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-bottom: 12px">Entrar</button>
-            <div class="line">
-                <div align="left" style="display: inline;">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <a href="newUser.jsp" id="novoCadastro" title="Clique para cadastrar uma nova conta">Novo cadastro</a>
+            <div class="row">
+                <div class="col-6 col-md-6 col-sm-12">
+                    <a href="newUser.jsp" class="text-light" id="novoCadastro" title="Clique para cadastrar uma nova conta">Novo cadastro</a>
                 </div>
-                <div class="pull-right" style="display: inline;">
-                    <i class="glyphicon glyphicon-lock"></i>
-                    <a href="" data-toggle="modal" data-id="login" data-usuario="#login" data-target="#modalSenha" title="Clique para recuperar a sua senha">Recuperar senha</a>
+                <div class="col-6 col-md-6 col-sm-12 text-right">
+                    <a class="text-light" href="#" data-toggle="modal" data-id="login" data-usuario="#login" data-target="#modalSenha" title="Clique para recuperar a sua senha">Recuperar senha</a>
                 </div>
             </div>
         </form>
