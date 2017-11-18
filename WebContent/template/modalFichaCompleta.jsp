@@ -1,23 +1,25 @@
-<div class="modal fade" id="modalExcluir" role="dialog">
-	<div class="modal-dialog">
+<div class="modal fade" id="modalExcluir" role="dialog" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header modal-exclude">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title"></h4>
-			</div>
+        		<h5 class="modal-title"></h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
 			<div class="modal-body">
 				<p id="modal-descricao"></p>
 			</div>
 			<div class="modal-footer">
 				<form action="" method="post" id="formExcluir">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					<button type="submit" class="btn btn-exclude">Excluir</button>
+					<button type="submit" class="btn btn-danger">Excluir</button>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
-
+	
 <div class="modal fade" id="modalVisualizar" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -27,22 +29,22 @@
 			</div>
 			<div class="modal-body">
 				<ul class="nav nav-tabs nav-justified" role="tablist">
-					<li role="presentation" class="active"><a href="#ftp" aria-controls="ftp" role="tab" data-toggle="tab">Ficha Técnica de Preparo</a></li>
-					
-					<li role="presentation"><a href="#ftpSimplificada" aria-controls="ftpSimplificada" role="tab" data-toggle="tab">Ficha Técnica Simplificada</a></li>
-						
-					<li role="presentation"><a href="#rtl" aria-controls="rtl" role="tab" data-toggle="tab">Rótulo Nutricional</a></li>
+					<li role="presentation" class="active"><a href="#ftp" aria-controls="ftp" role="tab" data-toggle="tab">Ficha Tï¿½cnica de Preparo</a></li>
+
+					<li role="presentation"><a href="#ftpSimplificada" aria-controls="ftpSimplificada" role="tab" data-toggle="tab">Ficha Tï¿½cnica Simplificada</a></li>
+
+					<li role="presentation"><a href="#rtl" aria-controls="rtl" role="tab" data-toggle="tab">Rï¿½tulo Nutricional</a></li>
 				</ul>
-			
+
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane fade in active" id="ftp" style="width: 85%; margin: 0 auto; margin-top: 30px">
 						<div class="container-fluid active" id="renderPDF_completa">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="vertical-align:middle" width="28%">NOME DA PREPRAÇÃO:</th>
+										<th style="vertical-align:middle" width="28%">NOME DA PREPRAï¿½ï¿½O:</th>
 										<td id="nome-receita-ftc" colspan="3" style="vertical-align:middle"></td>
-										<td id="foto-ftc" rowspan="5" colspan="3" class="text-center">FOTO DA PREPARAÇÃO</td>
+										<td id="foto-ftc" rowspan="5" colspan="3" class="text-center">FOTO DA PREPARAï¿½ï¿½O</td>
 									</tr>
 									<tr>
 										<tr>
@@ -65,10 +67,10 @@
 										<th class="text-center" style="vertical-align:middle">Medida Caseira</th>
 										<th class="text-center" style="vertical-align:middle">FC</th>
 										<th class="text-center" style="vertical-align:middle">Quant. Compra</th>
-										<th class="text-center" style="vertical-align:middle">R$ Unitário</th>
+										<th class="text-center" style="vertical-align:middle">R$ Unitï¿½rio</th>
 										<th class="text-center" style="vertical-align:middle">R$ Parcial</th>
 									</tr>
-								
+
 								</thead>
 								<tbody id="ingredientes-ftc"></tbody>
 								<tbody>
@@ -77,14 +79,14 @@
 										<td id="custo-total-ftc" colspan="6"></td>
 									</tr>
 									<tr>
-										<td class="text-right" colspan="1"><strong>Custo Porção (R$):</strong></td>
+										<td class="text-right" colspan="1"><strong>Custo Porï¿½ï¿½o (R$):</strong></td>
 										<td id="custo-porcao-ftc" colspan="6"></td>
 									</tr>
 									<tr>
-										<td class="text-center" colspan="7"><strong>UTENSÍLIOS E EQUIPAMENTOS</strong></td>
+										<td class="text-center" colspan="7"><strong>UTENSï¿½LIOS E EQUIPAMENTOS</strong></td>
 									</tr>
 									<tr>
-										<td colspan="7" id="utensilios-equipamentos-ftc"></td> 
+										<td colspan="7" id="utensilios-equipamentos-ftc"></td>
 									</tr>
 									<tr>
 										<td class="text-center" colspan="7"><strong>MODO DE PREPARO</strong></td>
@@ -99,7 +101,7 @@
 										<td colspan="7" id="montagem-ftc"></td>
 									</tr>
 										<tr>
-										<td class="text-center" colspan="7"><strong>ORIENTAÇÕES DE ARMAZENAMENTO</strong></td>
+										<td class="text-center" colspan="7"><strong>ORIENTAï¿½ï¿½ES DE ARMAZENAMENTO</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="orientacoes-armazenamento-ftc"></td>
@@ -117,7 +119,7 @@
 										<td colspan="7" id="sabor-ftc"></td>
 									</tr>
 									<tr>
-											<td class="text-center" colspan="7"><strong>APRESENTAÇÃO</strong></td>
+											<td class="text-center" colspan="7"><strong>APRESENTAï¿½ï¿½O</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="apresentacao-ftc"></td>
@@ -128,13 +130,13 @@
 									<tr>
 										<td colspan="7" id="temperatura-ftc"></td>
 									</tr>
-									
+
 								</tbody>
 							</table>
 						</div>
 						<div class="container-fluid">
 							<form action="" method="post" id="formVisualizar" class="row">
-<!-- 								<div class="col-md-8">Tamanho para impressão customizada (entre 14.5cm e 19.5cm): -->
+<!-- 								<div class="col-md-8">Tamanho para impressï¿½o customizada (entre 14.5cm e 19.5cm): -->
 <!-- 									<input type="text" id="size" value="" placeholder="Insira o valor" /> -->
 <!-- 								</div> -->
 								<div class="col-md-4 text-left">
@@ -143,15 +145,15 @@
 							</form>
 						</div>
 					</div>
-					
+
 					<div role="tabpanel" class="tab-pane fade" id="ftpSimplificada" style="width:85%;margin:0 auto;margin-top:30px">
 						<div class="container-fluid" id="renderPDF_simples">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="vertical-align:middle" width="28%">NOME DA PREPRAÇÃO:</th>
+										<th style="vertical-align:middle" width="28%">NOME DA PREPRAï¿½ï¿½O:</th>
 										<td id="nome-receita-fts" style="vertical-align:middle"></td>
-										<td id="foto-fts" rowspan="5" class="text-center">FOTO DA PREPARAÇÃO</td>
+										<td id="foto-fts" rowspan="5" class="text-center">FOTO DA PREPARAï¿½ï¿½O</td>
 									</tr>
 									<tr>
 										<tr>
@@ -175,10 +177,10 @@
 								<tbody id="ingredientes-fts"></tbody>
 								<tbody>
 									<tr>
-										<td class="text-center" colspan="7"><strong>UTENSÍLIOS E EQUIPAMENTOS</strong></td>
+										<td class="text-center" colspan="7"><strong>UTENSï¿½LIOS E EQUIPAMENTOS</strong></td>
 									</tr>
 									<tr>
-										<td colspan="3" id="utensilios-equipamentos-fts"></td> 
+										<td colspan="3" id="utensilios-equipamentos-fts"></td>
 									</tr>
 									<tr>
 										<td class="text-center" colspan="3"><strong>MODO DE PREPARO</strong></td>
@@ -193,7 +195,7 @@
 										<td colspan="3" id="montagem-fts"></td>
 									</tr>
 									<tr>
-										<td class="text-center" colspan="3"><strong>ORIENTAÇÕES DE ARMAZEMENTO</strong></td>
+										<td class="text-center" colspan="3"><strong>ORIENTAï¿½ï¿½ES DE ARMAZEMENTO</strong></td>
 									</tr>
 									<tr>
 										<td colspan="3" id="orientacoes-armazenamento-fts"></td>
@@ -203,7 +205,7 @@
 						</div>
 						<div class="container-fluid">
 							<form action="" method="post" id="formVisualizar" class="row">
-<!-- 								<div class="col-md-8">Tamanho para impressão customizada (entre 14.5cm e 19.5cm): -->
+<!-- 								<div class="col-md-8">Tamanho para impressï¿½o customizada (entre 14.5cm e 19.5cm): -->
 <!-- 									<input type="text" id="size" value="" placeholder="Insira o valor" /> -->
 <!-- 								</div> -->
 								<div class="col-md-4 text-left">
@@ -222,18 +224,18 @@
 										<th rowspan="2"><img src="./img/faenfi.png" width="100%"></th>
 									</tr>
 									<tr>
-										<th colspan="2" class="text-center">INFORMAÇÃO NUTRICIONAL<br />
-											<h5 style="margin: 0; margin-top: 3px; padding: 0;">Porção de <span id="modalMedida"></span> (<span id="modalMedidaCaseira"></span>)</h5>
+										<th colspan="2" class="text-center">INFORMAï¿½ï¿½O NUTRICIONAL<br />
+											<h5 style="margin: 0; margin-top: 3px; padding: 0;">Porï¿½ï¿½o de <span id="modalMedida"></span> (<span id="modalMedidaCaseira"></span>)</h5>
 										</th>
 									</tr>
 									<tr>
-										<th colspan="2" class="text-center">Quantidade por porção</th>
+										<th colspan="2" class="text-center">Quantidade por porï¿½ï¿½o</th>
 										<th class="text-center">%VD (*)</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td width="40%">Valor Energético</td>
+										<td width="40%">Valor Energï¿½tico</td>
 										<td width="40%" id="modalValorEnergeticoQP"></td>
 										<td width="20%" id="modalValorEnergeticoVD"></td>
 									</tr>
@@ -268,25 +270,25 @@
 										<td id="modalFibraAlimVD"></td>
 									</tr>
 									<tr>
-										<td>Sódio</td>
+										<td>Sï¿½dio</td>
 										<td id="modalSodioQP"></td>
 										<td id="modalSodioVD"></td>
 									</tr>
 								</tbody>
 								<tfoot>
 									<tr style="background-color: #f9f9f9;">
-										<td colspan="3">(*) % Valores Diários com base em uma
-											dieta de 2.000 kcal ou 8400 KJ. Seus valores diários podem ser
+										<td colspan="3">(*) % Valores Diï¿½rios com base em uma
+											dieta de 2.000 kcal ou 8400 KJ. Seus valores diï¿½rios podem ser
 											maiores ou menores dependendo de suas necessidades
-											energéticas.</td>
+											energï¿½ticas.</td>
 									</tr>
 								</tfoot>
 							</table>
 						</div>
-					
+
 						<div class="container-fluid">
 							<form action="" method="post" id="formVisualizar" class="row">
-<!-- 								<div class="col-md-8">Tamanho para impressão customizada (entre 14.5cm e 19.5cm): -->
+<!-- 								<div class="col-md-8">Tamanho para impressï¿½o customizada (entre 14.5cm e 19.5cm): -->
 <!-- 									<input type="text" id="size" value="" placeholder="Insira o valor" /> -->
 <!-- 								</div> -->
 								<div class="col-md-4 text-left">
@@ -295,10 +297,10 @@
 							</form>
 						</div>
 					</div>
-				</div>				
-				
+				</div>
+
 			</div>
-			
+
 		</div>
 	</div>
 </div>
@@ -349,7 +351,6 @@
 		    </div>
 	  	</div>
 	</div>
-	   
 	
 <script>
 $(document).on('show.bs.modal','#modalExcluir', function (event) {
@@ -359,7 +360,7 @@ $(document).on('show.bs.modal','#modalExcluir', function (event) {
 
   	$(this).find('.modal-title').text('Excluir Ficha Completa');
   	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha Completa(' + fichaS + ')?');
-  	
+
   	$('#formExcluir').attr('action', "main?acao=removerFichaCompleta&id_ficha_Completa=" + id);
 });
 
@@ -367,10 +368,10 @@ $(document).on('show.bs.modal','#modalEditar', function (event) {
   	var botao = $(event.relatedTarget);
   	var fichaS = botao.data('fichas');
   	var id = botao.data('id');
-  	
+
   	$(this).find('.modal-title').text('Editar Ficha Completa');
   	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha Completa (' + fichaS + ') ?');
-  	
+
   	$('#formEditar').attr('action', "main?acao=telaFichaCompleta&id_ficha_Completa=" + id + "&isEdit=true");
 });
 
@@ -384,13 +385,13 @@ $('#modalVisualizar').on('show.bs.modal', function (event) {
 	var botao = $(event.relatedTarget);
 	var fichaS = botao.data('fichas');
 	var id = botao.data('id');
-	  	
+
 	carregaRotuloPDF(id);
 	carragarDadosFicha(id);
 	  	
 	$(this).find('.modal-title').text('Exportar para PDF');
 	$(this).find('#modal-descricao').text('');
-	$(this).find('#nome-receita').text(fichaS);  	
+	$(this).find('#nome-receita').text(fichaS);
 });
 
 $(document).on('show.bs.modal','#modalErro', function (event) {

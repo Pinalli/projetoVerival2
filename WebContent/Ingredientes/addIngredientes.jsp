@@ -9,10 +9,10 @@
 <head>
 	<script type="text/javascript" src="js/ingrediente.js"></script>
 </head>
-<div class="panel panel-success panel-addUser">
 
-	<div class="panel-heading text-center">Cadastro de Ingredientes</div>
-
+<div class="jumbotron mb-5">
+	<h1 style="color: #787a89;"><span class="icon-adicionar text-info"></span> Cadastro de Ingredientes</h1>
+	<hr />
 
 	<div class="panel-body">
 
@@ -24,89 +24,73 @@
 				<div class="form-group">
 					<div class="row">
 						<div class="col-sm-4">
-							<label class="form-label ages">Código</label> 
+							<label class="form-label ages"> Código: </span></label> 
 							<input class="form-control" id="cod" name="cod"	value="${param.cod}" type="value" maxlength="5" required> 
 						</div>
 						<div class="col-sm-8">
-							<label class="form-label ages"> Descrição</label> 
+							<label class="form-label ages"> Descrição: </span></label> 
 							<input class="form-control" id="descricao" name="descricao" value="${param.descricao}" type="text" maxlength="120" required>
 						</div>
 					</div>				
 					
 					<div class="row">						
 						<div class="col-sm-4">
-						    <label class="form-label ages">Carboidratos</label> 
+						    <label class="form-label ages">Carboidratos</span></label> 
 							<input class="form-control" id="carboidratos" name="carboidratos" value="${param.carboidratos}" type="number" min="0" step="any" onInput="multiplica('Carboidrato')" maxlength="5" required>
 						</div>
 						<div class="col-sm-8">
-						    <label class="form-label ages">Carboidratos Kcal</label> 
+						    <label class="form-label ages">Carboidratos Kcal </span></label> 
 							<input class="form-control"  readonly="readonly" id="kcalcarboidratos" name="kcalcarboidratos" value="${param.kcalproteinas}" type="text" maxlength="120" required>
 						</div>
 					</div>
 					
 					<div class="row">					
 						<div class="col-sm-4">
-							<label class="form-label ages">Proteínas</label> 
-							<input class="form-control"  id="proteinas" name="proteinas" value="${param.proteinas}" type="number" min="0" step="any" onInput="multiplica('Proteinas')" maxlength="5" required> 
+							<label class="form-label ages">Proteinas</span></label> 
+							<input class="form-control"  id="proteinas" name="proteinas" value="${param.proteinas}" type="number" min="0" step="any" onInput="multiplica('Proteinas')" maxlength="5" required>
 						</div>
 						<div class="col-sm-8">
-							<label class="form-label ages">Proteínas Kcal</label> 
+							<label class="form-label ages">Proteinas Kcal </span></label> 
 							<input class="form-control"  readonly="readonly" id="kcalproteinas" name="kcalproteinas" value="${param.kcalproteinas}" type="text" maxlength="5" required> 
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-4">
-						    <label class="form-label ages">Lipídios</label> 
+						    <label class="form-label ages">Lipidios</span></label> 
 							<input class="form-control" id="lipidios" name="lipidios" value="${param.lipidios}" type="number" min="0" step="any"  onInput="multiplica('Lipidios')" maxlength="5" required>
 						</div>
 
 						<div class="col-sm-8">
-						    <label class="form-label ages">Lipídios Kcal</label> 
+						    <label class="form-label ages">Lipidios Kcal </span></label> 
 							<input class="form-control" readonly="readonly" id="kcallipidios" name="kcallipidios" value="${param.kcallipidios}" type="text" maxlength="5" required>
 						</div>					
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-4">
+						    <label class="form-label ages">Gordura Saturada</span></label> 
+							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="${param.gordurasaturada}" type="number"min="0" step="any"  maxlength="5" required>
+						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-sm-4">
-						    <label class="form-label ages">Gordura Saturada</label> 
-							<input class="form-control" id="godurasaturada" name="gordurasaturada" value="${param.gordurasaturada}" type="number" min="0" step="any"  maxlength="5" required>
+						    <label class="form-label ages">Fibras Alimentares</span></label> 
+							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="${param.fibrasalimentares}" type="number" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-4">
-						    <label class="form-label ages">Fibras Alimentares</label> 
-							<input class="form-control" id="fibrasalimentares" name="fibrasalimentares" value="${param.fibrasalimentares}" type="number" min="0" step="any"  maxlength="5" required>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-4">
-						    <label class="form-label ages">Sódio</label> 
+						    <label class="form-label ages">Sódio</span></label>
 							<input class="form-control" id="sodio" name="sodio" value="${param.sodio}" type="number" min="0" step="any"  maxlength="5" required>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-6">
-							<label class="form-label ages">Fator de Correção</label> 
-							<input class="form-control" id="fatorcorrecao" name="fatorcorrecao"	value="${param.fatorcorrecao}" type="value" min="0" maxlength="5" required> 
-						</div>
-						<div class="col-sm-6">
-							<label class="form-label ages">Índice de Cocção</label> 
-							<input class="form-control" id="indicecoccao" name="indicecoccao" value="${param.indicecoccao}" type="value" min="0" maxlength="5" required>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-6">
-							<label class="form-label ages">Valor de Custo</label> 
-							<input class="form-control" id="custo" name="custo" value="${param.custo}" type="value" min="0" maxlength="5" required>
-						</div>
-						
-						<div class="col-sm-6">
-							<label class="form-label ages">Unidade de Medida</label> 
+							<label class="form-label ages"> Unidade de Medida</span></label> 
 							<select class="form-control input-sm" id="unidadeMedida" name="unidadeMedida">
 								<%
 									List<UnidadeMedida> listaUnidadesMedida = (List<UnidadeMedida>) request.getAttribute("listaUnidadesMedida");

@@ -14,13 +14,9 @@
 <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
 </head>
 
-
-<div class="panel panel-success panel-addUser">
-
-	<div class="panel-heading text-center">
-		Cadastro de Usuário
-	</div>
-
+<div class="jumbotron mb-5">
+	<h1 style="color: #787a89;"><span class="icon-adicionar text-info"></span>Cadastro de Usuário</h1>
+	<hr />
 
 	<div class="panel-body">
 
