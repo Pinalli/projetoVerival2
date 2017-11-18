@@ -42,9 +42,9 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="vertical-align:middle" width="28%">NOME DA PREPRA«√ÉO:</th>
+										<th style="vertical-align:middle" width="28%">NOME DA PREPRA«√O:</th>
 										<td id="nome-receita-ftc" colspan="3" style="vertical-align:middle"></td>
-										<td id="foto-ftc" rowspan="5" colspan="3" class="text-center">FOTO DA PREPARA«√ÉO</td>
+										<td id="foto-ftc" rowspan="5" colspan="3" class="text-center">FOTO DA PREPARA«√O</td>
 									</tr>
 									<tr>
 										<tr>
@@ -83,7 +83,7 @@
 										<td id="custo-porcao-ftc" colspan="6"></td>
 									</tr>
 									<tr>
-										<td class="text-center" colspan="7"><strong>UTENSÕçLIOS E EQUIPAMENTOS</strong></td>
+										<td class="text-center" colspan="7"><strong>UTENSÕLIOS E EQUIPAMENTOS</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="utensilios-equipamentos-ftc"></td>
@@ -101,7 +101,7 @@
 										<td colspan="7" id="montagem-ftc"></td>
 									</tr>
 										<tr>
-										<td class="text-center" colspan="7"><strong>ORIENTA«’áîES DE ARMAZENAMENTO</strong></td>
+										<td class="text-center" colspan="7"><strong>ORIENTA«’ES DE ARMAZENAMENTO</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="orientacoes-armazenamento-ftc"></td>
@@ -119,7 +119,7 @@
 										<td colspan="7" id="sabor-ftc"></td>
 									</tr>
 									<tr>
-											<td class="text-center" colspan="7"><strong>APRESENTA«√ÇO</strong></td>
+											<td class="text-center" colspan="7"><strong>APRESENTA«√O</strong></td>
 									</tr>
 									<tr>
 										<td colspan="7" id="apresentacao-ftc"></td>
@@ -151,9 +151,9 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="vertical-align:middle" width="28%">NOME DA PREPARA«á√ÉO:</th>
+										<th style="vertical-align:middle" width="28%">NOME DA PREPARA«√O:</th>
 										<td id="nome-receita-fts" style="vertical-align:middle"></td>
-										<td id="foto-fts" rowspan="5" class="text-center">FOTO DA PREPARA«á√ÉO</td>
+										<td id="foto-fts" rowspan="5" class="text-center">FOTO DA PREPARA«√O</td>
 									</tr>
 									<tr>
 										<tr>
@@ -195,7 +195,7 @@
 										<td colspan="3" id="montagem-fts"></td>
 									</tr>
 									<tr>
-										<td class="text-center" colspan="3"><strong>ORIENTA«’îES DE ARMAZEMENTO</strong></td>
+										<td class="text-center" colspan="3"><strong>ORIENTA«’ES DE ARMAZEMENTO</strong></td>
 									</tr>
 									<tr>
 										<td colspan="3" id="orientacoes-armazenamento-fts"></td>
@@ -224,8 +224,8 @@
 										<th rowspan="2"><img src="./img/faenfi.png" width="100%"></th>
 									</tr>
 									<tr>
-										<th colspan="2" class="text-center">INFORMA«á√ÇO NUTRICIONAL<br />
-											<h5 style="margin: 0; margin-top: 3px; padding: 0;">Por√ß√£o de <span id="modalMedida"></span> (<span id="modalMedidaCaseira"></span>)</h5>
+										<th colspan="2" class="text-center">INFORMA«√O NUTRICIONAL<br />
+											<h5 style="margin: 0; margin-top: 3px; padding: 0;">PorÁ„o de <span id="modalMedida"></span> (<span id="modalMedidaCaseira"></span>)</h5>
 										</th>
 									</tr>
 									<tr>
