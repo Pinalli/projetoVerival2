@@ -49,15 +49,15 @@
                         <label for="nome">Categoria</label>
                         <select class="custom-select" id="categoria" nome="categoria" required style="width: 100%; ">
                             <option selected disabled>Selecione uma categoria</option>
-                            <option value="1">Prato Principal</option>
-                            <option value="2">Salada</option>
-                            <option value="3">Sobremesa</option>
-                            <option value="4">Guarnição</option>
-                            <option value="5">Prato Base</option>
-                            <option value="6">Acompanhamento</option>
-                            <option value="7">Bebida</option>
-                            <option value="8">Lanche</option>
-                            <option value="9">Outros</option>
+                            <option value="PRATO_PRINCIPAL">Prato Principal</option>
+                            <option value="SALADA">Salada</option>
+                            <option value="SOBREMESA">Sobremesa</option>
+                            <option value="GUARNICAO">Guarnição</option>
+                            <option value="PRATO_BASE">Prato Base</option>
+                            <option value="ACOMPANHAMENTO">Acompanhamento</option>
+                            <option value="BEBIDA">Bebida</option>
+                            <option value="LANCHE">Lanche</option>
+                            <option value="OUTROS">Outros</option>
                         </select>
                     </div>
                 </div>

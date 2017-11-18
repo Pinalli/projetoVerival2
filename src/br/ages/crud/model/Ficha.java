@@ -24,6 +24,29 @@ public class Ficha {
 	private UnidadeMedida medida;
 	private Double qntMedidaCaseira;
 	private UnidadeMedidaCaseira medidaCaseira;
+
+	private Categoria categoria;
+
+	public enum Categoria {
+		PRATO_PRINCIPAL,
+		SALADA,
+		SOBREMESA,
+		GUARNICAO,
+		PRATO_BASE,
+		ACOMPANHAMENTO,
+		BEBIDA,
+		LANCHE,
+		OUTROS;
+
+//		private String nomeCategoria;
+//		Categoria(String categoria){
+//			this.nomeCategoria = categoria;
+//		}
+//
+//		public String getNomeCategoria(){
+//			return nomeCategoria;
+//		}
+	};
 	
 	private List<FichaItem> itens;
 	
@@ -33,6 +56,12 @@ public class Ficha {
 		super();
 		this.itens = new ArrayList<>();
 	}
+
+	public void setCategoria(Categoria categoria){
+		this.categoria = categoria;
+	}
+
+	public Categoria getCategoria(){ return categoria; }
 
 	public int getIdFicha() {
 		return idFicha;
