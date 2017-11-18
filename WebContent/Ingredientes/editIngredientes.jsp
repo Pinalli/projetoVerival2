@@ -93,10 +93,6 @@
 					
 					<div class="row">
 						<div class="col-sm-6">
-							<label class="form-label ages"> Valor de Custo   </label> 
-							<input class="form-control" id="custo" name="custo" value="<%=ingrediente.getCusto()%>" type="value" min="0" maxlength="5" required>
-						</div>
-						<div class="col-sm-6">
 							<label class="form-label ages"> Unidade de Medida</label> 
 							<select class="form-control input-sm" id="unidadeMedida" name="unidadeMedida">
 								<%

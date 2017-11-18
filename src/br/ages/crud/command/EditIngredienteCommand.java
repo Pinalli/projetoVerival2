@@ -36,9 +36,6 @@ public class EditIngredienteCommand implements Command{
 		String gorduraSaturada = request.getParameter("gordurasaturada");
 		String fibrasAlimentares = request.getParameter("fibrasalimentares");
 		String sodio = request.getParameter("sodio");
-		String fatorCorrecao = request.getParameter("fatorcorrecao").replace(",", ".");
-		String indiceCoccao = request.getParameter("indicecoccao").replace(",", ".");
-		String custo = request.getParameter("custo").replace(",", ".");
 		String unidadeMedida = request.getParameter("unidadeMedida");
 		
 		
@@ -57,9 +54,6 @@ public class EditIngredienteCommand implements Command{
 			ingrediente.setGorduraSaturada(Double.valueOf(gorduraSaturada));
 			ingrediente.setFibrasAlimentares(Double.valueOf(fibrasAlimentares));
 			ingrediente.setSodio(Double.valueOf(sodio));
-			/*ingrediente.setFatorCorrecao(Double.valueOf(fatorCorrecao));
-			ingrediente.setIndiceCoccao(Double.valueOf(indiceCoccao));*/
-			ingrediente.setCusto(Double.valueOf(custo));
 			ingrediente.setUnidadeMedida(unidadeMedida);		
 			
 			request.setAttribute("ingrediente", ingrediente);

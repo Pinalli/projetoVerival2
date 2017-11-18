@@ -310,13 +310,9 @@ public class IngredienteDAO {
             sql.append(" KCAL_PROTEINAS = ?,");
             sql.append(" LIPIDIOS = ?,");
             sql.append(" KCAL_LIPIDIOS = ?,");
-            sql.append(" GORDURA_Saturada = ?,");
-            sql.append(" GORDURA_TRANS = ?,");
+            sql.append(" GORDURA_SATURADA = ?,");
             sql.append(" FIBRAS_ALIMENTARES = ?,");
             sql.append(" SODIO = ?,");
-            sql.append(" FATOR_CORRECAO = ?,");
-            sql.append(" INDICE_COCCAO = ?,");
-            sql.append(" CUSTO = ?,");
             sql.append(" UNIDADE_MEDIDA = ?");
             sql.append(" WHERE");
             sql.append(" ID =" + id + " LIMIT 1");
@@ -332,13 +328,9 @@ public class IngredienteDAO {
 			statement.setDouble(7, ingrediente.getLipidios());
 			statement.setDouble(8, ingrediente.getKcalLipidios());
 			statement.setDouble(9, ingrediente.getGorduraSaturada());
-			//statement.setDouble(10, ingrediente.getGorduraTrans());
-			statement.setDouble(11, ingrediente.getFibrasAlimentares());
-			statement.setDouble(12, ingrediente.getSodio());
-			/*statement.setDouble(13, ingrediente.getFatorCorrecao());
-			statement.setDouble(14, ingrediente.getIndiceCoccao());*/
-			statement.setDouble(15, ingrediente.getCusto());
-			statement.setString(16, ingrediente.getUnidadeMedida());
+			statement.setDouble(10, ingrediente.getFibrasAlimentares());
+			statement.setDouble(11, ingrediente.getSodio());
+			statement.setString(12, ingrediente.getUnidadeMedida());
 
 			okei = statement.execute();
 		} catch (ClassNotFoundException | SQLException e) {
