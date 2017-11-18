@@ -73,8 +73,8 @@ $(document).ready(function(){
             "searchPlaceholder": "Buscar",
            	"paginate": {
                 "first":      "Primeiro",
-                "last":       "�ltimo",
-                "next":       "Pr�ximo",
+                "last":       "Último",
+                "next":       "Próximo",
                 "previous":   "Anterior"
 	        },
         },
