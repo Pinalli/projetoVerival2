@@ -18,14 +18,12 @@
 					<h4 class="text-center" style="color: #e4a911; margin-top: 30px;">História</h4>
 					<hr class="gradient"/>
 					<span>
-						O projeto da Ficha Técnica de Preparo(codinome Sabor e Preparo) teve início na disciplina de Prática na Agência Experimental I, do curso de
-						Bacharelado em Engenharia de Software da Faculdade de Informática/PUCRS em parceria com a Faculdade de Nutrição/PUCRS no segundo semestre de 2016.</br>
+						O projeto da Ficha Técnica de Preparo (codinome do sistema) teve início na disciplina de Prática na Agência Experimental I, do curso de
+						Bacharelado em Engenharia de Software da Faculdade de Informática/PUCRS em parceria com a Faculdade de Nutrição/PUCRS no segundo semestre de 2016.</br></br>
 						O objetivo das disciplinas de Prática na Agência Experimental é proporcionar aos estudantes de Engenharia de Software a oportunidade de vivenciar
-						uma experiência real na área de desenvolvimento de software através de projetos e dinâmicas reais, simulando, em alguns aspectos o ambiente de uma empresa.</br>
-						O Sabor e Preparo é uma aplicação web responsiva com funcionalidades de uma ficha técnica de preparo, basicamente, o objetivo da ficha é a
-						padronização das receitas referente a custo, porcionamento, modo de preparo, apresentação(através de fotos) e rendimento. Com as fichas
-						técnicas é possível elaborar o preço, o custo e manter a qualidade nutricional de todos os pratos do cardápio, é um instrumento de
-						auxilio fundamental em todos os estabelecimentos.
+						uma experiência real na área de desenvolvimento de software através de projetos e dinâmicas reais, simulando, em alguns aspectos o ambiente de uma empresa.</br></br>
+						O Sabor e Preparo é uma aplicação web responsiva com funcionalidades para criar fichas técnicas de preparo, que tem como o seu objetivo a
+						padronização de receitas referente a custo, porcionamento, modo de preparo, apresentação e rendimento.
 					</span>
 
 					<h4 class="text-center" style="color: #e4a911; margin-top: 30px;">Time</h4>
