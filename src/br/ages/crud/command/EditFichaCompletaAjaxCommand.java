@@ -65,7 +65,9 @@ public class EditFichaCompletaAjaxCommand implements Command {
 			ficha.setTipoFicha("c");
 			ficha.setItens(listaFichaItens);
 			ficha.setMedida(unidadeMedidaBO.buscaUnidadeMedidaId(Integer.parseInt(request.getParameter("unidadeMedidaId"))));
+			ficha.setQntMedida(Double.parseDouble(request.getParameter("qntUnidadeMedida")));
 			ficha.setMedidaCaseira(medidaCaseiraBO.buscaUnidadeMedidaCaseiraId(Integer.parseInt(request.getParameter("unidadeMedidaCaseiraId"))));
+			ficha.setQntMedidaCaseira(Double.parseDouble(request.getParameter("qntUnidadeMedidaCaseira")));
 			
 			if(fichaCompletaBO.validarFichaCompleta(ficha)){
 				fichaCompletaBO.editarFichaCompleta(ficha);

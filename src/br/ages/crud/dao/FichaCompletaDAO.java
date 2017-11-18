@@ -286,6 +286,7 @@ public class FichaCompletaDAO {
             statement.setString(11, fichaCompleta.getUtensilios());
             statement.setDouble(12, fichaCompleta.getTemperatura());
 			statement.setDouble(13,fichaCompleta.getQntMedida());
+			//ta quebrando aki
 			statement.setInt(14,fichaCompleta.getMedida().getIdUnidadeMedida());
 			statement.setDouble(15,fichaCompleta.getQntMedidaCaseira());
 			statement.setInt(16,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
