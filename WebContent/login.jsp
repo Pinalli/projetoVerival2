@@ -28,6 +28,7 @@
         <img src="img/sabor-e-preparo-logo-1.png" />
     </div>
     <div class="login-form-body">
+    	<jsp:include page="template/modalSenha.jsp"></jsp:include>
         <form class="form-horizontal" method="post" action="main?acao=login">
             <div class="form-group">
                 <div class="col-sm-12">
