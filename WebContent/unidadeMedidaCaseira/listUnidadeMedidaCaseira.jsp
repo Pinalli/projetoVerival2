@@ -6,7 +6,7 @@
 <jsp:include page="../template/modalUnidadeMedidaCaseira.jsp"></jsp:include>
 
 <div class="jumbotron mb-5">
-	<h1 style="color: #787a89;"><span class="icon-medida-caseira text-info"></span> Lista de Unidade de Medidas Caseira</h1>
+	<h1 style="color: #787a89;"><span class="icon-medida-caseira text-info"></span> Lista de Medidas Caseiras</h1>
 	<hr />
     <div class="panel-body">
     
@@ -17,7 +17,7 @@
                 <thead>
                 <tr>
                     <th style="text-align: center;">Nome</th>
-                    <th style="text-align: center;">Sigla</th>
+                    <th style="text-align: center;">Abreviação</th>
                     <th style="text-align: center;">Editar</th>
                     <th style="text-align: center;">Excluir</th>
                 </tr>
@@ -65,16 +65,16 @@ $(document).ready(function(){
     $('#listaUnidadeMedidaCaseira').dataTable({
     	"language": {
             "lengthMenu": "_MENU_ Registros",
-            "zeroRecords": "Sem registros - sorry",
-            "info": "Mostrando _PAGE_ de _PAGES_ pÃ¡ginas",
-            "infoEmpty": "Nenhum registros encontrados!",
-            "infoFiltered": "(Filtrado _MAX_ do total deregistros)",
+            "zeroRecords": "Sem registros",
+            "info": "Mostrando _PAGE_ de _PAGES_ páginas",
+            "infoEmpty": "Nenhum registro encontrados!",
+            "infoFiltered": "(Filtrado _MAX_ do total de registros)",
             "search":"",
             "searchPlaceholder": "Buscar",
            	"paginate": {
                 "first":      "Primeiro",
-                "last":       "Ãšltimo",
-                "next":       "PrÃ³ximo",
+                "last":       "Úšltimo",
+                "next":       "Próximo",
                 "previous":   "Anterior"
 	        },
         },
