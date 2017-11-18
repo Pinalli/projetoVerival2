@@ -22,6 +22,7 @@ $(document).ready(function() {
 		var unidadeMedidaId = $('#select-unidade-medida-rotulo').val();
 		var qntUnidadeMedidaCaseira = $('#qnt-unidade-medida-caseira-rotulo').val();
 		var unidadeMedidaCaseiraId = $('#select-medida-caseira-rotulo').val();
+		var categoria = $('#categoria').val();
 		var itens = [];
 		
 		console.log("+++ 1 +++");
@@ -63,7 +64,8 @@ $(document).ready(function() {
 			qntUnidadeMedida:qntUnidadeMedida,
 			unidadeMedidaId:unidadeMedidaId,
 			qntUnidadeMedidaCaseira:qntUnidadeMedidaCaseira,
-			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId
+			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId,
+			categoria:categoria
 		};
 
 		//Valida
