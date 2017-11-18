@@ -38,14 +38,20 @@ public class Ficha {
 		LANCHE,
 		OUTROS;
 
-//		private String nomeCategoria;
-//		Categoria(String categoria){
-//			this.nomeCategoria = categoria;
-//		}
-//
-//		public String getNomeCategoria(){
-//			return nomeCategoria;
-//		}
+		public String formatted() {
+			switch (this) {
+				case PRATO_BASE: return "Prato Base";
+				case PRATO_PRINCIPAL: return "Prato Principal";
+				case BEBIDA: return "Bebida";
+				case LANCHE: return "Lanche";
+				case OUTROS: return "Outros";
+				case GUARNICAO: return "Guarnição";
+				case SALADA: return "Salada";
+				case SOBREMESA: return "Sobremesa";
+				case ACOMPANHAMENTO: return "Acompanhamento";
+			}
+			return "Outros";
+		}
 	};
 	
 	private List<FichaItem> itens;
@@ -61,7 +67,7 @@ public class Ficha {
 		this.categoria = categoria;
 	}
 
-	public Categoria getCategoria(){ return categoria; }
+	public String getCategoria(){ return categoria.toString(); }
 
 	public int getIdFicha() {
 		return idFicha;

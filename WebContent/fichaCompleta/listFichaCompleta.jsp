@@ -25,7 +25,7 @@
         %>
         <tr>
             <td><%= ficha.getNome() %></td>
-            <td>Prato Principal</td>
+            <td><%= ficha.getCategoria().formatted() %></td>
             <td class="text-center">
                 <form action="" method="post">
                     <a href="#" onclick="preencheDados();" data-toggle="modal" data-id="<%= ficha.getIdFicha() %>" data-fichaS="<%= ficha.getNome() %>" data-target="#modalVisualizar" title="Visualizar">

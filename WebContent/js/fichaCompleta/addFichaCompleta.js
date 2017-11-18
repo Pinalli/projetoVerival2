@@ -21,7 +21,7 @@ $(document).ready(function() {
 		var unidadeMedidaId = $('#select-unidade-medida-rotulo').val();
 		var qntUnidadeMedidaCaseira = $('#qnt-unidade-medida-caseira-rotulo').val();
 		var unidadeMedidaCaseiraId = $('#select-medida-caseira-rotulo').val();
-		var categoria = $('#select[name="categoria"]').val();
+		var categoria = $('#categoria').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){

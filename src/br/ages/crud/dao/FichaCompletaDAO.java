@@ -58,7 +58,7 @@ public class FichaCompletaDAO {
             		+ "ROTULO_QNT_MEDIDA,"
             		+ "ROTULO_ID_MEDIDA,"
             		+ "ROTULO_QNT_MEDIDA_CASEIRA,"
-            		+ "ROTULO_ID_MEDIDA_CASEIRA"
+            		+ "ROTULO_ID_MEDIDA_CASEIRA,"
 					+ "CATEGORIA"
             		+ ")");
             sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
