@@ -6,7 +6,7 @@
 <jsp:include page="../template/modalIngrediente.jsp"></jsp:include>
 
 <div class="jumbotron mb-5">
-    <h1 style="color: #787a89;"><span class="icon-medida-caseira text-info"></span> Lista de Ingredientes</h1>
+    <h1 style="color: #787a89;"><span class="icon-ingredientes text-info"></span> Lista de Ingredientes</h1>
     <hr />
     <div class="panel-body">
         <jsp:include page="/template/msg.jsp"></jsp:include>
