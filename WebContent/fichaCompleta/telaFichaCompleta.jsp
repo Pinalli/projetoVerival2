@@ -181,12 +181,12 @@
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label> <input
 									type="number" readonly="readonly" class="form-control"
-									id="valor-unitario" placeholder="Import">
+									id="valorUnitario" placeholder="Import">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="custo-real" class="">Custo Real</label> <input
 									type="number" readonly="readonly" class="form-control"
-									id="custo-real" placeholder="Import">
+									id="custoReal" placeholder="Import">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de
@@ -217,7 +217,7 @@
 					<label for="valorTotal" id="preco"
 						class="col-xs-12 col-sm-12 form-control-static text-center">Valor Total</label>
 					<input type="number" name="custoTotal" id="custoTotal"
-						class="form-control text-center box-transparent" value = "0"
+						class="form-control text-center box-transparent"
 						placeholder="Valor Total" />
 			</div>
 			<div class="row">

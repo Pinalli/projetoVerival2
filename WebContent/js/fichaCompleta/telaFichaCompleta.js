@@ -149,7 +149,7 @@ $(document).ready(function() {
 					}
 					var valor = $("#custoTotal").val();
 					if(valor>0){
-						$("#custoTotal").val(valor-(Number(target.find("#custo-realShow").val())));
+						$("#custoTotal").val(valor-(Number(target.find("#custoReal").val())));
 					}
 				});				
 				qntIngredientes--;			
@@ -297,8 +297,8 @@ $(document).ready(function() {
 		row.find("#ptn").val(ingrediente.proteinas);
 		row.find("#lip").val(ingrediente.lipidios);
 		row.find("#kcal").val(kcal);
-		row.find("#valor-unitario").val(ingrediente.custo);
-		row.find("#custo-realShow").val(0);
+		row.find("#valorUnitario").val(ingrediente.custo);
+		row.find("#custoRealShow").val(0);
 		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
 		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
 	}
@@ -434,7 +434,7 @@ function updateCusto(){
 	$(".table-row").each(function(){
 		var row = $(this);
 		console.log(custoTotalGlobal);
-		var select = row.find("#custo-realShow");
+		var select = row.find("#custoReal");
 		if(select.val()){
 			custoTotalGlobal+=Number(select.val());				
 		}

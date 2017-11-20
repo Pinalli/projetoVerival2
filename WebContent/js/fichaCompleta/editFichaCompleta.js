@@ -18,7 +18,6 @@ $(document).ready(function() {
 		var sabor = $('textarea[name="sabor"]').val();;
 		var apresentacao = $('textarea[name="apresentacao"]').val();
 		var temperatura = $('textarea[name="temperatura"]').val();
-		var custoTotal = $('textarea[name="temperatura"]').val();
 		var itens = [];
 		
 		$(".table-row").each(function(){
@@ -28,10 +27,10 @@ $(document).ready(function() {
 					idMedidaCaseira : $(this).find('select[name="select-medida-caseira"]').val(),
 					idIngrediente : $(this).find('select[name="select-ingredientes"]').val(),
 					quantidadeUnidadeMedida : $(this).find('input[name="qnt-unidade-medida"]').val(),
-					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),					
+					quantidadeMedidaCaseira : $(this).find('input[name="qnt-medida-caseira"]').val(),	
+					perCapita: $(this).find('#custoReal').val(),
+					valorUnit: $(this).find('#valorUnitario').val(),				
 					idFicha : idFicha,					
-					perCapita: $(this).find('#custo-real').val(),
-					valorUnit: $(this).find('#valor-unitario').val(),
 					operacao: $(this).find('#operacao').val(),
 			};
 			itens.push(item);
@@ -53,7 +52,6 @@ $(document).ready(function() {
 			sabor:sabor,
 			apresentacao:apresentacao,
 			temperatura:temperatura,
-			custoTotal,
 			itens:JSON.stringify(itens)
 		};
 		

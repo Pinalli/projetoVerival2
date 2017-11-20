@@ -19,9 +19,7 @@
             <thead>
                 <tr>                    
                     <th style="text-align: center;">Código</th>
-					<th style="text-align: center;">Descrição</th>					
-					<th style="text-align: center;">Fator Correção</th>
-					<th style="text-align: center;">Índice Cocção</th>					
+					<th style="text-align: center;">Descrição</th>						
 					<th style="text-align: center;"></th>
 					<th style="text-align: center;"></th>
                 </tr>

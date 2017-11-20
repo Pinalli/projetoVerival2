@@ -52,7 +52,6 @@ public class EditFichaCompletaAjaxCommand implements Command {
 			ficha.setTextura(request.getParameter("textura"));
 			ficha.setSabor(request.getParameter("sabor"));
 			ficha.setApresentacao(request.getParameter("apresentacao"));
-			ficha.setCustoTotal(Float.parseFloat(request.getParameter("custoTotal")));
 			ficha.setIdEmpresa(1);
 			ficha.setTipoFicha("c");
 			ficha.setItens(listaFichaItens);

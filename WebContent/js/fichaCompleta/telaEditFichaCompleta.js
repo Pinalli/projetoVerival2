@@ -162,7 +162,7 @@ $(document).ready(function() {
 					}			
 					var valor = $("#valorTotalFicha").val();
 					if(valor>0){
-						$("#custoTotal").val(valor-(Number(target.find("#custo-realShow").val())));
+						$("#custoTotal").val(valor-(Number(target.find("#custoReal").val())));
 					}
 				});				
 				qntIngredientes--;			
@@ -340,8 +340,8 @@ $(document).ready(function() {
  		row.find("#ptn").val(ingrediente.proteinas);
  		row.find("#lip").val(ingrediente.lipidios);
  		row.find("#kcal").val(kcal);
- 		row.find("#valor-unitario").val(ingrediente.custo);
- 		row.find("#custo-real").val(ingrediente.custo);
+ 		row.find("#valorUnitario").val(ingrediente.custo);
+ 		row.find("#custoReal").val(ingrediente.custo);
  		row.find("#fator-de-correcao").val(ingrediente.fatorCorrecao);
  		row.find("#indice-de-coccao").val(ingrediente.indiceCoccao);
  	}
@@ -406,11 +406,7 @@ function multiplica(row, id){
 		x = row.find("#kcal").val()*row.find("#qnt-unidade-medida").val();
 		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 		else y =x;
-		row.find("#kcalShow").val(y);
-		row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val());
-		if (row.find("#valor-unitarioShow").val().length > 5){
-			row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
-		    }
+		row.find("#kcalShow").val(y);     
 		x = row.find("#fator-de-correcao").val()*row.find("#qnt-unidade-medida").val();
 		if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 		else y =x;
@@ -485,7 +481,7 @@ function updateCusto(){
 	$(".table-row").each(function(){
 		var row = $(this);
 		console.log(custoTotalGlobal);
-		var select = row.find("#custo-realShow");
+		var select = row.find("#custoReal");
 		if(select.val()){
 			custoTotalGlobal+=Number(select.val());				
 		}

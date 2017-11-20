@@ -138,11 +138,11 @@
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label> 
-								<input	type="number" class="form-control" min="0"	id="valor-unitario" placeholder="Valor unitário">
+								<input	type="number" class="form-control" min="0"	id="valorUnitario" placeholder="Valor unitário">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="custo-real" class="">Custo Real</label>
-								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" onChange="updateCusto()">
+								<input type="number" class="form-control" id="custoReal" placeholder="Custo real" onChange="updateCusto()">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de Correção</label>
@@ -239,11 +239,11 @@
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="valor-unitario" class="">Valor Unitário</label> 
-								<input	type="number" class="form-control" min="0"	id="valor-unitario" placeholder="Valor unitário">
+								<input	type="number" class="form-control" min="0"	id="valorUnitario" placeholder="Valor unitário">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="custo-real" class="">Custo Real</label>
-								<input type="number" class="form-control" id="custo-realShow" placeholder="Custo real" onChange="updateCusto()">
+								<input type="number" class="form-control" id="custoReal" placeholder="Custo real" onChange="updateCusto()">
 							</div>
 							<div class="form-group col-md-2 col-xs-4">
 								<label for="fator-de-correcao" class="">Fator de Correção</label>
