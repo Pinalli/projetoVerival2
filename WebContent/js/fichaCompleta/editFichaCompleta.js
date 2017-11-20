@@ -11,7 +11,7 @@ $(document).ready(function() {
 		var foto = $('input[name="imgFile"]').attr('value');
 		var utensiliosEquipamentos = $('textarea[name="utensiliosEquipamentos"]').val();
 		var modoPreparo = $('textarea[name="modoPreparo"]').val();
-		var tempoPreparo = $('input[name="tempoPreparo"]').val();
+		var tempoPreparo = $('input[name="tempoDePreparo"]').val();
 		var montagem = $('textarea[name="montagem"]').val();
 		var orientecoesArmazenamento = $('textarea[name="orientacaoArmazenamento"]').val();
 		var textura = $('textarea[name="textura"]').val();
@@ -22,9 +22,12 @@ $(document).ready(function() {
 		var unidadeMedidaId = $('#select-unidade-medida-rotulo').val();
 		var qntUnidadeMedidaCaseira = $('#qnt-unidade-medida-caseira-rotulo').val();
 		var unidadeMedidaCaseiraId = $('#select-medida-caseira-rotulo').val();
+		var categoria = $('#categoria').val();
 		var itens = [];
 		
+		console.log("+++ 1 +++");
 		$(".table-row").each(function(){
+			console.log("+++ 2 +++");
 			var item = {
 					idFichaItem : $(this).find("#idFichaItem").val(),
 					idUnidadeMedida : $(this).find('select[name="select-unidade-medida"]').val(),
@@ -61,7 +64,8 @@ $(document).ready(function() {
 			qntUnidadeMedida:qntUnidadeMedida,
 			unidadeMedidaId:unidadeMedidaId,
 			qntUnidadeMedidaCaseira:qntUnidadeMedidaCaseira,
-			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId
+			unidadeMedidaCaseiraId:unidadeMedidaCaseiraId,
+			categoria:categoria
 		};
 
 		//Valida

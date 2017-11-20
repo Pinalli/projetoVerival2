@@ -1,12 +1,8 @@
-    </div>
-</body>
-
-<footer>
-<!-- <% String v = (String) session.getAttribute("versao"); 
-	String ver = v.equals("$1.0.${build.number}") ? "homologação"  : v;
-%> --> 
-	<br>
-	<p style="text-align: center;" >&copy; Copyright AGES 2016 - Todos os direitos reservados <!-- | v<%=ver %> --> </p>
-</footer>
-
+	    </div>
+	    
+<!--    <div class="footer"> -->
+	    <div style="display: block; margin: 30px;">
+			<div class="text-center" style="width:100%">© Copyright AGES 2017 - Todos os direitos reservados</div>
+	    </div>
+	</body>
 </html>

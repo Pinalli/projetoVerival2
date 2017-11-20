@@ -22,13 +22,13 @@ public class MensagemContantes {
 	public static final String MSG_ERR_CAMPO_DATA_MAIOR_RECOMENDADO = "Campo ? com mais de 10 caracteres!";
 	public static final String MSG_ERR_CAMPO_DATA_MENOR_RECOMENDADO = "Campo ? com menos de 10 caracteres!";
 	public static final String MSG_ERR_CAMPO_DATA_INVALIDO = "Ocorreu algum problema no envio da data";	
-	public static final String MSG_ERR_SENHA_INVALIDA = "A senha do usuario ï¿½ invï¿½lida: Deve ter no mï¿½nimo 3 e no mï¿½ximo 8 caracteres, apenas nï¿½meros e letras!";
+	public static final String MSG_ERR_SENHA_INVALIDA = "Senha inválida: Deve ter no mínimo 3 e no máximo 8 caracteres, apenas números e letras!";
 	public static final String MSG_ERR_CPF_INVALIDA = "CPF invalido!";
 	public static final String MSG_ERR_CAMPO_ENDERECO_OBRIGATORIO = "Campo Endereço obrigatorio!";
 	public static final String MSG_ERR_CAMPO_TELEFONE_OBRIGATORIO = "Campo Telefone obrigatorio!";
 	public static final String MSG_ERR_CAMPO_UF_OBRIGATORIO = "Campo UF obrigatorio!";
-	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuaï¿½ï¿½o e caracteres especiais!<br>Exemplo correto: ages_user@acad.pucrs.br";
-	public static final String MSG_ERR_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo correto: Joï¿½o Cardoso";
+	public static final String MSG_ERR_EMAIL_INVALIDO = "E-mail com formato inválido.<br>não use acentuação e caracteres especiais!<br>Exemplo correto: ages_user@acad.pucrs.br";
+	public static final String MSG_ERR_NOME_INVALIDO = "Nome com formato inválido.<br>Exemplo correto: João Cardoso";
 	public static final String MSG_ERR_USUARIO_JA_EXISTENTE = "Usuário ? já cadastrado!";
 	public static final String MSG_ERR_CPF_JA_EXISTENTE = "CPF ? já cadastrado!";
 	public static final String MSG_ERR_REMOVE_USUARIO_EM_PROJETO = "Este Usuário já está em algum projeto e não pode ser removido!";
@@ -59,26 +59,26 @@ public class MensagemContantes {
 	
 	//msgs das Unidades de Medida Caseira
 	
-	public static final String MSG_SUC_REMOVE_UNIDADE_MEDIDA_CASEIRA = "Unidade de medida caseira ? removida com sucesso";
-	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA_CASEIRA = " Unidade de Medida Caseira ? altera com sucesso!";
-	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA_CASEIRA = "Unidade de Medida Caseira ? cadastrada com sucesso!";	
-	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA_CASEIRA = " Unidade de Medida Caseira ? não pode ser editada";
-	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_JA_EXISTENTE = " Unidade de Medida Caseira ? já cadastrada";
-	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_DADOS_INVALIDOS = "Dados da Unidade de Medida Caseira inválidos ou inconsistentes!";
-	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_NOME_INVALIDO = "A descrição da origem da unidade de medida Caseira deve ter de 1 a 60 caracteres";
-	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_SINGLA_INVALIDA = "A sigla da unidade de medida Caseira deve ter de 1 a 10 caracteres";
-	public static final String MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA_EM_PROJETO = "Esta Unidade de Medida Caseira está em algum projeto e não pode ser removido!";
+	public static final String MSG_SUC_REMOVE_UNIDADE_MEDIDA_CASEIRA = "Medida Caseira ? removida com sucesso";
+	public static final String MSG_SUC_EDICAO_UNIDADE_MEDIDA_CASEIRA = "Medida Caseira ? alterada com sucesso!";
+	public static final String MSG_SUC_CADASTRO_UNIDADE_MEDIDA_CASEIRA = "Medida Caseira ? cadastrada com sucesso!";	
+	public static final String MSG_ERR_EDICAO_UNIDADE_MEDIDA_CASEIRA = "Medida Caseira ? não pode ser editada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_JA_EXISTENTE = "Medida Caseira ? já cadastrada";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_DADOS_INVALIDOS = "Dados da Medida Caseira inválidos ou inconsistentes!";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_NOME_INVALIDO = "A descrição da origem Medida Caseira deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_UNIDADE_MEDIDA_CASEIRA_SINGLA_INVALIDA = "A abreviação da Medida Caseira deve ter de 1 a 10 caracteres";
+	public static final String MSG_ERR_REMOVE_UNIDADE_MEDIDA_CASEIRA_EM_PROJETO = "Esta Medida Caseira está em algum projeto e não pode ser removido!";
 	
 	//msgs das Ingredientes
-	public static final String MSG_SUC_REMOVE_INGREDIENTE = " Ingrediente ? removida com sucesso";
-	public static final String MSG_SUC_EDICAO_INGREDIENTE = " Ingrediente ? altera com sucesso!";
-	public static final String MSG_SUC_CADASTRO_INGREDIENTE = " Ingrediente ? cadastrada com sucesso!";	
-	public static final String MSG_ERR_EDICAO_INGREDIENTE = " Ingrediente ? não pode ser editada";
-	public static final String MSG_ERR_INGREDIENTE_JA_EXISTENTE = " Ingrediente ? já cadastrada";
+	public static final String MSG_SUC_REMOVE_INGREDIENTE = " Ingrediente ? removido com sucesso";
+	public static final String MSG_SUC_EDICAO_INGREDIENTE = " Ingrediente ? alterado com sucesso!";
+	public static final String MSG_SUC_CADASTRO_INGREDIENTE = " Ingrediente ? cadastrado com sucesso!";	
+	public static final String MSG_ERR_EDICAO_INGREDIENTE = " Ingrediente ? não pode ser editado";
+	public static final String MSG_ERR_INGREDIENTE_JA_EXISTENTE = " Ingrediente ? já cadastrado";
 	public static final String MSG_ERR_CODIGO_JA_USADO = "Código já usado";
-	public static final String MSG_ERR_INGREDIENTE_DADOS_INVALIDOS = "Dados da Ingrediente inválidos ou inconsistentes!";
-	public static final String MSG_ERR_INGREDIENTE_NOME_INVALIDO = "A descrição da origem da Ingrediente deve ter de 1 a 60 caracteres";
-	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do ingrediente deve ser somente números";
+	public static final String MSG_ERR_INGREDIENTE_DADOS_INVALIDOS = "Dados do Ingrediente inválidos ou inconsistentes!";
+	public static final String MSG_ERR_INGREDIENTE_NOME_INVALIDO = "A descrição da origem do Ingrediente deve ter de 1 a 60 caracteres";
+	public static final String MSG_ERR_INGREDIENTE_CODIGO_INVALID0 = "O código do Ingrediente deve ser somente números";
 	public static final String MSG_ERR_REMOVE_INGREDIENTE_EM_PROJETO = "Este Ingrediente está em algum projeto e não pode ser removido!";
 	
 	//msgs de Empresa

@@ -37,6 +37,7 @@ public class LoginCommand implements Command {
 			
 			}
 		} catch (NegocioException e) {
+			e.printStackTrace();
 			request.setAttribute("msgErro", e.getMessage());
 			return proxima;
 		}

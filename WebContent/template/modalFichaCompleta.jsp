@@ -1,23 +1,25 @@
-<div class="modal fade" id="modalExcluir" role="dialog">
-	<div class="modal-dialog">
+<div class="modal fade" id="modalExcluir" role="dialog" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header modal-exclude">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title"></h4>
-			</div>
+        		<h5 class="modal-title"></h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
 			<div class="modal-body">
 				<p id="modal-descricao"></p>
 			</div>
 			<div class="modal-footer">
 				<form action="" method="post" id="formExcluir">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					<button type="submit" class="btn btn-exclude">Excluir</button>
+					<button type="submit" class="btn btn-danger">Excluir</button>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
-
+	
 <div class="modal fade" id="modalVisualizar" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -28,12 +30,12 @@
 			<div class="modal-body">
 				<ul class="nav nav-tabs nav-justified" role="tablist">
 					<li role="presentation" class="active"><a href="#ftp" aria-controls="ftp" role="tab" data-toggle="tab">Ficha Técnica de Preparo</a></li>
-					
+
 					<li role="presentation"><a href="#ftpSimplificada" aria-controls="ftpSimplificada" role="tab" data-toggle="tab">Ficha Técnica Simplificada</a></li>
-						
+
 					<li role="presentation"><a href="#rtl" aria-controls="rtl" role="tab" data-toggle="tab">Rótulo Nutricional</a></li>
 				</ul>
-			
+
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane fade in active" id="ftp" style="width: 85%; margin: 0 auto; margin-top: 30px">
 						<div class="container-fluid active" id="renderPDF_completa">
@@ -68,7 +70,7 @@
 										<th class="text-center" style="vertical-align:middle">R$ Unitário</th>
 										<th class="text-center" style="vertical-align:middle">R$ Parcial</th>
 									</tr>
-								
+
 								</thead>
 								<tbody id="ingredientes-ftc"></tbody>
 								<tbody>
@@ -84,7 +86,7 @@
 										<td class="text-center" colspan="7"><strong>UTENSÍLIOS E EQUIPAMENTOS</strong></td>
 									</tr>
 									<tr>
-										<td colspan="7" id="utensilios-equipamentos-ftc"></td> 
+										<td colspan="7" id="utensilios-equipamentos-ftc"></td>
 									</tr>
 									<tr>
 										<td class="text-center" colspan="7"><strong>MODO DE PREPARO</strong></td>
@@ -128,13 +130,13 @@
 									<tr>
 										<td colspan="7" id="temperatura-ftc"></td>
 									</tr>
-									
+
 								</tbody>
 							</table>
 						</div>
 						<div class="container-fluid">
 							<form action="" method="post" id="formVisualizar" class="row">
-<!-- 								<div class="col-md-8">Tamanho para impressão customizada (entre 14.5cm e 19.5cm): -->
+<!-- 								<div class="col-md-8">Tamanho para impressÃ£o customizada (entre 14.5cm e 19.5cm): -->
 <!-- 									<input type="text" id="size" value="" placeholder="Insira o valor" /> -->
 <!-- 								</div> -->
 								<div class="col-md-4 text-left">
@@ -143,13 +145,13 @@
 							</form>
 						</div>
 					</div>
-					
+
 					<div role="tabpanel" class="tab-pane fade" id="ftpSimplificada" style="width:85%;margin:0 auto;margin-top:30px">
 						<div class="container-fluid" id="renderPDF_simples">
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th style="vertical-align:middle" width="28%">NOME DA PREPRAÇÃO:</th>
+										<th style="vertical-align:middle" width="28%">NOME DA PREPARAÇÃO:</th>
 										<td id="nome-receita-fts" style="vertical-align:middle"></td>
 										<td id="foto-fts" rowspan="5" class="text-center">FOTO DA PREPARAÇÃO</td>
 									</tr>
@@ -178,7 +180,7 @@
 										<td class="text-center" colspan="7"><strong>UTENSÍLIOS E EQUIPAMENTOS</strong></td>
 									</tr>
 									<tr>
-										<td colspan="3" id="utensilios-equipamentos-fts"></td> 
+										<td colspan="3" id="utensilios-equipamentos-fts"></td>
 									</tr>
 									<tr>
 										<td class="text-center" colspan="3"><strong>MODO DE PREPARO</strong></td>
@@ -203,7 +205,7 @@
 						</div>
 						<div class="container-fluid">
 							<form action="" method="post" id="formVisualizar" class="row">
-<!-- 								<div class="col-md-8">Tamanho para impressão customizada (entre 14.5cm e 19.5cm): -->
+<!-- 								<div class="col-md-8">Tamanho para impressÃ£o customizada (entre 14.5cm e 19.5cm): -->
 <!-- 									<input type="text" id="size" value="" placeholder="Insira o valor" /> -->
 <!-- 								</div> -->
 								<div class="col-md-4 text-left">
@@ -268,7 +270,7 @@
 										<td id="modalFibraAlimVD"></td>
 									</tr>
 									<tr>
-										<td>Sódio</td>
+										<td>SÃ³dio</td>
 										<td id="modalSodioQP"></td>
 										<td id="modalSodioVD"></td>
 									</tr>
@@ -283,10 +285,10 @@
 								</tfoot>
 							</table>
 						</div>
-					
+
 						<div class="container-fluid">
 							<form action="" method="post" id="formVisualizar" class="row">
-<!-- 								<div class="col-md-8">Tamanho para impressão customizada (entre 14.5cm e 19.5cm): -->
+<!-- 								<div class="col-md-8">Tamanho para impressÃ£o customizada (entre 14.5cm e 19.5cm): -->
 <!-- 									<input type="text" id="size" value="" placeholder="Insira o valor" /> -->
 <!-- 								</div> -->
 								<div class="col-md-4 text-left">
@@ -295,10 +297,10 @@
 							</form>
 						</div>
 					</div>
-				</div>				
-				
+				</div>
+
 			</div>
-			
+
 		</div>
 	</div>
 </div>
@@ -349,7 +351,6 @@
 		    </div>
 	  	</div>
 	</div>
-	   
 	
 <script>
 $(document).on('show.bs.modal','#modalExcluir', function (event) {
@@ -359,7 +360,7 @@ $(document).on('show.bs.modal','#modalExcluir', function (event) {
 
   	$(this).find('.modal-title').text('Excluir Ficha Completa');
   	$(this).find('#modal-descricao').text('Realmente deseja excluir a ficha Completa(' + fichaS + ')?');
-  	
+
   	$('#formExcluir').attr('action', "main?acao=removerFichaCompleta&id_ficha_Completa=" + id);
 });
 
@@ -367,10 +368,10 @@ $(document).on('show.bs.modal','#modalEditar', function (event) {
   	var botao = $(event.relatedTarget);
   	var fichaS = botao.data('fichas');
   	var id = botao.data('id');
-  	
+
   	$(this).find('.modal-title').text('Editar Ficha Completa');
   	$(this).find('#modal-descricao').text('Realmente deseja editar a ficha Completa (' + fichaS + ') ?');
-  	
+
   	$('#formEditar').attr('action', "main?acao=telaFichaCompleta&id_ficha_Completa=" + id + "&isEdit=true");
 });
 
@@ -384,13 +385,13 @@ $('#modalVisualizar').on('show.bs.modal', function (event) {
 	var botao = $(event.relatedTarget);
 	var fichaS = botao.data('fichas');
 	var id = botao.data('id');
-	  	
+
 	carregaRotuloPDF(id);
 	carragarDadosFicha(id);
 	  	
 	$(this).find('.modal-title').text('Exportar para PDF');
 	$(this).find('#modal-descricao').text('');
-	$(this).find('#nome-receita').text(fichaS);  	
+	$(this).find('#nome-receita').text(fichaS);
 });
 
 $(document).on('show.bs.modal','#modalErro', function (event) {

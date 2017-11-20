@@ -58,9 +58,10 @@ public class FichaCompletaDAO {
             		+ "ROTULO_QNT_MEDIDA,"
             		+ "ROTULO_ID_MEDIDA,"
             		+ "ROTULO_QNT_MEDIDA_CASEIRA,"
-            		+ "ROTULO_ID_MEDIDA_CASEIRA"
+            		+ "ROTULO_ID_MEDIDA_CASEIRA,"
+					+ "CATEGORIA"
             		+ ")");
-            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 
@@ -84,6 +85,7 @@ public class FichaCompletaDAO {
 			statement.setInt(16,fichaCompleta.getMedida().getIdUnidadeMedida());
 			statement.setDouble(17,fichaCompleta.getQntMedidaCaseira());
 			statement.setInt(18,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
+			statement.setString(19,fichaCompleta.getCategoria().toString());
 
             statement.executeUpdate();
 
@@ -136,6 +138,7 @@ public class FichaCompletaDAO {
             		+ "TEMPO_DE_PREPARO, "
             		+ "UTENSILIOS_E_EQUIPAMENTOS, "
             		+ "TEMPERATURA, "
+					+ "CATEGORIA, "
             		+ "APRESENTACAO FROM TB_FICHA WHERE TIPO_FICHA = 'c' ");
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
@@ -157,6 +160,7 @@ public class FichaCompletaDAO {
                 dto.setTempoPreparo(resultset.getString("TEMPO_DE_PREPARO"));
                 dto.setUtensilios(resultset.getString("UTENSILIOS_E_EQUIPAMENTOS"));
                 dto.setTemperatura(resultset.getDouble("TEMPERATURA"));
+                dto.setCategoria(Ficha.Categoria.valueOf(resultset.getString("CATEGORIA")));
 
                 listarFichasCompleta.add(dto);
             }
@@ -278,6 +282,7 @@ public class FichaCompletaDAO {
 					"F.ROTULO_QNT_MEDIDA_CASEIRA, " +
 					"F.ROTULO_ID_MEDIDA_CASEIRA, " +
 					"UMC.NOME, " +
+							"F.CATEGORIA, " +
 					"F.TIPO_FICHA " +
 					"FROM TB_FICHA F INNER JOIN TB_UNIDADE_MEDIDA UM " +
 					"ON F.ROTULO_ID_MEDIDA = UM.ID_UNIDADE_MEDIDA JOIN TB_UNIDADE_MEDIDA_CASEIRA UMC " +
@@ -306,6 +311,7 @@ public class FichaCompletaDAO {
 				dto.setTempoPreparo(resultset.getString("F.TEMPO_DE_PREPARO"));
 				dto.setUtensilios(resultset.getString("F.UTENSILIOS_E_EQUIPAMENTOS"));
 				dto.setTemperatura(resultset.getDouble("F.TEMPERATURA"));
+				dto.setCategoria(Ficha.Categoria.valueOf(resultset.getString("F.CATEGORIA")));
 				
 				UnidadeMedida um = new UnidadeMedida();
 				um.setIdUnidadeMedida(resultset.getInt("F.ROTULO_ID_MEDIDA"));
@@ -357,7 +363,8 @@ public class FichaCompletaDAO {
                     + "ROTULO_QNT_MEDIDA = ?,"
             		+ "ROTULO_ID_MEDIDA = ?,"
             		+ "ROTULO_QNT_MEDIDA_CASEIRA = ?,"
-            		+ "ROTULO_ID_MEDIDA_CASEIRA = ?"
+            		+ "ROTULO_ID_MEDIDA_CASEIRA = ?, "
+							+ "CATEGORIA = ?"
                     + " WHERE ID_FICHA = "+ idFichaCompleta 
                     + " AND TIPO_FICHA = 'c'");
 
@@ -380,6 +387,7 @@ public class FichaCompletaDAO {
 			statement.setInt(14,fichaCompleta.getMedida().getIdUnidadeMedida());
 			statement.setDouble(15,fichaCompleta.getQntMedidaCaseira());
 			statement.setInt(16,fichaCompleta.getMedidaCaseira().getIdUnidadeMedidaCaseira());
+			statement.setString(17, fichaCompleta.getCategoria().toString());
             
 			List<FichaItem> itens = fichaCompleta.getItens();
 
@@ -477,6 +485,7 @@ public class FichaCompletaDAO {
 					"F.ROTULO_QNT_MEDIDA_CASEIRA, " +
 					"F.ROTULO_ID_MEDIDA_CASEIRA, " +
 					"UMC.NOME, " +
+							"F.CATEGORIA, " +
 					"F.TIPO_FICHA " +
 					"FROM TB_FICHA F INNER JOIN TB_UNIDADE_MEDIDA UM " +
 					"ON F.ROTULO_ID_MEDIDA = UM.ID_UNIDADE_MEDIDA JOIN TB_UNIDADE_MEDIDA_CASEIRA UMC " +
@@ -505,6 +514,7 @@ public class FichaCompletaDAO {
 				dto.setTempoPreparo(resultset.getString("F.TEMPO_DE_PREPARO"));
 				dto.setUtensilios(resultset.getString("F.UTENSILIOS_E_EQUIPAMENTOS"));
 				dto.setTemperatura(resultset.getDouble("F.TEMPERATURA"));
+				dto.setCategoria(Ficha.Categoria.valueOf(resultset.getString("F.CATEGORIA")));
 				
 				UnidadeMedida um = new UnidadeMedida();
 				um.setIdUnidadeMedida(resultset.getInt("F.ROTULO_ID_MEDIDA"));

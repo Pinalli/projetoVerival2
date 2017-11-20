@@ -46,6 +46,7 @@ public class EditFichaCompletaAjaxCommand implements Command {
 			int id = Integer.parseInt(request.getParameter("id"));
 			ficha.setIdFicha(id);
 			ficha.setNome(request.getParameter("nome"));
+			ficha.setCategoria(Ficha.Categoria.valueOf(request.getParameter("categoria")));
 			ficha.setRendimento(request.getParameter("rendimento"));
 			ficha.setFoto(request.getParameter("foto"));
 			ficha.setModoPreparo(request.getParameter("modoPreparo"));

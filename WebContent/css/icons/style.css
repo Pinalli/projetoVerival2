@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?6mlo3a');
+  src:  url('fonts/icomoon.eot?6mlo3a#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?6mlo3a') format('truetype'),
+    url('fonts/icomoon.woff?6mlo3a') format('woff'),
+    url('fonts/icomoon.svg?6mlo3a#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fichas:before {
+  content: "\e901";
+}
+.icon-ingredientes:before {
+  content: "\e900";
+}
+.icon-inicio:before {
+  content: "\e902";
+}
+.icon-empresas:before {
+  content: "\e903";
+}
+.icon-editar:before {
+  content: "\e905";
+}
+.icon-salvar:before {
+  content: "\e962";
+}
+.icon-usuario:before {
+  content: "\e971";
+}
+.icon-visualizar:before {
+  content: "\e985";
+}
+.icon-senha:before {
+  content: "\e98d";
+}
+.icon-medida-caseira:before {
+  content: "\e9a2";
+}
+.icon-deletar:before {
+  content: "\e9ac";
+}
+.icon-cancelar:before {
+  content: "\ea0f";
+}
+.icon-ok:before {
+  content: "\ea10";
+}
+.icon-sair:before {
+  content: "\ea14";
+}
+.icon-pdf:before {
+  content: "\eadf";
+}
+.icon-lista:before {
+  content: "\e9ba";
+}
+.icon-sobre:before {
+  content: "\ea09";
+}
+.icon-adicionar:before {
+  content: "\ea0a";
+}
+
+hr.gradient {
+  border: 0; 
+  height: 1px; 
+  margin-bottom: 20px;
+  background-image: -webkit-linear-gradient(left, #edc07040, #e4a911, #edc07040);
+  background-image: -moz-linear-gradient(left, #edc07040, #e4a911, #edc07040);
+  background-image: -ms-linear-gradient(left, #edc07040, #e4a911, #edc07040);
+  background-image: -o-linear-gradient(left, #edc07040, #e4a911, #edc07040); 
+}
+
+.horizontal-divider {
+	height: 1px;
+	float: left;
+	width: 100%;
+	margin: 25px 0;
+	background: #CCC;
+}
+
+.horizontal-divider-sm {
+	height: 1px;
+	float: left;
+	width: 100%;
+	margin: 5px 0;
+	background: #CCC;
+}
+
+.select2-selection--single {
+	display: block !important;
+	width: 100% !important;
+	height: 34px !important;
+	padding: 6px 12px !important;
+	font-size: 14px !important;
+	line-height: 20px !important;
+	color: #555 !important;
+	background-color: #fbfbfb !important;
+	background-image: none !important;
+	border: 1px solid #ccc !important;
+	border-radius: 4px !important;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !important;
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s !important;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s !important;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+		!important;
+}
+
+.butaozao-div {
+	border-color: #3c763d;
+	background-image: linear-gradient(to bottom, #2e6da4 0, #2e6da4 100%);
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	box-sizing: border-box;
+}
+
+.box-transparent {<!--link rel="stylesheet" href="./css/ficha.css"-->
+	<style> .box-transparent { background-color:transparent;
+	color: black;
+	border: none;
+	outline: none;
+	height: 30px;
+	font-weight: bold;
+	transition: height 1s;
+	-webkit-transition: height 1s;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 20px !important;
+}
+
+.separador-invertido {
+	margin-top: 40px;
+    margin-bottom: 5px;
+}

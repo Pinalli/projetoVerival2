@@ -36,25 +36,25 @@ $(document).ready(function() {
 					}
 					$(this).select2({
 						data: data,
-						 ajax: {							 
-							    url: "ajax?acao=buscaIngredienteDescricaoAjax",
-							    method: "GET",
-							    data: function (params) {	
-							        return {'descricao':params.term, 'limit':10};
-							    },
-							    processResults: function (data, params) {
-							    	var select2Data = [];
-							    	var json = jQuery.parseJSON(data);
-							    	for(var i=0; i<json.length; i++){
-										var obj = {'id':json[i].id, 'text':json[i].descricao}
-										select2Data.push(obj);				
-									}
-							        return {							          
-						                results: select2Data
-						            };
-							      },
-							      cache: true
-							  },
+						ajax: {							 
+						    url: "ajax?acao=buscaIngredienteDescricaoAjax",
+						    method: "GET",
+						    data: function (params) {
+						        return {'descricao':params.term, 'limit':10};
+						    },
+						    processResults: function (data, params) {
+						    	var select2Data = [];
+						    	var json = jQuery.parseJSON(data);
+						    	for(var i=0; i<json.length; i++){
+									var obj = {'id':json[i].id, 'text':json[i].descricao}
+									select2Data.push(obj);				
+								}
+						        return {							          
+					                results: select2Data
+					            };
+						      },
+						      cache: true
+						  }
 					      
 					});
 				} else if (obj.id == 'select-unidade-medida' || obj.id == 'select-unidade-medida-rotulo') {
@@ -129,7 +129,7 @@ $(document).ready(function() {
 	$('#add-row-btn').click(function(e) {
 		e.preventDefault();
 		add();
-		addRemoveListener();
+		//addRemoveListener();
 		setSelect2();
 		showItemListener();
 		updateIngredienteListener();
@@ -147,61 +147,82 @@ $(document).ready(function() {
 	/**
 	 * Remove linha
 	 */
-	function addRemoveListener() {
-		$('.delete-row').each(function() {
-			$(this).click(function(e) {
-				e.preventDefault();
-				
-				var target = $(this).closest('.table-row');
-				
-				var $kcalElem = target.find("#kcal");
-				var $choElem = target.find("#cho");
-				var $ptnElem = target.find("#ptn");
-				var $lipElem = target.find("#lip");
-				var $gordSaturada = target.find("#gordura-saturada");
-				var $fibraAlim = target.find("#fibra-alimentar");
-				var $sodio = target.find("#sodio");
-				
-				target.fadeOut(300, function(){
-					target.remove();
-					if($(window).width() <= RESOLUCAO_MINIMA){
-						scroll($('.table-row:last'));
-					}
-				});				
-				qntIngredientes--;
-				
-				createRotulo();
-			});
-		});
-	}
+//	function addRemoveListener() {
+//		$('.delete-row').each(function() {
+//			$(this).click(function(e) {
+//				e.preventDefault();
+//
+//				var target = $(this).closest('.table-row');
+//
+//				var $kcalElem = target.find("#kcal");
+//				var $choElem = target.find("#cho");
+//				var $ptnElem = target.find("#ptn");
+//				var $gordSaturada = target.find("#gordura-saturada");
+//				var $fibraAlim = target.find("#fibra-alimentar");
+//				var $sodio = target.find("#sodio");
+//
+//				valorEnergetico -= $kcalElem.val();
+//				carboidratos -= $choElem.val();
+//				proteinas -= $ptnElem.val();
+//				gordSaturada -= $gordSaturada.val();
+//				fibraAlim -= $fibraAlim.val();
+//				sodio -= $sodio.val();
+//
+//				updateRotulo();
+//
+//				target.fadeOut(300, function(){
+//					target.remove();
+//					if($(window).width() <= RESOLUCAO_MINIMA){
+//						scroll($('.table-row:last'));
+//					}
+//				});
+//				qntIngredientes--;
+//			});
+//		});
+//	}
 
 	/**
 	 * Clona ulltima linha
 	 */
-	function add() {		
-		//Clona a ultima linha
-		var row = $('.table-row').last().clone();
-		row.removeClass('configurado');
-		row.find('.item-wrapper').removeClass('hide');
-		var id = 'ingrediente-'+qntIngredientes;
-		$('.show-item-btn', row).attr('id',id);
+//	function add() {
+//		//Clona a ultima linha
+//		var row = $('.card').last().clone();
+//		row.removeClass('configurado');
+//		row.find('.item-wrapper').removeClass('hide');
+//		var id = 'ingrediente-'+qntIngredientes;
+//		$('.show-item-btn', row).attr('id',id);
+//
+//		row.find('input[type="number"]').each(function(){
+//			$(this).val('')
+//		});
+//		row.find('.select2').remove();
+//		row.find('select').removeClass('select2-hidden-accessible');
+//		row.hide().appendTo($('#table-rows')).fadeIn(300);
+//		//Adiciona botão de excluir na linha clonada se ela não contém um
+//		var btn = $.parseHTML('<button type="submit" class="btn btn-danger delete-row pull-right"><span class="icon-cancelar"></span> Excluir</button>');
+//		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
+//		if (len == 0) {
+//			$('.btn-excluir-wrapper').last().append(btn);
+//		}
+//		//Scroll
+//		if($(window).width() <= RESOLUCAO_MINIMA){
+//			scroll($('#'+id));
+//		}
+//	}
+
+	function add() {
+		console.log("Qualquer coisa");
+		var d = new Date();
+		var n = d.getTime();
 		
-		row.find('input[type="number"]').each(function(){
-			$(this).val('')
-		});
-		row.find('.select2').remove();
-		row.find('select').removeClass('select2-hidden-accessible');
-		row.hide().appendTo($('#table-rows')).fadeIn(300);
-		//Adiciona botão de excluir na linha clonada se ela não contém um
-		var btn = $.parseHTML('<button class="btn btn-danger delete-row pull-right" style="padding-left:20px;padding-right:20px;">Excluir</button>');
-		var len = $('.btn-excluir-wrapper button', $('.table-row').last()).length;
-		if (len == 0) {
-			$('.btn-excluir-wrapper').last().append(btn);
-		}
-		//Scroll
-		if($(window).width() <= RESOLUCAO_MINIMA){
-			scroll($('#'+id));
-		}
+		var div = document.getElementById('elemento-ingrediente'),
+		clone = div.cloneNode(true); // true means clone all childNodes and all event handlers
+		clone.id = "elemento-ingrediente-"+n;
+
+		var btn = $.parseHTML('<button type="submit" class="btn btn-danger delete-row pull-right" onClick="excluirIngrediente('+n+')"><span class="icon-cancelar"></span> Excluir</button>');
+		$(clone).find(".btn-excluir-wrapper").append(btn);
+
+		$('#elemento-ingrediente').parent().append(clone);
 	}
 	
 	function scroll(target){
@@ -304,7 +325,7 @@ $(document).ready(function() {
 	updateIngredienteListener();
 	
 	/**
-	 * Atualiza campos referntes ao ingrediente
+	 * Atualiza campos referentes ao ingrediente
 	 * @param ingrediente
 	 * @returns
 	 */
@@ -317,7 +338,7 @@ $(document).ready(function() {
 		var $gordSaturada = row.find("#gordura-saturada");
 		var $fibraAlim = row.find("#fibra-alimentar");
 		var $sodio = row.find("#sodio");
-				
+
 		$kcalElem.val(kcal);
 		$choElem.val(ingrediente.carboidratos);
 		$ptnElem.val(ingrediente.proteinas);
@@ -331,7 +352,7 @@ $(document).ready(function() {
 		$sodio.val(ingrediente.sodio);
 		
 		createRotulo();
-		
+
 	}
 	
  	function createRotulo() {
@@ -341,9 +362,9 @@ $(document).ready(function() {
  		if(idUMRotulo != null && qntUMRotulo != null) {
  			console.log("COMECOU");
 	 		var $ingredientes = $('#table-rows').find('.table-row');
-	 		
+
 	 		var fichaIngredientes = null;
-	 		
+
 	 		$ingredientes.each(function(index) {
 	 			var ingrediente = {
 		 			'kcal': $(this).find("#kcal").val(),
@@ -356,31 +377,31 @@ $(document).ready(function() {
 		 			'sodio': $(this).find("#sodio").val()
 	 			};
 	 			var unidadeMedida = retornaSiglaUnidadeMedidaPorId($(this).find('#select-unidade-medida').val());
-	 			
+
 	 			var fichaIngrediente = {
  					'gorduraTrans': $(this).find("#gorduraTrans").val(),
 	 				'ingrediente': ingrediente,
 	 				'quantidadeMedida': $(this).find('#qnt-unidade-medida').val(),
 	 				'unidadeMedida': unidadeMedida
 	 			};
-	
+
 	 			if(fichaIngredientes == null) {
 	 				fichaIngredientes = [fichaIngrediente];
 	 			} else {
 	 				fichaIngredientes.push(fichaIngrediente);
 	 			}
 	 		});
-	 		
+
 	 		var unidadeMedida = retornaSiglaUnidadeMedidaPorId($('#select-unidade-medida-rotulo').val());
-	 		
+
 	 		var dadosFicha = {
 	 			'fichaIngredientes': fichaIngredientes,
 	 			'qntMedida': qntUMRotulo,
 	 			'unidadeMedida': unidadeMedida
 	 		};
-	
+
 			var infoRotulo = calculoRotulo(dadosFicha);
-			
+
 			valorEnergetico = infoRotulo.valorEnergeticoOri;
 			carboidratos = infoRotulo.carboidratosOri;
 			proteinas = infoRotulo.proteinasOri;
@@ -389,12 +410,12 @@ $(document).ready(function() {
 			gordTrans = infoRotulo.gorduraTransOri;
 			fibraAlim = infoRotulo.fibraAlimentarOri;
 			sodio = infoRotulo.sodioOri;
-			
+
 			updateRotulo();
  		}
 
  	}
- 	
+
 	function updateRotulo() {
 		
 //		Necessidades diárias: 2.000 kcalorias
@@ -417,7 +438,7 @@ $(document).ready(function() {
 		$('#gordTotalQP').html(parseFloat(gordTotal.toFixed(3)) + ' g');
 		var gordTotalVD = (gordTotal*100)/55;
 		$('#gordTotalVD').html(parseFloat(gordTotalVD.toFixed(3)) + '%');
-		
+
 //		Necessidades diárias: 22g
 		$('#gordSaturadaQP').html(parseFloat(gordSaturada.toFixed(3)) + ' g');
 		var gordSaturadaVD = (gordSaturada*100)/22;
@@ -425,7 +446,7 @@ $(document).ready(function() {
 		
 //		Gordura Trans
 		$('#gordTransQP').html(parseFloat(gordTrans.toFixed(3)) + ' g');
-		
+
 //		Necessidades diárias: 25g
 		$('#fibraAlimQP').html(parseFloat(fibraAlim.toFixed(3)) + ' g');
 		var fibraAlimVD = (fibraAlim*100)/25;
@@ -471,7 +492,7 @@ $(document).ready(function() {
 		});
 	}
 	updateQuantidades();
-	
+
 	function multiplica(row, id){
 		row.find("#qnt-unidade-medida").change(function() {
 			var x, y;
@@ -493,7 +514,7 @@ $(document).ready(function() {
 			row.find("#kcalShow").val(y);
 			row.find("#valor-unitarioShow").val(row.find("#valor-unitario").val());
 			if (row.find("#valor-unitarioShow").val().length > 5){
-				row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));       
+				row.find("#valor-unitarioShow").val(row.find("#valor-unitarioShow").val().substr(0, 7));
 			    }
 			x = row.find("#custo-real").val()*row.find("#qnt-unidade-medida").val();
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
@@ -507,11 +528,11 @@ $(document).ready(function() {
 			if (x % 1 != 0 && !isNaN(x % 1)) y = x.toFixed(2);
 			else y =x;
 			row.find("#indice-de-coccaoShow").val(y);
-			
+
 			createRotulo();
 		});
 	}
-	
+
 	$(function() {
 		$("#imgFile").change(function() {
 			var file = this.files[0];
@@ -559,24 +580,24 @@ $(document).ready(function() {
 	};
 	
 	function addRotuloListener() {
-		$('#table-rows').find('.table-row').each(function() {			
+		$('#table-rows').find('.table-row').each(function() {
 			$(this).find('#select-unidade-medida').on('change', function() {
 				createRotulo();
 			});
-			
+
 			$(this).find('#gorduraTrans').on('change', function() {
 				createRotulo();
 			});
-			
+
 			$('#qnt-unidade-medida-rotulo').on('change', function() {
 				createRotulo();
 			});
-			
+
 			$('#select-unidade-medida-rotulo').on('change', function() {
 				createRotulo();
 			});
-			
-			
+
+
 		});
 	}
 	addRotuloListener();
@@ -589,4 +610,9 @@ function check_multifile_logo(file) {
     } else {
         return false;
     }
+}
+
+function excluirIngrediente(id) {
+	console.log(id);
+	$('#elemento-ingrediente-'+id).remove();
 }
