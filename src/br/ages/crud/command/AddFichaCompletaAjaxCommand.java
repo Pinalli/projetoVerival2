@@ -39,7 +39,7 @@ public class AddFichaCompletaAjaxCommand implements Command {
 			String jsonItens = request.getParameter("itens");
 
 			FichaItem[] itens = gson.fromJson(jsonItens, FichaItem[].class);
-			
+			// bugou aki
 			List<FichaItem> listaFichaItens = new ArrayList<FichaItem>();
 			for(int i=0; i<itens.length; i++){
 				listaFichaItens.add(itens[i]);
