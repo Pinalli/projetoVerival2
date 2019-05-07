@@ -8,15 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import br.ages.crud.exception.NegocioException;
 import br.ages.crud.exception.PersistenciaException;
 
+
 /**
  * Interface que implementa o Designer Partner Command (GoF)
  * 
- * @author Cássio Trindade
+ * @author CÃ¡ssio Trindade
  *
  */
 public interface Command {
 	/**
-	 * execução de comando dos request das telas.
+	 * execuÃ§Ã£o de comando dos request das telas.
 	 * @param request
 	 * @return
 	 * @throws SQLException 
