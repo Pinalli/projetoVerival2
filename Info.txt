@@ -1,0 +1,9 @@
+http://www.tools.ages.pucrs.br/projetos/fichatecnicapreparo
+
+https://trello.com/b/9wGMulcI/ficha-t%C3%A9cnica-de-preparo-vvii
+
+https://sonarcloud.io/dashboard?id=ercosta1993_fichatecnicapreparo
+
+https://travis-ci.com/ercosta1993/fichatecnicapreparo
+
+https://github.com/ercosta1993/fichatecnicapreparo
