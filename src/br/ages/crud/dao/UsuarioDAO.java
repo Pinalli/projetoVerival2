@@ -39,7 +39,6 @@ public class UsuarioDAO {
 	 * @return
 	 * @throws PersistenciaException
 	 */
-
 	public Usuario validarUsuario(Usuario usuarioDTO) throws PersistenciaException {
 		Usuario usuario = new Usuario();
 		try {
@@ -80,7 +79,7 @@ public class UsuarioDAO {
 	 */
 	public List<Usuario> listarUsuarios() throws PersistenciaException, SQLException {
 		Connection conexao = null;
-		// tentativa de readaptação do listarUsuarios()
+		// tentativa de readaptaÃ§Ã£o do listarUsuarios()
 		try {
 			conexao = ConexaoUtil.getConexao();
 
@@ -103,7 +102,7 @@ public class UsuarioDAO {
 			sql.append("from tb_usuario u inner join tb_tipo_usuario t ");
 			sql.append("on t.id_tipo_usuario = u.id_tipo_usuario ");
 			
-			//funciona no workbench mas aqui n�o
+			//funciona no workbench mas aqui não
 			sql.append("where STATUS_USUARIO='ATIVO'");
 			
 
@@ -277,7 +276,7 @@ public class UsuarioDAO {
 	}
 
 	public Usuario buscaUsuarioId(int idUsuario) throws PersistenciaException, SQLException {
-		// adicionar informações de tipo de usuario?
+		// adicionar informaÃ§Ãµes de tipo de usuario?
 		Usuario usuario = new Usuario();
 
 		Connection conexao = null;
@@ -434,8 +433,8 @@ public class UsuarioDAO {
 	}
 
 	/**
-	 * <<<<<<< HEAD Lista os tipos de usu�rios ======= Lista os tipos de
-	 * usu�rios >>>>>>> branch 'dev' of
+	 * <<<<<<< HEAD Lista os tipos de usuï¿½rios ======= Lista os tipos de
+	 * usuï¿½rios >>>>>>> branch 'dev' of
 	 * https://github.com/agespucrs/fluxoAges.git
 	 * 
 	 * @return
@@ -489,7 +488,7 @@ public class UsuarioDAO {
 	}
 
 	/**
-	 * Busca nos banco os usu�rios respons�veis
+	 * Busca nos banco os usuários responsáveis
 	 * 
 	 * @return
 	 * @throws PersistenciaException
@@ -497,7 +496,7 @@ public class UsuarioDAO {
 	 */
 	public List<Usuario> listarUsuariosReponsaveis() throws PersistenciaException, SQLException {
 		Connection conexao = null;
-		// tentativa de readaptação do listarUsuarios()
+		// tentativa de readaptaÃ§Ã£o do listarUsuarios()
 		try {
 			conexao = ConexaoUtil.getConexao();
 			listarUsuarios = new ArrayList<>();
@@ -551,7 +550,7 @@ public class UsuarioDAO {
 	 */
 	public List<Usuario> listarUsuariosAlunos() throws PersistenciaException, SQLException {
 		Connection conexao = null;
-		// tentativa de readaptação do listarUsuarios()
+		// tentativa de readaptaÃ§Ã£o do listarUsuarios()
 		try {
 			conexao = ConexaoUtil.getConexao();
 			listarUsuarios = new ArrayList<>();
